@@ -58,10 +58,26 @@
 }
 
 /* Standardized Container */
-.case-study-section .container {
+.case-study-section .container,
+.case-study-header .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .case-study-section .container,
+    .case-study-header .container {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .case-study-section .container,
+    .case-study-header .container {
+        padding: 0 0.5rem;
+    }
 }
 
 /* Standardized Blockquotes */

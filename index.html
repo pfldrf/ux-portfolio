@@ -10,7 +10,7 @@
 <body>
     <!-- Navigation -->
     <nav class="nav">
-        <div class="nav-container">
+        <div class="container">
             <a href="index.html" class="logo">SS</a>
             <ul class="nav-menu">
                 <li class="nav-item dropdown">
@@ -134,314 +134,6 @@
 
     <!-- Hero Section -->
     <header class="hero">
-        <!-- Desktop Insurance Interface Background -->
-        <div class="hero-background">
-            <div class="desktop-insurance-interface">
-                <!-- Main Header -->
-                <div class="interface-header">
-                    <div class="header-left">
-                        <h1>Choose a Plan and Apply</h1>
-                        <div class="coverage-start">
-                            <p>Your health coverage can start as early as: <strong>11/01/2010</strong></p>
-                            <p class="rate-disclaimer">(The rates quoted below are valid from 10/1/2010 through 12/31/2010.)</p>
-                        </div>
-                    </div>
-                    <div class="header-right">
-                        <div class="applicant-details">
-                            <h3>Applicant Details <a href="#" class="edit-link">Edit</a></h3>
-                            <div class="details-grid">
-                                <div class="detail-row">
-                                    <span class="label">Primary:</span>
-                                    <span class="value">Female 33</span>
-                                </div>
-                                <div class="detail-row">
-                                    <span class="label">Spouse:</span>
-                                    <span class="value">Male 32</span>
-                                </div>
-                                <div class="detail-row">
-                                    <span class="label"># Children:</span>
-                                    <span class="value">2</span>
-                                </div>
-                                <div class="detail-row">
-                                    <span class="label">County:</span>
-                                    <span class="value">Durham</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Plan Selection Controls -->
-                <div class="plan-controls">
-                    <div class="controls-left">
-                        <div class="slider-controls">
-                            <div class="slider-group">
-                                <label>1. Deductible</label>
-                                <div class="slider-track">
-                                    <div class="slider-range"></div>
-                                </div>
-                                <div class="slider-values">
-                                    <span>$500</span>
-                                    <span>$5,000</span>
-                                    <span>$20,000</span>
-                                </div>
-                            </div>
-                            <div class="slider-group">
-                                <label>2. Monthly premium</label>
-                                <div class="slider-track">
-                                    <div class="slider-range"></div>
-                                </div>
-                                <div class="slider-values">
-                                    <span>$119</span>
-                                    <span>$190</span>
-                                    <span>$455</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="controls-center">
-                        <div class="filter-options">
-                            <label><input type="radio" name="filter"> Show most popular only</label>
-                            <label><input type="radio" name="filter" checked> Show all</label>
-                        </div>
-                        <button class="update-btn">Update quote results</button>
-                    </div>
-                    <div class="controls-right">
-                        <div class="help-section">
-                            <h4>Need help?</h4>
-                            <ul class="help-links">
-                                <li><a href="#">Help me choose a plan</a></li>
-                                <li><a href="#">How do deductibles and coinsurance work?</a></li>
-                                <li class="warning">Plan containers that are coded because they've been entirely filtered out should appear "inactive", contain "none of these plans match..." text, and display deductible and premium ranges</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BlueAdvantage Plans -->
-                <div class="plan-section">
-                    <div class="section-header">
-                        <div class="brand-logo">
-                            <span class="logo-blue">Blue</span><span class="logo-advantage">Advantage</span>
-                            <a href="#" class="learn-more">Learn more about BlueAdvantage® plans</a>
-                        </div>
-                    </div>
-
-                    <div class="plans-grid">
-                        <!-- Plan A -->
-                        <div class="plan-card inactive">
-                            <div class="plan-header">
-                                <div class="plan-icon">⊕</div>
-                                <h3>Plan A</h3>
-                                <div class="plan-status">None of these plans match your criteria</div>
-                            </div>
-                            <div class="plan-pricing">
-                                <div class="price-range">
-                                    <span class="deductible">$1,000 - $2,500</span>
-                                    <span class="premium">$281 - $327</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Plan B -->
-                        <div class="plan-card inactive">
-                            <div class="plan-header">
-                                <div class="plan-icon">⊕</div>
-                                <h3>Plan B</h3>
-                                <div class="plan-status">None of these plans match your criteria</div>
-                            </div>
-                            <div class="plan-pricing">
-                                <div class="price-range">
-                                    <span class="deductible">$1,000 - $5,000</span>
-                                    <span class="premium">$195 - $294</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Plan C -->
-                        <div class="plan-card active">
-                            <div class="plan-header">
-                                <div class="plan-icon selected">○</div>
-                                <h3>Plan C</h3>
-                            </div>
-                            <div class="plan-details">
-                                <div class="coverage-details">
-                                    <div class="coverage-section">
-                                        <h4>Office visits</h4>
-                                        <div class="coverage-item">Preventive: <span>$30</span></div>
-                                        <div class="coverage-item">Primary: <span>$30</span></div>
-                                        <div class="coverage-item">Specialist: <span>$50</span></div>
-                                    </div>
-                                    <div class="coverage-section">
-                                        <h4>Prescription drugs</h4>
-                                        <div class="coverage-item">Generic: <span>$10*</span></div>
-                                        <div class="coverage-item">Preferred Brand: <span>$35*</span></div>
-                                        <div class="disclaimer">*after you've met a $500 Rx deductible</div>
-                                    </div>
-                                </div>
-                                <div class="plan-summary">
-                                    <div class="summary-section">
-                                        <div class="deductible-info">
-                                            <button class="close-btn">Close</button>
-                                            <div class="deductible-amount">& $5,000</div>
-                                            <div class="coinsurance">
-                                                <strong>Coinsurance</strong>
-                                                <div>(% You pay after deductible)</div>
-                                                <div class="percentage">20% up to $4,000/yr</div>
-                                            </div>
-                                            <button class="view-benefits">View benefit details</button>
-                                        </div>
-                                        <div class="monthly-cost">
-                                            <div class="cost-breakdown">
-                                                <div class="cost-item">Health: <span class="crossed-out">$###.##</span></div>
-                                                <div class="cost-item">Maternity: <span class="crossed-out">$###.##</span></div>
-                                                <div class="cost-item">Dental: <span>$ ##.##</span></div>
-                                                <div class="total">Total: <span class="total-amount">$260.72</span></div>
-                                                <a href="#" class="rate-info">Detailed rate information</a>
-                                            </div>
-                                            <button class="apply-btn">Apply for this plan</button>
-                                        </div>
-                                    </div>
-                                    <div class="bottom-options">
-                                        <div class="option-row">
-                                            <button class="view-btn">View</button>
-                                            <div class="option-details">& $3,500</div>
-                                            <div class="coinsurance-text">20% up to $4,000/yr</div>
-                                            <div class="monthly-premium">$181.60</div>
-                                            <button class="select-btn">Select to compare</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BlueAdvantage Saver Plans -->
-                <div class="plan-section saver">
-                    <div class="section-header">
-                        <div class="brand-logo">
-                            <span class="logo-blue">Blue</span><span class="logo-advantage">Advantage</span> <span class="logo-saver">Saver</span>
-                            <a href="#" class="learn-more">Learn more about BlueAdvantage Saver® plans</a>
-                        </div>
-                    </div>
-
-                    <div class="saver-plans">
-                        <!-- Saver 1 -->
-                        <div class="saver-plan">
-                            <div class="saver-header">
-                                <div class="plan-icon">○</div>
-                                <h3>Saver 1</h3>
-                            </div>
-                            <div class="saver-details">
-                                <div class="saver-coverage">
-                                    <div class="coverage-section">
-                                        <h4>Office visits</h4>
-                                        <div class="coverage-item">Preventive: <span>$25</span></div>
-                                        <div class="coverage-item">Primary: <span>$25</span></div>
-                                        <div class="coverage-item">Specialist: <span>You pay the full amount until you've met the deductible.</span></div>
-                                    </div>
-                                    <div class="coverage-section">
-                                        <h4>Prescription drugs</h4>
-                                        <div class="coverage-item">Generic: <span>$4</span></div>
-                                        <div class="coverage-item">Preferred Brand: <span>$45</span></div>
-                                    </div>
-                                </div>
-                                <div class="saver-pricing">
-                                    <div class="deductible-options">
-                                        <div class="deductible-row">
-                                            <button class="view-btn">View</button>
-                                            <div class="deductible-amount">$5,000</div>
-                                            <div class="coinsurance">30% up to $3,000/yr</div>
-                                            <div class="monthly-premium">$133.40</div>
-                                            <button class="select-btn">Select to compare</button>
-                                        </div>
-                                        <div class="deductible-row">
-                                            <button class="view-btn">View</button>
-                                            <div class="deductible-amount">& $3,500</div>
-                                            <div class="coinsurance">30% up to $3,000/yr</div>
-                                            <div class="monthly-premium">$148.70</div>
-                                            <button class="select-btn">Select to compare</button>
-                                        </div>
-                                        <div class="deductible-row">
-                                            <button class="view-btn">View</button>
-                                            <div class="deductible-amount">$2,500</div>
-                                            <div class="coinsurance">30% up to $3,000/yr</div>
-                                            <div class="monthly-premium">$178.10</div>
-                                            <button class="select-btn">Select to compare</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Saver 2 -->
-                        <div class="saver-plan">
-                            <div class="saver-header">
-                                <div class="plan-icon">○</div>
-                                <h3>Saver 2</h3>
-                            </div>
-                            <div class="saver-details">
-                                <div class="saver-coverage">
-                                    <div class="coverage-section">
-                                        <h4>Office visits</h4>
-                                        <div class="coverage-item">Preventive: <span>$25</span></div>
-                                        <div class="coverage-item">Primary: <span>$25 (Limit 4 visits per year)</span></div>
-                                        <div class="coverage-item">Specialist: <span>You pay the full amount until you've met the plan's deductible.</span></div>
-                                    </div>
-                                    <div class="coverage-section">
-                                        <h4>Prescription drugs</h4>
-                                        <div class="coverage-item">Generic: <span>$10</span></div>
-                                        <div class="coverage-item">Preferred Brand: <span>You pay the full amount until you've met the plan's deductible.</span></div>
-                                    </div>
-                                </div>
-                                <div class="saver-pricing">
-                                    <div class="deductible-options">
-                                        <div class="deductible-row">
-                                            <button class="view-btn">View</button>
-                                            <div class="deductible-amount">$5,000</div>
-                                            <div class="coinsurance">40% up to $4,000/yr</div>
-                                            <div class="monthly-premium">$117.51</div>
-                                            <button class="select-btn">Select to compare</button>
-                                        </div>
-                                        <div class="deductible-row">
-                                            <button class="view-btn">View</button>
-                                            <div class="deductible-amount">$3,500</div>
-                                            <div class="coinsurance">40% up to $4,000/yr</div>
-                                            <div class="monthly-premium">$126.17</div>
-                                            <button class="select-btn">Select to compare</button>
-                                        </div>
-                                        <div class="deductible-row">
-                                            <button class="view-btn">View</button>
-                                            <div class="deductible-amount">$2,500</div>
-                                            <div class="coinsurance">40% up to $4,000/yr</div>
-                                            <div class="monthly-premium">$151.51</div>
-                                            <button class="select-btn">Select to compare</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Saver 3 -->
-                        <div class="saver-plan inactive">
-                            <div class="saver-header">
-                                <div class="plan-icon">⊕</div>
-                                <h3>Saver 3</h3>
-                                <div class="plan-status">None of these plans match your criteria</div>
-                            </div>
-                            <div class="plan-pricing">
-                                <div class="price-range">
-                                    <span class="deductible">$10,000 - $20,000</span>
-                                    <span class="premium">$45 - $89</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -606,6 +298,112 @@
                         </div>
                     </div>
                     <a href="copilot-case-study.html" class="project-link">View Case Study</a>
+                </div>
+            </div>
+
+            <!-- Health Insurance Project -->
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-visual health-insurance-visual">
+                        <div class="insurance-interface">
+                            <div class="interface-header">
+                                <h4>Plan Comparison</h4>
+                                <div class="filter-controls">
+                                    <div class="filter-item">Deductible ▼</div>
+                                    <div class="filter-item">Premium ▼</div>
+                                </div>
+                            </div>
+                            <div class="plan-cards">
+                                <div class="mini-plan-card">
+                                    <div class="plan-name">BlueAdvantage</div>
+                                    <div class="plan-cost">$260/mo</div>
+                                </div>
+                                <div class="mini-plan-card selected">
+                                    <div class="plan-name">BlueSaver</div>
+                                    <div class="plan-cost">$180/mo</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3>BCBSNC Insurance Platform</h3>
+                        <div class="project-tags">
+                            <span class="tag">Consumer UX</span>
+                            <span class="tag">E-commerce</span>
+                            <span class="tag">Decision Support</span>
+                        </div>
+                    </div>
+                    <p class="project-description">Transforming Blue Cross Blue Shield of North Carolina's online insurance shopping experience to reduce customer support burden and increase self-service enrollments.</p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">175%</span>
+                            <span class="metric-label">Increase in online sales</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">400%</span>
+                            <span class="metric-label">Reduction in support calls</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">2011</span>
+                            <span class="metric-label">IMA Award Winner</span>
+                        </div>
+                    </div>
+                    <a href="health-insurance-case-study.html" class="project-link">View Case Study</a>
+                </div>
+            </div>
+
+            <!-- PIC Project -->
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-visual pic-visual">
+                        <div class="pic-interface">
+                            <div class="dashboard-header">
+                                <div class="revenue-metric">
+                                    <span class="metric-title">Monthly Recovery</span>
+                                    <span class="metric-amount">$2.3M</span>
+                                </div>
+                                <div class="success-rate">94% Success Rate</div>
+                            </div>
+                            <div class="variance-list">
+                                <div class="variance-item">
+                                    <span class="variance-icon">🔍</span>
+                                    <span class="variance-text">24 similar claims: $47,230</span>
+                                </div>
+                                <div class="variance-item">
+                                    <span class="variance-icon">📦</span>
+                                    <span class="variance-text">18 pattern matches: $32,150</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3>Payment Integrity Compass</h3>
+                        <div class="project-tags">
+                            <span class="tag">Revenue Cycle</span>
+                            <span class="tag">B2B SaaS</span>
+                            <span class="tag">Data Analytics</span>
+                        </div>
+                    </div>
+                    <p class="project-description">Revenue cycle management application helping healthcare systems identify and recover millions in underpaid insurance claims through intelligent data analysis and streamlined workflows.</p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">$28M</span>
+                            <span class="metric-label">Cleveland Clinic recovery</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">75</span>
+                            <span class="metric-label">Health systems adopted</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">90%</span>
+                            <span class="metric-label">Efficiency improvement</span>
+                        </div>
+                    </div>
+                    <a href="pic-case-study.html" class="project-link">View Case Study</a>
                 </div>
             </div>
         </div>
