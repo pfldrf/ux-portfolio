@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECR Copilot Assistant - Case Study | Scott Smith</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="case-study.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">SS</a>
+            <ul class="nav-menu">
+                <li class="nav-item dropdown">
+                    <a href="#projects" class="nav-link">Work <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-grid">
+                            <a href="flaer-case-study.html" class="dropdown-item">
+                                <div class="dropdown-preview">
+                                    <div class="preview-icon">🤖</div>
+                                    <div class="preview-content">
+                                        <h5>FLAER Mobile AI</h5>
+                                        <p>Conversational event reporting</p>
+                                        <span class="preview-tag">Healthcare AI</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="aes-case-study.html" class="dropdown-item">
+                                <div class="dropdown-preview">
+                                    <div class="preview-icon">⚡</div>
+                                    <div class="preview-content">
+                                        <h5>AES Dashboard</h5>
+                                        <p>Real-time risk management</p>
+                                        <span class="preview-tag">Risk Management</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="copilot-case-study.html" class="dropdown-item">
+                                <div class="dropdown-preview">
+                                    <div class="preview-icon">🧭</div>
+                                    <div class="preview-content">
+                                        <h5>ECR Copilot</h5>
+                                        <p>AI clinical review assistant</p>
+                                        <span class="preview-tag">Healthcare AI</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="health-insurance-case-study.html" class="dropdown-item">
+                                <div class="dropdown-preview">
+                                    <div class="preview-icon">🏥</div>
+                                    <div class="preview-content">
+                                        <h5>BCBSNC Platform</h5>
+                                        <p>Insurance shopping experience</p>
+                                        <span class="preview-tag">Consumer UX</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="pic-case-study.html" class="dropdown-item">
+                                <div class="dropdown-preview">
+                                    <div class="preview-icon">💰</div>
+                                    <div class="preview-content">
+                                        <h5>Payment Integrity</h5>
+                                        <p>Revenue cycle management</p>
+                                        <span class="preview-tag">Revenue Cycle</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <div class="social-links">
+                <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                <a href="#" aria-label="Email"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg></a>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="mobile-menu-content">
+                <div class="mobile-nav-section">
+                    <h4>Projects</h4>
+                    <a href="flaer-case-study.html" class="mobile-nav-item">
+                        <span class="mobile-nav-icon">🤖</span>
+                        <div>
+                            <div class="mobile-nav-title">FLAER Mobile AI</div>
+                            <div class="mobile-nav-subtitle">Healthcare AI</div>
+                        </div>
+                    </a>
+                    <a href="aes-case-study.html" class="mobile-nav-item">
+                        <span class="mobile-nav-icon">⚡</span>
+                        <div>
+                            <div class="mobile-nav-title">AES Dashboard</div>
+                            <div class="mobile-nav-subtitle">Risk Management</div>
+                        </div>
+                    </a>
+                    <a href="copilot-case-study.html" class="mobile-nav-item">
+                        <span class="mobile-nav-icon">🧭</span>
+                        <div>
+                            <div class="mobile-nav-title">ECR Copilot</div>
+                            <div class="mobile-nav-subtitle">Healthcare AI</div>
+                        </div>
+                    </a>
+                    <a href="health-insurance-case-study.html" class="mobile-nav-item">
+                        <span class="mobile-nav-icon">🏥</span>
+                        <div>
+                            <div class="mobile-nav-title">BCBSNC Platform</div>
+                            <div class="mobile-nav-subtitle">Consumer UX</div>
+                        </div>
+                    </a>
+                    <a href="pic-case-study.html" class="mobile-nav-item">
+                        <span class="mobile-nav-icon">💰</span>
+                        <div>
+                            <div class="mobile-nav-title">Payment Integrity</div>
+                            <div class="mobile-nav-subtitle">Revenue Cycle</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="mobile-nav-section">
+                    <a href="index.html#about" class="mobile-nav-link">About</a>
+                    <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Header -->
+    <header class="case-study-header has-background copilot-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Portfolio</a>
+                <span>/</span>
+                <span>ECR Copilot Assistant</span>
+            </div>
+            <h1>ECR Copilot Assistant</h1>
+            <p class="case-study-subtitle">An embedded AI assistant that super‑charges Expert Clinical Review (ECR) nurses—triaging triggered charts, surfacing key evidence, and polishing documentation for consistency.</p>
+            
+            <div class="case-study-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Client</span>
+                    <span class="meta-value">ProvidenceCare System</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">15 weeks (Jan → Apr 2025)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">UX Lead</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Domain</span>
+                    <span class="meta-value">Clinical Review</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Challenge -->
+    <section class="case-study-section">
+        <div class="container">
+            <div class="section-grid">
+                <div class="section-content">
+                    <h2>The Challenge</h2>
+                    <h3>Manual Chart Review Bottleneck</h3>
+                    <p>ProvidenceCare System's Expert Clinical Review nurses were overwhelmed by the time-intensive process of manually reviewing triggered charts. Each verification took nearly 30 minutes, with inconsistent documentation quality across reviewers.</p>
+                    
+                    <div class="challenge-stats">
+                        <div class="stat">
+                            <span class="stat-number">28 min</span>
+                            <span class="stat-label">Average per chart</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">3.2</span>
+                            <span class="stat-label">Document revisions</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">2,450</span>
+                            <span class="stat-label">Historical verified events</span>
+                        </div>
+                    </div>
+
+                    <div class="challenge-points">
+                        <h4>Core Problems:</h4>
+                        <ul>
+                            <li><strong>Manual Signal Hunting:</strong> Nurses spent excessive time searching through lengthy charts for relevant evidence</li>
+                            <li><strong>Inconsistent Documentation:</strong> Variable narrative tone and format across different reviewers</li>
+                            <li><strong>Repetitive Data Entry:</strong> Constant re-entry of demographic and basic patient information</li>
+                            <li><strong>Low Throughput:</strong> Limited number of charts processed per shift due to time constraints</li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="section-visual">
+                    <div class="challenge-workflow">
+                        <h4>Legacy Review Process</h4>
+                        <div class="workflow-steps">
+                            <div class="workflow-step">
+                                <div class="step-icon">📋</div>
+                                <div class="step-content">
+                                    <h5>Trigger Notification</h5>
+                                    <p>System flags potential adverse event</p>
+                                    <span class="step-time">~2 min</span>
+                                </div>
+                            </div>
+                            <div class="workflow-step">
+                                <div class="step-icon">🔍</div>
+                                <div class="step-content">
+                                    <h5>Manual Chart Review</h5>
+                                    <p>Nurse manually searches through entire chart</p>
+                                    <span class="step-time">~18 min</span>
+                                </div>
+                            </div>
+                            <div class="workflow-step">
+                                <div class="step-icon">✍️</div>
+                                <div class="step-content">
+                                    <h5>Documentation</h5>
+                                    <p>Manual entry with multiple revisions</p>
+                                    <span class="step-time">~8 min</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="workflow-total">
+                            <strong>Total: ~28 minutes per chart</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Process -->
+    <section class="case-study-section bg-light">
+        <div class="container">
+            <h2>Discovery & Research</h2>
+            <div class="research-grid">
+                <div class="research-method">
+                    <div class="method-icon">
+                        <svg viewBox="0 0 24 24"><path d="M16 4v4l-4-2-4 2V4M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
+                    </div>
+                    <h4>Contextual Inquiry</h4>
+                    <p>Shadowed 10 ECR nurses across two facilities to understand their workflow, pain points, and decision-making process.</p>
+                    <div class="method-finding">28 min average per chart, 3.2 doc revisions</div>
+                </div>
+                <div class="research-method">
+                    <div class="method-icon">
+                        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
+                    <h4>Data Audit</h4>
+                    <p>Analyzed 2,450 historical verified events across 11 common trigger types to identify patterns and optimization opportunities.</p>
+                    <div class="method-finding">11 trigger types: med reversal, HAIs, falls</div>
+                </div>
+                <div class="research-method">
+                    <div class="method-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/></svg>
+                    </div>
+                    <h4>Pain Point Analysis</h4>
+                    <p>Identified key friction points including manual signal hunting, inconsistent narrative tone, and repetitive demographic entry.</p>
+                    <div class="method-finding">Manual hunting = 65% of review time</div>
+                </div>
+                <div class="research-method">
+                    <div class="method-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/></svg>
+                    </div>
+                    <h4>Jobs-to-be-Done</h4>
+                    <p>Defined core job: "When a trigger fires, help me confirm harm quickly and record it consistently."</p>
+                    <div class="method-finding">Focus on speed + consistency</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="case-study-section">
+        <div class="container">
+            <h2>The Solution</h2>
+            <div class="solution-overview">
+                <div class="solution-text">
+                    <h3>AI-Powered Chart Analysis</h3>
+                    <p>ECR Copilot transforms chart review by automatically extracting relevant evidence, providing smart suggestions, and offering documentation assistance—enabling nurses to focus on clinical judgment rather than information hunting.</p>
+                    
+                    <div class="solution-features">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                            </div>
+                            <div class="feature-text">
+                                <h5>Evidence Timeline</h5>
+                                <p>Chronological notes, labs, and medications with AI-highlighted suspect entries</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/></svg>
+                            </div>
+                            <div class="feature-text">
+                                <h5>Copilot Panel</h5>
+                                <p>Suggests follow-ups and offers auto-fill for demographics</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
+                            </div>
+                            <div class="feature-text">
+                                <h5>Smart Templates</h5>
+                                <p>Dynamic fields with auto-populated patient information</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                            </div>
+                            <div class="feature-text">
+                                <h5>Tone Check</h5>
+                                <p>AI flags subjective language and offers concise alternatives</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="solution-mockup">
+                    <div class="copilot-interface">
+                        <div class="interface-header">
+                            <h4>ECR Copilot Workspace</h4>
+                            <div class="patient-info">
+                                <span>Patient: J. Smith</span>
+                                <span>Unit: 3W</span>
+                                <span>Trigger: Med Reversal</span>
+                            </div>
+                        </div>
+                        <div class="interface-body">
+                            <div class="evidence-panel">
+                                <h5>Evidence Timeline</h5>
+                                <div class="timeline-entry highlighted">
+                                    <div class="entry-time">14:23</div>
+                                    <div class="entry-content">
+                                        <strong>Medication Administration:</strong>
+                                        <p>Warfarin 10mg administered (prescribed: 5mg)</p>
+                                        <span class="highlight-reason">⚠️ Dosage discrepancy detected</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-entry">
+                                    <div class="entry-time">14:45</div>
+                                    <div class="entry-content">
+                                        <strong>Nurse Note:</strong>
+                                        <p>Patient stable, no adverse reactions observed</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-entry highlighted">
+                                    <div class="entry-time">15:10</div>
+                                    <div class="entry-content">
+                                        <strong>Reversal Agent:</strong>
+                                        <p>Vitamin K 5mg administered</p>
+                                        <span class="highlight-reason">🔍 Reversal agent given</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="copilot-panel">
+                                <h5>Copilot Suggestions</h5>
+                                <div class="suggestion-card">
+                                    <div class="suggestion-icon">💡</div>
+                                    <div class="suggestion-text">
+                                        <p><strong>Missing Information:</strong> Was the medication route documented?</p>
+                                        <button class="suggestion-btn">Check Orders</button>
+                                    </div>
+                                </div>
+                                <div class="suggestion-card">
+                                    <div class="suggestion-icon">📋</div>
+                                    <div class="suggestion-text">
+                                        <p><strong>Auto-fill available:</strong> Patient demographics</p>
+                                        <button class="suggestion-btn">Apply</button>
+                                    </div>
+                                </div>
+                                <div class="suggestion-card">
+                                    <div class="suggestion-icon">✏️</div>
+                                    <div class="suggestion-text">
+                                        <p><strong>Tone suggestion:</strong> "Patient experienced..." → "Dosage error occurred..."</p>
+                                        <button class="suggestion-btn">Rewrite</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process -->
+    <section id="design-process" class="design-process-section">
+        <div class="container">
+            <h2 class="dp-heading">Design Process</h2>
+            <div class="dp-timeline">
+                <!-- STEP 1 -->
+                <div class="dp-row">
+                    <div class="dp-text">
+                        <span class="step-badge">1</span>
+                        <h3>Signal Mapping</h3>
+                        <p>Developed LLM-assisted prompt chains to extract vitals, orders, and progress notes with clinical SME validation.</p>
+                        <ul>
+                            <li>Prompt tree with role-based summarizers</li>
+                            <li>Clinical SME validation</li>
+                            <li>Automated evidence extraction</li>
+                        </ul>
+                    </div>
+                    <figure class="dp-image">
+                        <div class="conversation-flow">
+                            <div class="flow-node root">Chart Data</div>
+                            <div class="flow-branch">
+                                <div class="flow-node">LLM Prompt Chain
+                                    <span class="flow-leaf">Vitals</span>
+                                    <span class="flow-leaf">Orders</span>
+                                    <span class="flow-leaf">Progress Notes</span>
+                                </div>
+                                <div class="flow-node">Summarizer
+                                    <span class="flow-leaf">Role-based Output</span>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                </div>
+                <!-- STEP 2 -->
+                <div class="dp-row">
+                    <div class="dp-text">
+                        <span class="step-badge">2</span>
+                        <h3>Wireframe Sprint</h3>
+                        <p>Created split-screen layout with evidence timeline and copilot chat panel for optimal workflow integration.</p>
+                        <ul>
+                            <li>Mid-fi prototype with split-screen design</li>
+                            <li>Workflow integration testing</li>
+                            <li>Rapid iteration with nurse feedback</li>
+                        </ul>
+                    </div>
+                    <figure class="dp-image">
+                        <div class="prototype-mockup">
+                            <div class="mockup-header">Split-Screen Prototype</div>
+                            <div class="mockup-content">
+                                <div class="chat-bubble user">Evidence Timeline: Med error at 14:23</div>
+                                <div class="chat-bubble ai">
+                                    <div class="ai-avatar">🤖</div>
+                                    <div class="ai-text">
+                                        <p>Would you like to auto-fill demographics?</p>
+                                        <div class="quick-replies">
+                                            <button>Yes</button>
+                                            <button>No</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                </div>
+                <!-- STEP 3 -->
+                <div class="dp-row">
+                    <div class="dp-text">
+                        <span class="step-badge">3</span>
+                        <h3>Copilot Behaviors</h3>
+                        <p>Designed clarifying questions, best-practice tone suggestions, and ICD-10 auto-suggest functionality.</p>
+                        <ul>
+                            <li>Conversation script library</li>
+                            <li>Tone suggestion system</li>
+                            <li>ICD-10 auto-suggest</li>
+                        </ul>
+                    </div>
+                    <figure class="dp-image">
+                        <div class="training-metrics">
+                            <div class="metric">
+                                <span class="metric-value">+0.21</span>
+                                <span class="metric-label">Inter-rater Reliability</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">56%</span>
+                                <span class="metric-label">Faster Verification</span>
+                            </div>
+                        </div>
+                    </figure>
+                </div>
+                <!-- STEP 4 -->
+                <div class="dp-row">
+                    <div class="dp-text">
+                        <span class="step-badge">4</span>
+                        <h3>Pilot Testing</h3>
+                        <p>Conducted 3-week shadow rollout with 312 charts reviewed to validate performance improvements.</p>
+                        <ul>
+                            <li>26.8 min → 11.7 min average review time</li>
+                            <li>3-week shadow rollout</li>
+                            <li>312 charts reviewed</li>
+                        </ul>
+                    </div>
+                    <figure class="dp-image">
+                        <div class="pilot-results">
+                            <div class="result-chart">
+                                <div class="chart-bar" style="height: 56%">
+                                    <span class="chart-label">Verification Time</span>
+                                    <span class="chart-value">↓56%</span>
+                                </div>
+                                <div class="chart-bar" style="height: 84%">
+                                    <span class="chart-label">Reliability (κ)</span>
+                                    <span class="chart-value">+0.21</span>
+                                </div>
+                                <div class="chart-bar" style="height: 100%">
+                                    <span class="chart-label">Charts/Shift</span>
+                                    <span class="chart-value">2×</span>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="case-study-section bg-light">
+        <div class="container">
+            <h2>Key Interface Features</h2>
+            <div class="features-showcase">
+                <div class="feature-demo">
+                    <div class="feature-visual">
+                        <div class="split-screen-demo">
+                            <div class="left-panel">
+                                <div class="panel-header">Evidence Timeline</div>
+                                <div class="evidence-items">
+                                    <div class="evidence-item normal">
+                                        <span class="timestamp">12:15</span>
+                                        <span class="content">Vitals: BP 120/80, HR 72</span>
+                                    </div>
+                                    <div class="evidence-item highlighted">
+                                        <span class="timestamp">14:23</span>
+                                        <span class="content">Med error: Wrong dosage noted</span>
+                                        <span class="ai-highlight">🔍 AI Highlighted</span>
+                                    </div>
+                                    <div class="evidence-item normal">
+                                        <span class="timestamp">15:10</span>
+                                        <span class="content">Reversal agent administered</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-panel">
+                                <div class="panel-header">Copilot Assistant</div>
+                                <div class="copilot-messages">
+                                    <div class="copilot-message">
+                                        <div class="message-icon">🤖</div>
+                                        <div class="message-text">Missing medication route - would you like me to check the orders?</div>
+                                    </div>
+                                    <div class="copilot-message">
+                                        <div class="message-icon">📝</div>
+                                        <div class="message-text">Patient demographics are available for auto-fill</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <h4>Split-Screen Workspace</h4>
+                        <p>Evidence timeline on the left shows chronological notes with AI highlighting, while the copilot panel provides contextual suggestions and automation.</p>
+                    </div>
+                </div>
+
+                <div class="feature-demo">
+                    <div class="feature-visual">
+                        <div class="doc-editor-demo">
+                            <div class="editor-header">
+                                <span>Documentation Editor</span>
+                                <button class="ai-rewrite-btn">✨ AI Rewrite for Clarity</button>
+                            </div>
+                            <div class="editor-content">
+                                <div class="text-area">
+                                    <p>The patient seemed to have an issue with the medication dosage which was possibly too high and may have caused some concern...</p>
+                                </div>
+                                <div class="ai-suggestion">
+                                    <div class="suggestion-header">💡 Tone Suggestion</div>
+                                    <p><strong>Current:</strong> "The patient seemed to have an issue..."</p>
+                                    <p><strong>Suggested:</strong> "Medication dosage error identified..."</p>
+                                    <button class="apply-btn">Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <h4>Smart Documentation</h4>
+                        <p>AI-powered editor flags subjective language and offers professional, concise alternatives while maintaining clinical accuracy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Metrics -->
+    <section class="key-metrics">
+        <div class="container">
+            <h2>Performance Gains</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number">56%</div>
+                    <div class="metric-label">Faster Verification</div>
+                    <div class="metric-detail">27 min → 11 min 54s</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">2x</div>
+                    <div class="metric-label">Charts per Shift</div>
+                    <div class="metric-detail">11.4 → 22.8 charts</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">0.84</div>
+                    <div class="metric-label">Inter-rater Reliability</div>
+                    <div class="metric-detail">↑0.21 improvement</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">1.2</div>
+                    <div class="metric-label">Editing Passes</div>
+                    <div class="metric-detail">Down from 3.2</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="case-study-section bg-light">
+        <div class="container">
+            <div class="testimonial-section">
+                <blockquote class="large-testimonial">
+                    "Copilot finds the smoking‑gun line in seconds—I just verify and move on."
+                    <cite>— Senior ECR Nurse</cite>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learnings -->
+    <section class="case-study-section">
+        <div class="container">
+            <h2>Key Learnings & Next Steps</h2>
+            <div class="learnings-grid">
+                <div class="learning-card">
+                    <h4>
+                        <svg style="display: inline; width: 20px; height: 20px; stroke: #667eea; stroke-width: 2; fill: none; margin-right: 8px;" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                        Voice Commands
+                    </h4>
+                    <p>Hands-free 'Highlight last vitals' functionality for accessibility and workflow efficiency during busy shifts.</p>
+                </div>
+                <div class="learning-card">
+                    <h4>
+                        <svg style="display: inline; width: 20px; height: 20px; stroke: #667eea; stroke-width: 2; fill: none; margin-right: 8px;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                        Explainability Overlay
+                    </h4>
+                    <p>Show LLM evidence citations to build reviewer trust and enable verification of AI-highlighted content.</p>
+                </div>
+                <div class="learning-card">
+                    <h4>
+                        <svg style="display: inline; width: 20px; height: 20px; stroke: #667eea; stroke-width: 2; fill: none; margin-right: 8px;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
+                        Legal Summary Generation
+                    </h4>
+                    <p>Auto-generate tailored PDF exports optimized for malpractice counsel review and legal documentation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <section class="case-study-navigation bg-light">
+        <div class="container">
+            <div class="nav-links">
+                <a href="aes-case-study.html" class="nav-link back">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/>
+                    </svg>
+                    Previous: AES Dashboard
+                </a>
+                <div class="nav-link-group">
+                    <a href="index.html" class="nav-link portfolio">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9,22 9,12 15,12 15,22"/>
+                        </svg>
+                        Back to Portfolio
+                    </a>
+                    <a href="health-insurance-case-study.html" class="nav-link next">
+                        Next: BCBSNC Platform
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="logo">SS</div>
+                    <p>&copy; 2025 Scott Smith. All rights reserved.</p>
+                </div>
+                <div class="footer-right">
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="#" aria-label="Email">Email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

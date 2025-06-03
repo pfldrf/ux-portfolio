@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#f8f9fa"/>
+  
+  <!-- Main dashboard -->
+  <g transform="translate(600, 50)">
+    <!-- Dashboard frame -->
+    <rect x="0" y="0" width="550" height="400" rx="8" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+    
+    <!-- Dashboard header -->
+    <rect x="0" y="0" width="550" height="60" rx="8" fill="#1f2937"/>
+    <text x="20" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Risk Dashboard</text>
+    <circle cx="130" cy="30" r="4" fill="#10b981"/>
+    <text x="140" y="35" font-family="Arial, sans-serif" font-size="12" fill="#10b981">Live</text>
+    <text x="450" y="35" font-family="Arial, sans-serif" font-size="11" fill="#9ca3af">Last updated: 2 min ago</text>
+    
+    <!-- Critical alert card -->
+    <g transform="translate(20, 80)">
+      <rect x="0" y="0" width="250" height="100" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1"/>
+      <rect x="0" y="0" width="4" height="100" fill="#dc2626"/>
+      <rect x="15" y="15" width="60" height="20" rx="10" fill="#dc2626"/>
+      <text x="25" y="27" font-family="Arial, sans-serif" font-size="9" fill="white">CRITICAL</text>
+      <text x="85" y="27" font-family="Arial, sans-serif" font-size="9" fill="#6b7280">5 min ago</text>
+      <text x="15" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f2937">Medication Error - Room 314</text>
+      <text x="15" y="60" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Wrong dosage administered, reversal agent given</text>
+      <rect x="15" y="75" width="50" height="20" rx="4" fill="#dc2626"/>
+      <text x="25" y="87" font-family="Arial, sans-serif" font-size="9" fill="white">Review</text>
+      <rect x="75" y="75" width="55" height="20" rx="4" fill="none" stroke="#dc2626" stroke-width="1"/>
+      <text x="85" y="87" font-family="Arial, sans-serif" font-size="9" fill="#dc2626">Escalate</text>
+    </g>
+    
+    <!-- Moderate alert card -->
+    <g transform="translate(280, 80)">
+      <rect x="0" y="0" width="250" height="100" rx="8" fill="#fffbeb" stroke="#fed7aa" stroke-width="1"/>
+      <rect x="0" y="0" width="4" height="100" fill="#f59e0b"/>
+      <rect x="15" y="15" width="70" height="20" rx="10" fill="#f59e0b"/>
+      <text x="22" y="27" font-family="Arial, sans-serif" font-size="9" fill="white">MODERATE</text>
+      <text x="95" y="27" font-family="Arial, sans-serif" font-size="9" fill="#6b7280">12 min ago</text>
+      <text x="15" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f2937">Patient Fall - Room 228</text>
+      <text x="15" y="60" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Unassisted fall, no injuries reported</text>
+      <rect x="15" y="75" width="50" height="20" rx="4" fill="#f59e0b"/>
+      <text x="25" y="87" font-family="Arial, sans-serif" font-size="9" fill="white">Review</text>
+      <rect x="75" y="75" width="60" height="20" rx="4" fill="none" stroke="#f59e0b" stroke-width="1"/>
+      <text x="82" y="87" font-family="Arial, sans-serif" font-size="9" fill="#f59e0b">Document</text>
+    </g>
+    
+    <!-- Timeline visualization -->
+    <g transform="translate(20, 200)">
+      <text x="0" y="15" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f2937">Event Timeline - Last 24 Hours</text>
+      <line x1="0" y1="40" x2="510" y2="40" stroke="#e5e7eb" stroke-width="2"/>
+      
+      <!-- Timeline markers -->
+      <g transform="translate(50, 40)">
+        <circle cx="0" cy="0" r="6" fill="#dc2626"/>
+        <text x="-20" y="-15" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">5 min ago</text>
+        <text x="-25" y="20" font-family="Arial, sans-serif" font-size="9" fill="#dc2626">Med Error</text>
+      </g>
+      <g transform="translate(150, 40)">
+        <circle cx="0" cy="0" r="6" fill="#f59e0b"/>
+        <text x="-25" y="-15" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">12 min ago</text>
+        <text x="-15" y="20" font-family="Arial, sans-serif" font-size="9" fill="#f59e0b">Fall</text>
+      </g>
+      <g transform="translate(300, 40)">
+        <circle cx="0" cy="0" r="6" fill="#10b981"/>
+        <text x="-20" y="-15" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">2 hr ago</text>
+        <text x="-20" y="20" font-family="Arial, sans-serif" font-size="9" fill="#10b981">Resolved</text>
+      </g>
+      <g transform="translate(450, 40)">
+        <circle cx="0" cy="0" r="6" fill="#6b7280"/>
+        <text x="-20" y="-15" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">8 hr ago</text>
+        <text x="-20" y="20" font-family="Arial, sans-serif" font-size="9" fill="#6b7280">Normal</text>
+      </g>
+    </g>
+    
+    <!-- Stats dashboard -->
+    <g transform="translate(20, 300)">
+      <rect x="0" y="0" width="510" height="80" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+      <text x="15" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1f2937">Real-time Metrics</text>
+      
+      <g transform="translate(30, 35)">
+        <text x="0" y="15" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#667eea">18h</text>
+        <text x="0" y="30" font-family="Arial, sans-serif" font-size="9" fill="#6b7280">Avg Detection Time</text>
+      </g>
+      <g transform="translate(150, 35)">
+        <text x="0" y="15" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#10b981">93%</text>
+        <text x="0" y="30" font-family="Arial, sans-serif" font-size="9" fill="#6b7280">Event Capture Rate</text>
+      </g>
+      <g transform="translate(270, 35)">
+        <text x="0" y="15" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#f59e0b">11</text>
+        <text x="0" y="30" font-family="Arial, sans-serif" font-size="9" fill="#6b7280">False Positives/Week</text>
+      </g>
+      <g transform="translate(390, 35)">
+        <text x="0" y="15" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#667eea">63%</text>
+        <text x="0" y="30" font-family="Arial, sans-serif" font-size="9" fill="#6b7280">In-house Review</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Architecture diagram on the left -->
+  <g transform="translate(50, 100)">
+    <!-- System architecture -->
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#374151">System Architecture</text>
+    
+    <g transform="translate(0, 30)">
+      <!-- EMR System -->
+      <rect x="0" y="0" width="100" height="60" rx="8" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1"/>
+      <text x="30" y="25" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#374151">EMR</text>
+      <text x="25" y="40" font-family="Arial, sans-serif" font-size="10" fill="#374151">System</text>
+      <text x="15" y="55" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">Epic Integration</text>
+      
+      <!-- Arrow to monitoring -->
+      <path d="M100 30 L140 30" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <text x="105" y="25" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">42 signals</text>
+      
+      <!-- Monitoring Engine -->
+      <rect x="140" y="0" width="100" height="60" rx="8" fill="#ddd6fe" stroke="#a78bfa" stroke-width="1"/>
+      <text x="165" y="20" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#374151">Real-time</text>
+      <text x="165" y="35" font-family="Arial, sans-serif" font-size="10" fill="#374151">Monitoring</text>
+      <text x="155" y="50" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">ML Validation</text>
+      
+      <!-- Arrow to dashboard -->
+      <path d="M240 30 L280 30" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+      
+      <!-- Dashboard -->
+      <rect x="280" y="0" width="100" height="60" rx="8" fill="#dbeafe" stroke="#60a5fa" stroke-width="1"/>
+      <text x="315" y="25" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#374151">Risk</text>
+      <text x="305" y="40" font-family="Arial, sans-serif" font-size="10" fill="#374151">Dashboard</text>
+      <text x="290" y="55" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">Mobile + Web</text>
+    </g>
+    
+    <!-- Data flow indicators -->
+    <g transform="translate(0, 120)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Data Processing Pipeline</text>
+      
+      <!-- Flow steps -->
+      <g transform="translate(0, 25)">
+        <circle cx="20" cy="15" r="12" fill="#fecaca"/>
+        <text x="15" y="19" font-family="Arial, sans-serif" font-size="8" fill="#7f1d1d">1</text>
+        <text x="40" y="12" font-family="Arial, sans-serif" font-size="9" fill="#374151">Event Occurs</text>
+        <text x="40" y="24" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">Patient chart updated</text>
+      </g>
+      
+      <g transform="translate(180, 25)">
+        <circle cx="20" cy="15" r="12" fill="#fed7aa"/>
+        <text x="15" y="19" font-family="Arial, sans-serif" font-size="8" fill="#9a3412">2</text>
+        <text x="40" y="12" font-family="Arial, sans-serif" font-size="9" fill="#374151">Signal Detection</text>
+        <text x="40" y="24" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">AI analysis &lt;1 min</text>
+      </g>
+      
+      <g transform="translate(0, 70)">
+        <circle cx="20" cy="15" r="12" fill="#bfdbfe"/>
+        <text x="15" y="19" font-family="Arial, sans-serif" font-size="8" fill="#1e3a8a">3</text>
+        <text x="40" y="12" font-family="Arial, sans-serif" font-size="9" fill="#374151">Risk Assessment</text>
+        <text x="40" y="24" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">Severity scoring</text>
+      </g>
+      
+      <g transform="translate(180, 70)">
+        <circle cx="20" cy="15" r="12" fill="#bbf7d0"/>
+        <text x="15" y="19" font-family="Arial, sans-serif" font-size="8" fill="#14532d">4</text>
+        <text x="40" y="12" font-family="Arial, sans-serif" font-size="9" fill="#374151">Alert Generation</text>
+        <text x="40" y="24" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">Real-time notification</text>
+      </g>
+    </g>
+    
+    <!-- Results box -->
+    <g transform="translate(0, 250)">
+      <rect x="0" y="0" width="380" height="80" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+      <text x="15" y="20" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Impact Results</text>
+      <text x="15" y="40" font-family="Arial, sans-serif" font-size="10" fill="#dc2626">Before: 11 days average detection</text>
+      <text x="15" y="55" font-family="Arial, sans-serif" font-size="10" fill="#10b981">After: 18 hours average detection</text>
+      <text x="15" y="70" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#667eea">89% improvement in response time</text>
+    </g>
+  </g>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/>
+    </marker>
+  </defs>
+</svg>

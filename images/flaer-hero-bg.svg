@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#f8f9fa"/>
+  
+  <!-- Phone mockup on the right -->
+  <g transform="translate(700, 80)">
+    <!-- Phone frame -->
+    <rect x="0" y="0" width="300" height="440" rx="25" fill="#1a1a1a"/>
+    <rect x="15" y="15" width="270" height="410" rx="20" fill="#ffffff"/>
+    
+    <!-- Status bar -->
+    <rect x="25" y="25" width="250" height="20" fill="#f8f9fa"/>
+    <circle cx="35" cy="35" r="3" fill="#10b981"/>
+    <rect x="250" y="30" width="20" height="10" rx="2" fill="#d1d5db"/>
+    
+    <!-- App header -->
+    <rect x="25" y="55" width="250" height="40" fill="#ffffff"/>
+    <text x="40" y="78" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#667eea">FLAER</text>
+    <circle cx="255" cy="75" r="8" fill="#f3f4f6"/>
+    
+    <!-- Chat messages -->
+    <g transform="translate(25, 105)">
+      <!-- User message -->
+      <rect x="50" y="0" width="200" height="60" rx="12" fill="#667eea"/>
+      <text x="60" y="20" font-family="Arial, sans-serif" font-size="11" fill="white">Patient slipped in room 302 while</text>
+      <text x="60" y="35" font-family="Arial, sans-serif" font-size="11" fill="white">getting up to use bathroom.</text>
+      <text x="60" y="50" font-family="Arial, sans-serif" font-size="11" fill="white">No injuries but preventable...</text>
+      
+      <!-- AI response -->
+      <rect x="0" y="80" width="180" height="40" rx="12" fill="#f1f3f4"/>
+      <circle cx="15" cy="90" r="6" fill="#667eea"/>
+      <text x="30" y="95" font-family="Arial, sans-serif" font-size="10" fill="#1a1a1a">Was this an assisted or</text>
+      <text x="30" y="108" font-family="Arial, sans-serif" font-size="10" fill="#1a1a1a">unassisted fall?</text>
+      
+      <!-- Quick reply buttons -->
+      <rect x="30" y="130" width="60" height="25" rx="12" fill="#667eea"/>
+      <text x="45" y="145" font-family="Arial, sans-serif" font-size="9" fill="white">Assisted</text>
+      <rect x="100" y="130" width="70" height="25" rx="12" fill="#667eea"/>
+      <text x="120" y="145" font-family="Arial, sans-serif" font-size="9" fill="white">Unassisted</text>
+    </g>
+    
+    <!-- Voice input -->
+    <rect x="25" y="370" width="210" height="35" rx="17" fill="#f1f3f4"/>
+    <text x="40" y="390" font-family="Arial, sans-serif" font-size="10" fill="#9ca3af">Tap to type or use voice...</text>
+    <circle cx="255" cy="387" r="15" fill="#667eea"/>
+    <path d="M250 382 L250 392 M255 377 L255 397" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Wireframe elements on the left -->
+  <g transform="translate(80, 120)">
+    <!-- Wireframe header -->
+    <rect x="0" y="0" width="400" height="50" fill="none" stroke="#d1d5db" stroke-width="2"/>
+    <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" fill="#6b7280">Mobile Chat Interface Wireframe</text>
+    
+    <!-- Wireframe sections -->
+    <g transform="translate(0, 70)">
+      <rect x="0" y="0" width="180" height="100" fill="none" stroke="#d1d5db" stroke-width="1" stroke-dasharray="5,5"/>
+      <text x="10" y="20" font-family="Arial, sans-serif" font-size="10" fill="#9ca3af">Voice Input Component</text>
+      <circle cx="90" cy="50" r="20" fill="none" stroke="#d1d5db" stroke-width="1"/>
+      <path d="M85 45 L85 55 M90 40 L90 60 M95 45 L95 55" stroke="#d1d5db" stroke-width="1"/>
+      
+      <rect x="200" y="0" width="180" height="100" fill="none" stroke="#d1d5db" stroke-width="1" stroke-dasharray="5,5"/>
+      <text x="210" y="20" font-family="Arial, sans-serif" font-size="10" fill="#9ca3af">AI Response Panel</text>
+      <rect x="220" y="35" width="140" height="15" fill="#f3f4f6"/>
+      <rect x="220" y="55" width="100" height="15" fill="#f3f4f6"/>
+      <rect x="220" y="75" width="120" height="15" fill="#f3f4f6"/>
+    </g>
+    
+    <g transform="translate(0, 190)">
+      <rect x="0" y="0" width="380" height="80" fill="none" stroke="#d1d5db" stroke-width="1" stroke-dasharray="5,5"/>
+      <text x="10" y="20" font-family="Arial, sans-serif" font-size="10" fill="#9ca3af">Natural Language Processing Flow</text>
+      <circle cx="50" cy="50" r="15" fill="#e5e7eb"/>
+      <text x="45" y="55" font-family="Arial, sans-serif" font-size="8" fill="#374151">NLP</text>
+      <path d="M65 50 L90 50" stroke="#d1d5db" stroke-width="1" marker-end="url(#arrowhead)"/>
+      <rect x="95" y="40" width="60" height="20" fill="#e5e7eb"/>
+      <text x="115" y="52" font-family="Arial, sans-serif" font-size="8" fill="#374151">Extract</text>
+      <path d="M155 50 L180 50" stroke="#d1d5db" stroke-width="1" marker-end="url(#arrowhead)"/>
+      <circle cx="200" cy="50" r="15" fill="#e5e7eb"/>
+      <text x="195" y="55" font-family="Arial, sans-serif" font-size="8" fill="#374151">AI</text>
+    </g>
+  </g>
+  
+  <!-- Research notes -->
+  <g transform="translate(100, 380)">
+    <rect x="0" y="0" width="300" height="120" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="10" y="20" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">Research Insights</text>
+    <text x="10" y="40" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">• 22 min avg completion time (legacy)</text>
+    <text x="10" y="55" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">• "Tell it once" narrative preferred</text>
+    <text x="10" y="70" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">• 47 dropdown categories = friction</text>
+    <text x="10" y="85" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">• Bedside reporting critical</text>
+    <text x="10" y="100" font-family="Arial, sans-serif" font-size="10" fill="#667eea">Target: &lt;3 min completion</text>
+  </g>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#d1d5db"/>
+    </marker>
+  </defs>
+</svg>
