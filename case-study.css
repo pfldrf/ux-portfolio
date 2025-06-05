@@ -109,26 +109,55 @@
 }
 
 .large-testimonial {
+    display: block;
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
     font-size: 1.5rem;
-    font-style: italic;
+    line-height: 1.6;
     color: #1a1a1a;
-    background: white;
-    border-left: 6px solid #667eea;
-    padding: 2rem 3rem;
-    border-radius: 12px;
+    font-style: italic;
     max-width: 800px;
     margin: 0 auto;
-    font-weight: 500;
+    padding: 2rem;
+    background: #f8f9ff;
+    border-left: 4px solid #667eea;
+    border-radius: 8px;
     box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
+    text-align: center;
 }
 
 .large-testimonial cite {
     display: block;
-    font-size: 1.1rem;
+    margin-top: 1rem;
+    font-size: 1rem;
     color: #666;
     font-style: normal;
-    margin-top: 1rem;
-    font-weight: 400;
+    font-weight: 600;
+}
+
+.metrics-grid .large-testimonial,
+.key-metrics .large-testimonial {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin: 2.5rem auto 0 auto;
+    max-width: 800px;
+    display: block;
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+}
+
+@media (max-width: 600px) {
+    .large-testimonial,
+    .metrics-grid .large-testimonial,
+    .key-metrics .large-testimonial {
+        font-size: 1.1rem;
+        padding: 1.2rem 0.7rem;
+        border-radius: 6px;
+    }
 }
 
 /* Standardized Challenge Stats */
@@ -3022,4 +3051,210 @@ blockquote cite {
   top: auto;
   left: auto;
   transform: none;
+}
+
+/* Key Metrics Testimonial Styling */
+.key-metrics .large-testimonial {
+  display: block;
+  margin: 2.5rem auto 0 auto;
+  max-width: 800px;
+  text-align: center;
+  background: #f8f9ff;
+  border-left: 4px solid #667eea;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  font-style: italic;
+  color: #1a1a1a;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
+}
+
+.key-metrics .large-testimonial cite {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #666;
+  font-style: normal;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .key-metrics .large-testimonial {
+    font-size: 1.1rem;
+    padding: 1.2rem 0.7rem;
+    border-radius: 6px;
+  }
+}
+
+/* --- DEVICE MOCKUP STYLES FOR SOLUTION SECTION --- */
+.device-mockup {
+  position: relative;
+  width: 260px;
+  height: 540px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 32px rgba(30, 41, 59, 0.18), 0 1.5px 8px rgba(102, 126, 234, 0.08);
+  border-radius: 48px;
+  background: #222;
+  overflow: visible;
+}
+.device-mockup-notch {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 10px;
+  background: #111;
+  border-radius: 0 0 12px 12px;
+  z-index: 2;
+  opacity: 0.7;
+}
+.device-mockup-inner {
+  position: absolute;
+  top: 16px;
+  left: 10px;
+  width: 240px;
+  height: 508px;
+  background: #fff;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- FLAER Chat UI Demo Styles --- */
+.flaer-chat-ui-demo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+  background: #fafbfc;
+  border-radius: 40px;
+  padding: 0 0 1.2rem 0;
+}
+.flaer-chat-header {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #6b7cf3;
+  padding: 1.2rem 1.5rem 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flaer-eye-icon {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.flaer-chat-divider {
+  border: none;
+  border-top: 1px solid #ececec;
+  margin: 0.5rem 0 1.1rem 0;
+}
+.flaer-chat-bubble {
+  border-radius: 18px;
+  margin: 0 1.5rem 1.1rem 1.5rem;
+  padding: 1.1rem 1.2rem;
+  font-size: 1.08rem;
+  font-weight: 500;
+  line-height: 1.5;
+  box-shadow: 0 2px 8px rgba(30,41,59,0.07);
+  background: #6b7cf3;
+  color: #fff;
+  align-self: flex-start;
+  max-width: 90%;
+  word-break: break-word;
+}
+.flaer-chat-bubble.user {
+  background: #6b7cf3;
+  color: #fff;
+  align-self: flex-start;
+}
+.flaer-chat-bubble.ai {
+  background: #fff;
+  color: #444;
+  align-self: flex-end;
+  box-shadow: 0 2px 8px rgba(102,126,234,0.10);
+  border: 1px solid #e0e7ff;
+}
+.flaer-quick-replies {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 1.1rem;
+}
+.flaer-quick-reply {
+  background: #6b7cf3;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(102,126,234,0.07);
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+  outline: none;
+}
+.flaer-quick-reply:hover, .flaer-quick-reply:focus {
+  background: #4956b8;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(102,126,234,0.16);
+}
+.flaer-chat-input-row {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 0.9rem 1.5rem;
+  border-radius: 0 0 40px 40px;
+  border-top: 1px solid #e0e7ff;
+  gap: 0.7rem;
+}
+.flaer-chat-input {
+  flex: 1;
+  border: 1.5px solid #d1d5db;
+  border-radius: 18px;
+  padding: 0.8rem 1.1rem;
+  font-size: 1.08rem;
+  background: #fafbfc;
+  color: #222;
+  box-shadow: 0 1px 4px rgba(102,126,234,0.04);
+  outline: none;
+}
+.flaer-chat-input:disabled {
+  background: #f8f9fa;
+  color: #b0b0c3;
+  opacity: 1;
+}
+.flaer-mic-btn {
+  width: 44px;
+  height: 44px;
+  background: #e0e7ff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s;
+  z-index: 2;
+  margin-left: 0.3rem;
+}
+.flaer-mic-btn:hover, .flaer-mic-btn:focus {
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.22);
+  background: #c7d2fe;
+}
+
+/* Remove legacy/unused chat mockup styles */
+.phone-mockup, .phone-screen, .app-header, .ai-avatar, .voice-btn, .user-message, .ai-message, .chat-container, .input-area, .text-input, .quick-reply, .quick-replies {
+  all: unset;
+  display: revert;
 }
