@@ -1,26 +1,25 @@
-# Adverse-Event Sentinel (AES)
-## Real-Time Risk Management Dashboard
+# Risk Event Sentinel (AES)
+## Real-Time Risk Management Workflow and Analytics
 
 ### Executive Summary
 
-Adverse-Event Sentinel (AES) is a near-real-time dashboard that transforms how healthcare systems manage patient safety and risk. By automatically detecting and validating adverse events, AES enables risk management teams to intervene before patient discharge, significantly reducing potential harm and legal exposure.
+Adverse-Event Sentinel (AES) is a near-real-time workflow and analytics application that transforms how healthcare systems manage patient safety and medical malpractice risk. By automatically detecting potential safety and risk events, AES enables risk management teams to intervene before patient discharge, significantly reducing potential harm and legal exposure.
 
 **Key Impact:**
-- Reduced detection-to-review time from 11 days to 18 hours (89% improvement)
+- Reduced detection-to-review time from > 30 days days to 36 hours (often, hospitals dont learn about a risk event until a med mal claim is filed.  AES helps risk teams learn of potential risk events while the patient is still in the hospital)
 - Increased in-house event review rate from 14% to 63%
-- Achieved 93% confirmed event capture rate
-- Reduced false positives by 81%
+
 
 ---
 
 ## The Challenge
 
 ### Problem Space
-MetroHealth Alliance, an 18-hospital system handling 2.3M annual encounters, faced significant challenges in their risk management process:
+A NY-based multi-hospital system handling >2M annual encounters, faced significant challenges in their risk management process:
 
-1. **Delayed Response**: Risk teams spent days manually reviewing incident reports and claims
-2. **Missed Opportunities**: Many preventable events weren't caught until after patient discharge
-3. **Resource Intensive**: Manual review of hundreds of incident reports weekly
+1. **Delayed Response**: Risk teams spent days manually reviewing patient charts only when they were notified of a claim, well after the patient was discharges.
+2. **Missed Opportunities**: Many events preventable, or at least could have been made less severe if staff had a chance to intervene.
+3. **Resource Intensive**: Manual review and investigation is extremely time-consuming and costly
 4. **System Silos**: Critical information spread across multiple disconnected systems
 
 ### Business Impact
@@ -44,13 +43,12 @@ AES combines several key components to create a comprehensive risk management sy
    - Integration with Epic EMR system
 
 2. **User Interface**
-   - Web dashboard for risk managers
-   - Mobile interface for on-call duty administrators
-   - Severity-based prioritization
-   - Interactive timeline visualization
+   - Sophisticated workflow to document and investigate potential risk events with interactive timeline visualization, also includes capturing provider interviews, possible causes, preventable harm, mitigation steps, 
+   - Web dashboard for analytics
+
 
 3. **Workflow Automation**
-   - Automated event validation
+   - Automated event notification
    - Escalation routing
    - Documentation generation
    - Compliance reporting
@@ -72,8 +70,7 @@ AES combines several key components to create a comprehensive risk management sy
 #### 3. Actionable Interface
 - Context-rich event cards
 - Quick-action buttons
-- Voice note capture
-- Mobile-first design
+
 
 ---
 

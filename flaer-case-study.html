@@ -156,16 +156,12 @@
                 <span>FLAER Mobile AI Event Reporting</span>
             </div>
             <h1>FLAER Mobile AI Event Reporting</h1>
-            <p class="case-study-subtitle">A conversational mobile app that lets frontline clinicians capture harm & near‑miss events in under two minutes—while an on‑device LLM handles smart follow‑ups, data validation, and real‑time routing.</p>
+            <p class="case-study-subtitle">A conversational mobile app that lets frontline clinicians capture harm & near‑miss events in under two minutes—while a fine-tuned LLM assists with smart follow‑ups, data validation, and routing.</p>
             
             <div class="case-study-meta">
                 <div class="meta-item">
                     <span class="meta-label">Client</span>
-                    <span class="meta-value">UnityCare Health</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Timeline</span>
-                    <span class="meta-value">14 weeks (Aug → Nov 2024)</span>
+                    <span class="meta-value">Large Health System</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
@@ -187,22 +183,26 @@
                 <div class="section-content">
                     <h2>The Challenge</h2>
                     <h3>Legacy Reporting Is Broken</h3>
-                    <p>A large health system's 20+ hospitals and 100+ outpatient clinics were struggling with their adverse event reporting system. Frontline clinicians faced a complex mobile-unfriendly web form, with 47 categories and 22 required fields, taking an average of more than 9 minutes to complete. In many cases, clinicians would abandon the form due to cognitive overload and frustration.</p>
+                    <p>A large health system's 20+ hospitals and 100+ outpatient clinics were struggling with their voluntary event reporting system. Front line clinicians faced a complex mobile-unfriendly web form, with hundreds of categories and dozens of required fields, taking an average of more than 10 minutes to complete. In many cases, clinicians would abandon the form due to cognitive overload and frustration.</p>
                     
                     <div class="challenge-stats">
                         <div class="stat">
-                            <span class="stat-number">31%</span>
-                            <span class="stat-label">Events submitted within 24h</span>
+                            <span class="stat-number">18%</span>
+                            <span class="stat-label">Events submitted<br>within 24h</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number">68%</span>
-                            <span class="stat-label">Data field completeness</span>
+                            <span class="stat-label">Data field<br>completeness</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number">47</span>
-                            <span class="stat-label">Dropdown categories</span>
+                            <span class="stat-label">Dropdown<br>categories</span>
                         </div>
                     </div>
+                    <blockquote class="large-testimonial">
+                        "I want to report it quickly without leaving the bedside, so the right team can fix it."
+                        <cite>— Nurse, Medical-Surgical Unit</cite>
+                    </blockquote>
 
                 </div>
                 <div class="section-visual">
@@ -249,7 +249,7 @@
                     </div>
                     <h4>Shadowing Study</h4>
                     <p>Observed 18 frontline staff filing legacy web forms to understand pain points and workflow interruptions.</p>
-                    <div class="method-finding">Average completion time: 22 minutes</div>
+                    <div class="method-finding">Average completion time: 10 minutes</div>
                 </div>
                 <div class="research-method">
                     <div class="method-icon">
@@ -265,7 +265,7 @@
                     </div>
                     <h4>Analytics Review</h4>
                     <p>Analyzed reporting patterns and identified delays in event submission timing.</p>
-                    <div class="method-finding">Only 31% submitted within 24h</div>
+                    <div class="method-finding">Only 18% submitted within 24h</div>
                 </div>
             </div>
         </div>
@@ -412,33 +412,18 @@
             <div class="section-grid">
                 <div class="section-content">
                     <h3>Conversational, Context-Aware Reporting</h3>
-                    <p>FLAER uses a mobile-first, voice-enabled chat interface to guide clinicians through event reporting in seconds, not minutes. The AI asks only relevant follow-ups, validates data, and routes reports in real time.</p>
+                    <p>FLAER transforms event reporting from a tedious chore into a fast, intuitive conversation. Clinicians simply speak or type what happened—no more hunting through endless dropdowns. The AI listens, asks only the most relevant follow-ups, and auto-fills known details like unit or shift. Every report is validated in real time, ensuring data quality and routing urgent events to the right team in minutes, not hours.</p>
+                    <ul style="margin-bottom: 1.5rem;">
+                        <li><strong>Natural Language First:</strong> Large text box and mic button for instant voice or text capture—even at the bedside.</li>
+                        <li><strong>Smart, Adaptive Prompts:</strong> The AI asks only what's missing, never repeating what it already knows.</li>
+                        <li><strong>Privacy by Design:</strong> On-device encryption and a "Hide screen" panic tap for sensitive moments.</li>
+                        <li><strong>Seamless Routing:</strong> Each report is auto-tagged and sent to the right team—no manual triage required.</li>
+                    </ul>
+                    <p><em>The result? Clinicians can file a complete, high-quality report in under two minutes and get back to patient care—knowing nothing will fall through the cracks.</em></p>
                 </div>
-                <div class="section-visual">
-                    <div class="device-mockup">
-                        <div class="device-mockup-notch"></div>
-                        <div class="device-mockup-inner">
-                            <div class="flaer-chat-ui-demo">
-                                <div class="flaer-chat-header">FLAER <span class="flaer-eye-icon" aria-label="Show/Hide"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span></div>
-                                <hr class="flaer-chat-divider" />
-                                <div class="flaer-chat-bubble user">Patient slipped in room 302 while getting up to use the bathroom. No injuries but could have been prevented with better lighting.</div>
-                                <div class="flaer-chat-bubble ai">
-                                    Was this an assisted or unassisted fall?
-                                    <div class="flaer-quick-replies">
-                                        <button class="flaer-quick-reply">Assisted</button>
-                                        <button class="flaer-quick-reply">Unassisted</button>
-                                    </div>
-                                </div>
-                                <hr class="flaer-chat-divider" />
-                                <div class="flaer-chat-input-row">
-                                    <input class="flaer-chat-input" type="text" placeholder="Tap to type or use voice..." disabled />
-                                    <button class="flaer-mic-btn" aria-label="Voice input">
-                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2"/><line x1="12" y1="22" x2="12" y2="18"/><line x1="8" y1="22" x2="16" y2="22"/></svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="section-visual flaer-phones">
+                    <img src="images/new-flaer-screen.png" alt="FLAER chat screen" class="flaer-case-img phone1" />
+                    <img src="images/flaer-home.png" alt="FLAER home screen" class="flaer-case-img phone2" />
                 </div>
             </div>
         </div>
@@ -452,7 +437,7 @@
                 <div class="metric-card">
                     <div class="metric-number">70%</div>
                     <div class="metric-label">Faster Reporting</div>
-                    <div class="metric-detail">9 min 12s → 2 min 41s</div>
+                    <div class="metric-detail">10 min 12s → 2 min 41s</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-number">157%</div>
@@ -471,8 +456,8 @@
                 </div>
             </div>
             <blockquote class="large-testimonial">
-                "I want to report it quickly without leaving the bedside, so the right team can fix it."
-                <cite>— Nurse, Medical-Surgical Unit</cite>
+                "That is sooo much easier. It's really amazing. I'll absolutely use this. Everyone will. I wonder if [management] is going to be able to handle all the reports they're probably going to get"
+                <cite>— RN, Pilot User</cite>
             </blockquote>
         </div>
     </section>

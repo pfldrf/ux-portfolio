@@ -234,162 +234,6 @@ p {
     color: #667eea;
 }
 
-/* Hero Section */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    position: relative;
-    overflow: hidden;
-    padding-top: 80px;
-}
-
-
-.hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    width: 100%;
-    position: relative;
-    z-index: 2;
-}
-
-.hero-content {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 4rem;
-    align-items: center;
-    width: 100%;
-    max-width: none;
-}
-
-.hero-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: left;
-}
-
-.hero-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-text h1 {
-    margin-bottom: 1rem;
-    color: #1a1a1a;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.hero-subtitle {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 1.5rem;
-}
-
-.hero-description {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    color: #666;
-    max-width: 500px;
-    margin-bottom: 2rem;
-}
-
-.hero-cta {
-    margin-top: 2rem;
-}
-
-.cta-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(102, 126, 234, 0.1);
-    color: #667eea;
-    text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    border: 1px solid rgba(102, 126, 234, 0.2);
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-.cta-link:hover {
-    background: rgba(102, 126, 234, 0.15);
-    border-color: rgba(102, 126, 234, 0.3);
-    transform: translateY(-1px);
-}
-
-/* Geometric Shapes */
-.hero-visual {
-    position: relative;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.geometric-shapes {
-    position: relative;
-    width: 300px;
-    height: 300px;
-}
-
-.shape {
-    position: absolute;
-    border-radius: 50%;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
-    filter: blur(1px);
-    animation: float 6s ease-in-out infinite;
-}
-
-.shape-1 {
-    width: 120px;
-    height: 120px;
-    top: 50px;
-    left: 50px;
-    animation-delay: 0s;
-}
-
-.shape-2 {
-    width: 80px;
-    height: 80px;
-    top: 100px;
-    right: 80px;
-    background: linear-gradient(135deg, rgba(118, 75, 162, 0.6) 0%, rgba(102, 126, 234, 0.6) 100%);
-    animation-delay: 2s;
-}
-
-.shape-3 {
-    width: 60px;
-    height: 60px;
-    bottom: 100px;
-    left: 100px;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
-    animation-delay: 4s;
-}
-
-.shape-4 {
-    width: 100px;
-    height: 100px;
-    bottom: 50px;
-    right: 50px;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.4) 0%, rgba(118, 75, 162, 0.4) 100%);
-    animation-delay: 1s;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-20px) rotate(5deg); }
-    66% { transform: translateY(10px) rotate(-3deg); }
-}
 
 /* Projects Section */
 .projects {
@@ -407,6 +251,7 @@ p {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
+    grid-template-columns: 340px 1fr;   /* 340 px stays; copy column flexes */
     margin-bottom: 4rem;
     padding: 3rem;
     background: white;
@@ -430,11 +275,27 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 300px;
     background: #f8f9fa;
     border-radius: 12px;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
+    min-width: 180px;
+    min-height: unset;
+    height: auto;
+    padding: 1rem;
+}
+/* Make sure the image can't grow wider */
+.project-image,
+.project-card.featured .project-image {
+    width: 100%;
+    max-width: 340px;
+}
+
+/* Fill that box but never stretch */
+.project-image img {
+    width: 100%;
+    height: 100%;        /* fill the box */
+    object-fit: cover;   /* crop if needed */
 }
 
 /* FLAER Visual */
@@ -487,53 +348,12 @@ p {
 }
 
 /* AES Visual */
-.aes-visual {
-    background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
-    padding: 2rem;
-}
-
-.dashboard-preview {
-    background: white;
-    border-radius: 8px;
-    padding: 1.5rem;
-    width: 100%;
-    max-width: 280px;
-}
-
-.dashboard-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.status-indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-}
-
-.status-indicator.critical {
-    background: #dc2626;
-    box-shadow: 0 0 8px rgba(220, 38, 38, 0.4);
-}
-
-.dashboard-timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.timeline-item {
-    height: 8px;
-    background: #e5e7eb;
-    border-radius: 4px;
-}
-
-.timeline-item.active {
-    background: #667eea;
+/* --- AES cover needs full view, no cropping --- */
+.project-image img.aes-fit{
+    height:auto;            /* keep natural height */
+    max-height:510px;       /* never taller than the wrapper */
+    object-fit:contain;     /* scale entire image, no crop   */
+    object-position:left top;
 }
 
 /* Copilot Visual */
@@ -1152,6 +972,80 @@ p {
     border-bottom: 1px solid #f0f0f0;
 }
 
+/* ── HERO SECTION (rev 3) ───────────────────────────────────── */
+.hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    color:#fdfdff;                         /* default body copy */
+}
+
+/* centred container with comfy gutters */
+.hero-container{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 clamp(36px,6vw,104px);       /* 36–104 px side space */
+}
+
+/* headline – brighter + gradient */
+.hero h1{
+    font-size:clamp(2.9rem,6vw,4.8rem);
+    font-weight:700;
+    line-height:1.1;
+    background:linear-gradient(90deg,#ffdec0 0%,#ffc89b 50%,#9faeff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color:transparent;
+    filter:drop-shadow(0 2px 4px rgba(0,0,0,.35));
+    margin-bottom:.35rem;
+}
+
+/* subtitle + blurb */
+.hero-subtitle{
+    font-size:1.35rem;
+    font-weight:600;
+    color:#fcfcff;
+    margin-bottom:1.1rem;
+}
+.hero-description{
+    max-width:640px;
+    color:#f5f7ff;
+    line-height:1.65;
+}
+
+/* ditch View-Consumer-Work CTA (kept for now but hidden) */
+.hero-cta{display:none;}
+
+/* animated BG layer — larger & no visible gaps */
+.hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:url("images/home-page-background.png") center / 115% auto no-repeat;
+    animation:bg-pan 28s ease-in-out infinite alternate;
+    z-index:-2;
+}
+
+/* dark wash */
+.hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(135deg,
+                rgba(8,16,32,.32) 0%,
+                rgba(8,16,32,.55) 100%);
+    z-index:-1;
+}
+
+/* slow zoom with SMALLER left/right shift so image always covers */
+@keyframes bg-pan{
+    from{transform:scale(1.12) translateX(-4%);}
+    to  {transform:scale(1.22) translateX(4%);}
+}
+/* ───────────────────────────────────────────────────────────── */
+
+/* ───────────────────────────────────────────────────────────── */
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -1682,11 +1576,13 @@ p {
 }
 
 .flaer-splash-full-demo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 24px;
+    height: 160px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 24px;
+    margin: 0 auto;
 }
 
 @media (max-width: 600px) {
@@ -1703,4 +1599,14 @@ p {
   .flaer-splash-full-demo {
     border-radius: 16px;
   }
+}
+
+.project-image .flaer-splash-full-demo {
+    width: auto !important;
+    height: 420px !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+    display: block;
+    border-radius: 24px;
+    margin: 0 auto;
 }
