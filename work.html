@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work — Scott Smith UX Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans antialiased">
+    
+    <!-- Navigation -->
+    <header class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-lg text-gray-900">Scott Smith</a>
+            <nav class="space-x-8 hidden md:flex">
+                <a href="work.html" class="text-gray-900 font-medium" aria-current="page">Work</a>
+                <a href="about.html" class="text-gray-500 hover:text-gray-900">About</a>
+                <a href="contact.html" class="text-gray-500 hover:text-gray-900">Contact</a>
+            </nav>
+            <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none" aria-label="Open Menu">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <header class="brand-gradient text-white py-24 flex items-center justify-center">
+      <div class="text-center px-4">
+        <h1 class="text-4xl md:text-5xl font-extrabold drop-shadow-lg">My Work</h1>
+        <p class="mt-4 text-lg max-w-2xl mx-auto font-medium" style="color: #fff; text-shadow: none;">
+          UX research and design solutions for complex enterprise applications, healthcare systems, and data-driven products.
+        </p>
+      </div>
+    </header>
+
+    <!-- Recent Work Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Recent Work</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    My latest projects focusing on AI-powered healthcare applications and enterprise UX design.
+                </p>
+            </div>
+            
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                
+                <!-- Clinical Copilot -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 w-full relative flex items-center justify-center overflow-hidden">
+                        <img src="images/ecr-copilot-cropped.png" alt="Clinical Copilot hero background" class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(30,41,59,0.32) 0%, rgba(30,41,59,0.48) 100%), radial-gradient(ellipse at center, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.32) 100%); mix-blend-mode: multiply;"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">AI/Healthcare</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">2024</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Clinical Copilot</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            AI-powered clinical decision support system that helps healthcare providers make evidence-based decisions in real-time.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-500">
+                                <span class="font-semibold text-green-600">40%</span> faster diagnosis
+                            </div>
+                            <a href="copilot-case-study.html" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors">
+                                View Case Study →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- FLAER Mobile AI -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 w-full relative flex items-center justify-center overflow-hidden">
+                        <img src="images/flaer-splash.png" alt="FLAER Mobile AI hero background" class="w-full h-full object-cover object-center" style="object-position: center 35%;">
+                        <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(30,41,59,0.32) 0%, rgba(30,41,59,0.48) 100%), radial-gradient(ellipse at center, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.32) 100%); mix-blend-mode: multiply;"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs font-semibold rounded-full">Mobile/AI</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">2024</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">FLAER Mobile AI</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            Mobile AI application for real-time event reporting and analysis, designed for field workers and emergency responders.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-500">
+                                <span class="font-semibold text-green-600">60%</span> faster reporting
+                            </div>
+                            <a href="flaer-case-study.html" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors">
+                                View Case Study →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Pascal RISK (moved up) -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 w-full relative flex items-center justify-center overflow-hidden">
+                        <img src="images/pascal-risk-dashboard.png" alt="Pascal RISK hero background" class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(30,41,59,0.32) 0%, rgba(30,41,59,0.48) 100%), radial-gradient(ellipse at center, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.32) 100%); mix-blend-mode: multiply;"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-2 py-1 bg-emerald-100 text-emerald-800 text-xs font-semibold rounded-full">Risk Management</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs font-semibold rounded-full">2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Pascal RISK</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            Risk assessment and management platform for financial institutions and enterprise organizations.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-500">
+                                <span class="font-semibold text-green-600">50%</span> faster risk assessment
+                            </div>
+                            <a href="res-case-study.html" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors">
+                                View Case Study →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Legacy Work Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Legacy Work</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Earlier projects that demonstrate my evolution in UX design and research methodologies.
+                </p>
+            </div>
+            
+            <div class="grid gap-8 md:grid-cols-2">
+                
+                <!-- BCBSNC Insurance Platform -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 w-full relative flex items-center justify-center overflow-hidden">
+                        <img src="images/bcbsnc-current.png" alt="BCBSNC Insurance Platform hero background" class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(30,41,59,0.32) 0%, rgba(30,41,59,0.48) 100%), radial-gradient(ellipse at center, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.32) 100%); mix-blend-mode: multiply;"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs font-semibold rounded-full">Insurance/Enterprise</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs font-semibold rounded-full">2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">BCBSNC Insurance Platform</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            Comprehensive insurance management platform redesign for Blue Cross Blue Shield of North Carolina.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-500">
+                                <span class="font-semibold text-green-600">25%</span> improvement in efficiency
+                            </div>
+                            <a href="health-insurance-case-study.html" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors">
+                                View Case Study →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Payment Integrity Compass (moved down) -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 w-full relative flex items-center justify-center overflow-hidden">
+                        <img src="images/pic-dashboard.png" alt="Payment Integrity Compass hero background" class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(30,41,59,0.32) 0%, rgba(30,41,59,0.48) 100%), radial-gradient(ellipse at center, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.32) 100%); mix-blend-mode: multiply;"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-2 py-1 bg-cyan-100 text-cyan-800 text-xs font-semibold rounded-full">Healthcare/Finance</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">2024</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Payment Integrity Compass</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            Revenue cycle management platform that helps healthcare systems identify and recover millions in underpaid claims.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-500">
+                                <span class="font-semibold text-green-600">$2.3M</span> recovered
+                            </div>
+                            <a href="pic-case-study.html" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors">
+                                View Case Study →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">Scott Smith</h3>
+                    <p class="text-gray-400">UX Research & Design</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                    <a href="about.html" class="text-gray-400 hover:text-white transition-colors">About</a>
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Scott Smith. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
