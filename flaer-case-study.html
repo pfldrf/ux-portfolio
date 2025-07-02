@@ -3,335 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLAER Mobile AI Event Reporting - Case Study | Scott Smith</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>FLAER Mobile AI Event Reporting — Case Study | Scott Smith</title>
+    <!-- Tailwind for rapid prototyping; swap for compiled CSS in prod -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="case-study.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container">
-            <a href="index.html" class="logo">SS</a>
-            <ul class="nav-menu">
-                <li class="nav-item dropdown">
-                    <a href="#projects" class="nav-link">Work <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-grid">
-                            <a href="flaer-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">🤖</div>
-                                    <div class="preview-content">
-                                        <h5>FLAER Mobile AI</h5>
-                                        <p>Conversational event reporting</p>
-                                        <span class="preview-tag">Healthcare AI</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="aes-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">⚡</div>
-                                    <div class="preview-content">
-                                        <h5>AES Dashboard</h5>
-                                        <p>Real-time risk management</p>
-                                        <span class="preview-tag">Risk Management</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="copilot-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">🧭</div>
-                                    <div class="preview-content">
-                                        <h5>ECR Copilot</h5>
-                                        <p>AI clinical review assistant</p>
-                                        <span class="preview-tag">Healthcare AI</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="health-insurance-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">🏥</div>
-                                    <div class="preview-content">
-                                        <h5>BCBSNC Platform</h5>
-                                        <p>Insurance shopping experience</p>
-                                        <span class="preview-tag">Consumer UX</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="pic-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">💰</div>
-                                    <div class="preview-content">
-                                        <h5>Payment Integrity</h5>
-                                        <p>Revenue cycle management</p>
-                                        <span class="preview-tag">Revenue Cycle</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+<body class="font-inter antialiased text-gray-800 scroll-smooth">
+
+    <header class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-lg text-gray-900">Scott Smith</a>
+            <nav class="space-x-8 hidden md:flex">
+                <a href="/" class="text-gray-900 font-medium" aria-current="page">Work</a>
+                <a href="/about.html" class="text-gray-500 hover:text-gray-900">About</a>
+                <a href="/contact.html" class="text-gray-500 hover:text-gray-900">Contact</a>
+            </nav>
+            <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none" aria-label="Open Menu">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
-            <div class="social-links">
-                <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-                <a href="#" aria-label="Email"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg></a>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <div class="mobile-menu-content">
-                <div class="mobile-nav-section">
-                    <h4>Projects</h4>
-                    <a href="flaer-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">🤖</span>
-                        <div>
-                            <div class="mobile-nav-title">FLAER Mobile AI</div>
-                            <div class="mobile-nav-subtitle">Healthcare AI</div>
-                        </div>
-                    </a>
-                    <a href="aes-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">⚡</span>
-                        <div>
-                            <div class="mobile-nav-title">AES Dashboard</div>
-                            <div class="mobile-nav-subtitle">Risk Management</div>
-                        </div>
-                    </a>
-                    <a href="copilot-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">🧭</span>
-                        <div>
-                            <div class="mobile-nav-title">ECR Copilot</div>
-                            <div class="mobile-nav-subtitle">Healthcare AI</div>
-                        </div>
-                    </a>
-                    <a href="health-insurance-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">🏥</span>
-                        <div>
-                            <div class="mobile-nav-title">BCBSNC Platform</div>
-                            <div class="mobile-nav-subtitle">Consumer UX</div>
-                        </div>
-                    </a>
-                    <a href="pic-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">💰</span>
-                        <div>
-                            <div class="mobile-nav-title">Payment Integrity</div>
-                            <div class="mobile-nav-subtitle">Revenue Cycle</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="mobile-nav-section">
-                    <a href="#about" class="mobile-nav-link">About</a>
-                    <a href="#contact" class="mobile-nav-link">Contact</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- FLAER Case Study Hero -->
-    <!-- <section class="device-mockup-bg" id="flaer-hero">
-        <div class="device-mockup">
-            <div class="device-mockup-notch"></div>
-            <div class="device-mockup-inner">
-                <img src="images/flaer/splash.png" alt="FLAER App Splash Screen" />
-            </div>
-        </div>
-        <div style="display: flex; flex-direction: column; justify-content: center; margin-left: 2.5rem;">
-            <h1 style="margin-bottom: 0.5rem; font-size: 2.5rem; color: #222;">FLAER: Front Line Adverse Event Reporting</h1>
-            <p style="font-size: 1.2rem; color: #444; max-width: 420px;">A mobile-first solution for rapid, accurate patient safety event reporting—designed for clinicians, by clinicians.</p>
-        </div>
-    </section> -->
-
-    <!-- Case Study Header -->
-    <header class="case-study-header has-background flaer-hero">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="index.html">Portfolio</a>
-                <span>/</span>
-                <span>FLAER Mobile AI Event Reporting</span>
-            </div>
-            <h1>FLAER Mobile AI Event Reporting</h1>
-            <p class="case-study-subtitle">A conversational mobile app that lets frontline clinicians capture harm & near‑miss events in under two minutes—while a fine-tuned LLM assists with smart follow‑ups, data validation, and routing.</p>
-            
-            <div class="case-study-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Client</span>
-                    <span class="meta-value">Large Health System</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">UX Lead</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Domain</span>
-                    <span class="meta-value">Healthcare AI</span>
-                </div>
-            </div>
         </div>
     </header>
 
+    <!-- ───────────── Cover ───────────── -->
+    <header class="case-study-header flaer-hero has-background" style="background: linear-gradient(135deg, #0f172a 0%, #06b6d4 100%) !important; min-height: 320px; padding: 4rem 0 3rem 0; position: relative; overflow: hidden;">
+        <img src="images/flaer-splash.png" alt="FLAER splash background" style="position: absolute; right: 0; top: 50%; width: 400px; max-width: 60vw; opacity: 0.18; filter: blur(2px); pointer-events: none; z-index: 1; transform: translateY(-50%);">
+        <div class="container text-left" style="position: relative; z-index: 2;">
+            <h1 class="font-bold drop-shadow-lg text-4xl md:text-5xl mb-4">FLAER Mobile AI Event Reporting</h1>
+            <p class="case-study-subtitle max-w-2xl">A conversational mobile app that lets frontline clinicians capture harm & near‑miss events in under two minutes—while a fine-tuned LLM assists with smart follow‑ups, data validation, and routing.</p>
+        </div>
+    </header>
 
-    <!-- Challenge -->
-    <section class="case-study-section">
-        <div class="container">
-            <div class="section-grid">
-                <div class="section-content">
-                    <h2>The Challenge</h2>
-                    <h3>Legacy Reporting Is Broken</h3>
-                    <p>A large health system's 20+ hospitals and 100+ outpatient clinics were struggling with their voluntary event reporting system. Front line clinicians faced a complex mobile-unfriendly web form, with hundreds of categories and dozens of required fields, taking an average of more than 10 minutes to complete. In many cases, clinicians would abandon the form due to cognitive overload and frustration.</p>
+    <!-- ───────────── Sticky nav / TOC ───────────── -->
+    <nav class="bg-white shadow sticky top-0 z-30" id="toc">
+        <div class="max-w-6xl mx-auto flex justify-between items-center py-2 px-4 md:px-6">
+            <a href="index.html" class="text-sm font-medium text-gray-700 hover:text-indigo-600">← Back to Work</a>
+            <ul class="hidden md:flex space-x-6 text-sm text-gray-600">
+                <li><a href="#challenge" class="toc-link">Challenge</a></li>
+                <li><a href="#research" class="toc-link">Research</a></li>
+                <li><a href="#design" class="toc-link">Design</a></li>
+                <li><a href="#solution" class="toc-link">Solution</a></li>
+                <li><a href="#impact" class="toc-link">Impact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ───────────── Meta strip ───────────── -->
+    <section class="bg-gray-50 border-b py-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-4 md:px-6">
+            <div>
+                <h2 class="text-xs tracking-widest text-gray-500 font-semibold">EMPLOYER</h2>
+                <p class="text-sm mt-1">Pascal Metrics</p>
+            </div>
+            <div>
+                <h2 class="text-xs tracking-widest text-gray-500 font-semibold">ROLE</h2>
+                <p class="text-sm mt-1">Principal UX Research & Design</p>
+            </div>
+            <div>
+                <h2 class="text-xs tracking-widest text-gray-500 font-semibold">DOMAIN</h2>
+                <p class="text-sm mt-1">Healthcare</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ───────────── Main content blocks ───────────── -->
+    <main class="case-study-main max-w-6xl mx-auto px-4 md:px-6 space-y-20 py-14">
+
+        <!-- Challenge -->
+        <section id="challenge" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">The Challenge</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold">Legacy Reporting Is Broken</h3>
+                    <p class="leading-relaxed text-lg">A large health system's 20+ hospitals and 100+ outpatient clinics were struggling with their voluntary event reporting system. Front line clinicians faced a complex mobile-unfriendly web form, with hundreds of categories and dozens of required fields, taking an average of more than 10 minutes to complete. In many cases, clinicians would abandon the form due to cognitive overload and frustration.</p>
                     
-                    <div class="challenge-stats">
-                        <div class="stat">
-                            <span class="stat-number">18%</span>
-                            <span class="stat-label">Events submitted<br>within 24h</span>
+                    <div class="grid grid-cols-3 gap-4 mt-6">
+                        <div class="text-center p-4 bg-white rounded-lg shadow">
+                            <div class="text-2xl font-bold text-indigo-600">18%</div>
+                            <div class="text-sm text-gray-600">Events submitted within 24h</div>
                         </div>
-                        <div class="stat">
-                            <span class="stat-number">68%</span>
-                            <span class="stat-label">Data field<br>completeness</span>
+                        <div class="text-center p-4 bg-white rounded-lg shadow">
+                            <div class="text-2xl font-bold text-indigo-600">68%</div>
+                            <div class="text-sm text-gray-600">Data field completeness</div>
                         </div>
-                        <div class="stat">
-                            <span class="stat-number">47</span>
-                            <span class="stat-label">Dropdown<br>categories</span>
+                        <div class="text-center p-4 bg-white rounded-lg shadow">
+                            <div class="text-2xl font-bold text-indigo-600">47</div>
+                            <div class="text-sm text-gray-600">Dropdown categories</div>
                         </div>
                     </div>
-                    <blockquote class="large-testimonial">
-                        "I want to report it quickly without leaving the bedside, so the right team can fix it."
-                        <cite>— Nurse, Medical-Surgical Unit</cite>
-                    </blockquote>
+                    
 
                 </div>
-                <div class="section-visual">
-                    <div class="legacy-form-mockup">
-                        <div class="form-header">Incident Report Form</div>
-                        <div class="form-fields">
-                            <div class="form-field">
-                                <label>Event Category*</label>
-                                <select disabled>
+                <figure class="rounded-xl overflow-hidden shadow-lg bg-white p-6">
+                    <div class="space-y-4">
+                        <div class="text-center font-semibold text-gray-700">Incident Report Form</div>
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Event Category*</label>
+                                <select class="w-full p-2 border rounded bg-gray-100 text-gray-500" disabled>
                                     <option>Choose from 47 categories...</option>
                                 </select>
                             </div>
-                            <div class="form-field">
-                                <label>Patient Information*</label>
-                                <input type="text" placeholder="Required field" disabled>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Patient Information*</label>
+                                <input type="text" placeholder="Required field" class="w-full p-2 border rounded bg-gray-100 text-gray-500" disabled>
                             </div>
-                            <div class="form-field">
-                                <label>Event Description*</label>
-                                <textarea placeholder="Detailed description required..." disabled></textarea>
-                            </div>
-                            <div class="form-field">
-                                <label>Location*</label>
-                                <input type="text" placeholder="Required field" disabled>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Event Description*</label>
+                                <textarea placeholder="Detailed description required..." class="w-full p-2 border rounded bg-gray-100 text-gray-500 h-20" disabled></textarea>
                             </div>
                         </div>
-                        <div class="form-footer">
-                            <span class="field-count">22 required fields remaining</span>
-                            <span class="time-estimate">~9 minutes to complete</span>
+                        <div class="flex justify-between text-xs text-gray-500 pt-2 border-t">
+                            <span>22 required fields remaining</span>
+                            <span>~9 minutes to complete</span>
                         </div>
+                        <blockquote class="mt-6 p-4 bg-indigo-50 border-l-4 border-indigo-600 italic">
+                            "I want to report it quickly without leaving the bedside, so the right team can fix it."
+                            <cite class="block mt-2 text-sm text-gray-600">— Nurse, Medical-Surgical Unit</cite>
+                        </blockquote>
                     </div>
-                </div>
+                </figure>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Research Process -->
-    <section class="case-study-section bg-light">
-        <div class="container">
-            <h2>Discovery & Research</h2>
-            <div class="research-grid">
-                <div class="research-method">
-                    <div class="method-icon">
-                        <svg viewBox="0 0 24 24"><path d="M16 4v4l-4-2-4 2V4M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
-                    </div>
-                    <h4>Shadowing Study</h4>
-                    <p>Observed 18 frontline staff filing legacy web forms to understand pain points and workflow interruptions.</p>
-                    <div class="method-finding">Average completion time: 10 minutes</div>
-                </div>
-                <div class="research-method">
-                    <div class="method-icon">
-                        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27,6.96 12,12.01 20.73,6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-                    </div>
-                    <h4>Journey Mapping</h4>
-                    <p>Identified emotional dip at category selection and cognitive overload leading to abandonment.</p>
-                    <div class="method-finding">67% abandon at dropdown selection</div>
-                </div>
-                <div class="research-method">
-                    <div class="method-icon">
-                        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                    </div>
-                    <h4>Analytics Review</h4>
-                    <p>Analyzed reporting patterns and identified delays in event submission timing.</p>
-                    <div class="method-finding">Only 18% submitted within 24h</div>
-                </div>
+        <!-- Research -->
+        <section id="research" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">Research & Insights</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <ul class="list-disc list-inside space-y-4 text-lg">
+                    <li><strong>Shadowing Study:</strong> Observed 18 frontline staff filing legacy web forms to understand pain points and workflow interruptions. Average completion time: 10 minutes</li>
+                    <li><strong>Journey Mapping:</strong> Identified emotional dip at category selection and cognitive overload leading to abandonment. 67% abandon at dropdown selection</li>
+                    <li><strong>Analytics Review:</strong> Analyzed reporting patterns and identified delays in event submission timing. Only 18% submitted within 24h</li>
+                </ul>
+                <figure class="rounded-xl overflow-hidden shadow-lg bg-white p-6">
+                    <img src="images/flaer-spreadsheet.png" alt="FLAER research prototype" class="h-48 w-full object-cover object-top">
+                </figure>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Design Process -->
-    <section id="design-process" class="design-process-section">
-        <div class="container">
-            <h2 class="dp-heading">Design Process</h2>
-          
-            <div class="dp-timeline">
-          
-                <!-- ▸ STEP 1 -->
-                <div class="dp-row">
-                    <div class="dp-text">
-                        <span class="step-badge">1</span>
-                        <h3>Conversation Mapping</h3>
-                        <p>Collaborated with patient safety SMEs to identify NLP slots and create intent taxonomy for natural language processing.</p>
-                        <ul>
+        <!-- Design -->
+        <section id="design" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">Design Process</h2>
+            <div class="space-y-12">
+                <!-- Step 1 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">1</div>
+                            <h3 class="text-xl font-semibold mb-0">Conversation Mapping</h3>
+                        </div>
+                        <p class="mb-4">Collaborated with patient safety SMEs to identify NLP slots and create intent taxonomy for natural language processing.</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700">
                             <li>Conversation flowchart with branching logic</li>
                             <li>Intent classification system</li>
                             <li>Required data field mapping</li>
                         </ul>
                     </div>
-                    <figure class="dp-image">
-                        <div class="conversation-flow">
-                            <div class="flow-node root">User Input</div>
-                            <div class="flow-branch">
-                                <div class="flow-node">Intent Classification
-                                    <span class="flow-leaf">Event Type</span>
-                                    <span class="flow-leaf">Severity</span>
-                                    <span class="flow-leaf">Location</span>
+                    <figure class="rounded-xl overflow-hidden shadow-lg bg-white p-6">
+                        <div class="space-y-3">
+                            <div class="text-center font-semibold">User Input</div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="p-3 bg-indigo-50 rounded text-center text-sm">
+                                    Intent Classification
+                                    <div class="text-xs text-gray-600 mt-1">Event Type, Severity, Location</div>
                                 </div>
-                                <div class="flow-node">Data Extraction
-                                    <span class="flow-leaf">Required Fields</span>
-                                    <span class="flow-leaf">Optional Details</span>
+                                <div class="p-3 bg-indigo-50 rounded text-center text-sm">
+                                    Data Extraction
+                                    <div class="text-xs text-gray-600 mt-1">Required Fields, Optional Details</div>
                                 </div>
                             </div>
                         </div>
                     </figure>
                 </div>
-          
-                <!-- ▸ STEP 2 -->
-                <div class="dp-row">
-                    <div class="dp-text">
-                        <span class="step-badge">2</span>
-                        <h3>Prototype Sprint</h3>
-                        <p>Built high-fidelity Figma prototype with Voiceflow integration to test voice vs text input preferences.</p>
-                        <ul>
+
+                <!-- Step 2 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">2</div>
+                            <h3 class="text-xl font-semibold mb-0">Prototype Sprint</h3>
+                        </div>
+                        <p class="mb-4">Built high-fidelity Figma prototype with Voiceflow integration to test voice vs text input preferences.</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700">
                             <li>Interactive prototype with voice capabilities</li>
                             <li>User testing with 15 frontline staff</li>
                             <li>Input preference analysis</li>
                         </ul>
                     </div>
-                    <figure class="dp-image">
-                        <div class="prototype-mockup">
-                            <div class="mockup-header">FLAER Prototype</div>
-                            <div class="mockup-content">
-                                <div class="chat-bubble user">Patient fell in room 302</div>
-                                <div class="chat-bubble ai">
-                                    <div class="ai-avatar">🤖</div>
-                                    <div class="ai-text">
+                    <figure class="rounded-xl overflow-hidden shadow-lg bg-white p-4">
+                        <div class="space-y-3">
+                            <div class="text-center font-semibold text-sm">FLAER Prototype</div>
+                            <div class="space-y-2">
+                                <div class="bg-blue-100 p-2 rounded-lg text-sm">Patient fell in room 302</div>
+                                <div class="flex items-start space-x-2">
+                                    <div class="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center text-white text-xs">🤖</div>
+                                    <div class="bg-gray-100 p-2 rounded-lg text-sm">
                                         <p>Was this an assisted or unassisted fall?</p>
-                                        <div class="quick-replies">
-                                            <button>Assisted</button>
-                                            <button>Unassisted</button>
+                                        <div class="flex space-x-2 mt-2">
+                                            <button class="px-3 py-1 bg-indigo-600 text-white rounded text-xs">Assisted</button>
+                                            <button class="px-3 py-1 bg-indigo-600 text-white rounded text-xs">Unassisted</button>
                                         </div>
                                     </div>
                                 </div>
@@ -339,207 +209,162 @@
                         </div>
                     </figure>
                 </div>
-          
-                <!-- ▸ STEP 3 -->
-                <div class="dp-row">
-                    <div class="dp-text">
-                        <span class="step-badge">3</span>
-                        <h3>LLM Fine-tuning</h3>
-                        <p>Trained model on 8K synthetic and 2K de-identified real reports using RLHF for completion and brevity.</p>
-                        <ul>
+
+                <!-- Step 3 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">3</div>
+                            <h3 class="text-xl font-semibold mb-0">LLM Fine-tuning</h3>
+                        </div>
+                        <p class="mb-4">Trained model on 8K synthetic and 2K de-identified real reports using RLHF for completion and brevity.</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700">
                             <li>Optimized prompt library</li>
                             <li>Response quality metrics</li>
                             <li>Completion rate optimization</li>
                         </ul>
                     </div>
-                    <figure class="dp-image">
-                        <div class="training-metrics">
-                            <div class="metric">
-                                <span class="metric-value">8K</span>
-                                <span class="metric-label">Synthetic Reports</span>
+                    <figure class="rounded-xl overflow-hidden shadow-lg bg-white p-6">
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <div class="text-2xl font-bold text-indigo-600">8K</div>
+                                <div class="text-sm text-gray-600">Synthetic Reports</div>
                             </div>
-                            <div class="metric">
-                                <span class="metric-value">2K</span>
-                                <span class="metric-label">Real Reports</span>
+                            <div>
+                                <div class="text-2xl font-bold text-indigo-600">2K</div>
+                                <div class="text-sm text-gray-600">Real Reports</div>
                             </div>
-                            <div class="metric">
-                                <span class="metric-value">94%</span>
-                                <span class="metric-label">Completion Rate</span>
+                            <div>
+                                <div class="text-2xl font-bold text-indigo-600">94%</div>
+                                <div class="text-sm text-gray-600">Completion Rate</div>
                             </div>
                         </div>
                     </figure>
                 </div>
 
-                <!-- ▸ STEP 4 -->
-                <div class="dp-row">
-                    <div class="dp-text">
-                        <span class="step-badge">4</span>
-                        <h3>Validation Testing</h3>
-                        <p>Conducted Wizard-of-Oz bedside pilots on 2 medical-surgical units with 42 real reports.</p>
-                        <ul>
+                <!-- Step 4 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">4</div>
+                            <h3 class="text-xl font-semibold mb-0">Validation Testing</h3>
+                        </div>
+                        <p class="mb-4">Conducted Wizard-of-Oz bedside pilots on 2 medical-surgical units with 42 real reports.</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700">
                             <li>Pilot performance dashboard</li>
                             <li>User feedback analysis</li>
                             <li>System improvement recommendations</li>
                         </ul>
                     </div>
-                    <figure class="dp-image">
-                        <div class="pilot-results">
-                            <div class="result-chart">
-                                <div class="chart-bar" style="height: 85%">
-                                    <span class="chart-label">Completion Rate</span>
-                                    <span class="chart-value">85%</span>
-                                </div>
-                                <div class="chart-bar" style="height: 92%">
-                                    <span class="chart-label">Accuracy</span>
-                                    <span class="chart-value">92%</span>
-                                </div>
-                                <div class="chart-bar" style="height: 78%">
-                                    <span class="chart-label">User Satisfaction</span>
-                                    <span class="chart-value">78%</span>
-                                </div>
+                    <figure class="rounded-xl overflow-hidden shadow-lg bg-white p-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm">Completion Rate</span>
+                                <span class="font-bold">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-indigo-600 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm">Accuracy</span>
+                                <span class="font-bold">92%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-indigo-600 h-2 rounded-full" style="width: 92%"></div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm">User Satisfaction</span>
+                                <span class="font-bold">78%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-indigo-600 h-2 rounded-full" style="width: 78%"></div>
                             </div>
                         </div>
                     </figure>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Solution -->
-    <section class="case-study-section">
-        <div class="container">
-            <h2>The Solution</h2>
-            <div class="section-grid">
-                <div class="section-content">
-                    <h3>Conversational, Context-Aware Reporting</h3>
-                    <p>FLAER transforms event reporting from a tedious chore into a fast, intuitive conversation. Clinicians simply speak or type what happened—no more hunting through endless dropdowns. The AI listens, asks only the most relevant follow-ups, and auto-fills known details like unit or shift. Every report is validated in real time, ensuring data quality and routing urgent events to the right team in minutes, not hours.</p>
-                    <ul style="margin-bottom: 1.5rem;">
+        <!-- Solution -->
+        <section id="solution" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">Solution</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold">Conversational, Context-Aware Reporting</h3>
+                    <p class="leading-relaxed">FLAER transforms event reporting from a tedious chore into a fast, intuitive conversation. Clinicians simply speak or type what happened—no more hunting through endless dropdowns. The AI listens, asks only the most relevant follow-ups, and auto-fills known details like unit or shift. Every report is validated in real time, ensuring data quality and routing urgent events to the right team in minutes, not hours.</p>
+                    <ul class="space-y-2 text-gray-700">
                         <li><strong>Natural Language First:</strong> Large text box and mic button for instant voice or text capture—even at the bedside.</li>
                         <li><strong>Smart, Adaptive Prompts:</strong> The AI asks only what's missing, never repeating what it already knows.</li>
                         <li><strong>Privacy by Design:</strong> On-device encryption and a "Hide screen" panic tap for sensitive moments.</li>
                         <li><strong>Seamless Routing:</strong> Each report is auto-tagged and sent to the right team—no manual triage required.</li>
                     </ul>
-                    <p><em>The result? Clinicians can file a complete, high-quality report in under two minutes and get back to patient care—knowing nothing will fall through the cracks.</em></p>
+                    <p class="italic text-gray-600"><em>The result? Clinicians can file a complete, high-quality report in under two minutes and get back to patient care—knowing nothing will fall through the cracks.</em></p>
                 </div>
-                <div class="section-visual flaer-phones">
-                    <img src="images/new-flaer-screen.png" alt="FLAER chat screen" class="flaer-case-img phone1" />
-                    <img src="images/flaer-home.png" alt="FLAER home screen" class="flaer-case-img phone2" />
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Impact at a Glance -->
-    <section class="key-metrics">
-        <div class="container">
-            <h2>Impact at a Glance</h2>
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-number">70%</div>
-                    <div class="metric-label">Faster Reporting</div>
-                    <div class="metric-detail">10 min 12s → 2 min 41s</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-number">157%</div>
-                    <div class="metric-label">More Reports</div>
-                    <div class="metric-detail">880 → 2,260 monthly</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-number">94%</div>
-                    <div class="metric-label">Data Completeness</div>
-                    <div class="metric-detail">↑26pp improvement</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-number">86</div>
-                    <div class="metric-label">SUS Score</div>
-                    <div class="metric-detail">+28 points</div>
-                </div>
-            </div>
-            <blockquote class="large-testimonial">
-                "That is sooo much easier. It's really amazing. I'll absolutely use this. Everyone will. I wonder if [management] is going to be able to handle all the reports they're probably going to get"
-                <cite>— RN, Pilot User</cite>
-            </blockquote>
-        </div>
-    </section>
-
-
-    <!-- Learnings -->
-    <section class="case-study-section">
-        <div class="container">
-            <h2>Key Learnings & Next Steps</h2>
-            <div class="learnings-grid">
-                <div class="learning-card">
-                    <h4>
-                        <svg style="display: inline; width: 20px; height: 20px; stroke: #667eea; stroke-width: 2; fill: none; margin-right: 8px;" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
-                        Realtime Signal Pushback
-                    </h4>
-                    <p>Suggest immediate mitigation steps during reporting (e.g., "quarantine medication lot") to prevent similar incidents.</p>
-                </div>
-                <div class="learning-card">
-                    <h4>
-                        <svg style="display: inline; width: 20px; height: 20px; stroke: #667eea; stroke-width: 2; fill: none; margin-right: 8px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        Multilingual Support
-                    </h4>
-                    <p>Fine-tune Spanish & Tagalog models to support diverse healthcare teams and increase adoption rates.</p>
-                </div>
-                <div class="learning-card">
-                    <h4>
-                        <svg style="display: inline; width: 20px; height: 20px; stroke: #667eea; stroke-width: 2; fill: none; margin-right: 8px;" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                        Wearables Integration
-                    </h4>
-                    <p>Explore Apple Watch quick-note capture for urgent scenarios like code-blue situations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Navigation -->
-    <section class="case-study-navigation bg-light">
-        <div class="container">
-            <div class="nav-links">
-                <a href="pic-case-study.html" class="nav-link back">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/>
-                    </svg>
-                    Previous: Payment Integrity
-                </a>
-                <div class="nav-link-group">
-                    <a href="index.html" class="nav-link portfolio">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                            <polyline points="9,22 9,12 15,12 15,22"/>
-                        </svg>
-                        Back to Portfolio
-                    </a>
-                    <a href="aes-case-study.html" class="nav-link next">
-                        Next: AES Dashboard
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <div class="logo">SS</div>
-                    <p>&copy; 2025 Scott Smith. All rights reserved.</p>
-                </div>
-                <div class="footer-right">
-                    <div class="social-links">
-                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                        <a href="#" aria-label="Email">Email</a>
+                <figure class="rounded-xl overflow-hidden shadow-lg">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="images/create-flaer.png" alt="FLAER chat screen" class="rounded-lg shadow">
+                        <img src="images/flaer-home.png" alt="FLAER home screen" class="rounded-lg shadow">
                     </div>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Impact -->
+        <section id="impact" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">Impact</h2>
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                <div class="p-6 rounded-lg border bg-white text-center shadow-sm">
+                    <p class="text-3xl font-extrabold text-indigo-600">70%</p>
+                    <p class="mt-1 text-sm text-gray-500">Faster Reporting</p>
+                    <p class="text-xs text-gray-400">10 min 12s → 2 min 41s</p>
+                </div>
+                <div class="p-6 rounded-lg border bg-white text-center shadow-sm">
+                    <p class="text-3xl font-extrabold text-indigo-600">157%</p>
+                    <p class="mt-1 text-sm text-gray-500">More Reports</p>
+                    <p class="text-xs text-gray-400">880 → 2,260 monthly</p>
+                </div>
+                <div class="p-6 rounded-lg border bg-white text-center shadow-sm">
+                    <p class="text-3xl font-extrabold text-indigo-600">94%</p>
+                    <p class="mt-1 text-sm text-gray-500">Data Completeness</p>
+                    <p class="text-xs text-gray-400">↑26pp improvement</p>
+                </div>
+                <div class="p-6 rounded-lg border bg-white text-center shadow-sm">
+                    <p class="text-3xl font-extrabold text-indigo-600">86</p>
+                    <p class="mt-1 text-sm text-gray-500">SUS Score</p>
+                    <p class="text-xs text-gray-400">+28 points</p>
                 </div>
             </div>
+            <blockquote class="p-6 bg-indigo-50 border-l-4 border-indigo-600 italic text-lg">
+                "That is sooo much easier. It's really amazing. I'll absolutely use this. Everyone will. I wonder if [management] is going to be able to handle all the reports they're probably going to get"
+                <cite class="block mt-2 text-sm text-gray-600">— RN, Pilot User</cite>
+            </blockquote>
+        </section>
+
+
+    </main>
+
+    <!-- ───────────── Prev / Next footer ───────────── -->
+    <footer class="bg-gray-50 py-8 border-t">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 flex justify-between text-sm text-gray-600">
+            <a href="pic-case-study.html" class="hover:text-indigo-600">← Payment Integrity Compass</a>
+            <a href="aes-case-study.html" class="hover:text-indigo-600">Risk Event Sentinel →</a>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- ───────────── Tiny TOC activator script ───────────── -->
+    <script>
+        const links = document.querySelectorAll('#toc .toc-link');
+        const sections = [...links].map(l => document.querySelector(l.getAttribute('href')));
+        function activate() {
+            const offset = 100;
+            const pos = window.scrollY + offset;
+            let idx = sections.findIndex(s => pos < s.offsetTop + s.offsetHeight);
+            if (idx === -1) idx = sections.length - 1;
+            links.forEach(l => l.classList.remove('is-active'));
+            links[idx].classList.add('is-active');
+        }
+        document.addEventListener('scroll', activate, { passive: true });
+        activate();
+    </script>
+
+</body></html>

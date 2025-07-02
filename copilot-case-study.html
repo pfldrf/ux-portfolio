@@ -3,717 +3,322 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECR Copilot Assistant - Case Study | Scott Smith</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Pascal SAFETY Copilot — Case Study | Scott Smith</title>
+    <!-- Tailwind for rapid prototyping; swap for compiled CSS in prod -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="case-study.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container">
-            <a href="index.html" class="logo">SS</a>
-            <ul class="nav-menu">
-                <li class="nav-item dropdown">
-                    <a href="#projects" class="nav-link">Work <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-grid">
-                            <a href="flaer-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">🤖</div>
-                                    <div class="preview-content">
-                                        <h5>FLAER Mobile AI</h5>
-                                        <p>Conversational event reporting</p>
-                                        <span class="preview-tag">Healthcare AI</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="aes-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">⚡</div>
-                                    <div class="preview-content">
-                                        <h5>AES Dashboard</h5>
-                                        <p>Real-time risk management</p>
-                                        <span class="preview-tag">Risk Management</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="copilot-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">🧭</div>
-                                    <div class="preview-content">
-                                        <h5>ECR Copilot</h5>
-                                        <p>AI clinical review assistant</p>
-                                        <span class="preview-tag">Healthcare AI</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="health-insurance-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">🏥</div>
-                                    <div class="preview-content">
-                                        <h5>BCBSNC Platform</h5>
-                                        <p>Insurance shopping experience</p>
-                                        <span class="preview-tag">Consumer UX</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="pic-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">💰</div>
-                                    <div class="preview-content">
-                                        <h5>Payment Integrity</h5>
-                                        <p>Revenue cycle management</p>
-                                        <span class="preview-tag">Revenue Cycle</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-            <div class="social-links">
-                <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-                <a href="#" aria-label="Email"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg></a>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <div class="mobile-menu-content">
-                <div class="mobile-nav-section">
-                    <h4>Projects</h4>
-                    <a href="flaer-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">🤖</span>
-                        <div>
-                            <div class="mobile-nav-title">FLAER Mobile AI</div>
-                            <div class="mobile-nav-subtitle">Healthcare AI</div>
-                        </div>
-                    </a>
-                    <a href="aes-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">⚡</span>
-                        <div>
-                            <div class="mobile-nav-title">AES Dashboard</div>
-                            <div class="mobile-nav-subtitle">Risk Management</div>
-                        </div>
-                    </a>
-                    <a href="copilot-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">🧭</span>
-                        <div>
-                            <div class="mobile-nav-title">ECR Copilot</div>
-                            <div class="mobile-nav-subtitle">Healthcare AI</div>
-                        </div>
-                    </a>
-                    <a href="health-insurance-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">🏥</span>
-                        <div>
-                            <div class="mobile-nav-title">BCBSNC Platform</div>
-                            <div class="mobile-nav-subtitle">Consumer UX</div>
-                        </div>
-                    </a>
-                    <a href="pic-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">💰</span>
-                        <div>
-                            <div class="mobile-nav-title">Payment Integrity</div>
-                            <div class="mobile-nav-subtitle">Revenue Cycle</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="mobile-nav-section">
-                    <a href="#about" class="mobile-nav-link">About</a>
-                    <a href="#contact" class="mobile-nav-link">Contact</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+<body class="font-inter antialiased text-gray-800 scroll-smooth">
 
-    <!-- Case Study Header -->
-    <header class="case-study-header has-background copilot-hero">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="index.html">Portfolio</a>
-                <span>/</span>
-                <span>ECR Copilot Assistant</span>
-            </div>
-            <h1>ECR Copilot Assistant</h1>
-            <p class="case-study-subtitle">An embedded AI assistant that super‑charges Expert Clinical Review (ECR) nurses—triaging triggered charts, surfacing key evidence, and polishing documentation for consistency.</p>
-            
-            <div class="case-study-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Client</span>
-                    <span class="meta-value">ProvidenceCare System</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Timeline</span>
-                    <span class="meta-value">15 weeks (Jan → Apr 2025)</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">UX Lead</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Domain</span>
-                    <span class="meta-value">Clinical Review</span>
-                </div>
-            </div>
+    <header class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-lg text-gray-900">Scott Smith</a>
+            <nav class="space-x-8 hidden md:flex">
+                <a href="/" class="text-gray-900 font-medium" aria-current="page">Work</a>
+                <a href="/about.html" class="text-gray-500 hover:text-gray-900">About</a>
+                <a href="/contact.html" class="text-gray-500 hover:text-gray-900">Contact</a>
+            </nav>
+            <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none" aria-label="Open Menu">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
         </div>
     </header>
 
+    <!-- ───────────── Cover ───────────── -->
+    <header class="case-study-header copilot-hero has-background" style="background: linear-gradient(135deg, #0f172a 0%, #06b6d4 100%) !important; min-height: 320px; padding: 4rem 0 3rem 0; position: relative; overflow: hidden;">
+        <img src="images/ecr-copilot-cropped.png" alt="ECR Copilot cropped background" style="position: absolute; right: 0; bottom: 0; width: 700px; max-width: 70vw; opacity: 0.18; filter: blur(2px); pointer-events: none; z-index: 1;">
+        <div class="container text-left" style="position: relative; z-index: 2;">
+            <h1 class="font-bold drop-shadow-lg text-4xl md:text-5xl mb-4">Pascal SAFETY Copilot</h1>
+            <p class="case-study-subtitle max-w-2xl">An embedded AI assistant that super‑charges Expert Clinical Review (ECR) nurses—triaging triggered charts, surfacing key evidence, and producing standardized documentation for consistency.</p>
+        </div>
+    </header>
 
-    <!-- Challenge -->
-    <section class="case-study-section">
-        <div class="container">
-            <div class="section-grid">
-                <div class="section-content">
-                    <h2>The Challenge</h2>
-                    <h3>Manual Chart Review Bottleneck</h3>
-                    <p>ProvidenceCare System's Expert Clinical Review nurses were overwhelmed by the time-intensive process of manually reviewing triggered charts. Each verification took nearly 30 minutes, with inconsistent documentation quality across reviewers.</p>
+    <!-- ───────────── Meta strip ───────────── -->
+    <section class="bg-gray-50 border-b py-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-4 md:px-6">
+            <div>
+                <h2 class="text-xs tracking-widest text-gray-500 font-semibold">CLIENT</h2>
+                <p class="text-sm mt-1">Pascal Metrics (Internal App)</p>
+            </div>
+            <div>
+                <h2 class="text-xs tracking-widest text-gray-500 font-semibold">ROLE</h2>
+                <p class="text-sm mt-1">Principal UX Research & Design</p>
+            </div>
+            <div>
+                <h2 class="text-xs tracking-widest text-gray-500 font-semibold">DOMAIN</h2>
+                <p class="text-sm mt-1">Clinical Review</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ───────────── Main content blocks ───────────── -->
+    <main class="case-study-main max-w-6xl mx-auto px-4 md:px-6 space-y-20 py-14">
+
+        <!-- Challenge -->
+        <section id="challenge" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">The Challenge</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold">Manual Chart Review Bottleneck</h3>
+                    <p class="leading-relaxed text-lg">Pascal Metrics' internal Expert Clinical Review (ECR) nurses were overwhelmed by the time-intensive process of manually reviewing triggered charts. Each verification took nearly 30 minutes, with inconsistent documentation quality across reviewers.</p>
                     
-                    <div class="challenge-stats">
-                        <div class="stat">
-                            <span class="stat-number">28 min</span>
-                            <span class="stat-label">Average per chart</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">3.2</span>
-                            <span class="stat-label">Document revisions</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">2,450</span>
-                            <span class="stat-label">Historical verified events</span>
-                        </div>
-                    </div>
-
-                    <div class="challenge-points">
-                        <h4>Core Problems:</h4>
-                        <ul>
+                    <div class="mt-6">
+                        <h4 class="font-semibold mb-3">Core Problems:</h4>
+                        <ul class="space-y-2 text-gray-700">
                             <li><strong>Manual Signal Hunting:</strong> Nurses spent excessive time searching through lengthy charts for relevant evidence</li>
                             <li><strong>Inconsistent Documentation:</strong> Variable narrative tone and format across different reviewers</li>
-                            <li><strong>Repetitive Data Entry:</strong> Constant re-entry of demographic and basic patient information</li>
-                            <li><strong>Low Throughput:</strong> Limited number of charts processed per shift due to time constraints</li>
+                            <li><strong>Requests for Revision:</strong> Frequent requests from client hospitals to change severity, preventability, and other key fields</li>
                         </ul>
                     </div>
 
-                </div>
-                <div class="section-visual">
-                    <div class="challenge-workflow">
-                        <h4>Legacy Review Process</h4>
-                        <div class="workflow-steps">
-                            <div class="workflow-step">
-                                <div class="step-icon">📋</div>
-                                <div class="step-content">
-                                    <h5>Trigger Notification</h5>
-                                    <p>System flags potential adverse event</p>
-                                    <span class="step-time">~2 min</span>
-                                </div>
-                            </div>
-                            <div class="workflow-step">
-                                <div class="step-icon">🔍</div>
-                                <div class="step-content">
-                                    <h5>Manual Chart Review</h5>
-                                    <p>Nurse manually searches through entire chart</p>
-                                    <span class="step-time">~18 min</span>
-                                </div>
-                            </div>
-                            <div class="workflow-step">
-                                <div class="step-icon">✍️</div>
-                                <div class="step-content">
-                                    <h5>Documentation</h5>
-                                    <p>Manual entry with multiple revisions</p>
-                                    <span class="step-time">~8 min</span>
-                                </div>
-                            </div>
+                    <div class="grid grid-cols-3 gap-4 mt-6">
+                        <div class="text-center p-4 bg-white rounded-lg shadow">
+                            <div class="text-2xl font-bold text-indigo-600">28 min</div>
+                            <div class="text-sm text-gray-600">Average per chart</div>
                         </div>
-                        <div class="workflow-total">
-                            <strong>Total: ~28 minutes per chart</strong>
+                        <div class="text-center p-4 bg-white rounded-lg shadow">
+                            <div class="text-2xl font-bold text-indigo-600">18%</div>
+                            <div class="text-sm text-gray-600">Request for revision</div>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-lg shadow">
+                            <div class="text-2xl font-bold text-indigo-600">64%</div>
+                            <div class="text-sm text-gray-600">Inter-rater reliability</div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Research Process -->
-    <section class="case-study-section bg-light">
-        <div class="container">
-            <h2>Discovery & Research</h2>
-            <div class="research-grid">
-                <div class="research-method">
-                    <div class="method-icon">
-                        <svg viewBox="0 0 24 24"><path d="M16 4v4l-4-2-4 2V4M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
-                    </div>
-                    <h4>Contextual Inquiry</h4>
-                    <p>Shadowed 10 ECR nurses across two facilities to understand their workflow, pain points, and decision-making process.</p>
-                    <div class="method-finding">28 min average per chart, 3.2 doc revisions</div>
                 </div>
-                <div class="research-method">
-                    <div class="method-icon">
-                        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                <figure class="rounded-xl overflow-hidden shadow-lg bg-white p-6">
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-center">Legacy Review Process</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center text-sm">📋</div>
+                                <div>
+                                    <h5 class="font-medium">Trigger Notification</h5>
+                                    <p class="text-sm text-gray-600">System flags potential adverse event</p>
+                                    <span class="text-xs text-indigo-600">~2 min</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center text-sm">🔍</div>
+                                <div>
+                                    <h5 class="font-medium">Manual Chart Review</h5>
+                                    <p class="text-sm text-gray-600">Nurse manually searches through entire chart</p>
+                                    <span class="text-xs text-indigo-600">~18 min</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center text-sm">✍️</div>
+                                <div>
+                                    <h5 class="font-medium">Documentation</h5>
+                                    <p class="text-sm text-gray-600">Manual entry with multiple revisions</p>
+                                    <span class="text-xs text-indigo-600">~8 min</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t text-center font-semibold text-indigo-600">
+                            Total: ~28 minutes per chart
+                        </div>
+                        <blockquote class="mt-6 p-4 bg-indigo-50 border-l-4 border-indigo-600 italic">
+                            "There's so many places you have to go to look for what happened, or what didn't happen. It's a lot of clicking and scrolling and back and forth. It just takes time."
+                            <cite class="block mt-2 text-sm text-gray-600">— ECR Nurse</cite>
+                        </blockquote>
                     </div>
-                    <h4>Data Audit</h4>
-                    <p>Analyzed 2,450 historical verified events across 11 common trigger types to identify patterns and optimization opportunities.</p>
-                    <div class="method-finding">11 trigger types: med reversal, HAIs, falls</div>
-                </div>
-                <div class="research-method">
-                    <div class="method-icon">
-                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/></svg>
-                    </div>
-                    <h4>Pain Point Analysis</h4>
-                    <p>Identified key friction points including manual signal hunting, inconsistent narrative tone, and repetitive demographic entry.</p>
-                    <div class="method-finding">Manual hunting = 65% of review time</div>
-                </div>
-                <div class="research-method">
-                    <div class="method-icon">
-                        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/></svg>
-                    </div>
-                    <h4>Jobs-to-be-Done</h4>
-                    <p>Defined core job: "When a trigger fires, help me confirm harm quickly and record it consistently."</p>
-                    <div class="method-finding">Focus on speed + consistency</div>
-                </div>
+                </figure>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Solution -->
-    <section class="case-study-section">
-        <div class="container">
-            <h2>The Solution</h2>
-            <div class="solution-overview">
-                <div class="solution-text">
-                    <h3>AI-Powered Chart Analysis</h3>
-                    <p>ECR Copilot transforms chart review by automatically extracting relevant evidence, providing smart suggestions, and offering documentation assistance—enabling nurses to focus on clinical judgment rather than information hunting.</p>
-                    
-                    <div class="solution-features">
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-                            </div>
-                            <div class="feature-text">
-                                <h5>Evidence Timeline</h5>
-                                <p>Chronological notes, labs, and medications with AI-highlighted suspect entries</p>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/></svg>
-                            </div>
-                            <div class="feature-text">
-                                <h5>Copilot Panel</h5>
-                                <p>Suggests follow-ups and offers auto-fill for demographics</p>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
-                            </div>
-                            <div class="feature-text">
-                                <h5>Smart Templates</h5>
-                                <p>Dynamic fields with auto-populated patient information</p>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-                            </div>
-                            <div class="feature-text">
-                                <h5>Tone Check</h5>
-                                <p>AI flags subjective language and offers concise alternatives</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="solution-mockup">
-                    <div class="copilot-interface">
-                        <div class="interface-header">
-                            <h4>ECR Copilot Workspace</h4>
-                            <div class="patient-info">
-                                <span>Patient: J. Smith</span>
-                                <span>Unit: 3W</span>
-                                <span>Trigger: Med Reversal</span>
-                            </div>
-                        </div>
-                        <div class="interface-body">
-                            <div class="evidence-panel">
-                                <h5>Evidence Timeline</h5>
-                                <div class="timeline-entry highlighted">
-                                    <div class="entry-time">14:23</div>
-                                    <div class="entry-content">
-                                        <strong>Medication Administration:</strong>
-                                        <p>Warfarin 10mg administered (prescribed: 5mg)</p>
-                                        <span class="highlight-reason">⚠️ Dosage discrepancy detected</span>
-                                    </div>
-                                </div>
-                                <div class="timeline-entry">
-                                    <div class="entry-time">14:45</div>
-                                    <div class="entry-content">
-                                        <strong>Nurse Note:</strong>
-                                        <p>Patient stable, no adverse reactions observed</p>
-                                    </div>
-                                </div>
-                                <div class="timeline-entry highlighted">
-                                    <div class="entry-time">15:10</div>
-                                    <div class="entry-content">
-                                        <strong>Reversal Agent:</strong>
-                                        <p>Vitamin K 5mg administered</p>
-                                        <span class="highlight-reason">🔍 Reversal agent given</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="copilot-panel">
-                                <h5>Copilot Suggestions</h5>
-                                <div class="suggestion-card">
-                                    <div class="suggestion-icon">💡</div>
-                                    <div class="suggestion-text">
-                                        <p><strong>Missing Information:</strong> Was the medication route documented?</p>
-                                        <button class="suggestion-btn">Check Orders</button>
-                                    </div>
-                                </div>
-                                <div class="suggestion-card">
-                                    <div class="suggestion-icon">📋</div>
-                                    <div class="suggestion-text">
-                                        <p><strong>Auto-fill available:</strong> Patient demographics</p>
-                                        <button class="suggestion-btn">Apply</button>
-                                    </div>
-                                </div>
-                                <div class="suggestion-card">
-                                    <div class="suggestion-icon">✏️</div>
-                                    <div class="suggestion-text">
-                                        <p><strong>Tone suggestion:</strong> "Patient experienced..." → "Dosage error occurred..."</p>
-                                        <button class="suggestion-btn">Rewrite</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Research -->
+        <section id="research" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">Research & Insights</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <ul class="list-disc list-inside space-y-4 text-lg">
+                    <li><strong>Contextual Inquiry:</strong> Shadowed 10 ECR nurses across two facilities to understand their workflow, pain points, and decision-making process. 28 min average per chart, 3.2 doc revisions</li>
+                    <li><strong>Data Audit:</strong> Analyzed 2,450 historical verified events across 11 common trigger types to identify patterns and optimization opportunities. 11 trigger types: med reversal, HAIs, falls</li>
+                    <li><strong>Pain Point Analysis:</strong> Identified key friction points including manual signal hunting, inconsistent narrative tone, and repetitive demographic entry. Manual hunting = 65% of review time</li>
+                    <li><strong>Jobs-to-be-Done:</strong> Defined core job: "When a trigger fires, help me confirm harm quickly and record it consistently." Focus on speed + consistency</li>
+                </ul>
+                <figure class="rounded-xl overflow-hidden shadow-lg">
+                    <img src="images/field-study-excerpt-clean.png" alt="Copilot assistant research" class="object-cover w-full h-64 md:h-full">
+                </figure>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Design Process -->
-    <section id="design-process" class="design-process-section">
-        <div class="container">
-            <h2 class="dp-heading">Design Process</h2>
-            <div class="dp-timeline">
-                <!-- STEP 1 -->
-                <div class="dp-row">
-                    <div class="dp-text">
-                        <span class="step-badge">1</span>
-                        <h3>Signal Mapping</h3>
-                        <p>Developed LLM-assisted prompt chains to extract vitals, orders, and progress notes with clinical SME validation.</p>
-                        <ul>
+        <!-- Design -->
+        <section id="design" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">Design Process</h2>
+            <div class="space-y-12">
+                <!-- Step 1 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">1</div>
+                            <h3 class="text-xl font-semibold mb-0">Signal Mapping</h3>
+                        </div>
+                        <p class="mb-4">Developed LLM-assisted prompt chains to extract vitals, orders, and progress notes with clinical SME validation.</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700">
                             <li>Prompt tree with role-based summarizers</li>
                             <li>Clinical SME validation</li>
                             <li>Automated evidence extraction</li>
                         </ul>
                     </div>
-                    <figure class="dp-image">
-                        <div class="conversation-flow">
-                            <div class="flow-node root">Chart Data</div>
-                            <div class="flow-branch">
-                                <div class="flow-node">LLM Prompt Chain
-                                    <span class="flow-leaf">Vitals</span>
-                                    <span class="flow-leaf">Orders</span>
-                                    <span class="flow-leaf">Progress Notes</span>
+                    <figure class="rounded-xl overflow-hidden shadow-lg bg-white p-6">
+                        <div class="space-y-3">
+                            <div class="text-center font-semibold">Chart Data</div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="p-3 bg-indigo-50 rounded text-center text-sm">
+                                    LLM Prompt Chain
+                                    <div class="text-xs text-gray-600 mt-1">Vitals, Orders, Progress Notes</div>
                                 </div>
-                                <div class="flow-node">Summarizer
-                                    <span class="flow-leaf">Role-based Output</span>
+                                <div class="p-3 bg-indigo-50 rounded text-center text-sm">
+                                    Summarizer
+                                    <div class="text-xs text-gray-600 mt-1">Role-based Output</div>
                                 </div>
                             </div>
                         </div>
                     </figure>
                 </div>
-                <!-- STEP 2 -->
-                <div class="dp-row">
-                    <div class="dp-text">
-                        <span class="step-badge">2</span>
-                        <h3>Wireframe Sprint</h3>
-                        <p>Created split-screen layout with evidence timeline and copilot chat panel for optimal workflow integration.</p>
-                        <ul>
+
+                <!-- Step 2 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">2</div>
+                            <h3 class="text-xl font-semibold mb-0">Wireframe Sprint</h3>
+                        </div>
+                        <p class="mb-4">Created split-screen layout with evidence timeline and copilot chat panel for optimal workflow integration.</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700">
                             <li>Mid-fi prototype with split-screen design</li>
                             <li>Workflow integration testing</li>
                             <li>Rapid iteration with nurse feedback</li>
                         </ul>
                     </div>
-                    <figure class="dp-image">
-                        <div class="prototype-mockup">
-                            <div class="mockup-header">Split-Screen Prototype</div>
-                            <div class="mockup-content">
-                                <div class="chat-bubble user">Evidence Timeline: Med error at 14:23</div>
-                                <div class="chat-bubble ai">
-                                    <div class="ai-avatar">🤖</div>
-                                    <div class="ai-text">
-                                        <p>Would you like to auto-fill demographics?</p>
-                                        <div class="quick-replies">
-                                            <button>Yes</button>
-                                            <button>No</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <figure class="rounded-xl overflow-hidden shadow-lg">
+                        <img src="images/wireframe.png" alt="co-pilot wireframe excerpt" class="object-cover w-full h-64 md:h-full">
                     </figure>
                 </div>
-                <!-- STEP 3 -->
-                <div class="dp-row">
-                    <div class="dp-text">
-                        <span class="step-badge">3</span>
-                        <h3>Copilot Behaviors</h3>
-                        <p>Designed clarifying questions, best-practice tone suggestions, and ICD-10 auto-suggest functionality.</p>
-                        <ul>
+
+                <!-- Step 3 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">3</div>
+                            <h3 class="text-xl font-semibold mb-0">Copilot Behavior Definition</h3>
+                        </div>
+                        <p class="mb-4">Designed clarifying questions, best-practice tone suggestions, and ICD-10 auto-suggest functionality.</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700">
                             <li>Conversation script library</li>
                             <li>Tone suggestion system</li>
                             <li>ICD-10 auto-suggest</li>
                         </ul>
                     </div>
-                    <figure class="dp-image">
-                        <div class="training-metrics">
-                            <div class="metric">
-                                <span class="metric-value">+0.21</span>
-                                <span class="metric-label">Inter-rater Reliability</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">56%</span>
-                                <span class="metric-label">Faster Verification</span>
-                            </div>
-                        </div>
-                    </figure>
-                </div>
-                <!-- STEP 4 -->
-                <div class="dp-row">
-                    <div class="dp-text">
-                        <span class="step-badge">4</span>
-                        <h3>Pilot Testing</h3>
-                        <p>Conducted 3-week shadow rollout with 312 charts reviewed to validate performance improvements.</p>
-                        <ul>
-                            <li>26.8 min → 11.7 min average review time</li>
-                            <li>3-week shadow rollout</li>
-                            <li>312 charts reviewed</li>
-                        </ul>
-                    </div>
-                    <figure class="dp-image">
-                        <div class="pilot-results">
-                            <div class="result-chart">
-                                <div class="chart-bar" style="height: 56%">
-                                    <span class="chart-label">Verification Time</span>
-                                    <span class="chart-value">↓56%</span>
-                                </div>
-                                <div class="chart-bar" style="height: 84%">
-                                    <span class="chart-label">Reliability (κ)</span>
-                                    <span class="chart-value">+0.21</span>
-                                </div>
-                                <div class="chart-bar" style="height: 100%">
-                                    <span class="chart-label">Charts/Shift</span>
-                                    <span class="chart-value">2×</span>
-                                </div>
-                            </div>
-                        </div>
+                    <figure class="rounded-xl overflow-hidden shadow-lg">
+                        <img src="images/copilot-assist.png" alt="co-pilot assistant" class="object-cover w-full h-64 md:h-full">
                     </figure>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Key Features -->
-    <section class="case-study-section bg-light">
-        <div class="container">
-            <h2>Key Interface Features</h2>
-            <div class="features-showcase">
-                <div class="feature-demo">
-                    <div class="feature-visual">
-                        <div class="split-screen-demo">
-                            <div class="left-panel">
-                                <div class="panel-header">Evidence Timeline</div>
-                                <div class="evidence-items">
-                                    <div class="evidence-item normal">
-                                        <span class="timestamp">12:15</span>
-                                        <span class="content">Vitals: BP 120/80, HR 72</span>
-                                    </div>
-                                    <div class="evidence-item highlighted">
-                                        <span class="timestamp">14:23</span>
-                                        <span class="content">Med error: Wrong dosage noted</span>
-                                        <span class="ai-highlight">🔍 AI Highlighted</span>
-                                    </div>
-                                    <div class="evidence-item normal">
-                                        <span class="timestamp">15:10</span>
-                                        <span class="content">Reversal agent administered</span>
-                                    </div>
-                                </div>
+        <!-- Solution -->
+        <section id="solution" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">Solution</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold">AI-Powered Chart Analysis</h3>
+                    <p class="leading-relaxed">ECR Copilot transforms chart review by automatically extracting relevant evidence, providing smart suggestions, and offering documentation assistance—enabling nurses to focus on clinical judgment rather than information hunting.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-indigo-600 rounded flex items-center justify-center text-white text-xs mt-1">✓</div>
+                            <div>
+                                <h5 class="font-medium">Evidence Timeline</h5>
+                                <p class="text-sm text-gray-600">Chronological notes, labs, and medications with AI-highlighted suspect entries</p>
                             </div>
-                            <div class="right-panel">
-                                <div class="panel-header">Copilot Assistant</div>
-                                <div class="copilot-messages">
-                                    <div class="copilot-message">
-                                        <div class="message-icon">🤖</div>
-                                        <div class="message-text">Missing medication route - would you like me to check the orders?</div>
-                                    </div>
-                                    <div class="copilot-message">
-                                        <div class="message-icon">📝</div>
-                                        <div class="message-text">Patient demographics are available for auto-fill</div>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-indigo-600 rounded flex items-center justify-center text-white text-xs mt-1">✓</div>
+                            <div>
+                                <h5 class="font-medium">Copilot Panel</h5>
+                                <p class="text-sm text-gray-600">Suggests follow-ups and offers auto-fill for demographics</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-indigo-600 rounded flex items-center justify-center text-white text-xs mt-1">✓</div>
+                            <div>
+                                <h5 class="font-medium">Smart Templates</h5>
+                                <p class="text-sm text-gray-600">Dynamic fields with auto-populated patient information</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-indigo-600 rounded flex items-center justify-center text-white text-xs mt-1">✓</div>
+                            <div>
+                                <h5 class="font-medium">Tone Check</h5>
+                                <p class="text-sm text-gray-600">AI flags subjective language and offers concise alternatives</p>
                             </div>
                         </div>
                     </div>
-                    <div class="feature-description">
-                        <h4>Split-Screen Workspace</h4>
-                        <p>Evidence timeline on the left shows chronological notes with AI highlighting, while the copilot panel provides contextual suggestions and automation.</p>
-                    </div>
                 </div>
+                <figure class="rounded-xl overflow-hidden shadow-lg">
+                    <img src="images/ecr-copilot-cropped.png" alt="co-pilot assistant" class="object-cover w-full h-64 md:h-full">
+                </figure>
+            </div>
+        </section>
 
-                <div class="feature-demo">
-                    <div class="feature-visual">
-                        <div class="doc-editor-demo">
-                            <div class="editor-header">
-                                <span>Documentation Editor</span>
-                                <button class="ai-rewrite-btn">✨ AI Rewrite for Clarity</button>
-                            </div>
-                            <div class="editor-content">
-                                <div class="text-area">
-                                    <p>The patient seemed to have an issue with the medication dosage which was possibly too high and may have caused some concern...</p>
-                                </div>
-                                <div class="ai-suggestion">
-                                    <div class="suggestion-header">💡 Tone Suggestion</div>
-                                    <p><strong>Current:</strong> "The patient seemed to have an issue..."</p>
-                                    <p><strong>Suggested:</strong> "Medication dosage error identified..."</p>
-                                    <button class="apply-btn">Apply</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="feature-description">
-                        <h4>Smart Documentation</h4>
-                        <p>AI-powered editor flags subjective language and offers professional, concise alternatives while maintaining clinical accuracy.</p>
-                    </div>
+        <!-- Impact -->
+        <section id="impact" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">Impact</h2>
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                <div class="p-6 rounded-lg border bg-white text-center shadow-sm">
+                    <p class="text-3xl font-extrabold text-indigo-600">56%</p>
+                    <p class="mt-1 text-sm text-gray-500">Faster Verification</p>
+                    <p class="text-xs text-gray-400">27 min → 11 min avg</p>
+                </div>
+                <div class="p-6 rounded-lg border bg-white text-center shadow-sm">
+                    <p class="text-3xl font-extrabold text-indigo-600">2x</p>
+                    <p class="mt-1 text-sm text-gray-500">Charts per Shift</p>
+                    <p class="text-xs text-gray-400">11.4 → 22.8 charts</p>
+                </div>
+                <div class="p-6 rounded-lg border bg-white text-center shadow-sm">
+                    <p class="text-3xl font-extrabold text-indigo-600">85%</p>
+                    <p class="mt-1 text-sm text-gray-500">Inter-rater Reliability</p>
+                    <p class="text-xs text-gray-400">↑33% improvement</p>
+                </div>
+                <div class="p-6 rounded-lg border bg-white text-center shadow-sm">
+                    <p class="text-3xl font-extrabold text-indigo-600">1.2</p>
+                    <p class="mt-1 text-sm text-gray-500">Editing Passes</p>
+                    <p class="text-xs text-gray-400">Down from 3.2</p>
                 </div>
             </div>
-        </div>
-    </section>
+            <blockquote class="p-6 bg-indigo-50 border-l-4 border-indigo-600 italic text-lg">
+                "Copilot finds the smoking‑gun line in seconds—I just verify and move on. This is so cool."
+                <cite class="block mt-2 text-sm text-gray-600">— Senior ECR Nurse</cite>
+            </blockquote>
+        </section>
 
-    <!-- Key Metrics -->
-    <section class="key-metrics">
-        <div class="container">
-            <h2>Performance Gains</h2>
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-number">56%</div>
-                    <div class="metric-label">Faster Verification</div>
-                    <div class="metric-detail">27 min → 11 min 54s</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-number">2x</div>
-                    <div class="metric-label">Charts per Shift</div>
-                    <div class="metric-detail">11.4 → 22.8 charts</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-number">0.84</div>
-                    <div class="metric-label">Inter-rater Reliability</div>
-                    <div class="metric-detail">↑0.21 improvement</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-number">1.2</div>
-                    <div class="metric-label">Editing Passes</div>
-                    <div class="metric-detail">Down from 3.2</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </main>
 
-    <!-- Testimonial Section -->
-    <section class="case-study-section bg-light">
-        <div class="container">
-            <div class="testimonial-section">
-                <blockquote class="large-testimonial">
-                    "Copilot finds the smoking‑gun line in seconds—I just verify and move on."
-                    <cite>— Senior ECR Nurse</cite>
-                </blockquote>
-            </div>
-        </div>
-    </section>
-
-    <!-- Learnings -->
-    <section class="case-study-section">
-        <div class="container">
-            <h2>Key Learnings & Next Steps</h2>
-            <div class="learnings-grid">
-                <div class="learning-card">
-                    <h4>
-                        <svg style="display: inline; width: 20px; height: 20px; stroke: #667eea; stroke-width: 2; fill: none; margin-right: 8px;" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-                        Voice Commands
-                    </h4>
-                    <p>Hands-free 'Highlight last vitals' functionality for accessibility and workflow efficiency during busy shifts.</p>
-                </div>
-                <div class="learning-card">
-                    <h4>
-                        <svg style="display: inline; width: 20px; height: 20px; stroke: #667eea; stroke-width: 2; fill: none; margin-right: 8px;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-                        Explainability Overlay
-                    </h4>
-                    <p>Show LLM evidence citations to build reviewer trust and enable verification of AI-highlighted content.</p>
-                </div>
-                <div class="learning-card">
-                    <h4>
-                        <svg style="display: inline; width: 20px; height: 20px; stroke: #667eea; stroke-width: 2; fill: none; margin-right: 8px;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
-                        Legal Summary Generation
-                    </h4>
-                    <p>Auto-generate tailored PDF exports optimized for malpractice counsel review and legal documentation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Navigation -->
-    <section class="case-study-navigation bg-light">
-        <div class="container">
-            <div class="nav-links">
-                <a href="aes-case-study.html" class="nav-link back">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/>
-                    </svg>
-                    Previous: AES Dashboard
-                </a>
-                <div class="nav-link-group">
-                    <a href="index.html" class="nav-link portfolio">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                            <polyline points="9,22 9,12 15,12 15,22"/>
-                        </svg>
-                        Back to Portfolio
-                    </a>
-                    <a href="health-insurance-case-study.html" class="nav-link next">
-                        Next: BCBSNC Platform
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <div class="logo">SS</div>
-                    <p>&copy; 2025 Scott Smith. All rights reserved.</p>
-                </div>
-                <div class="footer-right">
-                    <div class="social-links">
-                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                        <a href="#" aria-label="Email">Email</a>
-                    </div>
-                </div>
-            </div>
+    <!-- ───────────── Prev / Next footer ───────────── -->
+    <footer class="bg-gray-50 py-8 border-t">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 flex justify-between text-sm text-gray-600">
+            <a href="aes-case-study.html" class="hover:text-indigo-600">← AES Dashboard</a>
+            <a href="health-insurance-case-study.html" class="hover:text-indigo-600">BCBSNC Platform →</a>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- ───────────── Tiny TOC activator script ───────────── -->
+    <script>
+        const links = document.querySelectorAll('#toc .toc-link');
+        const sections = [...links].map(l => document.querySelector(l.getAttribute('href')));
+        function activate() {
+            const offset = 100;
+            const pos = window.scrollY + offset;
+            let idx = sections.findIndex(s => pos < s.offsetTop + s.offsetHeight);
+            if (idx === -1) idx = sections.length - 1;
+            links.forEach(l => l.classList.remove('is-active'));
+            links[idx].classList.add('is-active');
+        }
+        document.addEventListener('scroll', activate, { passive: true });
+        activate();
+    </script>
+
+</body></html>

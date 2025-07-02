@@ -431,14 +431,7 @@
 }
 
 .case-study-header.has-background::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.92) 0%, rgba(127, 83, 172, 0.92) 100%);
-    z-index: 1;
+    content: none !important;
 }
 
 .case-study-header.has-background .container {
@@ -2810,7 +2803,7 @@ blockquote cite {
 
 .dp-image {
     margin: 0;
-    padding: 1rem;
+    padding: 0;
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -3411,4 +3404,137 @@ blockquote cite {
   .section-visual.flaer-phones {
     gap: 0.5rem;
   }
+}
+
+.section-visual img,
+.dp-image img,
+.feature-visual img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* New container for full-width visuals like large wireframes */
+.full-width-visual {
+    margin: 4rem auto;
+    text-align: center;
+    max-width: 1200px; /* Corresponds to .container max-width */
+    padding: 0 2rem;
+}
+
+.full-width-visual img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* New: Viewport for showing a cropped section of a large image */
+.image-viewport {
+    width: 100%;
+    height: 400px; /* Adjust height to control the aspect ratio of the viewport */
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: transparent; /* Fallback color */
+}
+
+.image-viewport img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Use 'object-position' to "pan" to different parts of the image. 
+       Examples: 'left center', 'right top', '25% 50%' */
+    object-position: center; 
+    border-radius: 0;
+    box-shadow: none;
+    max-width: none;
+}
+
+/* Add strong, specific rule for .section-visual img.flaer-demo */
+.section-visual img.flaer-demo {
+    max-width: 220px;
+    max-height: 420px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(30, 41, 59, 0.10);
+    margin: 0 auto;
+    display: block;
+}
+
+/* Ensure anchor-linked sections are visible below the sticky nav */
+.scroll-mt-20, .scroll-mt-24 {
+    scroll-margin-top: 88px;
+  }
+
+/* === Award Highlight Section (Simple) === */
+.award-highlight {
+  background: #fffbea;
+  border: 2px solid #facc15;
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.award-icon {
+  width: 3rem;
+  height: 3rem;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.award-badge {
+  background: #facc15;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  padding: 0.25rem 1rem;
+  margin-left: 0.5rem;
+  box-shadow: none;
+}
+.award-desc {
+  color: #222;
+  font-size: 1.1rem;
+  margin: 0.2rem 0 0.5rem 0;
+  font-weight: 600;
+}
+.award-sub {
+  color: #444;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.award-link {
+  display: inline-flex;
+  align-items: center;
+  background: #f59e0b;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.18s, transform 0.18s;
+}
+.award-link:hover {
+  background: #d97706;
+  transform: translateY(-2px) scale(1.04);
+}
+.award-link svg {
+  margin-left: 0.5rem;
+  width: 1.1em;
+  height: 1.1em;
+  stroke: currentColor;
+}
+
+.object-cover {
+  padding: 10px;
 }

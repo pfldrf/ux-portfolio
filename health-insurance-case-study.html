@@ -3,607 +3,348 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthSelect Consumer Insurance Platform - Case Study | Scott Smith</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>BCBSNC Insurance Platform — Case Study | Scott Smith</title>
+    <!-- Tailwind for rapid prototyping; swap for compiled CSS in prod -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="case-study.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container">
-            <a href="index.html" class="logo">SS</a>
-            <ul class="nav-menu">
-                <li class="nav-item dropdown">
-                    <a href="#projects" class="nav-link">Work <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-grid">
-                            <a href="flaer-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">🤖</div>
-                                    <div class="preview-content">
-                                        <h5>FLAER Mobile AI</h5>
-                                        <p>Conversational event reporting</p>
-                                        <span class="preview-tag">Healthcare AI</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="aes-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">⚡</div>
-                                    <div class="preview-content">
-                                        <h5>AES Dashboard</h5>
-                                        <p>Real-time risk management</p>
-                                        <span class="preview-tag">Risk Management</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="copilot-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">🧭</div>
-                                    <div class="preview-content">
-                                        <h5>ECR Copilot</h5>
-                                        <p>AI clinical review assistant</p>
-                                        <span class="preview-tag">Healthcare AI</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="health-insurance-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">🏥</div>
-                                    <div class="preview-content">
-                                        <h5>BCBSNC Platform</h5>
-                                        <p>Insurance shopping experience</p>
-                                        <span class="preview-tag">Consumer UX</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="pic-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">💰</div>
-                                    <div class="preview-content">
-                                        <h5>Payment Integrity</h5>
-                                        <p>Revenue cycle management</p>
-                                        <span class="preview-tag">Revenue Cycle</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-            <div class="social-links">
-                <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-                <a href="#" aria-label="Email"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg></a>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <div class="mobile-menu-content">
-                <div class="mobile-nav-section">
-                    <h4>Projects</h4>
-                    <a href="flaer-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">🤖</span>
-                        <div>
-                            <div class="mobile-nav-title">FLAER Mobile AI</div>
-                            <div class="mobile-nav-subtitle">Healthcare AI</div>
-                        </div>
-                    </a>
-                    <a href="aes-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">⚡</span>
-                        <div>
-                            <div class="mobile-nav-title">AES Dashboard</div>
-                            <div class="mobile-nav-subtitle">Risk Management</div>
-                        </div>
-                    </a>
-                    <a href="copilot-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">🧭</span>
-                        <div>
-                            <div class="mobile-nav-title">ECR Copilot</div>
-                            <div class="mobile-nav-subtitle">Healthcare AI</div>
-                        </div>
-                    </a>
-                    <a href="health-insurance-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">🏥</span>
-                        <div>
-                            <div class="mobile-nav-title">BCBSNC Platform</div>
-                            <div class="mobile-nav-subtitle">Consumer UX</div>
-                        </div>
-                    </a>
-                    <a href="pic-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">💰</span>
-                        <div>
-                            <div class="mobile-nav-title">Payment Integrity</div>
-                            <div class="mobile-nav-subtitle">Revenue Cycle</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="mobile-nav-section">
-                    <a href="#about" class="mobile-nav-link">About</a>
-                    <a href="#contact" class="mobile-nav-link">Contact</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+<body class="font-inter antialiased text-gray-800 scroll-smooth">
 
-    <!-- Case Study Header -->
-    <header class="case-study-header has-background health-insurance-hero">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="index.html">Portfolio</a>
-                <span>/</span>
-                <span>BCBSNC Insurance Platform</span>
-            </div>
-            <h1>BCBSNC.com Insurance Shopping Platform</h1>
-            <p class="case-study-subtitle">Transforming Blue Cross Blue Shield of North Carolina's online insurance shopping experience to reduce customer support burden and increase self-service enrollments.</p>
-            <div class="award-badge">
-                <svg class="award-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b08916" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <header class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-lg text-gray-900">Scott Smith</a>
+            <nav class="space-x-8 hidden md:flex">
+                <a href="/" class="text-gray-900 font-medium" aria-current="page">Work</a>
+                <a href="/about.html" class="text-gray-500 hover:text-gray-900">About</a>
+                <a href="/contact.html" class="text-gray-500 hover:text-gray-900">Contact</a>
+            </nav>
+            <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none" aria-label="Open Menu">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- ───────────── Cover ───────────── -->
+    <header class="case-study-header health-insurance-hero has-background" style="background: linear-gradient(135deg, #0f172a 0%, #06b6d4 100%) !important; min-height: 320px; padding: 4rem 0 3rem 0; position: relative; overflow: hidden;">
+        <img src="images/bcbsnc-current.png" alt="BCBSNC current UI background" style="position: absolute; right: 0; bottom: 0; width: 700px; max-width: 70vw; opacity: 0.18; filter: blur(2px); pointer-events: none; z-index: 1;">
+        <div class="container text-left" style="position: relative; z-index: 2;">
+            <h1 class="font-bold drop-shadow-lg text-4xl md:text-5xl mb-4">BCBSNC.com Insurance Shopping Platform</h1>
+            <p class="case-study-subtitle max-w-2xl">Transforming Blue Cross Blue Shield of North Carolina's online insurance shopping experience to reduce customer support burden and increase self-service enrollments.</p>
+            <div class="mt-4 inline-flex items-center bg-yellow-600 bg-opacity-90 px-4 py-2 rounded-full text-sm">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/>
                 </svg>
                 Winner of the Interactive Media Awards Outstanding Achievement – Insurance Category
             </div>
-            <div class="case-study-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Client</span>
-                    <span class="meta-value">Blue Cross Blue Shield of NC</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Timeline</span>
-                    <span class="meta-value">12 weeks (Jan → Mar 2011)</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">UX Lead</span>
-                </div>
-            </div>
         </div>
     </header>
 
-    <!-- Case Study Content -->
-    <main class="case-study-content">
+    <!-- ───────────── Sticky nav / TOC ───────────── -->
+    <nav class="bg-white shadow sticky top-0 z-30" id="toc">
+        <div class="max-w-6xl mx-auto flex justify-between items-center py-2 px-4 md:px-6">
+            <a href="index.html" class="text-sm font-medium text-gray-700 hover:text-indigo-600">← Back to Work</a>
+            <ul class="hidden md:flex space-x-6 text-sm text-gray-600">
+                <li><a href="#challenge" class="toc-link">Challenge</a></li>
+                <li><a href="#research" class="toc-link">Research</a></li>
+                <li><a href="#design" class="toc-link">Design</a></li>
+                <li><a href="#solution" class="toc-link">Solution</a></li>
+                <li><a href="#impact" class="toc-link">Impact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ───────────── Meta strip ───────────── -->
+    <section class="bg-gray-50 border-b py-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-4 md:px-6">
+            <div>
+                <h2 class="text-xs tracking-widest text-gray-500 font-semibold">CLIENT</h2>
+                <p class="text-sm mt-1">Blue Cross Blue Shield of NC</p>
+            </div>
+            <div>
+                <h2 class="text-xs tracking-widest text-gray-500 font-semibold">ROLE</h2>
+                <p class="text-sm mt-1">UX Lead</p>
+            </div>
+            <div>
+                <h2 class="text-xs tracking-widest text-gray-500 font-semibold">DOMAIN</h2>
+                <p class="text-sm mt-1">Consumer UX</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ───────────── Main content blocks ───────────── -->
+    <main class="case-study-main max-w-6xl mx-auto px-4 md:px-6 space-y-20 py-14">
+
         <!-- Challenge -->
-        <section class="case-study-section challenge-section">
-            <div class="container">
-                <div class="section-grid">
-                    <div class="section-content">
-                        <h2>The Challenge</h2>
-                        <h3>Manual Insurance Shopping Bottleneck</h3>
-                        <p>Blue Cross Blue Shield of North Carolina's customers struggled to compare insurance plans and complete applications online through BCBSNC.com. The majority of potential customers were forced to call sales representatives to purchase insurance, creating bottlenecks and increasing operational costs.</p>
+        <section id="challenge" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">The Challenge</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold">Manual Insurance Shopping Bottleneck</h3>
+                    <p class="leading-relaxed text-lg">Blue Cross Blue Shield of North Carolina's customers struggled to compare insurance plans and complete applications online through BCBSNC.com. The majority of potential customers were forced to call sales representatives to purchase insurance, creating bottlenecks and increasing operational costs.</p>
+                    
+                    <div class="mt-6">
                         
-                        <div class="challenge-stats">
-                            <div class="stat">
-                                <span class="stat-number">85%</span>
-                                <span class="stat-label">Phone-based sales</span>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><strong>Complex Plan Comparison:</strong> Customers couldn't effectively compare plan options and understand coverage differences</li>
+                            <li><strong>Insurance Terminology:</strong> Complex insurance terms created confusion and required support calls</li>
+                            <li><strong>No Decision Support:</strong> Lack of clear guidance for different customer scenarios</li>
+                            <li><strong>Cost Estimation:</strong> Inadequate tools for understanding total out-of-pocket costs</li>
+                        </ul>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 mt-6">
+                        <div class="text-center p-4 bg-white rounded-lg shadow">
+                            <div class="text-2xl font-bold text-indigo-600">85%</div>
+                            <div class="text-sm text-gray-600">Phone-based sales</div>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-lg shadow">
+                            <div class="text-2xl font-bold text-indigo-600">3.2</div>
+                            <div class="text-sm text-gray-600">Average support calls</div>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-lg shadow">
+                            <div class="text-2xl font-bold text-indigo-600">45 min</div>
+                            <div class="text-sm text-gray-600">Average call time</div>
+                        </div>
+                    </div>
+                    
+
+                </div>
+                <figure class="rounded-xl overflow-hidden shadow-lg bg-white p-6">
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-center">Legacy Shopping Process</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center text-sm">📋</div>
+                                <div>
+                                    <h5 class="font-medium">Plan Search</h5>
+                                    <p class="text-sm text-gray-600">Customer attempts to find suitable plans</p>
+                                    <span class="text-xs text-indigo-600">~15 min</span>
+                                </div>
                             </div>
-                            <div class="stat">
-                                <span class="stat-number">3.2</span>
-                                <span class="stat-label">Average support calls</span>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center text-sm">📞</div>
+                                <div>
+                                    <h5 class="font-medium">Support Call</h5>
+                                    <p class="text-sm text-gray-600">Customer calls for help understanding options</p>
+                                    <span class="text-xs text-indigo-600">~45 min</span>
+                                </div>
                             </div>
-                            <div class="stat">
-                                <span class="stat-number">45 min</span>
-                                <span class="stat-label">Average call time</span>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center text-sm">✍️</div>
+                                <div>
+                                    <h5 class="font-medium">Phone Enrollment</h5>
+                                    <p class="text-sm text-gray-600">Sales rep completes application over phone</p>
+                                    <span class="text-xs text-indigo-600">~30 min</span>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="challenge-points">
-                            <h4>Core Problems:</h4>
-                            <ul>
-                                <li><strong>Complex Plan Comparison:</strong> Customers couldn't effectively compare plan options and understand coverage differences</li>
-                                <li><strong>Insurance Terminology:</strong> Complex insurance terms created confusion and required support calls</li>
-                                <li><strong>No Decision Support:</strong> Lack of clear guidance for different customer scenarios</li>
-                                <li><strong>Cost Estimation:</strong> Inadequate tools for understanding total out-of-pocket costs</li>
-                            </ul>
+                        <div class="pt-4 border-t text-center font-semibold text-indigo-600">
+                            Total: ~90 minutes per enrollment
                         </div>
-
-                        <blockquote>
-                            "I want to compare plans side by side, understand my costs, and enroll online without having to call someone."
-                            <cite>— Health Insurance Shopper, BCBSNC Customer</cite>
+                        <blockquote class="mt-6 p-4 bg-indigo-50 border-l-4 border-indigo-600 italic">
+                            "It's a lot.  Are some of these the same plan? It looks like it's a little too much information on this page. That's where someone could easily make a mistake. There's so many to choose from."
+                            <cite class="block mt-2 text-sm text-gray-600">— Health Insurance Shopper, BCBSNC Customer</cite>
                         </blockquote>
                     </div>
-                    <div class="challenge-visual">
-                        <div class="challenge-workflow">
-                            <h4>Legacy Shopping Process</h4>
-                            <div class="workflow-steps">
-                                <div class="workflow-step">
-                                    <div class="step-icon">📋</div>
-                                    <div class="step-content">
-                                        <h5>Plan Search</h5>
-                                        <p>Customer attempts to find suitable plans</p>
-                                        <span class="step-time">~15 min</span>
-                                    </div>
-                                </div>
-                                <div class="workflow-step">
-                                    <div class="step-icon">📞</div>
-                                    <div class="step-content">
-                                        <h5>Support Call</h5>
-                                        <p>Customer calls for help understanding options</p>
-                                        <span class="step-time">~45 min</span>
-                                    </div>
-                                </div>
-                                <div class="workflow-step">
-                                    <div class="step-icon">✍️</div>
-                                    <div class="step-content">
-                                        <h5>Phone Enrollment</h5>
-                                        <p>Sales rep completes application over phone</p>
-                                        <span class="step-time">~30 min</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="workflow-total">
-                                <strong>Total: ~90 minutes per enrollment</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </figure>
             </div>
         </section>
 
-        <!-- Research Process -->
-        <section class="case-study-section bg-light">
-            <div class="container">
-                <h2>Discovery & Research</h2>
-                <div class="research-grid">
-                    <div class="research-method">
-                        <div class="method-icon">
-                            <svg viewBox="0 0 24 24"><path d="M16 4v4l-4-2-4 2V4M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
-                        </div>
-                        <h4>Customer Interviews</h4>
-                        <p>Conducted 25 one-on-one interviews with customers who attempted to shop online to understand their decision-making process and pain points.</p>
-                        <div class="method-finding">85% required phone support, 3.2 average calls</div>
-                    </div>
-                    <div class="research-method">
-                        <div class="method-icon">
-                            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                        </div>
-                        <h4>Support Call Analysis</h4>
-                        <p>Analyzed 500 support calls to identify common questions and points of confusion in the shopping process.</p>
-                        <div class="method-finding">45 min average call time, 3.2 calls per enrollment</div>
-                    </div>
-                    <div class="research-method">
-                        <div class="method-icon">
-                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/></svg>
-                        </div>
-                        <h4>Usability Testing</h4>
-                        <p>Conducted 15 usability sessions to identify interface issues and opportunities for improvement.</p>
-                        <div class="method-finding">Plan comparison = 65% of shopping time</div>
-                    </div>
-                    <div class="research-method">
-                        <div class="method-icon">
-                            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/></svg>
-                        </div>
-                        <h4>Competitive Analysis</h4>
-                        <p>Evaluated 8 competitor insurance sites to identify best practices and opportunities for differentiation.</p>
-                        <div class="method-finding">Focus on self-service + decision support</div>
-                    </div>
-                </div>
+        <!-- Research -->
+        <section id="research" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">Research & Insights</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <ul class="list-disc list-inside space-y-4 text-lg">
+                    <li><strong>Support Call Analysis:</strong> Analyzed 500 support calls to identify common questions and points of confusion in the shopping process. 45 min average call time, 3.2 calls per enrollment</li>
+                    <li><strong>Usability Testing:</strong> Conducted 15 usability sessions to identify interface issues and opportunities for improvement. Plan comparison = 65% of shopping time</li>
+                    <li><strong>Competitive Analysis:</strong> Evaluated 8 competitor insurance sites to identify best practices and opportunities for differentiation. Focus on self-service + decision support</li>
+                </ul>
+                <figure class="rounded-xl overflow-hidden shadow-lg">
+                    <img src="images/bcbsnc-morae-notes.png" alt="Decision support wizard research" class="object-cover object-top w-full h-64">
+                </figure>
             </div>
         </section>
 
-        <section id="design-process" class="design-process-section">
-            <div class="container">
-                <h2 class="dp-heading">Design Process</h2>
-                <div class="dp-timeline">
-                    <!-- STEP 1 -->
-                    <div class="dp-row">
-                        <div class="dp-text">
-                            <span class="step-badge">1</span>
-                            <h3>Information Architecture</h3>
-                            <p>Re‑mapped the entire BCBSNC.com site to consolidate plan information into clear thematic groups and simplified global navigation, setting the foundation for a smoother shopping journey.</p>
-                            <ul>
-                                <li>Logical plan grouping & URL hierarchy</li>
-                                <li>Glossary / self‑service help structure</li>
-                                <li>Quote‑to‑cart flow audit</li>
-                            </ul>
+        <!-- Design -->
+        <section id="design" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">Design Process</h2>
+            <div class="space-y-12">
+                <!-- Step 1 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">1</div>
+                            <h3 class="text-xl font-semibold mb-0">Information Architecture</h3>
                         </div>
-                        <figure class="dp-image ia-mini-map">
-                            <div class="ia-node root">BCBSNC.com</div>
-                            <div class="ia-branch">
-                                <div class="ia-node">Find&nbsp;a&nbsp;Plan
-                                    <span class="ia-leaf">Blue Advantage</span>
-                                    <span class="ia-leaf">Blue&nbsp;Options&nbsp;HSA</span>
-                                    <span class="ia-leaf">Dental&nbsp;Blue</span>
-                                </div>
-                                <div class="ia-node">Get&nbsp;Help
-                                    <span class="ia-leaf">Glossary</span>
-                                    <span class="ia-leaf">FAQs</span>
-                                    <span class="ia-leaf">Find&nbsp;a&nbsp;Doctor</span>
-                                </div>
-                            </div>
-                        </figure>
+                        <p class="mb-4">Re‑mapped the entire BCBSNC.com site to consolidate plan information into clear thematic groups and simplified global navigation, setting the foundation for a smoother shopping journey.</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700">
+                            <li>Logical plan grouping & URL hierarchy</li>
+                            <li>Glossary / self‑service help structure</li>
+                            <li>Quote‑to‑cart flow audit</li>
+                        </ul>
                     </div>
-                    <!-- STEP 2 -->
-                    <div class="dp-row">
-                        <div class="dp-text">
-                            <span class="step-badge">2</span>
-                            <h3>Wireframe Sprint</h3>
-                            <p>Ran a one‑week design sprint to create mid‑fidelity wireframes for the end‑to‑end plan‑shopping experience, introducing split‑screen plan cards and interactive filters.</p>
-                            <ul>
-                                <li>Rapid ideation workshops</li>
-                                <li>Clickable Figma prototype</li>
-                                <li>Remote stakeholder reviews</li>
-                            </ul>
-                        </div>
-                        <figure class="dp-image">
-                            <img src="/assets/img/case-studies/bcbsnc/wireframes.webp" alt="Mid‑fidelity wireframe screens" loading="lazy" />
-                        </figure>
-                    </div>
-                    <!-- STEP 3 -->
-                    <div class="dp-row">
-                        <div class="dp-text">
-                            <span class="step-badge">3</span>
-                            <h3>Decision Support</h3>
-                            <p>Built the interactive "Help Me Choose" wizard that compared deductibles, out‑of‑pocket max, and premium trade‑offs for users based on a short quiz about budget and expected care usage.</p>
-                            <ul>
-                                <li>Dynamic cost calculator</li>
-                                <li>Plan recommendation algorithm</li>
-                                <li>A/B copy testing for clarity</li>
-                            </ul>
-                        </div>
-                        <figure class="dp-image">
-                            <img src="/assets/img/case-studies/bcbsnc/decision-support.webp" alt="Decision support wizard UI" loading="lazy" />
-                        </figure>
-                    </div>
-                    <!-- STEP 4 -->
-                    <div class="dp-row">
-                        <div class="dp-text">
-                            <span class="step-badge">4</span>
-                            <h3>Usability Testing</h3>
-                            <p>Conducted 15 moderated sessions with current members and prospects; time‑to‑quote dropped from <strong>90 min → 25 min</strong>, confirming the effectiveness of the new IA and decision‑support flow.</p>
-                            <ul>
-                                <li>Think‑aloud protocol</li>
-                                <li>System Usability Scale: 82</li>
-                                <li>Prioritised next‑round optimisations</li>
-                            </ul>
-                        </div>
-                        <figure class="dp-image">
-                            <img src="/assets/img/case-studies/bcbsnc/usability-testing.webp" alt="Participant interacting with prototype" loading="lazy" />
-                        </figure>
-                    </div>
+                    <figure class="rounded-xl overflow-hidden shadow-lg">
+                        <img src="images/bcbsnc-sitemap.png" alt="Re-mapped site map" class="object-cover object-top w-full h-64">
+                    </figure>
                 </div>
+
+                <!-- Step 2 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">2</div>
+                            <h3 class="text-xl font-semibold mb-0">Wireframe Sprint</h3>
+                        </div>
+                        <p class="mb-4">Ran a one‑week design sprint to create mid‑fidelity wireframes for the end‑to‑end plan‑shopping experience, introducing split‑screen plan cards and interactive filters.</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700">
+                            <li>Rapid ideation workshops</li>
+                            <li>Clickable Figma prototype</li>
+                            <li>Remote stakeholder reviews</li>
+                        </ul>
+                    </div>
+                    <figure class="rounded-xl overflow-hidden shadow-lg">
+                        <img src="images/bcbsnc-wire.png" alt="annotated wireframe" class="object-cover object-top w-full h-64">
+                    </figure>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">3</div>
+                            <h3 class="text-xl font-semibold mb-0">Decision Support</h3>
+                        </div>
+                        <p class="mb-4">Built the interactive "Help Me Choose" wizard that compared deductibles, out‑of‑pocket max, and premium trade‑offs for users based on a short quiz about budget and expected care usage.</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700">
+                            <li>Dynamic cost calculator</li>
+                            <li>Plan recommendation algorithm</li>
+                            <li>A/B copy testing for clarity</li>
+                        </ul>
+                    </div>
+                    <figure class="rounded-xl overflow-hidden shadow-lg">
+                        <img src="images/bcbsnc-decision-support.png" alt="Decision support wizard UI" class="object-cover object-top w-full h-64">
+                    </figure>
+                </div>
+
             </div>
         </section>
 
         <!-- Solution -->
-        <section class="case-study-section">
-            <div class="container">
-                <h2>The Solution</h2>
-                <div class="solution-overview">
-                    <div class="solution-text">
-                        <h3>Intuitive Plan Shopping Experience</h3>
-                        <p>The redesigned BCBSNC.com insurance shopping platform transforms the customer journey by providing clear plan comparisons, interactive cost tools, and streamlined enrollment—enabling customers to make informed decisions without requiring phone support.</p>
-                        <div class="solution-features">
-                            <div class="feature">
-                                <div class="feature-icon">
-                                    <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-                                </div>
-                                <div class="feature-text">
-                                    <h5>Dynamic Plan Filtering</h5>
-                                    <p>Interactive sliders for deductible and premium ranges with real-time plan updates</p>
-                                </div>
-                            </div>
-                            <div class="feature">
-                                <div class="feature-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/></svg>
-                                </div>
-                                <div class="feature-text">
-                                    <h5>Scenario-Based Support</h5>
-                                    <p>"Help Me Choose" tools for different customer situations and needs</p>
-                                </div>
-                            </div>
-                            <div class="feature">
-                                <div class="feature-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
-                                </div>
-                                <div class="feature-text">
-                                    <h5>Cost Transparency</h5>
-                                    <p>Clear breakdowns of premiums, deductibles, and out-of-pocket costs</p>
-                                </div>
-                            </div>
-                            <div class="feature">
-                                <div class="feature-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-                                </div>
-                                <div class="feature-text">
-                                    <h5>Streamlined Enrollment</h5>
-                                    <p>Simplified application process with smart form validation</p>
-                                </div>
+        <section id="solution" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">Solution</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold">Intuitive Plan Shopping Experience</h3>
+                    <p class="leading-relaxed">The redesigned BCBSNC.com insurance shopping platform transformed the customer journey by providing clear plan comparisons, interactive cost tools, and streamlined enrollment—enabling customers to make informed decisions without requiring phone support. Much of the design we implemented in 2010, is still relevant today.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-indigo-600 rounded flex items-center justify-center text-white text-xs mt-1">✓</div>
+                            <div>
+                                <h5 class="font-medium">Dynamic Plan Filtering</h5>
+                                <p class="text-sm text-gray-600">Interactive sliders for deductible and premium ranges with real-time plan updates</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="solution-mockup">
-                        <div class="solution-mockup-card">
-                            <div class="insurance-interface">
-                                <div class="interface-header">
-                                    <h4>Plan Comparison Workspace</h4>
-                                    <div class="applicant-info">
-                                        <span>Family: 2 Adults, 2 Children</span>
-                                        <span>Location: Durham County</span>
-                                        <span>Coverage: Medical + Dental</span>
-                                    </div>
-                                </div>
-                                <div class="interface-body">
-                                    <div class="filter-panel">
-                                        <h5>Plan Filters</h5>
-                                        <div class="filter-group">
-                                            <label>Deductible Range</label>
-                                            <div class="slider-track">
-                                                <div class="slider-range"></div>
-                                            </div>
-                                            <div class="slider-values">
-                                                <span>$500</span>
-                                                <span>$5,000</span>
-                                                <span>$20,000</span>
-                                            </div>
-                                        </div>
-                                        <div class="filter-group">
-                                            <label>Monthly Premium</label>
-                                            <div class="slider-track">
-                                                <div class="slider-range"></div>
-                                            </div>
-                                            <div class="slider-values">
-                                                <span>$119</span>
-                                                <span>$190</span>
-                                                <span>$455</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="plan-panel">
-                                        <h5>Matching Plans</h5>
-                                        <div class="plan-card">
-                                            <div class="plan-header">
-                                                <div class="plan-icon selected">○</div>
-                                                <h3>BlueAdvantage Plan C</h3>
-                                            </div>
-                                            <div class="plan-details">
-                                                <div class="coverage-section">
-                                                    <h4>Office visits</h4>
-                                                    <div class="coverage-item">Preventive: <span>$30</span></div>
-                                                    <div class="coverage-item">Primary: <span>$30</span></div>
-                                                    <div class="coverage-item">Specialist: <span>$50</span></div>
-                                                </div>
-                                                <div class="cost-summary">
-                                                    <div class="deductible">$5,000</div>
-                                                    <div class="coinsurance">20% up to $4,000/yr</div>
-                                                    <div class="premium">$260.72/mo</div>
-                                                    <button class="apply-btn">Apply Now</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-indigo-600 rounded flex items-center justify-center text-white text-xs mt-1">✓</div>
+                            <div>
+                                <h5 class="font-medium">Scenario-Based Support</h5>
+                                <p class="text-sm text-gray-600">"Help Me Choose" tools for different customer situations and needs</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-indigo-600 rounded flex items-center justify-center text-white text-xs mt-1">✓</div>
+                            <div>
+                                <h5 class="font-medium">Cost Transparency</h5>
+                                <p class="text-sm text-gray-600">Clear breakdowns of premiums, deductibles, and out-of-pocket costs</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-indigo-600 rounded flex items-center justify-center text-white text-xs mt-1">✓</div>
+                            <div>
+                                <h5 class="font-medium">Streamlined Enrollment</h5>
+                                <p class="text-sm text-gray-600">Simplified application process with smart form validation</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                <figure class="rounded-xl overflow-hidden shadow-lg">
+                    <img src="images/bcbsnc-current.png" alt="2025 BCBSNC.com - current state is similar to our design from 2010" class="object-cover object-top w-full h-64">
+                </figure>
             </div>
         </section>
 
-        <!-- Key Metrics (moved and retitled) -->
-        <section class="key-metrics">
-            <div class="container">
-                <h2>Transformational Outcomes</h2>
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-number">175%</div>
-                        <div class="metric-label">Increase in "No-Touch" Sales</div>
-                        <div class="metric-detail">Customers completing purchases online</div>
+        <!-- Impact -->
+        <section id="impact" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">Impact</h2>
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                <div class="p-6 rounded-lg border bg-white text-center shadow-sm">
+                    <p class="text-3xl font-extrabold text-indigo-600">175%</p>
+                    <p class="mt-1 text-sm text-gray-500">Increase in "No-Touch" Sales</p>
+                    <p class="text-xs text-gray-400">Customers completing purchases online</p>
+                </div>
+                <div class="p-6 rounded-lg border bg-white text-center shadow-sm">
+                    <p class="text-3xl font-extrabold text-indigo-600">400%</p>
+                    <p class="mt-1 text-sm text-gray-500">Reduction in Help Desk Calls</p>
+                    <p class="text-xs text-gray-400">Decrease in support requests</p>
+                </div>
+                <div class="p-6 rounded-lg border bg-white text-center shadow-sm">
+                    <p class="text-3xl font-extrabold text-indigo-600">2011</p>
+                    <p class="mt-1 text-sm text-gray-500">Industry Recognition</p>
+                    <p class="text-xs text-gray-400">IMA Outstanding Achievement Award</p>
+                </div>
+                <div class="p-6 rounded-lg border bg-white text-center shadow-sm">
+                    <p class="text-3xl font-extrabold text-indigo-600">2.5x</p>
+                    <p class="mt-1 text-sm text-gray-500">Conversion Rate</p>
+                    <p class="text-xs text-gray-400">Increase in online enrollments</p>
+                </div>
+            </div>
+            <blockquote class="p-6 bg-indigo-50 border-l-4 border-indigo-600 italic text-lg">
+                "That was really easy to compare plans and understand costs — I like seeing the real world scenarios and how the costs compare to each other. I don't think I'd have to call anyone to help me with this."
+                <cite class="block mt-2 text-sm text-gray-600">— BCBSNC Customer - Prototype Tester</cite>
+            </blockquote>
+            
+            <div class="award-highlight flex items-center gap-6 mt-10 mb-8">
+                <div>
+                    <div class="flex items-center mb-1">
+                        <span style="font-size:1.3em;line-height:1;" class="mr-2">⭐️</span>
+                        <span class="text-xl font-bold mr-2">Award Winner</span>
+                        <span class="award-badge ml-2">2011</span>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-number">400%</div>
-                        <div class="metric-label">Reduction in Help Desk Calls</div>
-                        <div class="metric-detail">Decrease in support requests</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-number">2011</div>
-                        <div class="metric-label">Industry Recognition</div>
-                        <div class="metric-detail">IMA Outstanding Achievement Award</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-number">2.5x</div>
-                        <div class="metric-label">Conversion Rate</div>
-                        <div class="metric-detail">Increase in online enrollments</div>
-                    </div>
-                    <blockquote class="large-testimonial">
-                        "The new platform makes it easy to compare plans and understand costs—I completed my enrollment in under 30 minutes."
-                        <cite>— BCBSNC Customer</cite>
-                    </blockquote>
+                    <div class="award-desc font-semibold mb-1">Interactive Media Awards Outstanding Achievement Award</div>
+                    <div class="award-sub mb-3">Recognized for excellence in website design and user experience in the insurance category</div>
+                    <a href="https://mediacenter.bcbsnc.com/news/bcbsnc-s-free-online-rate-quote-200154" target="_blank" rel="noopener noreferrer" class="award-link">
+                        View Official Press Release
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Learnings -->
-        <section class="case-study-section">
-            <div class="container">
-                <h2>Key Learnings & Next Steps</h2>
-                <div class="learnings-grid">
-                    <div class="learning-card">
-                        <h4>
-                            <svg style="display: inline; width: 20px; height: 20px; stroke: #667eea; stroke-width: 2; fill: none; margin-right: 8px;" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-                            Mobile Experience
-                        </h4>
-                        <p>Optimize the shopping experience for mobile devices to capture the growing segment of customers shopping on smartphones.</p>
-                    </div>
-                    <div class="learning-card">
-                        <h4>
-                            <svg style="display: inline; width: 20px; height: 20px; stroke: #667eea; stroke-width: 2; fill: none; margin-right: 8px;" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/></svg>
-                            AI-Powered Support
-                        </h4>
-                        <p>Implement AI chat assistance to provide real-time answers to common questions and guide customers through plan selection.</p>
-                    </div>
-                    <div class="learning-card">
-                        <h4>
-                            <svg style="display: inline; width: 20px; height: 20px; stroke: #667eea; stroke-width: 2; fill: none; margin-right: 8px;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
-                            Cost Calculator
-                        </h4>
-                        <p>Develop an advanced cost calculator that helps customers estimate their total healthcare expenses based on expected usage.</p>
-                    </div>
-                    <div class="learning-card">
-                        <h4>
-                            <svg style="display: inline; width: 20px; height: 20px; stroke: #667eea; stroke-width: 2; fill: none; margin-right: 8px;" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-                            Provider Search
-                        </h4>
-                        <p>Integrate provider search functionality to help customers verify their doctors are in-network before selecting a plan.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-</main>
 
-<!-- Navigation -->
-<section class="case-study-navigation bg-light">
-    <div class="container">
-        <div class="nav-links">
-            <a href="copilot-case-study.html" class="nav-link back">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/>
-                </svg>
-                Previous: ECR Copilot
-            </a>
-            <div class="nav-link-group">
-                <a href="index.html" class="nav-link portfolio">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                        <polyline points="9,22 9,12 15,12 15,22"/>
-                    </svg>
-                    Back to Portfolio
-                </a>
-                <a href="pic-case-study.html" class="nav-link next">
-                    Next: Payment Integrity
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
-                    </svg>
-                </a>
-            </div>
+    </main>
+
+    <!-- ───────────── Prev / Next footer ───────────── -->
+    <footer class="bg-gray-50 py-8 border-t">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 flex justify-between text-sm text-gray-600">
+            <a href="copilot-case-study.html" class="hover:text-indigo-600">← ECR Copilot</a>
+            <a href="pic-case-study.html" class="hover:text-indigo-600">Payment Integrity Compass →</a>
         </div>
-    </div>
-</section>
+    </footer>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-left">
-                <div class="logo">SS</div>
-                <p>&copy; 2025 Scott Smith. All rights reserved.</p>
-            </div>
-            <div class="footer-right">
-                <div class="social-links">
-                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                    <a href="#" aria-label="Email">Email</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+    <!-- ───────────── Tiny TOC activator script ───────────── -->
+    <script>
+        const links = document.querySelectorAll('#toc .toc-link');
+        const sections = [...links].map(l => document.querySelector(l.getAttribute('href')));
+        function activate() {
+            const offset = 100;
+            const pos = window.scrollY + offset;
+            let idx = sections.findIndex(s => pos < s.offsetTop + s.offsetHeight);
+            if (idx === -1) idx = sections.length - 1;
+            links.forEach(l => l.classList.remove('is-active'));
+            links[idx].classList.add('is-active');
+        }
+        document.addEventListener('scroll', activate, { passive: true });
+        activate();
+    </script>
 
-<script src="script.js"></script>
-</body>
-</html>
+</body></html>

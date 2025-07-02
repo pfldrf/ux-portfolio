@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+							<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Scott Smith</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="about.css" rel="stylesheet">
+  <style>
+    :root {
+      --brand-from: #4f46e5;
+      --brand-to: #06b6d4;
+      --grey-900: #111827;
+      --grey-700: #374151;
+      --grey-100: #f3f4f6;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, var(--brand-from), var(--brand-to));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .floating-photo {
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .stat-card {
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(6, 182, 212, 0.05));
+      border: 1px solid rgba(79, 70, 229, 0.1);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased about-page">
+  <header class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="font-bold text-lg text-gray-900">Scott Smith</a>
+      <nav class="space-x-8 hidden md:flex">
+        <a href="/" class="text-gray-500 hover:text-gray-900">Work</a>
+        <a href="about.html" class="text-gray-900 font-medium" aria-current="page">About</a>
+        <a href="contact.html" class="text-gray-500 hover:text-gray-900">Contact</a>
+      </nav>
+      <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none" aria-label="Open Menu">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-about relative overflow-hidden py-20">
+    <div class="absolute inset-0 bg-gradient-to-r from-indigo-600/10 to-cyan-500/10"></div>
+    <div class="relative max-w-6xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Content -->
+        <div class="text-white">
+          <div class="inline-block px-4 py-2 bg-white/10 backdrop-blur rounded-full text-sm font-medium mb-6">
+            Clinical Psychology MA • 20+ Years UX Leadership
+          </div>
+          <h1 class="text-4xl lg:text-6xl font-bold mb-6 text-white">
+            I'm the UX leader who <span class="gradient-text">actually understands</span> human behavior.
+          </h1>
+          <p class="text-xl text-slate-100 mb-8 leading-relaxed">
+            Most UX leaders talk about empathy. I have a Master's in Clinical Psychology and 20+ years turning that understanding into products that save lives and drive millions in revenue. C-suite executives across healthcare and fintech trust my counsel on business strategy, consumer psychology, and AI implementation.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/Scott_Smith_Resume.pdf" class="px-8 py-3 bg-white text-slate-900 rounded-full font-semibold hover:bg-slate-100 transition">
+              Download Resume
+            </a>
+            <a href="mailto:hello@scottsmithux.com" class="px-8 py-3 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition">
+              Start a Conversation
+            </a>
+          </div>
+        </div>
+        
+        <!-- Photo with floating effect -->
+        <div class="relative flex justify-center lg:justify-end">
+          <div class="floating-photo relative">
+            <div class="w-80 h-80 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 backdrop-blur">
+              <img src="images/scott.JPG" alt="Scott Smith" class="w-full h-full object-cover">
+            </div>
+            <!-- Floating elements -->
+            <div class="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full opacity-20 animate-pulse"></div>
+            <div class="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-full opacity-30 animate-pulse"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT METRICS -->
+  <section class="py-16 bg-slate-50 text-gray-900">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Quantifiable Impact</h2>
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="stat-card rounded-xl p-6 text-center">
+          <div class="text-3xl font-bold text-indigo-600 mb-2">$28M</div>
+          <div class="text-sm text-gray-600">Revenue recovered for Cleveland Clinic via payment integrity analytics</div>
+        </div>
+        <div class="stat-card rounded-xl p-6 text-center">
+          <div class="text-3xl font-bold text-indigo-600 mb-2">90%</div>
+          <div class="text-sm text-gray-600">Reduction in manual clinical chart review time</div>
+        </div>
+        <div class="stat-card rounded-xl p-6 text-center">
+          <div class="text-3xl font-bold text-indigo-600 mb-2">75+</div>
+          <div class="text-sm text-gray-600">Health systems using my patient safety platforms</div>
+        </div>
+        <div class="stat-card rounded-xl p-6 text-center">
+          <div class="text-3xl font-bold text-indigo-600 mb-2">2,000+</div>
+          <div class="text-sm text-gray-600">Users of my autonomous Web3 racing application</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNIQUE VALUE PROPOSITION -->
+  <section class="py-20 text-gray-900">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-3xl font-bold mb-6 text-gray-900">What makes me different?</h2>
+          <p class="text-lg mb-6 leading-relaxed">
+            I'm not just another UX leader who talks about "user empathy." I have a Master's in Clinical Psychology, which means I actually understand human behavior, cognitive biases, and decision-making at a scientific level.
+          </p>
+          <p class="text-lg mb-8 leading-relaxed">
+            This psychological foundation, combined with 20+ years of enterprise UX and hands-on development skills, creates a rare combination that helps me solve complex business problems, and design products people love to use.
+          </p>
+          
+          <div class="space-y-4">
+                         <div class="flex items-start space-x-4">
+               <div class="w-10 h-10 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                 <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                 </svg>
+               </div>
+               <div>
+                 <h3 class="font-semibold text-lg">Clinical Psychology Foundation</h3>
+                 <p class="text-gray-600">Evidence-based understanding of human behavior, not just design trends</p>
+               </div>
+             </div>
+             <div class="flex items-start space-x-4">
+               <div class="w-10 h-10 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                 <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                   <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                 </svg>
+               </div>
+               <div>
+                 <h3 class="font-semibold text-lg">VP-Level Leadership</h3>
+                 <p class="text-gray-600">Scaled design teams from 1 → 12 while maintaining hands-on craft</p>
+               </div>
+             </div>
+             <div class="flex items-start space-x-4">
+               <div class="w-10 h-10 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                 <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                   <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                 </svg>
+               </div>
+               <div>
+                 <h3 class="font-semibold text-lg">Full-Stack Technical Skills</h3>
+                 <p class="text-gray-600">Build autonomous applications, not just mockups (PostgreSQL, APIs, Web3)</p>
+               </div>
+             </div>
+          </div>
+        </div>
+        
+        <!-- Skills visualization -->
+        <div class="bg-gradient-to-br from-slate-50 to-indigo-50 rounded-2xl p-8">
+          <h3 class="text-xl font-bold mb-6">Expertise Across Domains</h3>
+          <div class="space-y-6">
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">Healthcare & Medical UX</span>
+                <span class="text-sm text-gray-600">Expert</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-gradient-to-r from-indigo-500 to-cyan-500 h-2 rounded-full" style="width: 95%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">Financial Services & Insurance</span>
+                <span class="text-sm text-gray-600">Expert</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-gradient-to-r from-indigo-500 to-cyan-500 h-2 rounded-full" style="width: 90%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">AI/ML Product Design</span>
+                <span class="text-sm text-gray-600">Advanced</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-gradient-to-r from-indigo-500 to-cyan-500 h-2 rounded-full" style="width: 85%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">Full-Stack Development</span>
+                <span class="text-sm text-gray-600">Proficient</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-gradient-to-r from-indigo-500 to-cyan-500 h-2 rounded-full" style="width: 75%"></div>
+              </div>
+    </div>
+    <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">Web3 & Blockchain UX</span>
+                <span class="text-sm text-gray-600">Proficient</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-gradient-to-r from-indigo-500 to-cyan-500 h-2 rounded-full" style="width: 70%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREER HIGHLIGHTS -->
+  <section class="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-16">Career Highlights</h2>
+      <div class="relative">
+        <!-- Timeline line -->
+        <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 to-cyan-500"></div>
+        
+        <div class="space-y-12">
+          <!-- Current Role -->
+          <div class="relative flex items-start space-x-8">
+            <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <!-- SVG icon for VP -->
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><text x="12" y="16" text-anchor="middle" font-size="10" fill="white" font-family="Arial" font-weight="bold">VP</text></svg>
+            </div>
+            <div class="bg-slate-800 rounded-xl p-6 flex-1">
+              <div class="text-sm text-slate-400 mb-2">2017 – Present</div>
+              <h3 class="text-xl font-bold mb-3">VP UX Research & Design • Pascal Metrics</h3>
+              <p class="text-slate-300 mb-4">Leading remote UX team building AI-driven patient safety platforms. Reduced adverse event detection from 32 days to 18 hours, now used by 75+ health systems.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-indigo-600/20 text-indigo-300 rounded-full text-sm">Healthcare AI</span>
+                <span class="px-3 py-1 bg-indigo-600/20 text-indigo-300 rounded-full text-sm">Patient Safety</span>
+                <span class="px-3 py-1 bg-indigo-600/20 text-indigo-300 rounded-full text-sm">Team Leadership</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side Project -->
+          <div class="relative flex items-start space-x-8">
+            <div class="w-16 h-16 bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <!-- SVG icon for project -->
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="4" fill="white"/></svg>
+            </div>
+            <div class="bg-slate-800 rounded-xl p-6 flex-1">
+              <div class="text-sm text-slate-400 mb-2">2022 – Present</div>
+              <h3 class="text-xl font-bold mb-3">Founder • PFL Forms (Web3/AI SaaS)</h3>
+              <p class="text-slate-300 mb-4">Built fully autonomous racing form generator from scratch. ETL → PostgreSQL → dynamic PDFs. Adopted by 2,000+ players and recognized by industry CEOs.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-cyan-600/20 text-cyan-300 rounded-full text-sm">Web3</span>
+                <span class="px-3 py-1 bg-cyan-600/20 text-cyan-300 rounded-full text-sm">Full-Stack Dev</span>
+                <span class="px-3 py-1 bg-cyan-600/20 text-cyan-300 rounded-full text-sm">API Integration</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advisory Board -->
+          <div class="relative flex items-start space-x-8">
+            <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <!-- SVG icon for director -->
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" stroke-width="2" fill="none"/><text x="12" y="16" text-anchor="middle" font-size="10" fill="white" font-family="Arial" font-weight="bold">Dir</text></svg>
+            </div>
+            <div class="bg-slate-800 rounded-xl p-6 flex-1">
+              <div class="text-sm text-slate-400 mb-2">2010 – 2017</div>
+              <h3 class="text-xl font-bold mb-3">Director UX R&D • The Advisory Board Company</h3>
+              <p class="text-slate-300 mb-4">Directed UX for contract management and bundled payment analytics used by 200+ U.S. hospital systems. Built design systems that scaled across multiple enterprise platforms.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-indigo-600/20 text-indigo-300 rounded-full text-sm">Enterprise UX</span>
+                <span class="px-3 py-1 bg-indigo-600/20 text-indigo-300 rounded-full text-sm">Healthcare Analytics</span>
+                <span class="px-3 py-1 bg-indigo-600/20 text-indigo-300 rounded-full text-sm">Design Systems</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BlueCross -->
+          <div class="relative flex items-start space-x-8">
+            <div class="w-16 h-16 bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <!-- SVG icon for award -->
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 16l4-8 4 8" stroke="white" stroke-width="2"/></svg>
+            </div>
+            <div class="bg-slate-800 rounded-xl p-6 flex-1">
+              <div class="text-sm text-slate-400 mb-2">2005 – 2010</div>
+              <h3 class="text-xl font-bold mb-3">Senior UX Designer • BlueCross BlueShield NC</h3>
+              <p class="text-slate-300 mb-4">Led UX for consumer insurance platform redesign. Won IMA Outstanding Achievement Award 2010 for innovative "Get A Quote and Buy Online" application.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-cyan-600/20 text-cyan-300 rounded-full text-sm">Award-Winning</span>
+                <span class="px-3 py-1 bg-cyan-600/20 text-cyan-300 rounded-full text-sm">Consumer UX</span>
+                <span class="px-3 py-1 bg-cyan-600/20 text-cyan-300 rounded-full text-sm">Insurance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION & RECOGNITION -->
+  <section class="py-20 text-gray-900">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16">
+        <div>
+          <h2 class="text-3xl font-bold mb-8 text-gray-900">Education & Credentials</h2>
+          <div class="space-y-6">
+            <div class="border border-gray-200 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-indigo-600 mb-2">M.A. Clinical Psychology</h3>
+              <p class="font-medium">Arizona School of Professional Psychology</p>
+              <p class="text-gray-600 text-sm">Vice President, Student Council</p>
+            </div>
+            <div class="border border-gray-200 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-indigo-600 mb-2">B.A. Psychology (Honors)</h3>
+              <p class="font-medium">University of Rochester</p>
+              <p class="text-gray-600 text-sm">Graduated with Honors</p>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <h2 class="text-3xl font-bold mb-8 text-gray-900">Speaking & Recognition</h2>
+          <div class="space-y-4">
+            <div class="flex items-start space-x-4">
+              <div class="w-2 h-2 bg-indigo-600 rounded-full mt-3 flex-shrink-0"></div>
+              <div>
+                <h3 class="font-semibold">Lloyd's Lab Cohort 12 (Lloyd's of London)</h3>
+                <p class="text-gray-600 text-sm">Invited presenter to global insurance leaders at Lloyd's Lab, the world's leading insurance innovation accelerator. Shared strategies for using real-time detection of patient harm to reduce risk exposure and medical malpractice costs for insurers and health systems.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="w-2 h-2 bg-indigo-600 rounded-full mt-3 flex-shrink-0"></div>
+              <div>
+                <h3 class="font-semibold">"Persuasion by Design" Workshop</h3>
+                <p class="text-gray-600 text-sm">Influencing user behavior through UX design principles</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="w-2 h-2 bg-indigo-600 rounded-full mt-3 flex-shrink-0"></div>
+              <div>
+                <h3 class="font-semibold">NC State Engineering Keynote</h3>
+                <p class="text-gray-600 text-sm">"Usability Engineering 101" for Minorities in Engineering program</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="w-2 h-2 bg-indigo-600 rounded-full mt-3 flex-shrink-0"></div>
+    <div>
+                <h3 class="font-semibold">IMA Outstanding Achievement Award 2010</h3>
+                <p class="text-gray-600 text-sm">Interactive Media Awards - Insurance Category</p>
+              </div>
+    </div>
+            <div class="flex items-start space-x-4">
+              <div class="w-2 h-2 bg-indigo-600 rounded-full mt-3 flex-shrink-0"></div>
+    <div>
+                <h3 class="font-semibold">Professional Memberships</h3>
+                <p class="text-gray-600 text-sm">UPA, Society for Consumer Psychology, North American Mensa</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="py-20 bg-gradient-to-r from-indigo-600 to-cyan-600 text-white text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-4xl font-bold mb-6">Ready to transform your complex product into something people love?</h2>
+      <p class="text-xl mb-8 opacity-90">Let's combine psychological insight with proven UX leadership to drive real business results.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="mailto:hello@scottsmithux.com" class="px-8 py-4 bg-white text-indigo-600 rounded-full font-semibold hover:bg-gray-100 transition">
+          Start a Conversation
+        </a>
+        <a href="/Scott_Smith_Resume.pdf" class="px-8 py-4 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition">
+          Download Resume
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 py-8">
+    <div class="max-w-7xl mx-auto px-6 text-gray-400 text-center">
+      © 2025 Scott Smith. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

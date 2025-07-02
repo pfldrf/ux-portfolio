@@ -31,6 +31,11 @@ body {
     overflow-x: hidden;
 }
 
+/* Ensure proper text color inheritance */
+body * {
+    color: inherit;
+}
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
@@ -56,6 +61,17 @@ p {
     font-size: 1.125rem;
     line-height: 1.7;
     color: #666;
+}
+
+/* Override for dark sections */
+.hero-redesigned p,
+.hero-redesigned h1,
+.hero-redesigned h2,
+.hero-redesigned h3,
+.hero-redesigned h4,
+.hero-redesigned h5,
+.hero-redesigned h6 {
+    color: inherit !important;
 }
 
 /* Layout */
@@ -249,12 +265,11 @@ p {
 
 .project-card {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 550px 1fr;   /* make image column much wider */
     gap: 3rem;
-    grid-template-columns: 340px 1fr;   /* 340 px stays; copy column flexes */
     margin-bottom: 4rem;
     padding: 3rem;
-    background: white;
+    background: none !important;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -275,27 +290,22 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f8f9fa;
-    border-radius: 12px;
-    position: relative;
-    /* overflow: hidden; */
-    min-width: 180px;
-    min-height: unset;
-    height: auto;
-    padding: 1rem;
+    background: none !important;
+    padding: 0 !important;
 }
-/* Make sure the image can't grow wider */
+
 .project-image,
 .project-card.featured .project-image {
     width: 100%;
-    max-width: 340px;
+    max-width: none !important;
 }
 
 /* Fill that box but never stretch */
 .project-image img {
     width: 100%;
-    height: 100%;        /* fill the box */
-    object-fit: cover;   /* crop if needed */
+    height: auto;
+    max-height: 100%;
+    object-fit: cover;
 }
 
 /* FLAER Visual */
@@ -357,9 +367,20 @@ p {
 }
 
 /* Copilot Visual */
+
+.project-image .project-visual.copilot-visual img.copilot-full {
+    width: 100%;
+    height: auto !important;
+    max-height: 460px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+
 .copilot-visual {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    padding: 2rem;
+    background: none !important;
+    padding: 0 !important;
 }
 
 .copilot-interface {
@@ -972,79 +993,259 @@ p {
     border-bottom: 1px solid #f0f0f0;
 }
 
-/* ── HERO SECTION (rev 3) ───────────────────────────────────── */
-.hero{
-    position:relative;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    overflow:hidden;
-    color:#fdfdff;                         /* default body copy */
+/* ── REDESIGNED HERO SECTION ───────────────────────────────────── */
+.hero-redesigned {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
 }
 
-/* centred container with comfy gutters */
-.hero-container{
-    width:100%;
-    max-width:1200px;
-    margin:0 auto;
-    padding:0 clamp(36px,6vw,104px);       /* 36–104 px side space */
+/* Animated background elements */
+.hero-background-elements {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
 }
 
-/* headline – brighter + gradient */
-.hero h1{
-    font-size:clamp(2.9rem,6vw,4.8rem);
-    font-weight:700;
-    line-height:1.1;
-    background:linear-gradient(90deg,#ffdec0 0%,#ffc89b 50%,#9faeff 100%);
+.hero-background-elements::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+    border-radius: 50%;
+    animation: float-1 8s ease-in-out infinite;
+}
+
+.hero-background-elements::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    right: 15%;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: float-2 6s ease-in-out infinite reverse;
+}
+
+/* Container */
+.hero-container-new {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+/* Content */
+.hero-content-centered {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Name badge */
+.hero-badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    color: #e2e8f0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    animation: slideDown 1s ease-out 0.2s both;
+}
+
+/* Main headline */
+.hero-headline {
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #f8fafc !important;
+    margin-bottom: 1.5rem;
+    animation: slideUp 1s ease-out 0.4s both;
+}
+
+.highlight-text {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #06b6d4 100%);
     -webkit-background-clip: text;
     background-clip: text;
-    color:transparent;
-    filter:drop-shadow(0 2px 4px rgba(0,0,0,.35));
-    margin-bottom:.35rem;
+    color: transparent;
+    position: relative;
 }
 
-/* subtitle + blurb */
-.hero-subtitle{
-    font-size:1.35rem;
-    font-weight:600;
-    color:#fcfcff;
-    margin-bottom:1.1rem;
-}
-.hero-description{
-    max-width:640px;
-    color:#f5f7ff;
-    line-height:1.65;
+/* Subtitle */
+.hero-subtitle-new {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #94a3b8 !important;
+    margin-bottom: 1.5rem;
+    animation: slideUp 1s ease-out 0.6s both;
 }
 
-/* ditch View-Consumer-Work CTA (kept for now but hidden) */
-.hero-cta{display:none;}
-
-/* animated BG layer — larger & no visible gaps */
-.hero::before{
-    content:"";
-    position:absolute; inset:0;
-    background:url("images/home-page-background.png") center / 115% auto no-repeat;
-    animation:bg-pan 28s ease-in-out infinite alternate;
-    z-index:-2;
+/* Description */
+.hero-description-new {
+    font-size: 1.25rem;
+    color: #cbd5e1 !important;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    animation: slideUp 1s ease-out 0.8s both;
 }
 
-/* dark wash */
-.hero::after{
-    content:"";
-    position:absolute; inset:0;
-    background:linear-gradient(135deg,
-                rgba(8,16,32,.32) 0%,
-                rgba(8,16,32,.55) 100%);
-    z-index:-1;
+/* Action buttons */
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: slideUp 1s ease-out 1s both;
 }
 
-/* slow zoom with SMALLER left/right shift so image always covers */
-@keyframes bg-pan{
-    from{transform:scale(1.12) translateX(-4%);}
-    to  {transform:scale(1.22) translateX(4%);}
+.cta-primary, .cta-secondary {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
-/* ───────────────────────────────────────────────────────────── */
 
+.cta-primary {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+}
+
+.cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+}
+
+.cta-secondary {
+    background: transparent;
+    color: #e2e8f0 !important;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    animation: bounce 2s infinite 2s;
+}
+
+.scroll-arrow {
+    width: 24px;
+    height: 24px;
+    border-right: 2px solid #94a3b8;
+    border-bottom: 2px solid #94a3b8;
+    transform: rotate(45deg);
+    opacity: 0.7;
+}
+
+/* Animations */
+@keyframes float-1 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+@keyframes float-2 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(-5deg); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .hero-headline {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+    
+    .hero-subtitle-new {
+        font-size: 1.25rem;
+    }
+    
+    .hero-description-new {
+        font-size: 1.125rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-primary, .cta-secondary {
+        width: 200px;
+        text-align: center;
+    }
+    
+    .hero-background-elements::before,
+    .hero-background-elements::after {
+        width: 150px;
+        height: 150px;
+    }
+}
 /* ───────────────────────────────────────────────────────────── */
 
 /* Responsive Design */
@@ -1610,3 +1811,58 @@ p {
     border-radius: 24px;
     margin: 0 auto;
 }
+
+img.project-cover.copilot-full {
+    width: 100%;
+    max-width: 900px;
+    height: auto !important;
+    max-height: 700px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    background: none !important;
+    margin: 0 auto;
+    display: block;
+}
+
+.project-image img {
+    max-height: unset !important;
+}
+
+/* Force dark hero for about page */
+body.about-page section.hero-about, 
+body.about-page section.hero-about * {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%) !important;
+    color: #fff !important;
+}
+
+/* Featured Work: FLAER Mobile AI image adjustment */
+.mt-12 .project-card:first-child img,
+.mt-12 > a:first-child img,
+img[src*="splash-phone.png"] {
+  object-position: center 35% !important;
+}
+
+/* Featured Work: ECR Copilot Assistant image adjustment */
+img[src*="ecr-copilot.png"] {
+  object-fit: contain !important;
+  background: #f3f4f6;
+  padding: 12px 0;
+  border-radius: 0.5rem;
+  height: 192px !important;
+  width: 100%;
+  display: block;
+}
+
+/* Zoom out the RES card image on the homepage */
+img[src*="pascal-risk-logo.png"] {
+  object-fit: contain !important;
+  object-position: center !important;
+  height: 208px !important; /* h-52 */
+  width: 100%;
+  background: #f3f4f6;
+  border-radius: 0.75rem;
+  display: block;
+}
+

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex User Journey Map</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 40px;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+        .journey-map-container {
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 50px;
+            font-size: 3em;
+            font-weight: 700;
+        }
+        .phases {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three main phases */
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .phase-column {
+            background-color: #e9f0f8;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+        .phase-column h2 {
+            text-align: center;
+            color: #2980b9;
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #aed6f1;
+            padding-bottom: 15px;
+        }
+        .step-card {
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        .step-card h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .step-card h3 .material-icons {
+            margin-right: 10px;
+            color: #3498db;
+            font-size: 1.2em;
+        }
+        .step-section {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #eee;
+        }
+        .step-section:first-child {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 0;
+        }
+        .step-section h4 {
+            color: #555;
+            font-size: 1em;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .step-section h4 .material-icons {
+            margin-right: 5px;
+            font-size: 1em;
+            color: #7f8c8d;
+        }
+        .step-section p {
+            font-size: 0.95em;
+            color: #666;
+        }
+        .decision-point {
+            text-align: center;
+            margin: 30px 0;
+            font-weight: bold;
+            color: #e67e22;
+            font-size: 1.1em;
+            position: relative;
+        }
+        .decision-point::before, .decision-point::after {
+            content: '';
+            position: absolute;
+            width: 30%;
+            height: 1px;
+            background-color: #e67e22;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .decision-point::before { left: 0; }
+        .decision-point::after { right: 0; }
+
+        /* Connectors */
+        .connector-line {
+            position: absolute;
+            background-color: #3498db;
+            z-index: 2;
+        }
+        .arrow-head {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid #3498db;
+            z-index: 3;
+        }
+
+        /* Specific positioning for connectors - this would be dynamic in a real tool */
+        /* Example: Step 3 to Decision Point */
+        #conn-3-decision {
+            top: calc(var(--step3-bottom) + 10px);
+            left: 50%;
+            width: 2px;
+            height: 30px;
+            transform: translateX(-50%);
+        }
+        #conn-3-decision .arrow-head {
+            bottom: -8px;
+            left: -7px;
+        }
+
+        /* Decision Point to Path A */
+        #conn-decision-A {
+            top: calc(var(--decision-bottom) + 10px);
+            left: 30%; /* Adjust based on column layout */
+            width: 2px;
+            height: 30px;
+            transform: translateX(-50%);
+        }
+        #conn-decision-A .arrow-head {
+            bottom: -8px;
+            left: -7px;
+        }
+
+        /* Decision Point to Path B */
+        #conn-decision-B {
+            top: calc(var(--decision-bottom) + 10px);
+            left: 70%; /* Adjust based on column layout */
+            width: 2px;
+            height: 30px;
+            transform: translateX(-50%);
+        }
+        #conn-decision-B .arrow-head {
+            bottom: -8px;
+            left: -7px;
+        }
+
+        /* Path A to Step 5 */
+        #conn-A-5 {
+            top: calc(var(--pathA-bottom) + 10px);
+            left: 50%;
+            width: 2px;
+            height: 30px;
+            transform: translateX(-50%);
+        }
+        #conn-A-5 .arrow-head {
+            bottom: -8px;
+            left: -7px;
+        }
+
+        /* Path B to End (conceptual) */
+        #conn-B-end {
+            top: calc(var(--pathB-bottom) + 10px);
+            left: 50%;
+            width: 2px;
+            height: 30px;
+            transform: translateX(-50%);
+        }
+        #conn-B-end .arrow-head {
+            bottom: -8px;
+            left: -7px;
+        }
+
+        /* Visual for emotions/pain points */
+        .emotion-indicator {
+            font-size: 1.8em;
+            text-align: center;
+            margin-top: 15px;
+        }
+        .emotion-indicator.happy { color: #27ae60; }
+        .emotion-indicator.neutral { color: #f39c12; }
+        .emotion-indicator.frustrated { color: #e74c3c; }
+
+    </style>
+</head>
+<body>
+
+    <div class="journey-map-container">
+        <h1>Comprehensive User Journey: Adverse Event Review Process</h1>
+
+        <div class="phases">
+            <div class="phase-column">
+                <h2>Phase 1: Detection & Initial Triage</h2>
+
+                <div class="step-card">
+                    <h3><span class="material-icons">notification_important</span> Review Trigger Details</h3>
+                    <div class="step-section">
+                        <h4><span class="material-icons">person</span> User Actions</h4>
+                        <p>Receives automated alert (e.g., from ML model, manual report). Scans initial summary for patient context and event type.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">computer</span> System Actions</h4>
+                        <p>Generates alert based on predefined rules/ML. Pushes notification to risk manager dashboard/email.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">lightbulb</span> Thoughts</h4>
+                        <p>"Is this a real event? How urgent is it?"</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">sentiment_neutral</span> Feelings</h4>
+                        <p>Neutral, cautious.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">star</span> Opportunities</h4>
+                        <p>Clear, concise alert summaries; direct links to relevant patient data.</p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <h3><span class="material-icons">search</span> Find Corresponding EHR Record</h3>
+                    <div class="step-section">
+                        <h4><span class="material-icons">person</span> User Actions</h4>
+                        <p>Navigates to EHR system, searches for patient by ID or name. Opens patient chart.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">computer</span> System Actions</h4>
+                        <p>Provides quick search functionality. Displays patient overview with recent activity.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">lightbulb</span> Thoughts</h4>
+                        <p>"Where is the relevant information? Is the patient still in the hospital?"</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">sentiment_neutral</span> Feelings</h4>
+                        <p>Slightly anxious if search is slow or data is fragmented.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">star</span> Opportunities</h4>
+                        <p>Deep linking from alert to EHR; unified patient view.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="phase-column">
+                <h2>Phase 2: In-depth Investigation & Analysis</h2>
+
+                <div class="step-card">
+                    <h3><span class="material-icons">fact_check</span> Corroborate Evidence</h3>
+                    <div class="step-section">
+                        <h4><span class="material-icons">person</span> User Actions</h4>
+                        <p>Reviews meds, vitals, notes, radiology, lab results. Looks for patterns, discrepancies, and corroborating evidence of harm.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">computer</span> System Actions</h4>
+                        <p>Presents data from various modules in a consolidated view. Highlights abnormal values or relevant keywords.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">lightbulb</span> Thoughts</h4>
+                        <p>"Is there enough evidence to confirm harm? What's missing?"</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">sentiment_frustrated</span> Feelings</h4>
+                        <p>Frustrated by scattered information, inconsistent documentation.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">star</span> Opportunities</h4>
+                        <p>AI-powered summarization; cross-referencing tools; integrated timeline view.</p>
+                    </div>
+                </div>
+
+                <div class="decision-point">Harm Confirmed?</div>
+
+                <div style="display: flex; justify-content: space-around; gap: 20px;">
+                    <div class="step-card" style="flex: 1;">
+                        <h3><span class="material-icons">check_circle</span> Path A: Harm Confirmed</h3>
+                        <div class="step-section">
+                            <h4><span class="material-icons">person</span> User Actions</h4>
+                            <p>Proceeds to detailed evaluation of the confirmed harm event.</p>
+                        </div>
+                        <div class="step-section">
+                            <h4><span class="material-icons">lightbulb</span> Thoughts</h4>
+                            <p>"Okay, this is serious. Need to be thorough."
+                            </p>
+                        </div>
+                        <div class="emotion-indicator happy">&#128522;</div>
+                    </div>
+                    <div class="step-card" style="flex: 1;">
+                        <h3><span class="material-icons">cancel</span> Path B: No Harm Detected</h3>
+                        <div class="step-section">
+                            <h4><span class="material-icons">person</span> User Actions</h4>
+                            <p>Closes the alert, potentially reclassifies as a near-miss or false positive.</p>
+                        </div>
+                        <div class="step-section">
+                            <h4><span class="material-icons">lightbulb</span> Thoughts</h4>
+                            <p>"Good, false alarm. But why did the system flag it?"</p>
+                        </div>
+                        <div class="emotion-indicator neutral">&#128528;</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="phase-column">
+                <h2>Phase 3: Documentation, Classification & Escalation</h2>
+
+                <div class="step-card">
+                    <h3><span class="material-icons">description</span> Document Findings & Classify Event</h3>
+                    <div class="step-section">
+                        <h4><span class="material-icons">person</span> User Actions</h4>
+                        <p>Enters detailed narrative, selects event type, adds relevant codes. Attaches supporting documents.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">computer</span> System Actions</h4>
+                        <p>Provides structured forms, auto-populates fields, allows file uploads. Ensures data integrity.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">lightbulb</span> Thoughts</h4>
+                        <p>"Is all information captured accurately? Is it clear for future review?"</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">sentiment_neutral</span> Feelings</h4>
+                        <p>Focused, meticulous.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">star</span> Opportunities</h4>
+                        <p>Smart forms with predictive text; voice-to-text for narrative; automated coding suggestions.</p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <h3><span class="material-icons">assessment</span> Assign Severity & Preventability</h3>
+                    <div class="step-section">
+                        <h4><span class="material-icons">person</span> User Actions</h4>
+                        <p>Applies a severity rating (e.g., mild, moderate, severe) and determines if the event was preventable.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">computer</span> System Actions</h4>
+                        <p>Provides clear guidelines/rubrics for rating. Flags high-severity events for immediate review.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">lightbulb</span> Thoughts</h4>
+                        <p>"Is this rating consistent with similar cases? What factors contributed to preventability?"</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">sentiment_frustrated</span> Feelings</h4>
+                        <p>Concerned about potential impact; pressure to be accurate.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">star</span> Opportunities</h4>
+                        <p>AI-assisted rating suggestions; peer review integration.</p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <h3><span class="material-icons">person_add</span> Alert Patient Safety Liaison</h3>
+                    <div class="step-section">
+                        <h4><span class="material-icons">person</span> User Actions</h4>
+                        <p>Initiates alert to the relevant patient safety liaison. Provides summary of findings and recommended next steps.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">computer</span> System Actions</h4>
+                        <p>Routes alert to correct liaison based on event type/severity. Tracks escalation status.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">lightbulb</span> Thoughts</h4>
+                        <p>"Is the right person being notified? Will they have all the context they need?"</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">sentiment_satisfied</span> Feelings</h4>
+                        <p>Relief, sense of completion for this stage.</p>
+                    </div>
+                    <div class="step-section">
+                        <h4><span class="material-icons">star</span> Opportunities</h4>
+                        <p>Automated follow-up reminders; collaborative workspace for liaison.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

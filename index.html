@@ -3,488 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scott Smith - UX Research & Product Design</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Scott Smith — UX Leader</title>
+    <!-- TailwindCSS via CDN for rapid prototyping -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        :root {
+            --grey-900: #111827;
+            --grey-700: #374151;
+            --grey-500: #6B7280;
+            --grey-100: #F3F4F6;
+            --indigo-600: #4F46E5;
+            --indigo-400: #6366F1;
+            --cyan-500: #06B6D4;
+            --amber-400: #FBBF24;
+            --r-lg: 1.25rem;
+            --space-m: 1rem;
+        }
+        .brand-gradient {
+            background: linear-gradient(135deg, var(--indigo-600) 0%, var(--cyan-500) 100%);
+        }
+    </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container">
-            <a href="index.html" class="logo">SS</a>
-            <ul class="nav-menu">
-                <li class="nav-item dropdown">
-                    <a href="#projects" class="nav-link">Work <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-grid">
-                            <a href="flaer-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">🤖</div>
-                                    <div class="preview-content">
-                                        <h5>Frontline Adverse Event Reporting (FLAER)</h5>
-                                        <p>Mobile AI-assisted conversational harm event reporting</p>
-                                        <span class="preview-tag">Healthcare AI</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="aes-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">⚡</div>
-                                    <div class="preview-content">
-                                        <h5>AES Dashboard</h5>
-                                        <p>Real-time risk management</p>
-                                        <span class="preview-tag">Risk Management</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="copilot-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">🧭</div>
-                                    <div class="preview-content">
-                                        <h5>ECR Copilot</h5>
-                                        <p>AI clinical review assistant</p>
-                                        <span class="preview-tag">Healthcare AI</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="health-insurance-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">🏥</div>
-                                    <div class="preview-content">
-                                        <h5>BCBSNC Platform</h5>
-                                        <p>Insurance shopping experience</p>
-                                        <span class="preview-tag">Consumer UX</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="pic-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">💰</div>
-                                    <div class="preview-content">
-                                        <h5>Payment Integrity</h5>
-                                        <p>Revenue cycle management</p>
-                                        <span class="preview-tag">Revenue Cycle</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+<body class="antialiased">
+    <header class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-lg text-gray-900">Scott Smith</a>
+            <nav class="space-x-8 hidden md:flex">
+                <a href="/" class="text-gray-900 font-medium" aria-current="page">Work</a>
+                <a href="about.html" class="text-gray-500 hover:text-gray-900">About</a>
+                <a href="contact.html" class="text-gray-500 hover:text-gray-900">Contact</a>
+            </nav>
+            <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none" aria-label="Open Menu">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
-            <div class="social-links">
-                <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-                <a href="#" aria-label="Email"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg></a>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <div class="mobile-menu-content">
-                <div class="mobile-nav-section">
-                    <h4>Projects</h4>
-                    <a href="flaer-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">🤖</span>
-                        <div>
-                            <div class="mobile-nav-title">FLAER Mobile AI</div>
-                            <div class="mobile-nav-subtitle">Healthcare AI</div>
-                        </div>
-                    </a>
-                    <a href="aes-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">⚡</span>
-                        <div>
-                            <div class="mobile-nav-title">AES Dashboard</div>
-                            <div class="mobile-nav-subtitle">Risk Management</div>
-                        </div>
-                    </a>
-                    <a href="copilot-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">🧭</span>
-                        <div>
-                            <div class="mobile-nav-title">ECR Copilot</div>
-                            <div class="mobile-nav-subtitle">Healthcare AI</div>
-                        </div>
-                    </a>
-                    <a href="health-insurance-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">🏥</span>
-                        <div>
-                            <div class="mobile-nav-title">BCBSNC Platform</div>
-                            <div class="mobile-nav-subtitle">Consumer UX</div>
-                        </div>
-                    </a>
-                    <a href="pic-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">💰</span>
-                        <div>
-                            <div class="mobile-nav-title">Payment Integrity</div>
-                            <div class="mobile-nav-subtitle">Revenue Cycle</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="mobile-nav-section">
-                    <a href="#about" class="mobile-nav-link">About</a>
-                    <a href="#contact" class="mobile-nav-link">Contact</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Scott Smith</h1>
-                    <p class="hero-subtitle">Full Stack Problem Solver</p>
-                    <p class="hero-description">20+ years of UX research and product design experience, transforming complex business challenges into intuitive workflows, delightful experiences, and profitable products.</p>
-                    <div class="hero-cta">
-                        <a href="health-insurance-case-study.html" class="cta-link">
-                            <span>View Consumer UX Work</span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <div class="geometric-shapes">
-                        <div class="shape shape-1"></div>
-                        <div class="shape shape-2"></div>
-                        <div class="shape shape-3"></div>
-                        <div class="shape shape-4"></div>
-                    </div>
-                </div>
-            </div>
         </div>
     </header>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Some of My Favorite Projects</h2>
-            
-            <!-- FLAER Project -->
-            <div class="project-card featured">
-                <div class="project-image">
-                    <img src="images/flaer-splash.png" alt="FLAER demo screen" class="flaer-splash-full-demo" />
-                </div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>Front Line Adverse Event Reporting (FLAER) AI-Assisted Mobile App</h3>
-                        <div class="project-tags">
-                            <span class="tag">AI/ML</span>
-                            <span class="tag">Mobile</span>
-                            <span class="tag">Healthcare</span>
-                        </div>
-                    </div>
-                    <p class="project-description">Conversational mobile app enabling front line clinicians to capture harm & near-miss events in under 2 minutes using on-device LLM for smart follow-ups and validation.</p>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <span class="metric-value">70%</span>
-                            <span class="metric-label">Faster reporting</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">157%</span>
-                            <span class="metric-label">More reports</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">94%</span>
-                            <span class="metric-label">Data completeness</span>
-                        </div>
-                    </div>
-                    <a href="flaer-case-study.html" class="project-link">View Case Study</a>
-                </div>
-            </div>
-
-            <!-- AES Project -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img class="project-cover aes-fit" src="images/aes-dashboard.png"
-                    alt="Adverse-Event Detail Drawer UI">
-                </div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>Risk Event Sentinel</h3>
-                        <div class="project-tags">
-                            <span class="tag">Real-time</span>
-                            <span class="tag">Risk Management</span>
-                            <span class="tag">Dashboard</span>
-                        </div>
-                    </div>
-                    <p class="project-description">Enterprise risk management workflow and analytics application, transforming healthcare systems' patient safety monitoring with automated detection and validation of potential safety and risk events.</p>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <span class="metric-value">89%</span>
-                            <span class="metric-label">Faster detection</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">81%</span>
-                            <span class="metric-label">Fewer false positives</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">18hrs</span>
-                            <span class="metric-label">Detection time</span>
-                        </div>
-                    </div>
-                    <a href="res-case-study.html" class="project-link">View Case Study</a>
-                </div>
-            </div>
-
-            <!-- ECR Copilot Project -->
-            <div class="project-card">
-                <div class="project-image">
-                    <div class="project-visual copilot-visual">
-                        <div class="copilot-interface">
-                            <div class="evidence-timeline">
-                                <div class="evidence-item highlighted">
-                                    <span class="evidence-text">Medication reversal noted</span>
-                                </div>
-                                <div class="evidence-item">
-                                    <span class="evidence-text">Vitals stable</span>
-                                </div>
-                            </div>
-                            <div class="copilot-suggestion">
-                                <div class="suggestion-chip">Missing medication route - would you like me to check orders?</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>ECR Copilot Assistant</h3>
-                        <div class="project-tags">
-                            <span class="tag">AI Assistant</span>
-                            <span class="tag">Clinical Review</span>
-                            <span class="tag">NLP</span>
-                        </div>
-                    </div>
-                    <p class="project-description">Embedded AI assistant for Expert Clinical Review nurses, triaging triggered charts, surfacing key evidence, and enhancing documentation consistency.</p>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <span class="metric-value">56%</span>
-                            <span class="metric-label">Faster verification</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">2x</span>
-                            <span class="metric-label">Charts per shift</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">0.84</span>
-                            <span class="metric-label">Inter-rater reliability</span>
-                        </div>
-                    </div>
-                    <a href="copilot-case-study.html" class="project-link">View Case Study</a>
-                </div>
-            </div>
-
-            <!-- Health Insurance Project -->
-            <div class="project-card">
-                <div class="project-image">
-                    <div class="project-visual health-insurance-visual">
-                        <div class="insurance-interface">
-                            <div class="interface-header">
-                                <h4>Plan Comparison</h4>
-                                <div class="filter-controls">
-                                    <div class="filter-item">Deductible ▼</div>
-                                    <div class="filter-item">Premium ▼</div>
-                                </div>
-                            </div>
-                            <div class="plan-cards">
-                                <div class="mini-plan-card">
-                                    <div class="plan-name">BlueAdvantage</div>
-                                    <div class="plan-cost">$260/mo</div>
-                                </div>
-                                <div class="mini-plan-card selected">
-                                    <div class="plan-name">BlueSaver</div>
-                                    <div class="plan-cost">$180/mo</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>BCBSNC Insurance Platform</h3>
-                        <div class="project-tags">
-                            <span class="tag">Consumer UX</span>
-                            <span class="tag">E-commerce</span>
-                            <span class="tag">Decision Support</span>
-                        </div>
-                    </div>
-                    <p class="project-description">Transforming Blue Cross Blue Shield of North Carolina's online insurance shopping experience to reduce customer support burden and increase self-service enrollments.</p>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <span class="metric-value">175%</span>
-                            <span class="metric-label">Increase in online sales</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">400%</span>
-                            <span class="metric-label">Reduction in support calls</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">2011</span>
-                            <span class="metric-label">IMA Award Winner</span>
-                        </div>
-                    </div>
-                    <a href="health-insurance-case-study.html" class="project-link">View Case Study</a>
-                </div>
-            </div>
-
-            <!-- PIC Project -->
-            <div class="project-card">
-                <div class="project-image">
-                    <div class="project-visual pic-visual">
-                        <div class="pic-interface">
-                            <div class="dashboard-header">
-                                <div class="revenue-metric">
-                                    <span class="metric-title">Monthly Recovery</span>
-                                    <span class="metric-amount">$2.3M</span>
-                                </div>
-                                <div class="success-rate">94% Success Rate</div>
-                            </div>
-                            <div class="variance-list">
-                                <div class="variance-item">
-                                    <span class="variance-icon">🔍</span>
-                                    <span class="variance-text">24 similar claims: $47,230</span>
-                                </div>
-                                <div class="variance-item">
-                                    <span class="variance-icon">📦</span>
-                                    <span class="variance-text">18 pattern matches: $32,150</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>Payment Integrity Compass</h3>
-                        <div class="project-tags">
-                            <span class="tag">Revenue Cycle</span>
-                            <span class="tag">B2B SaaS</span>
-                            <span class="tag">Data Analytics</span>
-                        </div>
-                    </div>
-                    <p class="project-description">Revenue cycle management application helping healthcare systems identify and recover millions in underpaid insurance claims through intelligent data analysis and streamlined workflows.</p>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <span class="metric-value">$28M</span>
-                            <span class="metric-label">Cleveland Clinic recovery</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">75</span>
-                            <span class="metric-label">Health systems adopted</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">90%</span>
-                            <span class="metric-label">Efficiency improvement</span>
-                        </div>
-                    </div>
-                    <a href="pic-case-study.html" class="project-link">View Case Study</a>
+    <!-- ========= HERO ========= -->
+    <section class="hero-redesigned text-white">
+        <div class="hero-background-elements"></div>
+        <div class="hero-container-new">
+                         <div class="hero-content-centered">
+                                  <h1 class="hero-headline text-white">Award-Winning Design Leader Who <span class="highlight-text">Ships Enterprise Products</span> That Delight Users and Drive Revenue</h1>
+                 <p class="hero-subtitle-new text-white">Healthcare • Fintech • Consumer • Web3 • AI • Full-Stack UX & Development</p>
+                 <p class="hero-description-new text-white">20+ years transforming complex systems into elegant experiences—from AI-driven medical platforms to award-winning consumer insurance apps to autonomous Web3 applications.</p>
+                         </div>
+                 <div class="hero-actions">
+                    <a href="/assets/Scott_Smith_Resume.pdf" class="cta-primary">Download Resume</a>
+                    <a href="#projects" class="cta-secondary">View Work</a>
                 </div>
             </div>
         </div>
     </section>
-
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About</h2>
-                    <p class="about-intro">I'm a seasoned UX researcher and product designer with over 20 years of experience transforming complex healthcare challenges into intuitive, user-centered solutions.</p>
-                    
-                    <div class="expertise">
-                        <h3>Core Expertise</h3>
-                        <div class="expertise-grid">
-                            <div class="expertise-item">
-                                <h4>UX Research & Strategy</h4>
-                                <p>Deep user insights through contextual inquiry, journey mapping, and data-driven discovery</p>
-                            </div>
-                            <div class="expertise-item">
-                                <h4>Healthcare Technology</h4>
-                                <p>Specialized in clinical workflows, patient safety systems, and regulatory compliance</p>
-                            </div>
-                            <div class="expertise-item">
-                                <h4>AI/ML Product Design</h4>
-                                <p>Designing intelligent interfaces for complex decision-making and automated workflows</p>
-                            </div>
-                            <div class="expertise-item">
-                                <h4>Cross-functional Leadership</h4>
-                                <p>Leading multidisciplinary teams through discovery, design, and implementation</p>
-                            </div>
-                        </div>
+        <!-- <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div> -->
+    
+    <!-- ========= PROJECTS ========= -->
+    <section class="py-20 bg-gray-50 text-gray-900" id="projects">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-semibold text-center text-gray-900">Recent Work</h2>
+            <div class="mt-12 grid gap-8 md:grid-cols-3">
+                <!-- CARD 1 -->
+                <a href="flaer-case-study.html" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:-translate-y-1 transform transition">
+                    <img src="images/splash-phone.png" alt="FLAER Mobile AI" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="font-semibold text-lg text-gray-900">FLAER Mobile AI</h3>
+                        <p class="mt-2 text-sm text-gray-600">Conversational AI-enhanced event reporting that cut incident reporting time by >70 %</p>
                     </div>
-
-                    <div class="approach">
-                        <h3>Design Philosophy</h3>
-                        <p>I believe in solving problems at their root through deep user empathy, rigorous research, and iterative design. My approach focuses on understanding not just what users do, but why they do it—uncovering the underlying needs that drive meaningful solutions.</p>
+                </a>
+                <!-- CARD 2 -->
+                <a href="res-case-study.html" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:-translate-y-1 transform transition">
+                    <img src="images/pascal-risk.png" alt="Pascal RISK" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="font-semibold text-lg text-gray-900">Pascal RISK</h3>
+                        <p class="mt-2 text-sm text-gray-600">Real‑time risk intelligence and workflow automation reduces legal liability and medical malpractice costs, often while patients are still in the hospital</p>
                     </div>
-                </div>
-                <div class="about-visual">
-                    <div class="process-diagram">
-                        <div class="process-step">
-                            <div class="step-number">01</div>
-                            <div class="step-label">Discover</div>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-number">02</div>
-                            <div class="step-label">Define</div>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-number">03</div>
-                            <div class="step-label">Design</div>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-number">04</div>
-                            <div class="step-label">Deliver</div>
-                        </div>
+                </a>
+                <!-- CARD 3 -->
+                <a href="copilot-case-study.html" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:-translate-y-1 transform transition">
+                    <img src="images/pascal-safety.png" alt="ECR Copilot Assistant" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="font-semibold text-lg text-gray-900">Pascal SAFETY Copilot</h3>
+                        <p class="mt-2 text-sm text-gray-600">AI assistant reduces clinical chart review and harm event reporting time from 28 to 8 minutes</p>
                     </div>
-                </div>
+                </a>
+            </div>
+            <div class="mt-12 text-center">
+                <a href="#all-projects" class="text-indigo-600 font-medium inline-flex items-center group">View more work
+                    <svg class="ml-2 h-4 w-4 group-hover:translate-x-1 transform transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"></path></svg>
+                </a>
             </div>
         </div>
     </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-content">
-                <h2>Let's Work Together</h2>
-                <p>Interested in collaborating on complex UX challenges? I'd love to hear about your project.</p>
-                <div class="contact-links">
-                    <a href="mailto:scott@example.com" class="contact-link primary">
-                        <span>Get in Touch</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="contact-link secondary">View Resume</a>
-                </div>
+    <!-- ========= ABOUT ========= -->
+    <section class="py-20 text-gray-900" id="about">
+        <div class="max-w-7xl mx-auto px-6 md:grid md:grid-cols-2 md:gap-12 items-center">
+            <div>
+                <h2 class="text-3xl font-semibold text-gray-900">About Me</h2>
+                <p class="mt-4 text-gray-700 leading-relaxed">For more than 20 years I've helped healthcare and fintech organizations turn complicated data into profitable products. I combine systems thinking, hands‑on research, and design‑system rigour to ship at scale.</p>
+                <a href="/about.html" class="mt-6 inline-flex items-center text-indigo-600 font-medium group">Read full bio
+                    <svg class="ml-1 h-4 w-4 group-hover:translate-x-1 transform transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"></path></svg>
+                </a>
+            </div>
+            <ul class="mt-10 md:mt-0 space-y-4">
+                <li class="flex items-start"><span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full brand-gradient text-white mr-4">01</span><span><strong>AI/ML Product UX</strong><br>Prompt design, explainability, generative UI</span></li>
+                <li class="flex items-start"><span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full brand-gradient text-white mr-4">02</span><span><strong>Design Systems</strong><br>Token‑driven libraries for enterprise scale</span></li>
+                <li class="flex items-start"><span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full brand-gradient text-white mr-4">03</span><span><strong>Regulated Domains</strong><br>HIPAA, CMS, SOC‑2, FINRA</span></li>
+                <li class="flex items-start"><span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full brand-gradient text-white mr-4">04</span><span><strong>Team Leadership</strong><br>Scaled design & research teams from 1 → 12</span></li>
+            </ul>
+        </div>
+    </section>
+    <!-- ========= CONTACT TEASER ========= -->
+    <section class="py-20 bg-gray-50 text-gray-900" id="contact">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-semibold text-gray-900">Let's build something that saves lives <span class="text-indigo-600">— or revenue</span></h2>
+            <p class="mt-4 text-gray-600 max-w-xl mx-auto">I'm open to senior UX leadership roles and consulting engagements.</p>
+            <div class="mt-8 flex justify-center space-x-4">
+                <a href="mailto:scott@example.com" class="px-8 py-3 rounded-full brand-gradient text-white font-medium shadow-lg">Email me</a>
+                <a href="https://www.linkedin.com/in/scottsmith" class="px-8 py-3 rounded-full border border-indigo-600 text-indigo-600 font-medium">LinkedIn</a>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <div class="logo">SS</div>
-                    <p>&copy; 2025 Scott Smith. All rights reserved.</p>
-                </div>
-                <div class="footer-right">
-                    <div class="social-links">
-                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                        <a href="#" aria-label="Email">Email</a>
-                    </div>
-                </div>
-            </div>
+    <!-- ========= FOOTER ========= -->
+    <footer class="bg-gray-900 py-8">
+        <div class="max-w-7xl mx-auto px-6 text-gray-400 text-center">
+            © 2025 Scott Smith. All rights reserved.
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+    const btn = document.getElementById('mobileMenuBtn');
+    btn?.addEventListener('click', () => alert('Mobile menu coming soon'));
+    </script>
+
 </body>
 </html>

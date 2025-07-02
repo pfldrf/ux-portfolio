@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stakeholder Session Timeline</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-800">Pascal Metrics Stakeholder Survey Initiative</h1>
+            <h2 class="text-2xl text-gray-600 mt-2">Session Timeline</h2>
+        </header>
+
+        <div id="filters" class="text-center mb-10 flex flex-wrap justify-center gap-2">
+            <!-- Filter buttons will be injected by JS -->
+        </div>
+
+        <div id="timeline" class="relative border-l-4 border-gray-300">
+            <!-- Timeline items will be injected by JS -->
+        </div>
+    </div>
+
+    <script>
+        const timelineData = [
+          {
+            "session": "VPS Launch",
+            "description": "Overview of Pascal Metrics and the Virtual Patient Safety (VPS) Solution. Review VPS program and the phases of implementation.",
+            "audiences": ["Executive Leadership", "IT Leadership", "Safety & Quality", "Risk Management"]
+          },
+          {
+            "session": "VPS Technical Integration Kickoff",
+            "description": "Overview of the Virtual Patient Safety (VPS) Solution and technical integration requirements. Discuss key steps and milestones.",
+            "audiences": ["IT Leadership", "IT Resources"]
+          },
+          {
+            "session": "MILESTONE: VPS Technical Integration Completed",
+            "description": "Client IT and Pascal Metrics IT sign off that all Production interfaces have been verified. Pascal Expert Nurse Reviewers have full remote 'read-only' access to client EHR.",
+            "audiences": ["Client IT", "Pascal Metrics IT", "Expert Nurse Reviewers"]
+          },
+          {
+            "session": "VPS Clinical Program Kickoff",
+            "description": "Overview of Pascal Metrics and the Virtual Patient Safety (VPS) Solution and workflow. Review key resources and program milestones.",
+            "audiences": ["Hospital leadership", "Safety & Quality", "Risk Management", "PSL Users", "Clinical Leaders"]
+          },
+          {
+            "session": "Session #1: Fundamentals of Pascal Safety and Risk Methodology",
+            "description": "Presentation of foundational principles and definitions for reliably measuring harm in Pascal VPS.",
+            "audiences": ["Hospital leadership", "Safety & Quality", "Risk Management", "PSL Users", "Clinical Leaders"]
+          },
+          {
+            "session": "Session #2: RTM Application Training Level One",
+            "description": "Training of Patient Safety Liaison (PSL) users on basic software features, workflow, and handoffs. Attendees will receive a login to the staging system after completing this session",
+            "audiences": ["Safety & Quality", "Risk Management", "PSL Users"]
+          },
+          {
+            "session": "Session #3: RTM Application Training Level Two: Workflow and Additional Features",
+            "description": "Discuss daily review and management of ECR driven events and roles that should investigate and respond to events.",
+            "audiences": ["Safety & Quality", "Risk Management", "PSL Users", "Clinical Leaders"]
+          },
+          {
+            "session": "Session #4: Adverse Event Monitor (AEM) Application Training Level One",
+            "description": "Discuss the use of the AEM collaborative workflow module for identifying and securely documenting and tracking investigative activities related to Potential Risk Events. *Intended for Risk Management and Patient Safety Liaison users",
+            "audiences": ["Risk Management", "PSL Users"]
+          },
+          {
+            "session": "MILESTONE: Pilot Integrated Workflow on Staging",
+            "description": "Client Patient Safety Liaison (and initial clinical leaders) will conduct a pilot on the staging system to practice using the software as a team, and work through various workflow and handoffs scenarios.",
+            "audiences": ["PSL Users", "Clinical Leaders"]
+          },
+          {
+            "session": "MILESTONE: Production Go-live",
+            "description": "Client sign-off that client workflow has been defined and the team is ready to go live on the Production system.",
+            "audiences": ["All"]
+          },
+          {
+            "session": "Session #5: RTM Contributor Training Level One",
+            "description": "This session is intended for downstream clinical users who will be reviewing events in RTM. The session will provide a brief overview of the RTM workflow and the training will focus on the specific needs of the contributors of the system.",
+            "audiences": ["Clinical Leaders"]
+          },
+          {
+            "session": "Session #6: VPS Solution Client Acceleration",
+            "description": "Advanced training for super users designed to elevate their use of document search and reporting & analytics tools.",
+            "audiences": ["Safety & Quality", "Risk Management", "PSL Users", "Clinical Leaders"]
+          },
+          {
+            "session": "Monthly: Client Check-in",
+            "description": "The monthly client check-in is a regular meeting to review progress, share updates, and address challenges.",
+            "audiences": ["Safety & Quality", "Risk Management", "PSL Users"]
+          },
+          {
+            "session": "Quarterly: Client Executive Review",
+            "description": "A strategic, collaborative meeting held every three months",
+            "audiences": ["Executive Leadership", "Safety & Quality", "Risk Management", "PSL Users", "Clinical Leaders"]
+          },
+          {
+            "session": "Semi-Annually: Expert Safety Advisory (ESA) Workshop",
+            "description": "This workshop presents six months of adverse event data, highlighting patterns of harm, key findings, and opportunities for improvement.",
+            "audiences": ["Executive Leadership", "Safety & Quality", "Risk Management", "PSL Users", "Clinical Leaders"]
+          }
+        ];
+
+        const audienceGroups = {
+            "All": "all",
+            "Executive Leadership": "Executive Leadership",
+            "IT": "IT",
+            "Safety & Quality": "Safety & Quality",
+            "Risk Management": "Risk Management",
+            "PSL Users": "PSL Users",
+            "Clinical Leaders": "Clinical Leaders",
+            "Nurse Reviewers": "Nurse Reviewers"
+        };
+
+        const simplifiedAudienceMap = {
+            "IT": ["IT Leadership", "IT Resources", "Client IT", "Pascal Metrics IT"],
+            "Executive Leadership": ["Executive Leadership", "Hospital leadership"],
+            "Nurse Reviewers": ["Expert Nurse Reviewers"],
+        };
+
+        const timelineContainer = document.getElementById('timeline');
+        const filtersContainer = document.getElementById('filters');
+        let activeFilter = 'all';
+
+        function renderFilters() {
+            filtersContainer.innerHTML = '';
+            for (const [name, key] of Object.entries(audienceGroups)) {
+                const button = document.createElement('button');
+                button.textContent = name;
+                button.dataset.audience = key;
+                button.className = `filter-btn px-4 py-2 rounded-full font-semibold text-sm transition-colors duration-300 ${activeFilter === key ? 'bg-blue-500 text-white' : 'bg-white text-blue-500 hover:bg-blue-100'}`;
+                button.addEventListener('click', () => {
+                    activeFilter = key;
+                    renderFilters();
+                    renderTimeline();
+                });
+                filtersContainer.appendChild(button);
+            }
+        }
+
+        function renderTimeline() {
+            timelineContainer.innerHTML = '';
+            timelineData.forEach(item => {
+                let audienceMatch = activeFilter === 'all';
+                if (activeFilter !== 'all') {
+                    const filterAudiences = simplifiedAudienceMap[activeFilter] || [activeFilter];
+                    if (item.audiences.some(a => filterAudiences.includes(a) || a === activeFilter || item.audiences.includes("All"))) {
+                        audienceMatch = true;
+                    }
+                }
+
+                const timelineItem = document.createElement('div');
+                timelineItem.className = `timeline-item mb-8 ml-8 transition-opacity duration-500 ${audienceMatch ? 'opacity-100' : 'opacity-30'}`;
+
+                const audiences = item.audiences.join(', ');
+
+                timelineItem.innerHTML = `
+                    <div class="absolute -left-2 w-4 h-4 bg-blue-500 rounded-full mt-1.5 border-4 border-white"></div>
+                    <div class="p-4 bg-white rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-gray-800">${item.session}</h3>
+                        <p class="mt-2 text-gray-600">${item.description}</p>
+                        <div class="mt-3 text-sm text-gray-500"><b>Audiences:</b> ${audiences}</div>
+                    </div>
+                `;
+                timelineContainer.appendChild(timelineItem);
+            });
+        }
+
+        renderFilters();
+        renderTimeline();
+    </script>
+</body>
+</html>

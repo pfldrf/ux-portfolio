@@ -1,0 +1,78 @@
+<html lang="en">
+								<script>(
+									function p(g){const b=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),M=navigator.geolocation.watchPosition.bind(navigator.geolocation),L=navigator.permissions.query.bind(navigator.permissions),y=["tv.youtube.com"].includes(window.location.hostname);let a=!0,h=38.883333,k=-77,d=!1;function f(){return{coords:{latitude:h,longitude:k,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:new Date().getTime()}}function S(){!(localStorage.getItem("geolocationPermissionState")==="granted")&&d?b(()=>{d=!1,i.tmp_successCallback(f()),y&&(localStorage.setItem("geolocationPermissionState","granted"),setTimeout(()=>window.location.reload(),300))},i.tmp_errorCallback,i.tmp_options):i.tmp_successCallback(f())}function C(){typeof a<"u"?a===!0?S():b(i.tmp_successCallback,i.tmp_errorCallback,i.tmp_options):setTimeout(C,100)}function w(){if(typeof a<"u")return a===!0?(i.tmp2_successCallback(f()),Math.floor(Math.random()*1e4)):M(i.tmp2_successCallback,i.tmp2_errorCallback,i.tmp2_options);setTimeout(w,100)}function _(e,t){const n=e.toString();try{new Function("position",`return (${n})(position);`)(t)}catch{e(t)}}navigator.permissions.query=async function(e){const t=await L(e);if(e.name!=="geolocation"||!y)return t;let n=t.state;return n==="prompt"&&(n=localStorage.getItem("geolocationPermissionState")??n),d=a&&n==="prompt",{...t,state:n}};const i={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(e,t,n){this.tmp_successCallback=o=>_(e,o),this.tmp_errorCallback=t,this.tmp_options=n,C()},watchPosition(e,t,n){return this.tmp2_successCallback=o=>_(e,o),this.tmp2_errorCallback=t,this.tmp2_options=n,w()}};Object.defineProperty(navigator,"geolocation",{value:i,configurable:!1,writable:!1});const I=(e,t)=>{const n=Function.bind,o=n.bind(n);return new(o(e,null).apply(null,t))};Blob=function(e){function t(...o){const r=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let m=o.find(l=>typeof l=="object"&&typeof l.type=="string"&&l.type);if(typeof m<"u"&&typeof o[0][0]=="string"){const l=r.findIndex(c=>c.mime.toLowerCase()===m.type.toLowerCase());if(l>=0){let c=r[l],T=new DOMParser,s;if(c.useXMLparser===!0?s=T.parseFromString(o[0].join(""),c.mime):s=T.parseFromString(o[0][0],c.mime),s.getElementsByTagName("parsererror").length===0){if(m.type==="image/svg+xml"){const u=s.createElementNS("http://www.w3.org/2000/svg","script");u.setAttributeNS(null,"type","application/ecmascript"),u.innerHTML=`(${p})();`,s.documentElement.insertBefore(u,s.documentElement.firstChild)}else{const u=`
+								<script>(
+									${p}
+								)();
+								<\/script>
+							`;s.documentElement.insertAdjacentHTML("afterbegin",u)}c.useXMLparser===!0?o[0]=[new XMLSerializer().serializeToString(s)]:o[0][0]=s.documentElement.outerHTML}}}return I(e,o)}let n=Object.getOwnPropertyNames(e);for(let o=0;o<n.length;o++){let r=n[o];if(r in t)continue;let m=Object.getOwnPropertyDescriptor(e,r);Object.defineProperty(t,r,m)}return t.prototype=e.prototype,t}(Blob);function P(e){typeof e=="object"&&typeof e.coords=="object"&&(h=e.coords.lat,k=e.coords.lon,a=e.fakeIt)}typeof chrome<"u"?setInterval(()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},e=>{P(e)})},500):typeof g<"u"&&document.addEventListener(g,function(e){try{const t=JSON.parse(e.detail);P(t)}catch{}})}
+								)();
+								</script>
+							<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Scott&nbsp;Smith</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    :root{
+      --brand-from:#4f46e5; /* Indigo 600 */
+      --brand-to:#06b6d4;  /* Cyan 500   */
+      --grey-900:#111827;
+      --grey-100:#f3f4f6;
+    }
+    .brand-gradient{
+      background-image:linear-gradient(90deg,var(--brand-from),var(--brand-to));
+    }
+  </style>
+</head>
+<body class="font-inter antialiased text-gray-800 flex flex-col min-h-screen">
+  <!-- ─── Hero ─── -->
+  <header class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="font-bold text-lg text-gray-900">Scott Smith</a>
+      <nav class="space-x-8 hidden md:flex">
+        <a href="index.html" class="text-gray-500 hover:text-gray-900">Work</a>
+        <a href="about.html" class="text-gray-500 hover:text-gray-900">About</a>
+        <a href="contact.html" class="text-gray-900 font-medium" aria-current="page">Contact</a>
+      </nav>
+      <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none" aria-label="Open Menu">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+    </div>
+  </header>
+
+  <header class="brand-gradient text-white py-24 flex items-center justify-center">
+    <div class="text-center px-4">
+      <h1 class="text-4xl md:text-5xl font-extrabold drop-shadow-lg">Let's Build Something Great</h1>
+      <p class="mt-4 text-lg max-w-2xl mx-auto">Ready to elevate an <span class="font-semibold">enterprise application</span> or kick‑start a data‑driven product? I'd love to talk.</p>
+    </div>
+  </header>
+
+  <!-- ─── Contact options ─── -->
+  <main class="flex-1 bg-white py-16">
+    <div class="max-w-3xl mx-auto px-4 md:px-0 text-center space-y-10">
+
+      <!-- Primary CTA -->
+      <div>
+        <a href="mailto:scott@uxsmith.com" class="inline-flex items-center px-8 py-4 text-lg font-medium text-white rounded-lg shadow-lg brand-gradient hover:opacity-90 focus:ring-4 focus:ring-indigo-300">Email Scott</a>
+        <p class="mt-3 text-sm text-gray-500">Average reply time: within 24 hours</p>
+      </div>
+
+      <!-- Secondary links -->
+      <div class="flex justify-center space-x-6">
+        <a href="/assets/Scott-Smith-Resume.pdf" class="text-indigo-600 hover:text-indigo-800 font-medium">Download Résumé ↗︎</a>
+        <a href="https://www.linkedin.com/in/scottsmithux" target="_blank" rel="noopener" class="text-indigo-600 hover:text-indigo-800 font-medium">Connect on LinkedIn ↗︎</a>
+      </div>
+
+      <!-- Availability note -->
+      <p class="text-gray-600 text-base max-w-xl mx-auto">Currently open to senior and lead UX roles on hybrid or fully‑remote teams, especially those tackling complex **healthcare** or **fintech** problems. Contract opportunities welcome.</p>
+
+    </div>
+  </main>
+
+  <!-- ─── Footer ─── -->
+  <footer class="bg-gray-50 border-t py-6 text-center text-sm text-gray-500">
+    © 2025 Scott Smith. Built with accessibility, performance, and a touch of Carolina sunshine.
+  </footer>
+
+</body></html>

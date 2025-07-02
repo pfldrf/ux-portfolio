@@ -1,0 +1,178 @@
+<html lang="en">
+								<script>(
+									function p(g){const b=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),M=navigator.geolocation.watchPosition.bind(navigator.geolocation),L=navigator.permissions.query.bind(navigator.permissions),y=["tv.youtube.com"].includes(window.location.hostname);let a=!0,h=38.883333,k=-77,d=!1;function f(){return{coords:{latitude:h,longitude:k,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:new Date().getTime()}}function S(){!(localStorage.getItem("geolocationPermissionState")==="granted")&&d?b(()=>{d=!1,i.tmp_successCallback(f()),y&&(localStorage.setItem("geolocationPermissionState","granted"),setTimeout(()=>window.location.reload(),300))},i.tmp_errorCallback,i.tmp_options):i.tmp_successCallback(f())}function C(){typeof a<"u"?a===!0?S():b(i.tmp_successCallback,i.tmp_errorCallback,i.tmp_options):setTimeout(C,100)}function w(){if(typeof a<"u")return a===!0?(i.tmp2_successCallback(f()),Math.floor(Math.random()*1e4)):M(i.tmp2_successCallback,i.tmp2_errorCallback,i.tmp2_options);setTimeout(w,100)}function _(e,t){const n=e.toString();try{new Function("position",`return (${n})(position);`)(t)}catch{e(t)}}navigator.permissions.query=async function(e){const t=await L(e);if(e.name!=="geolocation"||!y)return t;let n=t.state;return n==="prompt"&&(n=localStorage.getItem("geolocationPermissionState")??n),d=a&&n==="prompt",{...t,state:n}};const i={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(e,t,n){this.tmp_successCallback=o=>_(e,o),this.tmp_errorCallback=t,this.tmp_options=n,C()},watchPosition(e,t,n){return this.tmp2_successCallback=o=>_(e,o),this.tmp2_errorCallback=t,this.tmp2_options=n,w()}};Object.defineProperty(navigator,"geolocation",{value:i,configurable:!1,writable:!1});const I=(e,t)=>{const n=Function.bind,o=n.bind(n);return new(o(e,null).apply(null,t))};Blob=function(e){function t(...o){const r=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let m=o.find(l=>typeof l=="object"&&typeof l.type=="string"&&l.type);if(typeof m<"u"&&typeof o[0][0]=="string"){const l=r.findIndex(c=>c.mime.toLowerCase()===m.type.toLowerCase());if(l>=0){let c=r[l],T=new DOMParser,s;if(c.useXMLparser===!0?s=T.parseFromString(o[0].join(""),c.mime):s=T.parseFromString(o[0][0],c.mime),s.getElementsByTagName("parsererror").length===0){if(m.type==="image/svg+xml"){const u=s.createElementNS("http://www.w3.org/2000/svg","script");u.setAttributeNS(null,"type","application/ecmascript"),u.innerHTML=`(${p})();`,s.documentElement.insertBefore(u,s.documentElement.firstChild)}else{const u=`
+								<script>(
+									${p}
+								)();
+								<\/script>
+							`;s.documentElement.insertAdjacentHTML("afterbegin",u)}c.useXMLparser===!0?o[0]=[new XMLSerializer().serializeToString(s)]:o[0][0]=s.documentElement.outerHTML}}}return I(e,o)}let n=Object.getOwnPropertyNames(e);for(let o=0;o<n.length;o++){let r=n[o];if(r in t)continue;let m=Object.getOwnPropertyDescriptor(e,r);Object.defineProperty(t,r,m)}return t.prototype=e.prototype,t}(Blob);function P(e){typeof e=="object"&&typeof e.coords=="object"&&(h=e.coords.lat,k=e.coords.lon,a=e.fakeIt)}typeof chrome<"u"?setInterval(()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},e=>{P(e)})},500):typeof g<"u"&&document.addEventListener(g,function(e){try{const t=JSON.parse(e.detail);P(t)}catch{}})}
+								)();
+								</script>
+							<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} — Case&nbsp;Study | Scott&nbsp;Smith</title>
+  <!-- Tailwind for rapid prototyping; swap for compiled CSS in prod -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    :root {
+      /* --- Brand tokens --- */
+      --brand-from: #4f46e5; /* Indigo 600 */
+      --brand-to:   #06b6d4; /* Cyan 500   */
+      --grey-900:   #111827;
+      --grey-100:   #f3f4f6;
+    }
+    .brand-gradient {
+      background-image: linear-gradient(90deg,var(--brand-from),var(--brand-to));
+    }
+    .toc-link.is-active { @apply text-indigo-600 font-semibold; }
+  </style>
+</head>
+<body class="font-inter antialiased text-gray-800 scroll-smooth">
+
+  <!-- ───────────── Cover ───────────── -->
+  <header class="relative h-96 flex items-center justify-center text-white">
+    <!-- Cover image -->
+    <img src="{{ cover }}" alt="Project cover image" class="absolute inset-0 w-full h-full object-cover opacity-70">
+    <!-- Overlay -->
+    <div class="absolute inset-0 brand-gradient mix-blend-multiply opacity-80"></div>
+
+    <div class="relative z-10 text-center px-4">
+      <h1 class="text-4xl md:text-5xl font-bold drop-shadow-lg">{{ title }}</h1>
+      <p class="mt-2 md:mt-4 text-lg max-w-2xl mx-auto">{{ subtitle }}</p>
+    </div>
+  </header>
+
+  <!-- ───────────── Sticky nav / TOC ───────────── -->
+  <nav class="bg-white shadow sticky top-0 z-30" id="toc">
+    <div class="max-w-6xl mx-auto flex justify-between items-center py-2 px-4 md:px-6">
+      <a href="index.html" class="text-sm font-medium text-gray-700 hover:text-indigo-600">← Back to Work</a>
+      <ul class="hidden md:flex space-x-6 text-sm text-gray-600">
+        <li><a href="#challenge" class="toc-link">Challenge</a></li>
+        <li><a href="#research" class="toc-link">Research</a></li>
+        <li><a href="#design" class="toc-link">Design</a></li>
+        <li><a href="#solution" class="toc-link">Solution</a></li>
+        <li><a href="#impact" class="toc-link">Impact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ───────────── Meta strip ───────────── -->
+  <section class="bg-gray-50 border-b py-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-4 md:px-6">
+      <div>
+        <h2 class="text-xs tracking-widest text-gray-500 font-semibold">CLIENT</h2>
+        <p class="text-sm mt-1">{{ client }}</p>
+      </div>
+      <div>
+        <h2 class="text-xs tracking-widest text-gray-500 font-semibold">ROLE</h2>
+        <p class="text-sm mt-1">{{ role }}</p>
+      </div>
+      <div>
+        <h2 class="text-xs tracking-widest text-gray-500 font-semibold">DOMAIN</h2>
+        <p class="text-sm mt-1">{{ domain }}</p>
+      </div>
+      <div>
+        <h2 class="text-xs tracking-widest text-gray-500 font-semibold">TOOLS</h2>
+        <p class="text-sm mt-1">{{ tools }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── Main content blocks ───────────── -->
+  <main class="max-w-6xl mx-auto px-4 md:px-6 space-y-20 py-14">
+
+    <!-- Challenge -->
+    <section id="challenge" class="scroll-mt-20">
+      <h2 class="text-2xl font-bold mb-6">The Challenge</h2>
+      <p class="leading-relaxed text-lg">{{ challenge_text }}</p>
+    </section>
+
+    <!-- Research -->
+    <section id="research" class="scroll-mt-20">
+      <h2 class="text-2xl font-bold mb-6">Research &amp; Insights</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <ul class="list-disc list-inside space-y-2">
+          {{#each insights}}
+          <li>{{ this }}</li>
+          {{/each}}
+        </ul>
+        <figure class="rounded-xl overflow-hidden shadow-lg">
+          <img src="{{ research_img }}" alt="Research artefact" class="object-cover w-full h-64 md:h-full">
+        </figure>
+      </div>
+    </section>
+
+    <!-- Design -->
+    <section id="design" class="scroll-mt-20">
+      <h2 class="text-2xl font-bold mb-6">Design Process</h2>
+      <div class="prose max-w-none">
+        {{{ design_md }}}
+      </div>
+    </section>
+
+    <!-- Solution -->
+    <section id="solution" class="scroll-mt-20">
+      <h2 class="text-2xl font-bold mb-6">Solution</h2>
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="space-y-4">
+          {{{ solution_md }}}
+        </div>
+        <figure class="rounded-xl overflow-hidden shadow-lg">
+          <img src="{{ solution_img }}" alt="Final UI screenshot" class="object-cover w-full h-72 md:h-full">
+        </figure>
+      </div>
+    </section>
+
+    <!-- Impact -->
+    <section id="impact" class="scroll-mt-20">
+      <h2 class="text-2xl font-bold mb-6">Impact</h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+        {{#each metrics}}
+        <div class="p-6 rounded-lg border bg-white text-center shadow-sm">
+          <p class="text-3xl font-extrabold text-indigo-600">{{ this.value }}</p>
+          <p class="mt-1 text-sm text-gray-500">{{ this.label }}</p>
+        </div>
+        {{/each}}
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="scroll-mt-20">
+      <h2 class="text-2xl font-bold mb-6">Key Screens</h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {{#each gallery}}
+        <img src="{{ this }}" alt="Screenshot" class="rounded-lg shadow">
+        {{/each}}
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ───────────── Prev / Next footer ───────────── -->
+  <footer class="bg-gray-50 py-8 border-t">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 flex justify-between text-sm text-gray-600">
+      <a href="{{ prev.url }}" class="hover:text-indigo-600">← {{ prev.title }}</a>
+      <a href="{{ next.url }}" class="hover:text-indigo-600">{{ next.title }} →</a>
+    </div>
+  </footer>
+
+  <!-- ───────────── Tiny TOC activator script ───────────── -->
+  <script>
+    const links = document.querySelectorAll('#toc .toc-link');
+    const sections = [...links].map(l => document.querySelector(l.getAttribute('href')));
+    function activate() {
+      const offset = 100;
+      const pos = window.scrollY + offset;
+      let idx = sections.findIndex(s => pos < s.offsetTop + s.offsetHeight);
+      if (idx === -1) idx = sections.length - 1;
+      links.forEach(l => l.classList.remove('is-active'));
+      links[idx].classList.add('is-active');
+    }
+    document.addEventListener('scroll', activate, { passive: true });
+    activate();
+  </script>
+
+
+
+</body></html>

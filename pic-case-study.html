@@ -3,577 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Integrity Compass (PIC) - Case Study | Scott Smith</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Payment Integrity Compass — Case Study | Scott Smith</title>
+    <!-- Tailwind for rapid prototyping; swap for compiled CSS in prod -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="case-study.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container">
-            <a href="index.html" class="logo">SS</a>
-            <ul class="nav-menu">
-                <li class="nav-item dropdown">
-                    <a href="#projects" class="nav-link">Work <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-grid">
-                            <a href="flaer-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">🤖</div>
-                                    <div class="preview-content">
-                                        <h5>FLAER Mobile AI</h5>
-                                        <p>Conversational event reporting</p>
-                                        <span class="preview-tag">Healthcare AI</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="aes-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">⚡</div>
-                                    <div class="preview-content">
-                                        <h5>AES Dashboard</h5>
-                                        <p>Real-time risk management</p>
-                                        <span class="preview-tag">Risk Management</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="copilot-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">🧭</div>
-                                    <div class="preview-content">
-                                        <h5>ECR Copilot</h5>
-                                        <p>AI clinical review assistant</p>
-                                        <span class="preview-tag">Healthcare AI</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="health-insurance-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">🏥</div>
-                                    <div class="preview-content">
-                                        <h5>BCBSNC Platform</h5>
-                                        <p>Insurance shopping experience</p>
-                                        <span class="preview-tag">Consumer UX</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="pic-case-study.html" class="dropdown-item">
-                                <div class="dropdown-preview">
-                                    <div class="preview-icon">💰</div>
-                                    <div class="preview-content">
-                                        <h5>Payment Integrity</h5>
-                                        <p>Revenue cycle management</p>
-                                        <span class="preview-tag">Revenue Cycle</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+<body class="font-inter antialiased text-gray-800 scroll-smooth">
+
+    <header class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-lg text-gray-900">Scott Smith</a>
+            <nav class="space-x-8 hidden md:flex">
+                <a href="/" class="text-gray-900 font-medium" aria-current="page">Work</a>
+                <a href="/about.html" class="text-gray-500 hover:text-gray-900">About</a>
+                <a href="/contact.html" class="text-gray-500 hover:text-gray-900">Contact</a>
+            </nav>
+            <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none" aria-label="Open Menu">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
-            <div class="social-links">
-                <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-                <a href="#" aria-label="Email"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg></a>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <div class="mobile-menu-content">
-                <div class="mobile-nav-section">
-                    <h4>Projects</h4>
-                    <a href="flaer-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">🤖</span>
-                        <div>
-                            <div class="mobile-nav-title">FLAER Mobile AI</div>
-                            <div class="mobile-nav-subtitle">Healthcare AI</div>
-                        </div>
-                    </a>
-                    <a href="aes-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">⚡</span>
-                        <div>
-                            <div class="mobile-nav-title">AES Dashboard</div>
-                            <div class="mobile-nav-subtitle">Risk Management</div>
-                        </div>
-                    </a>
-                    <a href="copilot-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">🧭</span>
-                        <div>
-                            <div class="mobile-nav-title">ECR Copilot</div>
-                            <div class="mobile-nav-subtitle">Healthcare AI</div>
-                        </div>
-                    </a>
-                    <a href="health-insurance-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">🏥</span>
-                        <div>
-                            <div class="mobile-nav-title">BCBSNC Platform</div>
-                            <div class="mobile-nav-subtitle">Consumer UX</div>
-                        </div>
-                    </a>
-                    <a href="pic-case-study.html" class="mobile-nav-item">
-                        <span class="mobile-nav-icon">💰</span>
-                        <div>
-                            <div class="mobile-nav-title">Payment Integrity</div>
-                            <div class="mobile-nav-subtitle">Revenue Cycle</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="mobile-nav-section">
-                    <a href="index.html#about" class="mobile-nav-link">About</a>
-                    <a href="index.html#contact" class="mobile-nav-link">Contact</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Case Study Header -->
-    <header class="case-study-header has-background pic-hero"
-            style="background: linear-gradient(120deg, #1e40af 0%, #6366f1 100%);">
-        <svg class="hero-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
-            <defs>
-                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)"/>
-            <circle cx="200" cy="100" r="60" fill="rgba(255,255,255,0.05)"/>
-            <circle cx="800" cy="250" r="80" fill="rgba(255,255,255,0.03)"/>
-            <circle cx="1000" cy="150" r="40" fill="rgba(255,255,255,0.08)"/>
-        </svg>
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="index.html">Portfolio</a>
-                <span>/</span>
-                <span>Payment Integrity Compass</span>
-            </div>
-            <h1>Payment Integrity Compass (PIC)</h1>
-            <p class="case-study-subtitle">A revenue cycle management application that helps healthcare systems identify and recover millions in underpaid insurance claims through intelligent data analysis and streamlined workflows.</p>
-            
-            <div class="case-study-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Client</span>
-                    <span class="meta-value">Healthcare Revenue Cycle SaaS</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Alpha Partner</span>
-                    <span class="meta-value">Cleveland Clinic Foundation</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">UX Lead</span>
-                </div>
-
-            </div>
         </div>
     </header>
 
-    <!-- Case Study Content -->
-    <main class="case-study-content">
-        <div class="container">
-            <!-- Challenge Section -->
-            <section class="case-study-section">
-                <div class="section-grid">
-                    <div class="section-content">
-                        <h2>The Challenge</h2>
-                        <h3>Inefficient Underpayment Recovery</h3>
-                        <p>Large healthcare systems routinely experience significant underpayments from insurance providers, but lack efficient systems to identify and recover these lost revenues. Traditional claim identification and recovery processes are time-intensive and resource-heavy, making it impractical to pursue smaller-dollar underpayments despite their cumulative impact.</p>
-                        
-                        <div class="challenge-stats">
-                            <div class="stat">
-                                <span class="stat-number">9 min</span>
-                                <span class="stat-label">Per claim review</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">68%</span>
-                                <span class="stat-label">Claims ignored</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">$28M</span>
-                                <span class="stat-label">Annual underpayments</span>
-                            </div>
-                        </div>
-
-                        <div class="challenge-points">
-                            <h4>Key Problems:</h4>
-                            <ul>
-                                <li><strong>Resource Intensive:</strong> Manual claim review taking 9+ minutes per case</li>
-                                <li><strong>Missed Opportunities:</strong> 68% of underpayments ignored due to manual review costs</li>
-                                <li><strong>Lack of Visibility:</strong> No systematic way to track and prioritize recovery efforts</li>
-                                <li><strong>Inefficient Workflows:</strong> No bulk processing capabilities for similar underpayments</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Research Section -->
-            <section class="case-study-section bg-light">
-                <div class="container">
-                    <h2>Discovery & Research</h2>
-                    <div class="research-grid">
-                        <div class="research-method">
-                            <div class="method-icon">
-                                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                            </div>
-                            <h4>User Interviews</h4>
-                            <p>Conducted one-on-one interviews with healthcare executives, revenue cycle managers, and business office staff across multiple health systems including Cleveland Clinic Foundation.</p>
-                            <div class="method-finding">Mental models for primary and secondary personas</div>
-                        </div>
-                        <div class="research-method">
-                            <div class="method-icon">
-                                <svg viewBox="0 0 24 24"><path d="M16 4v4l-4-2-4 2V4M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
-                            </div>
-                            <h4>Process Analysis</h4>
-                            <p>Mapped existing claim review workflows and identified why hospitals don't pursue "small-dollar" underpayments due to manual appeal costs.</p>
-                            <div class="method-finding">68% of claims ignored due to manual review costs</div>
-                        </div>
-                        <div class="research-method">
-                            <div class="method-icon">
-                                <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                            </div>
-                            <h4>Mental Model Development</h4>
-                            <p>Created mental model diagrams based on Indi Young's methodology to understand how revenue recovery specialists and executives think about maximizing contract value.</p>
-                            <div class="method-finding">Tasks, goals, and beliefs mapped for primary users</div>
-                        </div>
-                        <div class="research-method">
-                            <div class="method-icon">
-                                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-                            </div>
-                            <h4>Opportunity Analysis</h4>
-                            <p>Analyzed historical underpayment patterns to identify bulk appeal opportunities and define algorithms for the "opportunity engine".</p>
-                            <div class="method-finding">$28M annual underpayments identified at alpha partner</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Design Process -->
-            <section id="design-process" class="design-process-section">
-                <div class="container">
-                    <h2 class="dp-heading">Design Process</h2>
-                    <div class="dp-timeline">
-                        <!-- STEP 1 -->
-                        <div class="dp-row">
-                            <div class="dp-text">
-                                <span class="step-badge">1</span>
-                                <h3>Mental Model Development</h3>
-                                <p>Created comprehensive mental model diagrams based on user interviews to understand how revenue recovery specialists and executives think about underpayment identification and collection processes.</p>
-                                <ul>
-                                    <li>User interview transcripts and recordings</li>
-                                    <li>Mental model diagrams for primary and secondary personas</li>
-                                    <li>Task, goal, and belief mapping</li>
-                                </ul>
-                            </div>
-                            <figure class="dp-image">
-                                <div class="mental-model-mockup">
-                                    <div class="model-header">Mental Model: Revenue Recovery Specialist</div>
-                                    <div class="model-sections">
-                                        <div class="model-section">
-                                            <h4>Tasks</h4>
-                                            <div class="task-item">Identify underpayments</div>
-                                            <div class="task-item">Validate claim variances</div>
-                                            <div class="task-item">Prepare appeal documentation</div>
-                                        </div>
-                                        <div class="model-section">
-                                            <h4>Goals</h4>
-                                            <div class="goal-item">Maximize recovery ROI</div>
-                                            <div class="goal-item">Reduce manual effort</div>
-                                        </div>
-                                        <div class="model-section">
-                                            <h4>Beliefs</h4>
-                                            <div class="belief-item">"Small dollars aren't worth pursuing"</div>
-                                            <div class="belief-item">"Bulk appeals are more efficient"</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </figure>
-                        </div>
-                        <!-- STEP 2 -->
-                        <div class="dp-row">
-                            <div class="dp-text">
-                                <span class="step-badge">2</span>
-                                <h3>Process Flow Design</h3>
-                                <p>Designed innovative bulk appeal workflow that enables hospitals to collect on "small-dollar" underpayments by grouping similar claims into "Appeal Projects" for efficient processing.</p>
-                                <ul>
-                                    <li>Process flow diagrams</li>
-                                    <li>Bulk appeal workflow design</li>
-                                    <li>Opportunity engine algorithm definition</li>
-                                </ul>
-                            </div>
-                            <figure class="dp-image">
-                                <div class="process-flow-mockup">
-                                    <div class="flow-header">Bulk Appeal Process Flow</div>
-                                    <div class="flow-steps">
-                                        <div class="flow-step">
-                                            <div class="step-icon">🔍</div>
-                                            <div class="step-title">Identify Similar Claims</div>
-                                        </div>
-                                        <div class="flow-arrow">→</div>
-                                        <div class="flow-step">
-                                            <div class="step-icon">📦</div>
-                                            <div class="step-title">Group into Appeal Project</div>
-                                        </div>
-                                        <div class="flow-arrow">→</div>
-                                        <div class="flow-step">
-                                            <div class="step-icon">📄</div>
-                                            <div class="step-title">Generate Bulk Documentation</div>
-                                        </div>
-                                        <div class="flow-arrow">→</div>
-                                        <div class="flow-step">
-                                            <div class="step-icon">💰</div>
-                                            <div class="step-title">Submit for Recovery</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </figure>
-                        </div>
-                        <!-- STEP 3 -->
-                        <div class="dp-row">
-                            <div class="dp-text">
-                                <span class="step-badge">3</span>
-                                <h3>Information Architecture</h3>
-                                <p>Created comprehensive site maps and wireframes for the Variance Explorer dashboard and executive reporting interfaces, focusing on intuitive navigation and data visualization.</p>
-                                <ul>
-                                    <li>Site maps and information architecture</li>
-                                    <li>Wireframes and design specifications</li>
-                                    <li>Interactive dashboard prototypes</li>
-                                </ul>
-                            </div>
-                            <figure class="dp-image">
-                                <div class="wireframe-mockup">
-                                    <div class="wireframe-header">Variance Explorer Dashboard</div>
-                                    <div class="wireframe-content">
-                                        <div class="wireframe-section">
-                                            <div class="section-title">Filter Panel</div>
-                                            <div class="filter-controls">
-                                                <div class="filter-item">Payer ▼</div>
-                                                <div class="filter-item">Date Range ▼</div>
-                                                <div class="filter-item">Amount ▼</div>
-                                            </div>
-                                        </div>
-                                        <div class="wireframe-section">
-                                            <div class="section-title">Variance List</div>
-                                            <div class="variance-items">
-                                                <div class="variance-row">🔍 Similar claims found: 24 items, $47,230</div>
-                                                <div class="variance-row">🔍 Pattern detected: 18 items, $32,150</div>
-                                                <div class="variance-row">🔍 Potential appeals: 31 items, $61,840</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </figure>
-                        </div>
-                        <!-- STEP 4 -->
-                        <div class="dp-row">
-                            <div class="dp-text">
-                                <span class="step-badge">4</span>
-                                <h3>Data Visualization & Algorithm Refinement</h3>
-                                <p>Developed sophisticated data visualization concepts and refined opportunity engine algorithms through iterative testing with Cleveland Clinic Foundation, leading to immediate ROI.</p>
-                                <ul>
-                                    <li>Executive dashboard design with dark theme</li>
-                                    <li>Algorithm refinement for false positive reduction</li>
-                                    <li>Usability testing and optimization</li>
-                                </ul>
-                            </div>
-                            <figure class="dp-image">
-                                <div class="dashboard-mockup">
-                                    <div class="dashboard-header">Executive Dashboard</div>
-                                    <div class="dashboard-metrics">
-                                        <div class="metric-item">
-                                            <div class="metric-value">$2.3M</div>
-                                            <div class="metric-label">Monthly Recovery</div>
-                                        </div>
-                                        <div class="metric-item">
-                                            <div class="metric-value">94%</div>
-                                            <div class="metric-label">Success Rate</div>
-                                        </div>
-                                        <div class="metric-item">
-                                            <div class="metric-value">847</div>
-                                            <div class="metric-label">Active Appeals</div>
-                                        </div>
-                                    </div>
-                                    <div class="dashboard-chart">
-                                        <div class="chart-bars">
-                                            <div class="bar" style="height: 60%"></div>
-                                            <div class="bar" style="height: 85%"></div>
-                                            <div class="bar" style="height: 73%"></div>
-                                            <div class="bar" style="height: 91%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Solution Section -->
-            <section class="case-study-section bg-light">
-                <div class="container">
-                    <h2>The Solution</h2>
-                    <div class="solution-overview">
-                        <div class="solution-text">
-                            <h3>Intelligent Revenue Recovery Platform</h3>
-                            <p>Payment Integrity Compass transforms revenue cycle management from a reactive, manual process to a proactive, data-driven operation. The platform automatically identifies recoverable underpayments while eliminating claims with low recovery potential.</p>
-                            
-                            <div class="architecture-components">
-                                <div class="component">
-                                    <h4>Opportunity Engine</h4>
-                                    <ul>
-                                        <li>Automated claim variance detection</li>
-                                        <li>Recovery probability scoring</li>
-                                        <li>Bulk processing capabilities</li>
-                                        <li>Workflow automation</li>
-                                    </ul>
-                                </div>
-                                <div class="component">
-                                    <h4>Variance Explorer</h4>
-                                    <ul>
-                                        <li>Interactive data visualization</li>
-                                        <li>Advanced filtering and sorting</li>
-                                        <li>Line-item comparison views</li>
-                                        <li>Executive dashboards</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Results Section -->
-            <section class="key-metrics">
-                <div class="container">
-                    <h2>Transformational Impact</h2>
-                    <div class="metrics-grid">
-                        <div class="metric-card">
-                            <div class="metric-number">$28M</div>
-                            <div class="metric-label">Cleveland Clinic Recovery</div>
-                            <div class="metric-detail">Alpha partner success</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-number">75</div>
-                            <div class="metric-label">Health Systems Adopted</div>
-                            <div class="metric-detail">Following successful pilot</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-number">$350M</div>
-                            <div class="metric-label">Total Platform ROI</div>
-                            <div class="metric-detail">Cumulative recovery</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-number">90%</div>
-                            <div class="metric-label">Efficiency Improvement</div>
-                            <div class="metric-detail">Reduced manual review time</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Testimonial Section -->
-            <section class="case-study-section bg-light">
-                <div class="container">
-                    <div class="testimonial-section">
-                        <blockquote class="large-testimonial">
-                            "This application literally prints money!"
-                            <cite>— Managing Director of Contract Management, Cleveland Clinic Foundation</cite>
-                        </blockquote>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Future Opportunities -->
-            <section class="case-study-section">
-                <div class="container">
-                    <h2>Future Opportunities</h2>
-                    <div class="learnings-grid">
-                        <div class="learning-card">
-                            <h4>🔮 Enhanced Intelligence</h4>
-                            <ul>
-                                <li>Predictive underpayment detection</li>
-                                <li>Automated appeal generation</li>
-                                <li>Cross-payer pattern analysis</li>
-                                <li>Advanced recovery scoring</li>
-                            </ul>
-                        </div>
-                        <div class="learning-card">
-                            <h4>🔗 System Integration</h4>
-                            <ul>
-                                <li>EMR system integration</li>
-                                <li>Claims management system sync</li>
-                                <li>Automated payment posting</li>
-                                <li>Real-time reconciliation</li>
-                            </ul>
-                        </div>
-                        <div class="learning-card">
-                            <h4>📱 User Experience</h4>
-                            <ul>
-                                <li>Mobile workflow support</li>
-                                <li>Custom dashboard builder</li>
-                                <li>Advanced visualization tools</li>
-                                <li>Automated reporting</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    <!-- ───────────── Cover ───────────── -->
+    <header class="case-study-header pic-hero has-background" style="background: linear-gradient(135deg, #0f172a 0%, #06b6d4 100%) !important; min-height: 320px; padding: 4rem 0 3rem 0; position: relative; overflow: hidden;">
+        <img src="images/pic-dashboard.png" alt="PIC dashboard background" style="position: absolute; right: 0; bottom: 0; width: 700px; max-width: 70vw; opacity: 0.18; filter: blur(2px); pointer-events: none; z-index: 1;">
+        <div class="container text-left" style="position: relative; z-index: 2;">
+            <h1 class="font-bold drop-shadow-lg text-4xl md:text-5xl mb-4">Payment Integrity Compass (PIC)</h1>
+            <p class="case-study-subtitle max-w-2xl">A revenue cycle management application that helps healthcare systems identify and recover millions in underpaid insurance claims through intelligent data analysis and streamlined workflows.</p>
         </div>
-    </main>
+    </header>
 
-    <!-- Navigation -->
-    <section class="case-study-navigation bg-light">
-        <div class="container">
-            <div class="nav-links">
-                <a href="health-insurance-case-study.html" class="nav-link back">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/>
-                    </svg>
-                    Previous: BCBSNC Platform
-                </a>
-                <div class="nav-link-group">
-                    <a href="index.html" class="nav-link portfolio">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                            <polyline points="9,22 9,12 15,12 15,22"/>
-                        </svg>
-                        Back to Portfolio
-                    </a>
-                    <a href="flaer-case-study.html" class="nav-link next">
-                        Next: FLAER Mobile AI
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
-                        </svg>
-                    </a>
-                </div>
+    <!-- ───────────── Sticky nav / TOC ───────────── -->
+    <nav class="bg-white shadow sticky top-0 z-30" id="toc">
+        <div class="max-w-6xl mx-auto flex justify-between items-center py-2 px-4 md:px-6">
+            <a href="index.html" class="text-sm font-medium text-gray-700 hover:text-indigo-600">← Back to Work</a>
+            <ul class="hidden md:flex space-x-6 text-sm text-gray-600">
+                <li><a href="#challenge" class="toc-link">Challenge</a></li>
+                <li><a href="#research" class="toc-link">Research</a></li>
+                <li><a href="#design" class="toc-link">Design</a></li>
+                <li><a href="#solution" class="toc-link">Solution</a></li>
+                <li><a href="#impact" class="toc-link">Impact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ───────────── Meta strip ───────────── -->
+    <section class="bg-gray-50 border-b py-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-4 md:px-6">
+            <div>
+                <h2 class="text-xs tracking-widest text-gray-500 font-semibold">CLIENT</h2>
+                <p class="text-sm mt-1">Healthcare Revenue Cycle SaaS</p>
+            </div>
+            <div>
+                <h2 class="text-xs tracking-widest text-gray-500 font-semibold">ALPHA PARTNER</h2>
+                <p class="text-sm mt-1">Cleveland Clinic Foundation</p>
+            </div>
+            <div>
+                <h2 class="text-xs tracking-widest text-gray-500 font-semibold">ROLE</h2>
+                <p class="text-sm mt-1">UX Lead</p>
+            </div>
+            <div>
+                <h2 class="text-xs tracking-widest text-gray-500 font-semibold">TOOLS</h2>
+                <p class="text-sm mt-1">Mental Models, Data Analysis, Figma</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <div class="logo">SS</div>
-                    <p>&copy; 2025 Scott Smith. All rights reserved.</p>
-                </div>
-                <div class="footer-right">
-                    <div class="social-links">
-                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                        <a href="#" aria-label="Email">Email</a>
+    <!-- ───────────── Main content blocks ───────────── -->
+    <main class="case-study-main max-w-6xl mx-auto px-4 md:px-6 space-y-20 py-14">
+
+        <!-- Challenge -->
+        <section id="challenge" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">The Challenge</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold">Inefficient Underpayment Recovery</h3>
+                    <p class="leading-relaxed text-lg">Large healthcare systems routinely experience significant underpayments from insurance providers, but lack efficient systems to identify and recover these lost revenues. Traditional claim identification and recovery processes are time-intensive and resource-heavy, making it impractical to pursue smaller-dollar underpayments despite their cumulative impact.</p>
+                    
+                    <div class="grid grid-cols-3 gap-4 mt-6">
+                        <div class="text-center p-4 bg-white rounded-lg shadow">
+                            <div class="text-2xl font-bold text-indigo-600">9 min</div>
+                            <div class="text-sm text-gray-600">Per claim review</div>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-lg shadow">
+                            <div class="text-2xl font-bold text-indigo-600">68%</div>
+                            <div class="text-sm text-gray-600">Claims ignored</div>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-lg shadow">
+                            <div class="text-2xl font-bold text-indigo-600">$28M</div>
+                            <div class="text-sm text-gray-600">Annual underpayments</div>
+                        </div>
                     </div>
                 </div>
+                <figure class="rounded-xl overflow-hidden shadow-lg bg-white p-6">
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-center">Traditional Recovery Process</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center text-sm">📊</div>
+                                <div>
+                                    <h5 class="font-medium">Manual Claim Review</h5>
+                                    <p class="text-sm text-gray-600">Staff manually reviews each claim for variances</p>
+                                    <span class="text-xs text-red-600">9 minutes per claim</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center text-sm">❌</div>
+                                <div>
+                                    <h5 class="font-medium">Low-Value Claims Ignored</h5>
+                                    <p class="text-sm text-gray-600">Small dollar amounts not worth manual effort</p>
+                                    <span class="text-xs text-red-600">68% abandoned</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center text-sm">💰</div>
+                                <div>
+                                    <h5 class="font-medium">Revenue Lost</h5>
+                                    <p class="text-sm text-gray-600">Millions in recoverable funds left unclaimed</p>
+                                    <span class="text-xs text-red-600">$28M annually</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
             </div>
+        </section>
+
+        <!-- Research -->
+        <section id="research" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">Research & Insights</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <ul class="list-disc list-inside space-y-4 text-lg">
+                    <li><strong>User Interviews:</strong> Conducted one-on-one interviews with healthcare executives, revenue cycle managers, and business office staff across multiple health systems including Cleveland Clinic Foundation. Mental models for primary and secondary personas</li>
+                    <li><strong>Process Analysis:</strong> Mapped existing claim review workflows and identified why hospitals don't pursue "small-dollar" underpayments due to manual appeal costs. 68% of claims ignored due to manual review costs</li>
+                    <li><strong>Mental Model Development:</strong> Created mental model diagrams based on Indi Young's methodology to understand how revenue recovery specialists and executives think about maximizing contract value. Tasks, goals, and beliefs mapped for primary users</li>
+                    <li><strong>Opportunity Analysis:</strong> Analyzed historical underpayment patterns to identify bulk appeal opportunities and define algorithms for the "opportunity engine". $28M annual underpayments identified at alpha partner</li>
+                </ul>
+                <figure class="rounded-xl overflow-hidden shadow-lg">
+                    <img src="images/pic-process-flow.png" alt="Revenue cycle dashboard research" class="object-contain w-full h-64 md:h-full">
+                </figure>
+            </div>
+        </section>
+
+        <!-- Design -->
+        <section id="design" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">Design Process</h2>
+            <div class="space-y-12">
+                <!-- Step 1 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">1</div>
+                            <h3 class="text-xl font-semibold mb-0">Mental Model Development</h3>
+                        </div>
+                        <p class="mb-4">Created comprehensive mental model diagrams based on user interviews to understand how revenue recovery specialists and executives think about underpayment identification and collection processes.</p>
+                        <ul class="list-disc list-inside space-y-1 text-gray-700">
+                            <li>User interview transcripts and recordings</li>
+                            <li>Mental model diagrams for primary and secondary personas</li>
+                            <li>Task, goal, and belief mapping</li>
+                        </ul>
+                    </div>
+                    <figure class="rounded-xl overflow-hidden shadow-lg bg-white p-6">
+                        <div class="space-y-4">
+                            <div class="text-center font-semibold">Mental Model: Revenue Recovery Specialist</div>
+                            <div class="grid grid-cols-3 gap-3">
+                                <div class="p-3 bg-indigo-50 rounded text-center text-sm">
+                                    <h5 class="font-medium mb-2">Tasks</h5>
+                                    <div class="text-xs text-gray-600 space-y-1">
+                                        <div>Identify underpayments</div>
+                                        <div>Validate claim variances</div>
+                                        <div>Prepare appeal documentation</div>
+                                    </div>
+                                </div>
+                                <div class="p-3 bg-indigo-50 rounded text-center text-sm">
+                                    <h5 class="font-medium mb-2">Goals</h5>
+                                    <div class="text-xs text-gray-600 space-y-1">
+                                        <div>Maximize recovery ROI</div>
+                                        <div>Reduce manual effort</div>
+                                    </div>
+                                </div>
+                                <div class="p-3 bg-indigo-50 rounded text-center text-sm">
+                                    <h5 class="font-medium mb-2">Beliefs</h5>
+                                    <div class="text-xs text-gray-600 space-y-1">
+                                        <div>"Small dollars aren't worth pursuing"</div>
+                                        <div>"Bulk appeals are more efficient"</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution -->
+        <section id="solution" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">Solution</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold">Intelligent Revenue Recovery Platform</h3>
+                    <p class="leading-relaxed">Payment Integrity Compass transforms revenue cycle management from a reactive, manual process to a proactive, data-driven operation. The platform automatically identifies recoverable underpayments while eliminating claims with low recovery potential.</p>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-indigo-50 rounded-lg">
+                            <h4 class="font-semibold mb-2">Opportunity Engine</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• Automated claim variance detection</li>
+                                <li>• Recovery probability scoring</li>
+                                <li>• Bulk processing capabilities</li>
+                                <li>• Workflow automation</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 bg-indigo-50 rounded-lg">
+                            <h4 class="font-semibold mb-2">Variance Explorer</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• Interactive data visualization</li>
+                                <li>• Advanced filtering and sorting</li>
+                                <li>• Line-item comparison views</li>
+                                <li>• Executive dashboards</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <figure class="rounded-xl overflow-hidden shadow-lg">
+                    <img src="images/pic-dashboard.png" alt="Payment Integrity Compass interface" class="object-cover w-full h-72 md:h-full">
+                </figure>
+            </div>
+        </section>
+
+        <!-- Impact -->
+        <section id="impact" class="scroll-mt-20">
+            <h2 class="text-2xl font-bold mb-6">Impact</h2>
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                <div class="p-6 rounded-lg border bg-white text-center shadow-sm">
+                    <p class="text-3xl font-extrabold text-indigo-600">$28M</p>
+                    <p class="mt-1 text-sm text-gray-500">Cleveland Clinic Recovery</p>
+                    <p class="text-xs text-gray-400">Alpha partner success</p>
+                </div>
+                <div class="p-6 rounded-lg border bg-white text-center shadow-sm">
+                    <p class="text-3xl font-extrabold text-indigo-600">75</p>
+                    <p class="mt-1 text-sm text-gray-500">Health Systems Adopted</p>
+                    <p class="text-xs text-gray-400">Following successful pilot</p>
+                </div>
+                <div class="p-6 rounded-lg border bg-white text-center shadow-sm">
+                    <p class="text-3xl font-extrabold text-indigo-600">$350M</p>
+                    <p class="mt-1 text-sm text-gray-500">Total Platform ROI</p>
+                    <p class="text-xs text-gray-400">Cumulative recovery</p>
+                </div>
+                <div class="p-6 rounded-lg border bg-white text-center shadow-sm">
+                    <p class="text-3xl font-extrabold text-indigo-600">90%</p>
+                    <p class="mt-1 text-sm text-gray-500">Efficiency Improvement</p>
+                    <p class="text-xs text-gray-400">Reduced manual review time</p>
+                </div>
+            </div>
+            <blockquote class="p-6 bg-indigo-50 border-l-4 border-indigo-600 italic text-lg">
+                "This application literally prints money!"
+                <cite class="block mt-2 text-sm text-gray-600">— Managing Director of Contract Management, Cleveland Clinic Foundation</cite>
+            </blockquote>
+        </section>
+
+    </main>
+
+    <!-- ───────────── Prev / Next footer ───────────── -->
+    <footer class="bg-gray-50 py-8 border-t">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 flex justify-between text-sm text-gray-600">
+            <a href="health-insurance-case-study.html" class="hover:text-indigo-600">← BCBSNC Platform</a>
+            <a href="flaer-case-study.html" class="hover:text-indigo-600">FLAER Mobile AI →</a>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- ───────────── Tiny TOC activator script ───────────── -->
+    <script>
+        const links = document.querySelectorAll('#toc .toc-link');
+        const sections = [...links].map(l => document.querySelector(l.getAttribute('href')));
+        function activate() {
+            const offset = 100;
+            const pos = window.scrollY + offset;
+            let idx = sections.findIndex(s => pos < s.offsetTop + s.offsetHeight);
+            if (idx === -1) idx = sections.length - 1;
+            links.forEach(l => l.classList.remove('is-active'));
+            links[idx].classList.add('is-active');
+        }
+        document.addEventListener('scroll', activate, { passive: true });
+        activate();
+    </script>
+
+</body></html>
