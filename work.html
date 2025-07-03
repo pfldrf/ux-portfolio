@@ -32,8 +32,8 @@
 <body class="font-sans antialiased">
     
     <!-- Persistent Top Navigation -->
-    <header class="bg-white shadow-md sticky top-0 z-40">
-      <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <header class="bg-white shadow-md sticky top-0 z-40 w-full">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="index.html" class="font-bold text-lg text-gray-900">Scott Smith</a>
         <nav class="space-x-8 hidden md:flex items-center relative" id="mainNav">
           <div class="relative group">
@@ -53,36 +53,40 @@
           <a href="about.html" class="text-gray-500 hover:text-gray-900">About</a>
           <a href="contact.html" class="text-gray-500 hover:text-gray-900">Contact</a>
         </nav>
-        <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none" aria-label="Open Menu">
+        <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none bg-white rounded p-2" aria-label="Open Menu">
+          <span class="sr-only">Open main menu</span>
           <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
-      </nav>
-      <!-- Mobile menu -->
-      <div id="mobileMenu" class="fixed inset-0 bg-white z-40 flex-col items-center justify-center hidden">
-        <button id="closeMobileMenu" class="absolute top-6 right-6 text-gray-900" aria-label="Close Menu">
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
-        <ul class="flex flex-col space-y-6 text-lg mt-24">
-          <li class="relative">
-            <button class="nav-link text-gray-900 font-medium flex items-center focus:outline-none" id="mobileWorkDropdownBtn">
-              Work
-              <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div id="mobileWorkDropdown" class="hidden flex-col mt-2 bg-gray-50 rounded-lg shadow-lg py-2">
-              <div class="px-4 py-2 text-xs text-gray-500 uppercase tracking-wider">Recent Work</div>
-              <a href="copilot-case-study.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Clinical Copilot</a>
-              <a href="flaer-case-study.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">FLAER Mobile AI</a>
-              <a href="pascal-risk-case-study.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Pascal RISK</a>
-              <div class="px-4 py-2 text-xs text-gray-500 uppercase tracking-wider mt-2">Legacy Work</div>
-              <a href="health-insurance-case-study.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">BCBSNC Insurance Platform</a>
-              <a href="pic-case-study.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Payment Integrity Compass</a>
-              <a href="work.html" class="block px-4 py-2 text-indigo-600 hover:bg-indigo-50 font-semibold mt-2">All Work →</a>
-            </div>
-          </li>
-          <li><a href="about.html" class="nav-link text-gray-700 hover:text-gray-900">About</a></li>
-          <li><a href="contact.html" class="nav-link text-gray-700 hover:text-gray-900">Contact</a></li>
-        </ul>
       </div>
+      <!-- Mobile menu overlay -->
+      <div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-40 z-60 hidden transition-opacity duration-200"></div>
+      <!-- Mobile menu drawer -->
+      <nav id="mobileMenuDrawer" class="fixed top-0 right-0 h-full w-72 max-w-full bg-white shadow-lg z-60 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col">
+        <div class="flex items-center justify-between px-6 py-4 border-b">
+          <span class="font-bold text-lg text-gray-900">Scott Smith</span>
+          <button id="closeMobileMenu" class="text-gray-900 focus:outline-none" aria-label="Close Menu">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+        <div class="flex-1 overflow-y-auto px-6 py-4">
+          <div>
+            <button id="mobileWorkDropdownBtn" class="w-full flex items-center justify-between text-gray-900 font-medium py-2 focus:outline-none">
+              <span>Work</span>
+              <svg id="mobileWorkDropdownIcon" class="h-4 w-4 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="mobileWorkDropdownMenu" class="pl-4 mt-1 space-y-1 hidden">
+              <a href="flaer-case-study.html" class="block py-2 text-gray-700 hover:text-indigo-600">FLAER Mobile Incident Reporting</a>
+              <a href="pascal-risk-case-study.html" class="block py-2 text-gray-700 hover:text-indigo-600">Pascal RISK</a>
+              <a href="copilot-case-study.html" class="block py-2 text-gray-700 hover:text-indigo-600">Pascal SAFETY Copilot</a>
+              <a href="health-insurance-case-study.html" class="block py-2 text-gray-700 hover:text-indigo-600">BCBSNC Insurance Platform</a>
+              <a href="pic-case-study.html" class="block py-2 text-gray-700 hover:text-indigo-600">Payment Integrity Compass</a>
+              <a href="work.html" class="block py-2 text-gray-700 hover:text-indigo-600 font-bold">All Case Studies</a>
+            </div>
+          </div>
+          <a href="about.html" class="block py-2 text-gray-700 hover:text-indigo-600">About</a>
+          <a href="contact.html" class="block py-2 text-gray-700 hover:text-indigo-600">Contact</a>
+        </div>
+      </nav>
     </header>
 
     <!-- Hero Section -->
@@ -300,21 +304,31 @@
             }
           });
         }
-        // Mobile menu toggle
+        // Mobile menu logic
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuDrawer = document.getElementById('mobileMenuDrawer');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
         const closeMobileMenu = document.getElementById('closeMobileMenu');
-        mobileMenuBtn && mobileMenuBtn.addEventListener('click', () => {
-          mobileMenu.classList.remove('hidden');
-        });
-        closeMobileMenu && closeMobileMenu.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-        });
-        // Mobile Work dropdown
         const mobileWorkDropdownBtn = document.getElementById('mobileWorkDropdownBtn');
-        const mobileWorkDropdown = document.getElementById('mobileWorkDropdown');
-        mobileWorkDropdownBtn && mobileWorkDropdownBtn.addEventListener('click', () => {
-          mobileWorkDropdown.classList.toggle('hidden');
+        const mobileWorkDropdownMenu = document.getElementById('mobileWorkDropdownMenu');
+        const mobileWorkDropdownIcon = document.getElementById('mobileWorkDropdownIcon');
+
+        function openMobileMenu() {
+            mobileMenuDrawer.classList.remove('translate-x-full');
+            mobileMenuOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMenu() {
+            mobileMenuDrawer.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        closeMobileMenu.addEventListener('click', closeMenu);
+        mobileMenuOverlay.addEventListener('click', closeMenu);
+        mobileWorkDropdownBtn.addEventListener('click', function() {
+            mobileWorkDropdownMenu.classList.toggle('hidden');
+            mobileWorkDropdownIcon.classList.toggle('rotate-180');
         });
       });
     </script>

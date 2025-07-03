@@ -10,8 +10,8 @@
 </head>
 <body class="font-inter antialiased text-gray-800 scroll-smooth">
 
-    <header class="bg-white shadow-md sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <header class="bg-white shadow-md sticky top-0 z-50 !sticky !top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
             <a href="index.html" class="font-bold text-lg text-gray-900">Scott Smith</a>
             <nav class="space-x-8 hidden md:flex items-center relative" id="mainNav">
                 <div class="relative group">
@@ -31,11 +31,44 @@
                 <a href="about.html" class="text-gray-500 hover:text-gray-900">About</a>
                 <a href="contact.html" class="text-gray-500 hover:text-gray-900">Contact</a>
             </nav>
-            <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none" aria-label="Open Menu">
+            <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none bg-white/80 backdrop-blur-sm rounded-lg p-2 shadow-lg" aria-label="Open Menu">
                 <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-60 hidden md:hidden"></div>
+    
+    <!-- Mobile Menu Drawer -->
+    <div id="mobileMenuDrawer" class="fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-60 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+        <div class="flex items-center justify-between p-6 border-b border-gray-200">
+            <h2 class="text-xl font-bold text-gray-900">Menu</h2>
+            <button id="closeMobileMenuBtn" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <nav class="p-6 space-y-6">
+            <div class="space-y-4">
+                <div class="border-b border-gray-200 pb-4">
+                    <button id="mobileWorkDropdownBtn" class="flex items-center justify-between w-full text-left text-lg font-semibold text-gray-900 focus:outline-none">
+                        Work
+                        <svg id="mobileWorkDropdownIcon" class="h-5 w-5 transform transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="mobileWorkDropdownMenu" class="mt-4 space-y-3 hidden">
+                        <a href="flaer-case-study.html" class="block text-gray-700 hover:text-indigo-600 font-medium">FLAER Mobile Incident Reporting</a>
+                        <a href="pascal-risk-case-study.html" class="block text-gray-700 hover:text-indigo-600 font-medium">Pascal RISK</a>
+                        <a href="copilot-case-study.html" class="block text-gray-700 hover:text-indigo-600 font-medium">Pascal SAFETY Copilot</a>
+                        <a href="health-insurance-case-study.html" class="block text-gray-700 hover:text-indigo-600 font-medium">BCBSNC Insurance Platform</a>
+                        <a href="pic-case-study.html" class="block text-gray-700 hover:text-indigo-600 font-medium">Payment Integrity Compass</a>
+                        <a href="work.html" class="block text-gray-700 hover:text-indigo-600 font-bold">All Case Studies</a>
+                    </div>
+                </div>
+                <a href="about.html" class="block text-lg font-semibold text-gray-900 hover:text-indigo-600">About</a>
+                <a href="contact.html" class="block text-lg font-semibold text-gray-900 hover:text-indigo-600">Contact</a>
+            </div>
+        </nav>
+    </div>
 
     <!-- ───────────── Cover ───────────── -->
     <header class="case-study-header flaer-hero has-background" style="background: linear-gradient(135deg, #0f172a 0%, #06b6d4 100%) !important; min-height: 320px; padding: 4rem 0 3rem 0; position: relative; overflow: hidden;">
@@ -317,7 +350,7 @@
                 </div>
             </div>
             <blockquote class="p-6 bg-indigo-50 border-l-4 border-indigo-600 italic text-lg">
-                "That is sooo much easier. It's really amazing. I'll absolutely use this. Everyone will. I wonder if [management] is going to be able to handle all the reports they're probably going to get"
+                "That is sooo much easier. It's really amazing. I'd absolutely use this. Everyone will. Are the nurse managers gonna be able to handle all the reports they're gonna get? There's a lot of stuff that should be reported that isnt."
                 <cite class="block mt-2 text-sm text-gray-600">— RN, Pilot User</cite>
             </blockquote>
         </section>
@@ -369,6 +402,54 @@
                 }
             });
         }
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuDrawer = document.getElementById('mobileMenuDrawer');
+        const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn');
+        const mobileWorkDropdownBtn = document.getElementById('mobileWorkDropdownBtn');
+        const mobileWorkDropdownMenu = document.getElementById('mobileWorkDropdownMenu');
+        const mobileWorkDropdownIcon = document.getElementById('mobileWorkDropdownIcon');
+
+        function openMobileMenu() {
+            mobileMenuOverlay.classList.remove('hidden');
+            mobileMenuDrawer.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenuOverlay.classList.add('hidden');
+            mobileMenuDrawer.classList.add('translate-x-full');
+            document.body.style.overflow = '';
+        }
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', openMobileMenu);
+        }
+
+        if (closeMobileMenuBtn) {
+            closeMobileMenuBtn.addEventListener('click', closeMobileMenu);
+        }
+
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        }
+
+        // Mobile work dropdown
+        if (mobileWorkDropdownBtn && mobileWorkDropdownMenu && mobileWorkDropdownIcon) {
+            mobileWorkDropdownBtn.addEventListener('click', function() {
+                mobileWorkDropdownMenu.classList.toggle('hidden');
+                mobileWorkDropdownIcon.classList.toggle('rotate-180');
+            });
+        }
+
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
     </script>
 
 </body></html>

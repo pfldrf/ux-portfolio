@@ -27,7 +27,7 @@
   </style>
 </head>
 <body class="font-sans antialiased about-page">
-  <header class="bg-white shadow-md sticky top-0 z-40">
+  <header class="bg-white shadow-md sticky top-0 z-40 w-full">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="index.html" class="font-bold text-lg text-gray-900">Scott Smith</a>
       <nav class="space-x-8 hidden md:flex items-center relative" id="mainNav">
@@ -48,10 +48,40 @@
         <a href="about.html" class="text-gray-500 hover:text-gray-900">About</a>
         <a href="contact.html" class="text-gray-500 hover:text-gray-900">Contact</a>
       </nav>
-      <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none" aria-label="Open Menu">
+      <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none bg-white/80 shadow-lg rounded p-2" aria-label="Open Menu" style="backdrop-filter: blur(2px);">
+        <span class="sr-only">Open main menu</span>
         <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
     </div>
+    <!-- Mobile menu overlay -->
+    <div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-60 z-60 hidden transition-opacity duration-200"></div>
+    <!-- Mobile menu drawer -->
+    <nav id="mobileMenuDrawer" class="fixed top-0 right-0 h-full w-72 max-w-full bg-gray-900 shadow-lg z-60 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-800">
+        <span class="font-bold text-lg text-white">Scott Smith</span>
+        <button id="closeMobileMenu" class="text-white focus:outline-none" aria-label="Close Menu">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+      <div class="flex-1 overflow-y-auto px-6 py-4">
+        <div>
+          <button id="mobileWorkDropdownBtn" class="w-full flex items-center justify-between text-white font-medium py-2 focus:outline-none">
+            <span>Work</span>
+            <svg id="mobileWorkDropdownIcon" class="h-4 w-4 ml-2 transition-transform text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div id="mobileWorkDropdownMenu" class="pl-4 mt-1 space-y-1 hidden">
+            <a href="flaer-case-study.html" class="block py-2 text-gray-300 hover:text-cyan-400">FLAER Mobile Incident Reporting</a>
+            <a href="pascal-risk-case-study.html" class="block py-2 text-gray-300 hover:text-cyan-400">Pascal RISK</a>
+            <a href="copilot-case-study.html" class="block py-2 text-gray-300 hover:text-cyan-400">Pascal SAFETY Copilot</a>
+            <a href="health-insurance-case-study.html" class="block py-2 text-gray-300 hover:text-cyan-400">BCBSNC Insurance Platform</a>
+            <a href="pic-case-study.html" class="block py-2 text-gray-300 hover:text-cyan-400">Payment Integrity Compass</a>
+            <a href="work.html" class="block py-2 text-cyan-400 hover:text-white font-bold">All Case Studies</a>
+          </div>
+        </div>
+        <a href="about.html" class="block py-2 text-gray-300 hover:text-cyan-400">About</a>
+        <a href="contact.html" class="block py-2 text-gray-300 hover:text-cyan-400">Contact</a>
+      </div>
+    </nav>
   </header>
 
   <!-- HERO SECTION -->
@@ -219,7 +249,7 @@
             <div class="bg-slate-800 rounded-xl p-6 flex-1">
               <div class="text-sm text-slate-400 mb-2">2022 – Present</div>
               <h3 class="text-xl font-bold mb-3">Founder • PFL Forms (Web3/AI SaaS)</h3>
-              <p class="text-slate-300 mb-4">Built fully autonomous racing form generator from scratch. ETL → PostgreSQL → dynamic PDFs. Adopted by 2,000+ players and recognized by industry CEOs.</p>
+              <p class="text-slate-300 mb-4">Built fully autonomous racing form generator from scratch. AWS → PostgreSQL → dynamic HTML/CSS/javascript. Adopted by 2,000+ players and recognized by industry CEOs.</p>
               <div class="flex flex-wrap gap-2">
                 <span class="px-3 py-1 bg-cyan-600/20 text-cyan-300 rounded-full text-sm">Web3</span>
                 <span class="px-3 py-1 bg-cyan-600/20 text-cyan-300 rounded-full text-sm">Full-Stack Dev</span>
@@ -366,20 +396,32 @@
   </footer>
 
   <script>
-    // Dropdown logic for desktop
-    const workBtn = document.getElementById('workDropdownBtn');
-    const workMenu = document.getElementById('workDropdownMenu');
-    if (workBtn && workMenu) {
-      workBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        workMenu.classList.toggle('hidden');
-      });
-      document.addEventListener('click', function(e) {
-        if (!workBtn.contains(e.target) && !workMenu.contains(e.target)) {
-          workMenu.classList.add('hidden');
-        }
-      });
+    // Mobile menu logic
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenuDrawer = document.getElementById('mobileMenuDrawer');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
+    const mobileWorkDropdownBtn = document.getElementById('mobileWorkDropdownBtn');
+    const mobileWorkDropdownMenu = document.getElementById('mobileWorkDropdownMenu');
+    const mobileWorkDropdownIcon = document.getElementById('mobileWorkDropdownIcon');
+
+    function openMobileMenu() {
+        mobileMenuDrawer.classList.remove('translate-x-full');
+        mobileMenuOverlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
     }
+    function closeMenu() {
+        mobileMenuDrawer.classList.add('translate-x-full');
+        mobileMenuOverlay.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+    mobileMenuBtn.addEventListener('click', openMobileMenu);
+    closeMobileMenu.addEventListener('click', closeMenu);
+    mobileMenuOverlay.addEventListener('click', closeMenu);
+    mobileWorkDropdownBtn.addEventListener('click', function() {
+        mobileWorkDropdownMenu.classList.toggle('hidden');
+        mobileWorkDropdownIcon.classList.toggle('rotate-180');
+    });
   </script>
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
