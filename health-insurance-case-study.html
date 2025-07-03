@@ -10,13 +10,26 @@
 </head>
 <body class="font-inter antialiased text-gray-800 scroll-smooth">
 
-    <header class="bg-white shadow-md">
+    <header class="bg-white shadow-md sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="index.html" class="font-bold text-lg text-gray-900">Scott Smith</a>
-            <nav class="space-x-8 hidden md:flex">
-                <a href="/" class="text-gray-900 font-medium" aria-current="page">Work</a>
-                <a href="/about.html" class="text-gray-500 hover:text-gray-900">About</a>
-                <a href="/contact.html" class="text-gray-500 hover:text-gray-900">Contact</a>
+            <nav class="space-x-8 hidden md:flex items-center relative" id="mainNav">
+                <div class="relative group">
+                    <button class="text-gray-900 font-medium flex items-center focus:outline-none group-hover:text-indigo-600" id="workDropdownBtn" aria-haspopup="true" aria-expanded="false">
+                        Work
+                        <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-40 hidden group-hover:block" id="workDropdownMenu">
+                        <a href="flaer-case-study.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-semibold">FLAER Mobile Incident Reporting</a>
+                        <a href="pascal-risk-case-study.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-semibold">Pascal RISK</a>
+                        <a href="copilot-case-study.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-semibold">Pascal SAFETY Copilot</a>
+                        <a href="health-insurance-case-study.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-semibold">BCBSNC Insurance Platform</a>
+                        <a href="pic-case-study.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-semibold">Payment Integrity Compass</a>
+                        <a href="work.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-bold">All Case Studies</a>
+                    </div>
+                </div>
+                <a href="about.html" class="text-gray-500 hover:text-gray-900">About</a>
+                <a href="contact.html" class="text-gray-500 hover:text-gray-900">Contact</a>
             </nav>
             <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none" aria-label="Open Menu">
                 <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -37,40 +50,8 @@
                 Winner of the Interactive Media Awards Outstanding Achievement – Insurance Category
             </div>
         </div>
+        
     </header>
-
-    <!-- ───────────── Sticky nav / TOC ───────────── -->
-    <nav class="bg-white shadow sticky top-0 z-30" id="toc">
-        <div class="max-w-6xl mx-auto flex justify-between items-center py-2 px-4 md:px-6">
-            <a href="index.html" class="text-sm font-medium text-gray-700 hover:text-indigo-600">← Back to Work</a>
-            <ul class="hidden md:flex space-x-6 text-sm text-gray-600">
-                <li><a href="#challenge" class="toc-link">Challenge</a></li>
-                <li><a href="#research" class="toc-link">Research</a></li>
-                <li><a href="#design" class="toc-link">Design</a></li>
-                <li><a href="#solution" class="toc-link">Solution</a></li>
-                <li><a href="#impact" class="toc-link">Impact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- ───────────── Meta strip ───────────── -->
-    <section class="bg-gray-50 border-b py-6">
-        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-4 md:px-6">
-            <div>
-                <h2 class="text-xs tracking-widest text-gray-500 font-semibold">CLIENT</h2>
-                <p class="text-sm mt-1">Blue Cross Blue Shield of NC</p>
-            </div>
-            <div>
-                <h2 class="text-xs tracking-widest text-gray-500 font-semibold">ROLE</h2>
-                <p class="text-sm mt-1">UX Lead</p>
-            </div>
-            <div>
-                <h2 class="text-xs tracking-widest text-gray-500 font-semibold">DOMAIN</h2>
-                <p class="text-sm mt-1">Consumer UX</p>
-            </div>
-
-        </div>
-    </section>
 
     <!-- ───────────── Main content blocks ───────────── -->
     <main class="case-study-main max-w-6xl mx-auto px-4 md:px-6 space-y-20 py-14">
@@ -323,11 +304,16 @@
 
     </main>
 
-    <!-- ───────────── Prev / Next footer ───────────── -->
-    <footer class="bg-gray-50 py-8 border-t">
-        <div class="max-w-6xl mx-auto px-4 md:px-6 flex justify-between text-sm text-gray-600">
-            <a href="copilot-case-study.html" class="hover:text-indigo-600">← ECR Copilot</a>
-            <a href="pic-case-study.html" class="hover:text-indigo-600">Payment Integrity Compass →</a>
+    <!-- ========= FOOTER ========= -->
+    <footer class="bg-gray-900 py-8">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-gray-400 text-sm">
+            <div class="mb-2 md:mb-0 md:text-left w-full md:w-1/3">© 2025 Scott Smith</div>
+            <div class="mb-2 md:mb-0 text-center w-full md:w-1/3 whitespace-nowrap">Built with accessibility, performance, and a touch of Carolina sunshine.</div>
+            <div class="flex justify-end w-full md:w-1/3">
+                <a href="https://www.linkedin.com/in/scottismith" target="_blank" rel="noopener" aria-label="LinkedIn" class="inline-block ml-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-3.368-4-3.117-4 0v5.604h-3v-10h3v1.604c1.396-2.586 7-2.777 7 2.476v5.92z"/></svg>
+                </a>
+            </div>
         </div>
     </footer>
 
@@ -345,6 +331,23 @@
         }
         document.addEventListener('scroll', activate, { passive: true });
         activate();
+    </script>
+
+    <script>
+        // Dropdown logic for desktop
+        const workBtn = document.getElementById('workDropdownBtn');
+        const workMenu = document.getElementById('workDropdownMenu');
+        if (workBtn && workMenu) {
+            workBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                workMenu.classList.toggle('hidden');
+            });
+            document.addEventListener('click', function(e) {
+                if (!workBtn.contains(e.target) && !workMenu.contains(e.target)) {
+                    workMenu.classList.add('hidden');
+                }
+            });
+        }
     </script>
 
 </body></html>

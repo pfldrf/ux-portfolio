@@ -1039,7 +1039,7 @@ p {
 .hero-container-new {
     position: relative;
     z-index: 2;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
     text-align: center;
@@ -1099,7 +1099,7 @@ p {
     color: #cbd5e1 !important;
     line-height: 1.6;
     max-width: 700px;
-    margin: 0 auto 3rem;
+    margin: 0 auto 1.5rem;
     animation: slideUp 1s ease-out 0.8s both;
 }
 
@@ -1110,6 +1110,7 @@ p {
     justify-content: center;
     flex-wrap: wrap;
     animation: slideUp 1s ease-out 1s both;
+    margin-bottom: 2rem;
 }
 
 .cta-primary, .cta-secondary {
@@ -1870,4 +1871,80 @@ img[src*="pascal-risk-logo.png"] {
 .brand-gradient {
   background-image: linear-gradient(90deg, #4f46e5, #06b6d4);
 }
+
+.btn-primary {
+  background: linear-gradient(90deg, #4f46e5 0%, #06b6d4 100%);
+  color: #fff !important;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  box-shadow: 0 2px 8px rgba(6,182,212,0.12);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  outline: none;
+  display: inline-block;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background: linear-gradient(90deg, #06b6d4 0%, #4f46e5 100%);
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(6,182,212,0.18);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #4f46e5 !important;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border: 2px solid #4f46e5;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  outline: none;
+  display: inline-block;
+}
+.btn-outline:hover, .btn-outline:focus {
+  background: #f3f4f6;
+  color: #06b6d4 !important;
+  border-color: #06b6d4;
+}
+
+:root {
+    --domain-ai-bg: #eef2ff;
+    --domain-ai-tx: #4338ca;
+    --domain-risk-bg: #ecfdf5;
+    --domain-risk-tx: #047857;
+    --domain-finance-bg: #ecfeff;
+    --domain-finance-tx: #0e7490;
+    --domain-b2c-bg: #fff7ed;
+    --domain-b2c-tx: #c2410c;
+    --domain-b2b-bg: #f1f5f9;
+    --domain-b2b-tx: #334155;
+    --domain-healthcare-bg: #fdf2f8;
+    --domain-healthcare-tx: #be185d;
+    --domain-revenue-bg: #ecfeff;
+    --domain-revenue-tx: #0e7490;
+    --domain-mobile-bg: #f3e8ff;
+    --domain-mobile-tx: #7c3aed;
+}
+.domain-ai, .domain-risk, .domain-finance, .domain-b2c, .domain-b2b, .domain-healthcare, .domain-revenue, .domain-mobile {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+.domain-ai { background: var(--domain-ai-bg); color: var(--domain-ai-tx); }
+.domain-risk { background: var(--domain-risk-bg); color: var(--domain-risk-tx); }
+.domain-finance { background: var(--domain-finance-bg); color: var(--domain-finance-tx); }
+.domain-b2c { background: var(--domain-b2c-bg); color: var(--domain-b2c-tx); }
+.domain-b2b { background: var(--domain-b2b-bg); color: var(--domain-b2b-tx); }
+.domain-healthcare { background: var(--domain-healthcare-bg); color: var(--domain-healthcare-tx); }
+.domain-revenue { background: var(--domain-revenue-bg); color: var(--domain-revenue-tx); }
+.domain-mobile { background: var(--domain-mobile-bg); color: var(--domain-mobile-tx); }
 

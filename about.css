@@ -27,7 +27,7 @@ nav a[aria-current="page"], nav a:hover {
   color: #fff !important;
 }
 .hero-about .gradient-text {
-  background: linear-gradient(90deg, #4f46e5, #06b6d4);
+  background: linear-gradient(90deg, #46e5cf, #06b6d4);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -79,4 +79,49 @@ footer {
 /* Remove box shadows that look odd on dark */
 .shadow-2xl, .shadow-lg {
   box-shadow: none !important;
+}
+
+.education-section .text-indigo-600 {
+  color: #38bdf8 !important;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #4f46e5 0%, #06b6d4 100%);
+  color: #fff !important;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  box-shadow: 0 2px 8px rgba(6,182,212,0.12);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  outline: none;
+  display: inline-block;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background: linear-gradient(90deg, #06b6d4 0%, #4f46e5 100%);
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(6,182,212,0.18);
+}
+
+.btn-secondary {
+  background: #fff;
+  color: #4f46e5 !important;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border: 1.5px solid #4f46e5;
+  box-shadow: 0 2px 8px rgba(79,70,229,0.08);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  outline: none;
+  display: inline-block;
+}
+.btn-secondary:hover, .btn-secondary:focus {
+  background: #f3f4f6;
+  color: #06b6d4 !important;
+  border-color: #06b6d4;
+  box-shadow: 0 4px 16px rgba(6,182,212,0.12);
 } 

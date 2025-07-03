@@ -14,11 +14,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Navigation background opacity on scroll
 window.addEventListener('scroll', () => {
-    const nav = document.querySelector('.nav');
-    if (window.scrollY > 100) {
-        nav.style.background = 'rgba(250, 250, 250, 0.98)';
-    } else {
-        nav.style.background = 'rgba(250, 250, 250, 0.95)';
+    const nav = document.querySelector('.main-nav');
+    if (nav) {
+        if (window.scrollY > 100) {
+            nav.style.background = 'rgba(250, 250, 250, 0.98)';
+        } else {
+            nav.style.background = 'rgba(250, 250, 250, 0.95)';
+        }
     }
 });
 
@@ -191,11 +193,13 @@ const debouncedScrollHandler = debounce(() => {
     const scrolled = window.pageYOffset;
     
     // Update navigation background
-    const nav = document.querySelector('.nav');
-    if (scrolled > 100) {
-        nav.style.background = 'rgba(250, 250, 250, 0.98)';
-    } else {
-        nav.style.background = 'rgba(250, 250, 250, 0.95)';
+    const nav = document.querySelector('.main-nav');
+    if (nav) {
+        if (scrolled > 100) {
+            nav.style.background = 'rgba(250, 250, 250, 0.98)';
+        } else {
+            nav.style.background = 'rgba(250, 250, 250, 0.95)';
+        }
     }
     
     // Parallax effect
