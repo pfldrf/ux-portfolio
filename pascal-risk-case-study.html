@@ -493,7 +493,13 @@
         }
 
         if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', openMobileMenu);
+            mobileMenuBtn.addEventListener('click', function() {
+                if (mobileMenuDrawer.classList.contains('translate-x-full')) {
+                    openMobileMenu();
+                } else {
+                    closeMobileMenu();
+                }
+            });
         }
 
         if (closeMobileMenuBtn) {
