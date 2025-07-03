@@ -1968,3 +1968,26 @@ img[src*="pascal-risk-logo.png"] {
 .domain-revenue { background: var(--domain-revenue-bg); color: var(--domain-revenue-tx); }
 .domain-mobile { background: var(--domain-mobile-bg); color: var(--domain-mobile-tx); }
 
+@media (max-width: 768px) {
+  header,
+  .hero-redesigned,
+  .hero-container-new,
+  .max-w-7xl, .max-w-5xl, .max-w-4xl, .max-w-6xl {
+    width: 100% !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+  }
+  .hero-redesigned {
+    margin: 0 !important;
+    padding: 2rem 0 1rem 0;
+  }
+  .hero-container-new {
+    margin: 0 !important;
+    padding: 0 1rem;
+  }
+  .flex {
+    flex-wrap: wrap;
+  }
+}
+
