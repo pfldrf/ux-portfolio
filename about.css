@@ -52,7 +52,8 @@ body {
     position: fixed !important;
     top: 0 !important;
     height: 100vh !important;
-    background: white !important;
+    background: rgba(24, 31, 42, 0.98) !important;
+    color: #fff !important;
     box-shadow: -5px 0 15px rgba(0,0,0,0.3) !important;
 }
 
@@ -232,4 +233,33 @@ footer {
   color: #06b6d4 !important;
   border-color: #06b6d4;
   box-shadow: 0 4px 16px rgba(6,182,212,0.12);
+}
+
+/* Mobile menu drawer dark mode styles for About page */
+#mobileMenuDrawer h2,
+#mobileMenuDrawer a,
+#mobileMenuDrawer button,
+#mobileMenuDrawer svg {
+    color: #fff !important;
+    fill: #fff !important;
+}
+#mobileMenuDrawer .text-gray-900,
+#mobileMenuDrawer .text-gray-700 {
+    color: #fff !important;
+}
+#mobileMenuDrawer .hover\:text-indigo-600:hover {
+    color: #38bdf8 !important;
+}
+#mobileMenuDrawer .border-gray-200 {
+    border-color: rgba(255,255,255,0.12) !important;
+}
+#closeMobileMenuBtn {
+    color: #fff !important;
+    background: rgba(24,31,42,0.7) !important;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+}
+#closeMobileMenuBtn:hover {
+    background: rgba(56,189,248,0.15) !important;
+    color: #38bdf8 !important;
 } 
