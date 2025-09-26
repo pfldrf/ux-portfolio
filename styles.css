@@ -2096,6 +2096,16 @@ img[src*="pascal-risk-logo.png"] {
   left: 50%;
   transform: translateX(-50%);
   animation: heroScrollBounce 2s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.hero-scroll-indicator:hover {
+  opacity: 0.8;
 }
 
 .scroll-arrow {
@@ -2105,6 +2115,14 @@ img[src*="pascal-risk-logo.png"] {
   border-top: none;
   border-left: none;
   transform: rotate(45deg);
+}
+
+.scroll-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.05em;
+  text-align: center;
 }
 
 /* Animations */
