@@ -2428,6 +2428,232 @@ img[src*="pascal-risk-logo.png"] {
   }
 }
 
+/* ========= CONTACT PAGE IMPRESSIVE HERO ========= */
+
+/* Contact Hero Section - Matching Landing Page Style */
+.hero-contact-impressive {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #0f766e 0%, #0d9488 50%, #0891b2 100%);
+  overflow: hidden;
+}
+
+.hero-contact-impressive::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  z-index: 1;
+}
+
+.hero-contact-background-animated {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(15, 118, 110, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(8, 145, 178, 0.25) 0%, transparent 50%);
+  animation: heroBackgroundFloat 20s ease-in-out infinite;
+}
+
+.hero-contact-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.3), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.3), transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: heroParticles 15s linear infinite;
+}
+
+.hero-contact-container-impressive {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-contact-content-impressive {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.hero-contact-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  margin-bottom: 2rem;
+  animation: heroBadgeFloat 3s ease-in-out infinite;
+}
+
+.hero-contact-badge-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.05em;
+}
+
+.hero-contact-headline-impressive {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-contact-line-1 {
+  display: block;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: heroLineSlide 1s ease-out;
+}
+
+.hero-contact-line-2 {
+  display: block;
+  color: rgba(255, 255, 255, 0.95);
+  animation: heroLineSlide 1s ease-out 0.2s both;
+}
+
+.hero-contact-line-3 {
+  display: block;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: heroLineSlide 1s ease-out 0.4s both;
+}
+
+.hero-contact-subtitle-impressive {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  animation: heroFadeIn 1s ease-out 0.6s both;
+}
+
+.hero-contact-description-impressive {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 48rem;
+  margin: 0 auto 3rem auto;
+  animation: heroFadeIn 1s ease-out 0.8s both;
+}
+
+.hero-contact-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  animation: heroFadeIn 1s ease-out 1s both;
+}
+
+.hero-contact-stat {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1.5rem;
+  padding: 1.5rem 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.hero-contact-stat:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero-contact-stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.hero-contact-stat-label {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.hero-contact-scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: heroScrollBounce 2s ease-in-out infinite;
+}
+
+/* Responsive Design for Contact Hero */
+@media (max-width: 768px) {
+  .hero-contact-headline-impressive {
+    font-size: 2.5rem;
+  }
+  
+  .hero-contact-stats {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .hero-contact-stat {
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-contact-headline-impressive {
+    font-size: 2rem;
+  }
+  
+  .hero-contact-description-impressive {
+    font-size: 1rem;
+  }
+  
+  .hero-contact-stats {
+    gap: 0.5rem;
+  }
+  
+  .hero-contact-stat {
+    padding: 0.75rem 1rem;
+  }
+  
+  .hero-contact-stat-number {
+    font-size: 1.5rem;
+  }
+}
+
 /* ========= LANDING PAGE IMPROVEMENTS ========= */
 
 /* Project Cards - Better Image Handling */
