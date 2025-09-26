@@ -2489,7 +2489,8 @@ img[src*="pascal-risk-logo.png"] {
   margin: 0 auto;
   padding: 0 2rem;
   position: relative;
-  z-index: 2;
+  z-index: 5;
+  padding-top: 2rem;
 }
 
 .hero-contact-content-impressive {
@@ -2505,7 +2506,10 @@ img[src*="pascal-risk-logo.png"] {
   border-radius: 50px;
   padding: 0.5rem 1.5rem;
   margin-bottom: 2rem;
+  margin-top: 2rem;
   animation: heroBadgeFloat 3s ease-in-out infinite;
+  position: relative;
+  z-index: 10;
 }
 
 .hero-contact-badge-text {
