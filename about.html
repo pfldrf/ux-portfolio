@@ -6,82 +6,52 @@
   <title>About — Scott Smith</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="about.css" rel="stylesheet">
-  <style>
-    :root {
-      --brand-from: #4f46e5;
-      --brand-to: #06b6d4;
-      --grey-900: #111827;
-      --grey-700: #374151;
-      --grey-100: #f3f4f6;
-    }
-    .gradient-text {
-      background: linear-gradient(90deg, var(--brand-from), var(--brand-to));
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .stat-card {
-      background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(6, 182, 212, 0.05));
-      border: 1px solid rgba(79, 70, 229, 0.1);
-    }
-  </style>
 </head>
 <body class="font-sans antialiased about-page">
-  <header class="bg-white shadow-md sticky top-0 z-40 w-full">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="index.html" class="font-bold text-lg text-gray-900">Scott Smith</a>
-      <nav class="space-x-8 hidden md:flex items-center relative" id="mainNav">
-        <div class="relative group">
-          <button class="text-gray-900 font-medium flex items-center focus:outline-none group-hover:text-indigo-600" id="workDropdownBtn" aria-haspopup="true" aria-expanded="false">
-            Work
-            <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+
+  <!-- ========= NAVIGATION ========= -->
+  <header class="site-nav" role="banner">
+      <nav class="nav-container" role="navigation" aria-label="Main navigation">
+          <a href="index.html" class="nav-logo" aria-label="Scott Smith - Home">Scott Smith</a>
+          
+          <ul class="nav-menu" role="list">
+              <li><a href="work.html" class="nav-link">Work</a></li>
+              <li><a href="about.html" class="nav-link nav-link-active" aria-current="page">About</a></li>
+              <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+          
+          <a href="#" class="nav-cta" aria-label="Download resume">Resume</a>
+          
+          <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+              <span class="hamburger">
+                  <span class="hamburger-line"></span>
+                  <span class="hamburger-line"></span>
+                  <span class="hamburger-line"></span>
+              </span>
           </button>
-          <div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-40 hidden group-hover:block" id="workDropdownMenu">
-            <a href="flaer-case-study.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-semibold">FLAER Mobile Incident Reporting</a>
-            <a href="pascal-risk-case-study.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-semibold">Pascal RISK</a>
-            <a href="copilot-case-study.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-semibold">Pascal SAFETY Copilot</a>
-            <a href="health-insurance-case-study.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-semibold">BCBSNC Insurance Platform</a>
-            <a href="pic-case-study.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-semibold">Payment Integrity Compass</a>
-            <a href="work.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-bold">All Case Studies</a>
-          </div>
-        </div>
-        <a href="about.html" class="text-gray-500 hover:text-gray-900">About</a>
-        <a href="contact.html" class="text-gray-500 hover:text-gray-900">Contact</a>
       </nav>
-      <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none bg-white/80 shadow-lg rounded p-2" aria-label="Open Menu" style="backdrop-filter: blur(2px);">
-        <span class="sr-only">Open main menu</span>
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
-      </button>
-    </div>
-    <!-- Mobile menu overlay -->
-    <div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-60 z-60 hidden transition-opacity duration-200"></div>
-    <!-- Mobile menu drawer -->
-    <nav id="mobileMenuDrawer" class="fixed top-0 right-0 h-full w-72 max-w-full bg-gray-900 shadow-lg z-60 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col">
-      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-800">
-        <span class="font-bold text-lg text-white">Scott Smith</span>
-        <button id="closeMobileMenu" class="text-white focus:outline-none" aria-label="Close Menu">
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
-      </div>
-      <div class="flex-1 overflow-y-auto px-6 py-4">
-        <div>
-          <button id="mobileWorkDropdownBtn" class="w-full flex items-center justify-between text-white font-medium py-2 focus:outline-none">
-            <span>Work</span>
-            <svg id="mobileWorkDropdownIcon" class="h-4 w-4 ml-2 transition-transform text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div id="mobileWorkDropdownMenu" class="pl-4 mt-1 space-y-1 hidden">
-            <a href="flaer-case-study.html" class="block py-2 text-gray-300 hover:text-cyan-400">FLAER Mobile Incident Reporting</a>
-            <a href="pascal-risk-case-study.html" class="block py-2 text-gray-300 hover:text-cyan-400">Pascal RISK</a>
-            <a href="copilot-case-study.html" class="block py-2 text-gray-300 hover:text-cyan-400">Pascal SAFETY Copilot</a>
-            <a href="health-insurance-case-study.html" class="block py-2 text-gray-300 hover:text-cyan-400">BCBSNC Insurance Platform</a>
-            <a href="pic-case-study.html" class="block py-2 text-gray-300 hover:text-cyan-400">Payment Integrity Compass</a>
-            <a href="work.html" class="block py-2 text-cyan-400 hover:text-white font-bold">All Case Studies</a>
+      
+      <!-- Mobile Menu Overlay -->
+      <div class="mobile-menu-overlay" aria-hidden="true"></div>
+      
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+          <div class="mobile-menu-header">
+              <span class="mobile-menu-title">Navigation</span>
+              <button class="mobile-menu-close" aria-label="Close navigation menu">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+              </button>
           </div>
-        </div>
-        <a href="about.html" class="block py-2 text-gray-300 hover:text-cyan-400">About</a>
-        <a href="contact.html" class="block py-2 text-gray-300 hover:text-cyan-400">Contact</a>
+          <ul class="mobile-nav-links" role="list">
+              <li><a href="work.html" class="mobile-nav-link">Work</a></li>
+              <li><a href="about.html" class="mobile-nav-link mobile-nav-active" aria-current="page">About</a></li>
+              <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+              <li><a href="#" class="mobile-nav-link mobile-nav-cta">Resume</a></li>
+          </ul>
       </div>
-    </nav>
   </header>
 
   <!-- HERO SECTION -->
@@ -105,7 +75,8 @@
             Clinical Psychology MA • 20+ Years UX Leadership
           </div>
           <h1 class="text-4xl lg:text-6xl font-bold mb-6 text-white">
-            I'm a UX leader who <span class="gradient-text">truly understands</span> human behavior.
+            I'm a UX leader who <span class="gradient-text">truly understands</span><br>
+            <span id="animated-word" class="block mt-2">user</span> behavior.
           </h1>
           <p class="text-xl text-slate-100 mb-8 leading-relaxed">
             20+ yrs shipping data-heavy SaaS in healthcare, fintech, and consumer tech. C-suites rely on me when latency, compliance, or usability block ≥ $100 M lines of business.
@@ -395,35 +366,81 @@
     </div>
   </footer>
 
-  <script>
-    // Mobile menu logic
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenuDrawer = document.getElementById('mobileMenuDrawer');
-    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-    const closeMobileMenu = document.getElementById('closeMobileMenu');
-    const mobileWorkDropdownBtn = document.getElementById('mobileWorkDropdownBtn');
-    const mobileWorkDropdownMenu = document.getElementById('mobileWorkDropdownMenu');
-    const mobileWorkDropdownIcon = document.getElementById('mobileWorkDropdownIcon');
-
-    function openMobileMenu() {
-        mobileMenuDrawer.classList.remove('translate-x-full');
-        mobileMenuOverlay.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-    }
-    function closeMenu() {
-        mobileMenuDrawer.classList.add('translate-x-full');
-        mobileMenuOverlay.classList.add('hidden');
-        document.body.style.overflow = '';
-    }
-    mobileMenuBtn.addEventListener('click', openMobileMenu);
-    closeMobileMenu.addEventListener('click', closeMenu);
-    mobileMenuOverlay.addEventListener('click', closeMenu);
-    mobileWorkDropdownBtn.addEventListener('click', function() {
-        mobileWorkDropdownMenu.classList.toggle('hidden');
-        mobileWorkDropdownIcon.classList.toggle('rotate-180');
-    });
-  </script>
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  
+  <script>
+    // Professional animated word cycling for hero text
+    document.addEventListener('DOMContentLoaded', function() {
+      const words = [
+        { text: 'user', className: 'word-user' },
+        { text: 'customer', className: 'word-customer' },
+        { text: 'shopper', className: 'word-shopper' },
+        { text: 'clinician', className: 'word-clinician' },
+        { text: 'investor', className: 'word-investor' },
+        { text: 'gamer', className: 'word-gamer' },
+        { text: 'human', className: 'word-human' }
+      ];
+      
+      const animatedWordElement = document.getElementById('animated-word');
+      if (!animatedWordElement) return;
+      
+      let currentWordIndex = 0;
+      
+      function cycleWord() {
+        const currentWord = words[currentWordIndex];
+        
+        // Create and add the word element
+        const wordSpan = document.createElement('span');
+        wordSpan.className = `word-transition ${currentWord.className}`;
+        wordSpan.textContent = currentWord.text;
+        
+        // Clear container and add new word
+        animatedWordElement.innerHTML = '';
+        animatedWordElement.appendChild(wordSpan);
+        
+        // If this is the last word (human), stop the animation
+        if (currentWordIndex === words.length - 1) {
+          return;
+        }
+        
+        // Professional timing sequence
+        setTimeout(() => {
+          // Step 1: Add checkmark animation
+          wordSpan.classList.add('word-checkmark');
+          
+          setTimeout(() => {
+            // Step 2: Fade out current word
+            wordSpan.classList.add('word-fadeout');
+            
+            setTimeout(() => {
+              // Step 3: Prepare next word
+              currentWordIndex++;
+              if (currentWordIndex < words.length) {
+                const nextWord = words[currentWordIndex];
+                const nextWordSpan = document.createElement('span');
+                nextWordSpan.className = `word-transition word-fadein ${nextWord.className}`;
+                nextWordSpan.textContent = nextWord.text;
+                
+                // Replace the content
+                animatedWordElement.innerHTML = '';
+                animatedWordElement.appendChild(nextWordSpan);
+                
+                // Continue the cycle after fade-in completes
+                setTimeout(() => {
+                  cycleWord();
+                }, 600); // Wait for fade-in animation
+              }
+            }, 400); // Wait for fade-out
+          }, 400); // Wait for checkmark animation
+        }, 800); // Display each word for 0.8 seconds
+      }
+      
+      // Start the animation with initial delay for dramatic effect
+      setTimeout(() => {
+        cycleWord();
+      }, 1500);
+    });
+  </script>
 </body>
 </html>

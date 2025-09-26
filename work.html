@@ -8,89 +8,205 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+      /* Utility classes for line clamps */
+      .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* Domain tags */
+      .domain-ai { @apply bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs; }
+      .domain-healthcare { @apply bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full text-xs; }
+      .domain-finance { @apply bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs; }
+      .domain-revenue { @apply bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs; }
+      .domain-mobile { @apply bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs; }
+      .domain-b2b { @apply bg-slate-100 text-slate-800 px-2 py-1 rounded-full text-xs; }
+      .domain-b2c { @apply bg-pink-100 text-pink-800 px-2 py-1 rounded-full text-xs; }
+      .domain-risk { @apply bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs; }
+
+      .brand-gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
       /* Dropdown menu hidden by default */
       .dropdown-menu {
         display: none;
         position: absolute;
-        left: 0;
         top: 100%;
-        z-index: 1000;
-        min-width: 14rem;
-        background: #fff;
+        left: 0;
+        background: white;
+        border: 1px solid #e5e7eb;
         border-radius: 0.5rem;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-        padding: 0.5rem 0;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        z-index: 50;
       }
+
       .dropdown-menu a {
-        cursor: pointer;
+        display: block;
+        padding: 0.5rem 1rem;
+        color: #374151;
+        text-decoration: none;
       }
+
       .open > .dropdown-menu {
         display: block;
       }
+
+      .dropdown-menu a:hover {
+        background: #f3f4f6;
+      }
+
+      /* Image styles */
+      .case-study-hero {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      /* Header gradient background style */
+      header.brand-gradient,
+      .hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      /* Hero text shadow for better readability */
+      header.brand-gradient h1,
+      header.brand-gradient p {
+        text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      }
+
+      .hero h1,
+      .hero p {
+        text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      }
+
+      /* Hover effects for cards */
+      article {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      article:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      }
+
+      /* Override any default text color inside articles */
+      article h3,
+      article p,
+      article a {
+        color: inherit !important;
+      }
+
+      /* Ensure text color is inherited properly */
+      .text-gray-900 {
+        color: #111827 !important;
+      }
+
+      .text-gray-600 {
+        color: #4b5563 !important;
+      }
+
+      .text-gray-500 {
+        color: #6b7280 !important;
+      }
+
+      /* Fix Work dropdown menu sizing and z-index */
+      #workDropdownMenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: auto;
+        transform: none;
+        width: max-content;
+        min-width: 14rem;
+        margin-top: 0.5rem;
+        padding: 0.5rem 0;
+        background: white;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        z-index: 50 !important;
+      }
+
+      #workDropdownMenu.hidden {
+        display: none !important;
+      }
+
+      /* Comprehensive nav overlay z-index fix */
+      #workDropdownMenu {
+        z-index: 2147483647 !important;
+      }
+      #mobileMenuDrawer {
+        z-index: 2147483646 !important;
+      }
+      #mobileMenuOverlay {
+        z-index: 2147483645 !important;
+      }
+
+      header.brand-gradient,
+      .hero {
+        z-index: auto !important;
+        position: relative !important;
+      }
     </style>
 </head>
-<body class="font-sans antialiased">
-    
-    <!-- Persistent Top Navigation -->
-    <header class="bg-white shadow-md sticky top-0 z-40 w-full">
-      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="index.html" class="font-bold text-lg text-gray-900">Scott Smith</a>
-        <nav class="space-x-8 hidden md:flex items-center relative" id="mainNav">
-          <div class="relative group">
-            <button class="text-gray-900 font-medium flex items-center focus:outline-none group-hover:text-indigo-600" id="workDropdownBtn" aria-haspopup="true" aria-expanded="false">
-              Work
-              <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+<body class="min-h-screen bg-gray-50">
+
+  <!-- ========= NAVIGATION ========= -->
+    <header class="site-nav" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="nav-logo" aria-label="Scott Smith - Home">Scott Smith</a>
+            
+            <ul class="nav-menu" role="list">
+                <li><a href="work.html" class="nav-link nav-link-active" aria-current="page">Work</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <a href="#" class="nav-cta" aria-label="Download resume">Resume</a>
+            
+            <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+                <span class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </span>
             </button>
-            <div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-40 hidden group-hover:block" id="workDropdownMenu">
-              <a href="flaer-case-study.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-semibold">FLAER Mobile Incident Reporting</a>
-              <a href="pascal-risk-case-study.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-semibold">Pascal RISK</a>
-              <a href="copilot-case-study.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-semibold">Pascal SAFETY Copilot</a>
-              <a href="health-insurance-case-study.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-semibold">BCBSNC Insurance Platform</a>
-              <a href="pic-case-study.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-semibold">Payment Integrity Compass</a>
-              <a href="work.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-50 font-bold">All Case Studies</a>
-            </div>
-          </div>
-          <a href="about.html" class="text-gray-500 hover:text-gray-900">About</a>
-          <a href="contact.html" class="text-gray-500 hover:text-gray-900">Contact</a>
         </nav>
-        <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none bg-white rounded p-2" aria-label="Open Menu">
-          <span class="sr-only">Open main menu</span>
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
-        </button>
-      </div>
-      <!-- Mobile menu overlay -->
-      <div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-40 z-60 hidden transition-opacity duration-200"></div>
-      <!-- Mobile menu drawer -->
-      <nav id="mobileMenuDrawer" class="fixed top-0 right-0 h-full w-72 max-w-full bg-white shadow-lg z-60 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col">
-        <div class="flex items-center justify-between px-6 py-4 border-b">
-          <span class="font-bold text-lg text-gray-900">Scott Smith</span>
-          <button id="closeMobileMenu" class="text-gray-900 focus:outline-none" aria-label="Close Menu">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
-          </button>
-        </div>
-        <div class="flex-1 overflow-y-auto px-6 py-4">
-          <div>
-            <button id="mobileWorkDropdownBtn" class="w-full flex items-center justify-between text-gray-900 font-medium py-2 focus:outline-none">
-              <span>Work</span>
-              <svg id="mobileWorkDropdownIcon" class="h-4 w-4 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div id="mobileWorkDropdownMenu" class="pl-4 mt-1 space-y-1 hidden">
-              <a href="flaer-case-study.html" class="block py-2 text-gray-700 hover:text-indigo-600">FLAER Mobile Incident Reporting</a>
-              <a href="pascal-risk-case-study.html" class="block py-2 text-gray-700 hover:text-indigo-600">Pascal RISK</a>
-              <a href="copilot-case-study.html" class="block py-2 text-gray-700 hover:text-indigo-600">Pascal SAFETY Copilot</a>
-              <a href="health-insurance-case-study.html" class="block py-2 text-gray-700 hover:text-indigo-600">BCBSNC Insurance Platform</a>
-              <a href="pic-case-study.html" class="block py-2 text-gray-700 hover:text-indigo-600">Payment Integrity Compass</a>
-              <a href="work.html" class="block py-2 text-gray-700 hover:text-indigo-600 font-bold">All Case Studies</a>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" aria-hidden="true"></div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+            <div class="mobile-menu-header">
+                <span class="mobile-menu-title">Navigation</span>
+                <button class="mobile-menu-close" aria-label="Close navigation menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
             </div>
-          </div>
-          <a href="about.html" class="block py-2 text-gray-700 hover:text-indigo-600">About</a>
-          <a href="contact.html" class="block py-2 text-gray-700 hover:text-indigo-600">Contact</a>
+            <ul class="mobile-nav-links" role="list">
+                <li><a href="work.html" class="mobile-nav-link mobile-nav-active" aria-current="page">Work</a></li>
+                <li><a href="about.html" class="mobile-nav-link">About</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+                <li><a href="#" class="mobile-nav-link mobile-nav-cta">Resume</a></li>
+            </ul>
         </div>
-      </nav>
     </header>
 
     <!-- Hero Section -->
-    <header class="brand-gradient text-white py-16 flex items-center justify-center">
+    <header class="brand-gradient text-white pt-24 pb-16 flex items-center justify-center">
       <div class="text-center px-4">
         <h1 class="text-4xl md:text-5xl font-extrabold drop-shadow-lg">My Work</h1>
         <p class="mt-4 text-lg max-w-2xl mx-auto font-medium" style="color: #fff; text-shadow: none;">
@@ -111,7 +227,7 @@
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 
                 <!-- Clinical Copilot -->
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <a href="copilot-case-study.html" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 block group">
                     <div class="h-48 w-full relative flex items-center justify-center overflow-hidden">
                         <img src="images/ecr-copilot-cropped.png" alt="Clinical Copilot hero background" class="w-full h-full object-cover object-center">
                         <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(30,41,59,0.32) 0%, rgba(30,41,59,0.48) 100%), radial-gradient(ellipse at center, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.32) 100%); mix-blend-mode: multiply;"></div>
@@ -122,7 +238,7 @@
                             <span class="domain-healthcare">Healthcare</span>
                             <span class="domain-b2b">B2B</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Clinical Copilot</h3>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">Clinical Copilot</h3>
                         <p class="text-gray-600 mb-4 line-clamp-3">
                             LLM copilot that surfaces critical chart evidence and cuts harm documentation time.                        </p>
                         <div class="flex items-center justify-between">
@@ -130,14 +246,14 @@
                                 <span class="font-semibold text-green-600">64%</span> documentation-time drop
                             </div>
                         </div>
-                        <a href="copilot-case-study.html" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors block mt-1">
+                        <span class="text-blue-600 font-semibold group-hover:text-blue-800 transition-colors block mt-1">
                             View Case Study →
-                        </a>
+                        </span>
                     </div>
-                </article>
+                </a>
 
                 <!-- FLAER Mobile AI -->
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <a href="flaer-case-study.html" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 block group">
                     <div class="h-48 w-full relative flex items-center justify-center overflow-hidden">
                         <img src="images/flaer-splash.png" alt="FLAER Mobile AI hero background" class="w-full h-full object-cover object-center" style="object-position: center 35%;">
                         <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(30,41,59,0.32) 0%, rgba(30,41,59,0.48) 100%), radial-gradient(ellipse at center, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.32) 100%); mix-blend-mode: multiply;"></div>
@@ -150,7 +266,7 @@
                             <span class="domain-b2c">B2C</span>
                             <span class="domain-b2b">B2B</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">FLAER Mobile AI</h3>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">FLAER Mobile AI</h3>
                         <p class="text-gray-600 mb-4 line-clamp-3">
                             Mobile-first reporting platform that turns a data-entry chore into a 2-min conversation.                        </p>
                         <div class="flex items-center justify-between">
@@ -158,14 +274,14 @@
                                 <span class="font-semibold text-green-600">+157%</span> reports filed within 24 hrs
                             </div>
                         </div>
-                        <a href="flaer-case-study.html" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors block mt-1">
+                        <span class="text-blue-600 font-semibold group-hover:text-blue-800 transition-colors block mt-1">
                             View Case Study →
-                        </a>
+                        </span>
                     </div>
-                </article>
+                </a>
 
                 <!-- Pascal RISK (moved up) -->
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <a href="pascal-risk-case-study.html" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 block group">
                     <div class="h-48 w-full relative flex items-center justify-center overflow-hidden">
                         <img src="images/pascal-risk-dashboard.png" alt="Pascal RISK hero background" class="w-full h-full object-cover object-center">
                         <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(30,41,59,0.32) 0%, rgba(30,41,59,0.48) 100%), radial-gradient(ellipse at center, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.32) 100%); mix-blend-mode: multiply;"></div>
@@ -177,7 +293,7 @@
                             <span class="domain-risk">Risk Management</span>
                             <span class="domain-b2b">B2B</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Pascal RISK</h3>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">Pascal RISK</h3>
                         <p class="text-gray-600 mb-4 line-clamp-3">
                             Real-time signals engine that flags litigation-grade safety events within hours, preventing seven-figure payouts.                        </p>
                         <div class="flex items-center justify-between">
@@ -185,11 +301,11 @@
                                 <span class="font-semibold text-green-600">32 days → 18 hrs</span> risk event detection
                             </div>
                         </div>
-                        <a href="pascal-risk-case-study.html" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors block mt-1">
+                        <span class="text-blue-600 font-semibold group-hover:text-blue-800 transition-colors block mt-1">
                             View Case Study →
-                        </a>
+                        </span>
                     </div>
-                </article>
+                </a>
 
             </div>
         </div>
@@ -215,7 +331,7 @@
             <div class="grid gap-8 md:grid-cols-2">
                 
                 <!-- BCBSNC Insurance Platform -->
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <a href="health-insurance-case-study.html" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 block group">
                     <div class="h-48 w-full relative flex items-center justify-center overflow-hidden">
                         <img src="images/bcbsnc-current.png" alt="BCBSNC Insurance Platform hero background" class="w-full h-full object-cover object-center">
                         <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(30,41,59,0.32) 0%, rgba(30,41,59,0.48) 100%), radial-gradient(ellipse at center, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.32) 100%); mix-blend-mode: multiply;"></div>
@@ -226,7 +342,7 @@
                             <span class="domain-finance">Finance</span>
                             <span class="domain-b2c">B2C</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">BCBSNC Insurance Platform</h3>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">BCBSNC Insurance Platform</h3>
                         <p class="text-gray-600 mb-4 line-clamp-3">
                             Self-serve get a quote and buy online insurance platform that reduced phone support calls by 400% and won an IMA Outstanding Achievement Award.                        </p>
                         <div class="flex items-center justify-between">
@@ -234,14 +350,14 @@
                                 <span class="font-semibold text-green-600">175%</span> increase in "No Touch" sales
                             </div>
                         </div>
-                        <a href="health-insurance-case-study.html" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors block mt-1">
+                        <span class="text-blue-600 font-semibold group-hover:text-blue-800 transition-colors block mt-1">
                             View Case Study →
-                        </a>
+                        </span>
                     </div>
-                </article>
+                </a>
 
                 <!-- Payment Integrity Compass (moved down) -->
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <a href="pic-case-study.html" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 block group">
                     <div class="h-48 w-full relative flex items-center justify-center overflow-hidden">
                         <img src="images/pic-dashboard.png" alt="Payment Integrity Compass hero background" class="w-full h-full object-cover object-center">
                         <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(30,41,59,0.32) 0%, rgba(30,41,59,0.48) 100%), radial-gradient(ellipse at center, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.32) 100%); mix-blend-mode: multiply;"></div>
@@ -253,7 +369,7 @@
                             <span class="domain-b2b">B2B</span>
                             <span class="domain-healthcare">Healthcare</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Payment Integrity Compass</h3>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">Payment Integrity Compass</h3>
                         <p class="text-gray-600 mb-4 line-clamp-3">
                             Revenue cycle management platform with variance detector that recovered $28 M in under-payments in four months across 75 hospitals.
                         </p>
@@ -262,11 +378,11 @@
                                 <span class="font-semibold text-green-600">$28M</span> recovered in 4 months by pilot system
                             </div>
                         </div>
-                        <a href="pic-case-study.html" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors block mt-1">
+                        <span class="text-blue-600 font-semibold group-hover:text-blue-800 transition-colors block mt-1">
                             View Case Study →
-                        </a>
+                        </span>
                     </div>
-                </article>
+                </a>
 
             </div>
         </div>
@@ -286,52 +402,6 @@
       </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // Dropdown for desktop (open on click)
-        const workDropdownLi = document.querySelector('ul.md\\:flex > li.relative');
-        const workDropdownBtn = document.getElementById('workDropdownBtn');
-        if (workDropdownBtn && workDropdownLi) {
-          workDropdownBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            workDropdownLi.classList.toggle('open');
-          });
-          // Close dropdown when clicking outside
-          document.addEventListener('click', function(e) {
-            if (!workDropdownLi.contains(e.target)) {
-              workDropdownLi.classList.remove('open');
-            }
-          });
-        }
-        // Mobile menu logic
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenuDrawer = document.getElementById('mobileMenuDrawer');
-        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        const closeMobileMenu = document.getElementById('closeMobileMenu');
-        const mobileWorkDropdownBtn = document.getElementById('mobileWorkDropdownBtn');
-        const mobileWorkDropdownMenu = document.getElementById('mobileWorkDropdownMenu');
-        const mobileWorkDropdownIcon = document.getElementById('mobileWorkDropdownIcon');
-
-        function openMobileMenu() {
-            mobileMenuDrawer.classList.remove('translate-x-full');
-            mobileMenuOverlay.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeMenu() {
-            mobileMenuDrawer.classList.add('translate-x-full');
-            mobileMenuOverlay.classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-        mobileMenuBtn.addEventListener('click', openMobileMenu);
-        closeMobileMenu.addEventListener('click', closeMenu);
-        mobileMenuOverlay.addEventListener('click', closeMenu);
-        mobileWorkDropdownBtn.addEventListener('click', function() {
-            mobileWorkDropdownMenu.classList.toggle('hidden');
-            mobileWorkDropdownIcon.classList.toggle('rotate-180');
-        });
-      });
-    </script>
     <script>
       document.getElementById('toggleLegacy').addEventListener('click', function () {
         const wrap = document.getElementById('legacyWrap');

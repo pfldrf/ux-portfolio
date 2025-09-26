@@ -13,79 +13,54 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
   <title>Contact — Scott&nbsp;Smith</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    :root{
-      --brand-from:#4f46e5; /* Indigo 600 */
-      --brand-to:#06b6d4;  /* Cyan 500   */
-      --grey-900:#111827;
-      --grey-100:#f3f4f6;
-    }
-    .brand-gradient{
-      background-image:linear-gradient(90deg,var(--brand-from),var(--brand-to));
-    }
-  </style>
+  <link href="styles.css" rel="stylesheet">
 </head>
-<body class="font-inter antialiased text-gray-800 flex flex-col min-h-screen">
-  <!-- ─── Hero ─── -->
-  <header class="bg-white shadow-md sticky top-0 z-50 !sticky !top-0">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-      <a href="index.html" class="font-bold text-lg text-gray-900">Scott Smith</a>
-      <nav class="space-x-8 hidden md:flex items-center relative" id="mainNav">
-        <div class="relative group">
-          <button class="text-gray-900 font-medium flex items-center focus:outline-none group-hover:text-indigo-600" id="workDropdownBtn" aria-haspopup="true" aria-expanded="false">
-            Work
-            <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-40 hidden group-hover:block" id="workDropdownMenu">
-            <a href="flaer-case-study.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">FLAER Mobile AI</a>
-            <a href="pascal-risk-case-study.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Pascal RISK</a>
-            <a href="copilot-case-study.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Pascal SAFETY Copilot</a>
-            <a href="health-insurance-case-study.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">BCBSNC Insurance Platform</a>
-            <a href="pic-case-study.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Payment Integrity Compass</a>
-            <a href="work.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 font-semibold">All Case Studies</a>
-          </div>
-        </div>
-        <a href="about.html" class="text-gray-500 hover:text-gray-900">About</a>
-        <a href="contact.html" class="text-gray-500 hover:text-gray-900">Contact</a>
-      </nav>
-      <button id="mobileMenuBtn" class="md:hidden text-gray-900 focus:outline-none bg-white/80 backdrop-blur-sm rounded-lg p-2 shadow-lg" aria-label="Open Menu">
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
-      </button>
-    </div>
-  </header>
+<body class="min-h-screen bg-gray-50">
 
-  <!-- Mobile Menu Overlay -->
-  <div id="mobileMenuOverlay" class="fixed hidden md:hidden"></div>
-  
-  <!-- Mobile Menu Drawer -->
-  <div id="mobileMenuDrawer" class="fixed top-0 right-0 h-full bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
-    <div class="flex items-center justify-between p-6 border-b border-gray-200">
-      <h2 class="text-xl font-bold text-gray-900">Menu</h2>
-      <button id="closeMobileMenuBtn" class="text-gray-500 hover:text-gray-700 focus:outline-none">
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
-      </button>
-    </div>
-    <nav class="p-6 space-y-6">
-      <div class="space-y-4">
-        <div class="border-b border-gray-200 pb-4">
-          <button id="mobileWorkDropdownBtn" class="flex items-center justify-between w-full text-left text-lg font-semibold text-gray-900 focus:outline-none">
-            Work
-            <svg id="mobileWorkDropdownIcon" class="h-5 w-5 transform transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+  <!-- ========= NAVIGATION ========= -->
+  <header class="site-nav" role="banner">
+      <nav class="nav-container" role="navigation" aria-label="Main navigation">
+          <a href="index.html" class="nav-logo" aria-label="Scott Smith - Home">Scott Smith</a>
+          
+          <ul class="nav-menu" role="list">
+              <li><a href="work.html" class="nav-link">Work</a></li>
+              <li><a href="about.html" class="nav-link">About</a></li>
+              <li><a href="contact.html" class="nav-link nav-link-active" aria-current="page">Contact</a></li>
+          </ul>
+          
+          <a href="#" class="nav-cta" aria-label="Download resume">Resume</a>
+          
+          <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+              <span class="hamburger">
+                  <span class="hamburger-line"></span>
+                  <span class="hamburger-line"></span>
+                  <span class="hamburger-line"></span>
+              </span>
           </button>
-          <div id="mobileWorkDropdownMenu" class="mt-4 space-y-3 hidden">
-            <a href="flaer-case-study.html" class="block text-gray-700 hover:text-indigo-600 font-medium">FLAER Mobile Incident Reporting</a>
-            <a href="pascal-risk-case-study.html" class="block text-gray-700 hover:text-indigo-600 font-medium">Pascal RISK</a>
-            <a href="copilot-case-study.html" class="block text-gray-700 hover:text-indigo-600 font-medium">Pascal SAFETY Copilot</a>
-            <a href="health-insurance-case-study.html" class="block text-gray-700 hover:text-indigo-600 font-medium">BCBSNC Insurance Platform</a>
-            <a href="pic-case-study.html" class="block text-gray-700 hover:text-indigo-600 font-medium">Payment Integrity Compass</a>
-            <a href="work.html" class="block text-gray-700 hover:text-indigo-600 font-bold">All Case Studies</a>
+      </nav>
+      
+      <!-- Mobile Menu Overlay -->
+      <div class="mobile-menu-overlay" aria-hidden="true"></div>
+      
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+          <div class="mobile-menu-header">
+              <span class="mobile-menu-title">Navigation</span>
+              <button class="mobile-menu-close" aria-label="Close navigation menu">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+              </button>
           </div>
-        </div>
-        <a href="about.html" class="block text-lg font-semibold text-gray-900 hover:text-indigo-600">About</a>
-        <a href="contact.html" class="block text-lg font-semibold text-gray-900 hover:text-indigo-600">Contact</a>
+          <ul class="mobile-nav-links" role="list">
+              <li><a href="work.html" class="mobile-nav-link">Work</a></li>
+              <li><a href="about.html" class="mobile-nav-link">About</a></li>
+              <li><a href="contact.html" class="mobile-nav-link mobile-nav-active" aria-current="page">Contact</a></li>
+              <li><a href="#" class="mobile-nav-link mobile-nav-cta">Resume</a></li>
+          </ul>
       </div>
-    </nav>
-  </div>
+  </header>
 
   <header class="brand-gradient text-white py-24 flex items-center justify-center">
     <div class="text-center px-4">
@@ -130,76 +105,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Dropdown logic for desktop
-    const workBtn = document.getElementById('workDropdownBtn');
-    const workMenu = document.getElementById('workDropdownMenu');
-    if (workBtn && workMenu) {
-      workBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        workMenu.classList.toggle('hidden');
-      });
-      document.addEventListener('click', function(e) {
-        if (!workBtn.contains(e.target) && !workMenu.contains(e.target)) {
-          workMenu.classList.add('hidden');
-        }
-      });
-    }
-
-    // Mobile menu functionality
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-    const mobileMenuDrawer = document.getElementById('mobileMenuDrawer');
-    const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn');
-    const mobileWorkDropdownBtn = document.getElementById('mobileWorkDropdownBtn');
-    const mobileWorkDropdownMenu = document.getElementById('mobileWorkDropdownMenu');
-    const mobileWorkDropdownIcon = document.getElementById('mobileWorkDropdownIcon');
-
-    function openMobileMenu() {
-      mobileMenuOverlay.classList.remove('hidden');
-      mobileMenuDrawer.classList.remove('translate-x-full');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMobileMenu() {
-      mobileMenuOverlay.classList.add('hidden');
-      mobileMenuDrawer.classList.add('translate-x-full');
-      document.body.style.overflow = '';
-    }
-
-    if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', function() {
-        if (mobileMenuDrawer.classList.contains('translate-x-full')) {
-          openMobileMenu();
-        } else {
-          closeMobileMenu();
-        }
-      });
-    }
-
-    if (closeMobileMenuBtn) {
-      closeMobileMenuBtn.addEventListener('click', closeMobileMenu);
-    }
-
-    if (mobileMenuOverlay) {
-      mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-    }
-
-    // Mobile work dropdown
-    if (mobileWorkDropdownBtn && mobileWorkDropdownMenu && mobileWorkDropdownIcon) {
-      mobileWorkDropdownBtn.addEventListener('click', function() {
-        mobileWorkDropdownMenu.classList.toggle('hidden');
-        mobileWorkDropdownIcon.classList.toggle('rotate-180');
-      });
-    }
-
-    // Close mobile menu on escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeMobileMenu();
-      }
-    });
-  </script>
 
 </body></html>
