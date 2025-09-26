@@ -1851,6 +1851,70 @@ img[src*="pascal-risk-logo.png"] {
   position: relative !important;
 }
 
+/* ========= LANDING PAGE IMPROVEMENTS ========= */
+
+/* Project Cards - Better Image Handling */
+.project-card-image {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project-card-image img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-card-image img {
+  transform: scale(1.05);
+}
+
+/* Hero Section Improvements */
+.hero-headline {
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle-new {
+  letter-spacing: 0.025em;
+  font-weight: 600;
+}
+
+.hero-description-new {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+/* About Section Improvements */
+.about-skills {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+/* Better spacing and alignment */
+.section-spacing {
+  padding: 5rem 0;
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding: 3rem 0;
+  }
+  
+  .hero-headline {
+    font-size: 2.25rem;
+    line-height: 1.2;
+  }
+  
+  .hero-description-new {
+    font-size: 1rem;
+  }
+}
+
 .mt-12 > a.bg-white.rounded-2xl.shadow-lg.overflow-hidden,
 .grid > .bg-white.rounded-2xl.shadow-lg.overflow-hidden,
 .md\:grid-cols-3 > .bg-white.rounded-2xl.shadow-lg.overflow-hidden,
