@@ -2153,19 +2153,6 @@ img[src*="pascal-risk-logo.png"] {
   margin-top: 2px;
 }
 
-/* Tiny proof link to logos below */
-.hero-proof-link {
-  display: inline-block;
-  margin: 0.25rem auto 0;
-  color: rgba(255,255,255,0.82);
-  text-decoration: none;
-  font-size: 0.95rem;
-  border-bottom: 1px dotted rgba(255,255,255,0.35);
-}
-.hero-proof-link:hover { 
-  color: #fff; 
-  border-bottom-color: #fff; 
-}
 
 /* Mobile: collapse to 2x2 */
 @media (max-width: 640px) {
