@@ -2248,7 +2248,9 @@ img[src*="pascal-risk-logo.png"] {
   display: flex;
   align-items: center;
   background: linear-gradient(135deg, #1e293b 0%, #3b82f6 50%, #06b6d4 100%);
-  overflow: hidden;
+  /* Added padding to avoid nav overlap and give bottom breathing room */
+  padding-top: 2rem;
+  padding-bottom: 4rem;
 }
 
 .hero-work-impressive::before {
@@ -2317,7 +2319,8 @@ img[src*="pascal-risk-logo.png"] {
   border-radius: 50px;
   padding: 0.5rem 1.5rem;
   margin-bottom: 2rem;
-  animation: heroBadgeFloat 3s ease-in-out infinite;
+  /* Added top margin to clear fixed nav */
+  margin-top: 1rem;
 }
 
 .hero-work-badge-text {
