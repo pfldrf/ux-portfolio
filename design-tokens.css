@@ -207,6 +207,15 @@
   --card-radius: var(--radius-xl);
   --card-shadow: var(--shadow-md);
   --card-shadow-hover: var(--shadow-lg);
+  --card-bg: var(--color-bg-primary);
+  --card-border: var(--color-border-light);
+  
+  /* Chips/Tags */
+  --chip-padding-sm: var(--space-1) var(--space-3);
+  --chip-padding-md: var(--space-2) var(--space-4);
+  --chip-radius: var(--radius-full);
+  --chip-font-size: var(--text-sm);
+  --chip-font-weight: var(--font-semibold);
   
   /* Forms */
   --input-padding: var(--space-3) var(--space-4);
@@ -222,6 +231,91 @@
 /* ========= RESPONSIVE BREAKPOINTS ========= */
 /* These are handled by Tailwind CSS, but documented here for reference */
 /* sm: 640px, md: 768px, lg: 1024px, xl: 1280px, 2xl: 1536px */
+
+/* ========= STANDARDIZED COMPONENT CLASSES ========= */
+
+/* Card Components */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  box-shadow: var(--card-shadow);
+  transition: box-shadow var(--duration-200) var(--ease-out);
+}
+
+.card:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.card-interactive {
+  cursor: pointer;
+  transition: transform var(--duration-200) var(--ease-out), box-shadow var(--duration-200) var(--ease-out);
+}
+
+.card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* Chip/Tag Components */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--chip-padding-sm);
+  border-radius: var(--chip-radius);
+  font-size: var(--chip-font-size);
+  font-weight: var(--chip-font-weight);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.chip-sm {
+  padding: var(--chip-padding-sm);
+  font-size: var(--text-xs);
+}
+
+.chip-md {
+  padding: var(--chip-padding-md);
+  font-size: var(--text-sm);
+}
+
+/* Chip Variants */
+.chip-primary {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.chip-secondary {
+  background: var(--color-secondary);
+  color: var(--color-text-inverse);
+}
+
+.chip-success {
+  background: var(--color-success);
+  color: var(--color-text-inverse);
+}
+
+.chip-warning {
+  background: var(--color-warning);
+  color: var(--color-text-inverse);
+}
+
+.chip-error {
+  background: var(--color-error);
+  color: var(--color-text-inverse);
+}
+
+.chip-outline {
+  background: transparent;
+  border: 1px solid var(--color-border-medium);
+  color: var(--color-text-secondary);
+}
+
+.chip-ghost {
+  background: var(--color-gray-100);
+  color: var(--color-text-secondary);
+}
 
 /* ========= DARK MODE TOKENS ========= */
 @media (prefers-color-scheme: dark) {

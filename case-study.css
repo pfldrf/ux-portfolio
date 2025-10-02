@@ -71,7 +71,7 @@ body {
 }
 
 #mobileMenuOverlay {
-    z-index: 2147483646 !important;
+    z-index: var(--z-modal-backdrop);
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
@@ -3706,7 +3706,7 @@ blockquote cite {
 }
 
 .site-dropdown {
-  z-index: 2147483647 !important;
+  z-index: var(--z-modal);
   display: none !important;
   position: absolute;
   left: 0;
@@ -3746,12 +3746,12 @@ header.site-header nav {
 }
 
 .site-header {
-  z-index: 2147483647 !important;
+  z-index: var(--z-modal);
   position: relative;
   overflow: visible !important;
 }
 .site-dropdown {
-  z-index: 2147483647 !important;
+  z-index: var(--z-modal);
   display: none !important;
 }
 .site-dropdown.show {
