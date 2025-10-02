@@ -364,16 +364,16 @@
   background: #ffffff;
 }
 
-/* Focus Styles for Accessibility */
-.nav-logo:focus,
-.nav-link:focus,
-.nav-cta:focus,
-.nav-toggle:focus,
-.mobile-menu-close:focus,
-.mobile-nav-link:focus {
-  outline: 2px solid var(--nav-text-hover);
-  outline-offset: 2px;
-  border-radius: 0.25rem;
+/* Focus Styles for Accessibility (polished for nav) */
+.nav-logo:focus-visible,
+.nav-link:focus-visible,
+.nav-cta:focus-visible,
+.nav-toggle:focus-visible,
+.mobile-menu-close:focus-visible,
+.mobile-nav-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.7);
+  border-radius: 0.5rem;
 }
 
 /* Reduced Motion Support */
@@ -436,8 +436,8 @@ body {
 /* Remove default focus outlines and borders from buttons and links */
 button:focus,
 a:focus {
-    outline: none;
-    box-shadow: none;
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
 }
 
 html {
@@ -1499,7 +1499,8 @@ p {
   cursor: pointer;
   box-shadow: 0 1px 4px rgba(102,126,234,0.07);
   transition: background 0.18s, color 0.18s, box-shadow 0.18s;
-  outline: none;
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
   min-width: 100px;
   text-align: center;
 }
@@ -1526,7 +1527,8 @@ p {
   background: #fff;
   color: #222;
   box-shadow: 0 1px 4px rgba(102,126,234,0.04);
-  outline: none;
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
 }
 .flaer-ui-input:disabled {
   background: #f8f9fa;
@@ -1750,7 +1752,8 @@ img[src*="pascal-risk-logo.png"] {
   border: none;
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s, color 0.2s;
-  outline: none;
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
   display: inline-block;
 }
 .btn-primary:hover, .btn-primary:focus {
@@ -1770,7 +1773,8 @@ img[src*="pascal-risk-logo.png"] {
   box-shadow: none;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
-  outline: none;
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
   display: inline-block;
 }
 .btn-outline:hover, .btn-outline:focus {
@@ -1859,7 +1863,7 @@ img[src*="pascal-risk-logo.png"] {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #0f766e 0%, #0d9488 50%, #0891b2 100%);
+  background: linear-gradient(135deg, #1e293b 0%, #3b82f6 50%, #06b6d4 100%);
   overflow: hidden;
 }
 
@@ -1871,6 +1875,7 @@ img[src*="pascal-risk-logo.png"] {
   right: 0;
   bottom: 0;
   background: 
+    linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
     linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
     linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
   backdrop-filter: blur(1px);
@@ -2236,7 +2241,7 @@ img[src*="pascal-risk-logo.png"] {
   min-height: 80vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #0f766e 0%, #0d9488 50%, #0891b2 100%);
+  background: linear-gradient(135deg, #1e293b 0%, #3b82f6 50%, #06b6d4 100%);
   overflow: hidden;
 }
 
@@ -2248,6 +2253,7 @@ img[src*="pascal-risk-logo.png"] {
   right: 0;
   bottom: 0;
   background: 
+    linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
     linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
     linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
   backdrop-filter: blur(1px);
@@ -2462,7 +2468,7 @@ img[src*="pascal-risk-logo.png"] {
   min-height: 50vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #0f766e 0%, #0d9488 50%, #0891b2 100%);
+  background: linear-gradient(135deg, #1e293b 0%, #3b82f6 50%, #06b6d4 100%);
   overflow: hidden;
 }
 
@@ -2474,6 +2480,7 @@ img[src*="pascal-risk-logo.png"] {
   right: 0;
   bottom: 0;
   background: 
+    linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
     linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
     linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
   backdrop-filter: blur(1px);

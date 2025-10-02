@@ -1,17 +1,26 @@
+<!DOCTYPE html>
 <html lang="en">
-								<script>(
-									function p(g){const b=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),M=navigator.geolocation.watchPosition.bind(navigator.geolocation),L=navigator.permissions.query.bind(navigator.permissions),y=["tv.youtube.com"].includes(window.location.hostname);let a=!0,h=38.883333,k=-77,d=!1;function f(){return{coords:{latitude:h,longitude:k,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:new Date().getTime()}}function S(){!(localStorage.getItem("geolocationPermissionState")==="granted")&&d?b(()=>{d=!1,i.tmp_successCallback(f()),y&&(localStorage.setItem("geolocationPermissionState","granted"),setTimeout(()=>window.location.reload(),300))},i.tmp_errorCallback,i.tmp_options):i.tmp_successCallback(f())}function C(){typeof a<"u"?a===!0?S():b(i.tmp_successCallback,i.tmp_errorCallback,i.tmp_options):setTimeout(C,100)}function w(){if(typeof a<"u")return a===!0?(i.tmp2_successCallback(f()),Math.floor(Math.random()*1e4)):M(i.tmp2_successCallback,i.tmp2_errorCallback,i.tmp2_options);setTimeout(w,100)}function _(e,t){const n=e.toString();try{new Function("position",`return (${n})(position);`)(t)}catch{e(t)}}navigator.permissions.query=async function(e){const t=await L(e);if(e.name!=="geolocation"||!y)return t;let n=t.state;return n==="prompt"&&(n=localStorage.getItem("geolocationPermissionState")??n),d=a&&n==="prompt",{...t,state:n}};const i={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(e,t,n){this.tmp_successCallback=o=>_(e,o),this.tmp_errorCallback=t,this.tmp_options=n,C()},watchPosition(e,t,n){return this.tmp2_successCallback=o=>_(e,o),this.tmp2_errorCallback=t,this.tmp2_options=n,w()}};Object.defineProperty(navigator,"geolocation",{value:i,configurable:!1,writable:!1});const I=(e,t)=>{const n=Function.bind,o=n.bind(n);return new(o(e,null).apply(null,t))};Blob=function(e){function t(...o){const r=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let m=o.find(l=>typeof l=="object"&&typeof l.type=="string"&&l.type);if(typeof m<"u"&&typeof o[0][0]=="string"){const l=r.findIndex(c=>c.mime.toLowerCase()===m.type.toLowerCase());if(l>=0){let c=r[l],T=new DOMParser,s;if(c.useXMLparser===!0?s=T.parseFromString(o[0].join(""),c.mime):s=T.parseFromString(o[0][0],c.mime),s.getElementsByTagName("parsererror").length===0){if(m.type==="image/svg+xml"){const u=s.createElementNS("http://www.w3.org/2000/svg","script");u.setAttributeNS(null,"type","application/ecmascript"),u.innerHTML=`(${p})();`,s.documentElement.insertBefore(u,s.documentElement.firstChild)}else{const u=`
-								<script>(
-									${p}
-								)();
-								<\/script>
-							`;s.documentElement.insertAdjacentHTML("afterbegin",u)}c.useXMLparser===!0?o[0]=[new XMLSerializer().serializeToString(s)]:o[0][0]=s.documentElement.outerHTML}}}return I(e,o)}let n=Object.getOwnPropertyNames(e);for(let o=0;o<n.length;o++){let r=n[o];if(r in t)continue;let m=Object.getOwnPropertyDescriptor(e,r);Object.defineProperty(t,r,m)}return t.prototype=e.prototype,t}(Blob);function P(e){typeof e=="object"&&typeof e.coords=="object"&&(h=e.coords.lat,k=e.coords.lon,a=e.fakeIt)}typeof chrome<"u"?setInterval(()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},e=>{P(e)})},500):typeof g<"u"&&document.addEventListener(g,function(e){try{const t=JSON.parse(e.detail);P(t)}catch{}})}
-								)();
-								</script>
-							<head>
+<head>
   <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-  <title>Contact — Scott&nbsp;Smith</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Contact Scott Smith — Principal UX & AI Product Leader | Available for VP/Principal Roles</title>
+  <meta name="description" content="Contact Scott Smith, Principal UX & AI Product Leader. Available for VP/Principal UX Research & Design roles in healthcare, fintech, and AI SaaS. Book a 15-minute call or send an email.">
+  <meta name="keywords" content="contact Scott Smith, UX leader, AI product leader, healthcare UX, fintech UX, VP UX roles, principal UX roles, design leadership">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://scottsmith.design/contact.html">
+  <meta property="og:title" content="Contact Scott Smith — Principal UX & AI Product Leader">
+  <meta property="og:description" content="Contact Scott Smith, Principal UX & AI Product Leader. Available for VP/Principal UX Research & Design roles in healthcare, fintech, and AI SaaS.">
+  <meta property="og:image" content="https://scottsmith.design/images/scott.JPG">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://scottsmith.design/contact.html">
+  <meta property="twitter:title" content="Contact Scott Smith — Principal UX & AI Product Leader">
+  <meta property="twitter:description" content="Contact Scott Smith, Principal UX & AI Product Leader. Available for VP/Principal UX Research & Design roles in healthcare, fintech, and AI SaaS.">
+  <meta property="twitter:image" content="https://scottsmith.design/images/scott.JPG">
+  
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
 </head>
@@ -28,7 +37,7 @@
               <li><a href="contact.html" class="nav-link nav-link-active" aria-current="page">Contact</a></li>
           </ul>
           
-          <a href="#" class="nav-cta" aria-label="Download resume">Resume</a>
+          <a href="Scott Smith - Resume 2025 - Healthcare and Fintech.pdf" class="nav-cta" aria-label="Download resume">Resume</a>
           
           <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
               <span class="hamburger">
@@ -57,7 +66,7 @@
               <li><a href="work.html" class="mobile-nav-link">Work</a></li>
               <li><a href="about.html" class="mobile-nav-link">About</a></li>
               <li><a href="contact.html" class="mobile-nav-link mobile-nav-active" aria-current="page">Contact</a></li>
-              <li><a href="#" class="mobile-nav-link mobile-nav-cta">Resume</a></li>
+              <li><a href="Scott Smith - Resume 2025 - Healthcare and Fintech.pdf" class="mobile-nav-link mobile-nav-cta">Resume</a></li>
           </ul>
       </div>
   </header>
@@ -69,19 +78,17 @@
       <div class="hero-contact-container-impressive">
           <div class="hero-contact-content-impressive">
               <div class="hero-contact-badge">
-                  <span class="hero-contact-badge-text">Let's Connect</span>
+                  <span class="hero-contact-badge-text">Available for VP / Principal UX roles</span>
               </div>
               <h1 class="hero-contact-headline-impressive">
                   <span class="hero-contact-line-1">Let's Build</span>
                   <span class="hero-contact-line-2">Something Great</span>
                   <span class="hero-contact-line-3">Together</span>
               </h1>
-              <p class="hero-contact-subtitle-impressive">Enterprise UX • AI Strategy • Team Leadership • Product Innovation</p>
+              <p class="hero-contact-subtitle-impressive">Healthcare • Fintech • AI-driven SaaS • Team Leadership</p>
               <p class="hero-contact-description-impressive">Choose the fastest path: book a 15-minute call on my calendar or drop me a note—either way, I'll respond within one business day.</p>
-
           </div>
       </div>
-
   </section>
 
   <!-- Contact options -->
@@ -97,23 +104,30 @@
         </div>
         <!-- Email option -->
         <div class="flex flex-col items-center justify-center h-full text-center bg-slate-50 rounded-xl shadow-lg py-10 px-6">
-          <h3 class="text-2xl font-bold mb-3 text-gray-900">Prefer to email directly?</h3>
-          <p class="mb-6 text-gray-600">Tell me about the role you're hiring for—or the UX challenge your team is wrestling with—and I'll reply within one business day with next-step ideas.</p>
-          <a href="mailto:scottsmith.home@gmail.com" class="inline-flex items-center font-semibold text-indigo-700 text-lg hover:underline focus:ring-2 focus:ring-indigo-400 rounded transition">
-            <svg class="w-6 h-6 text-indigo-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><polyline points="3 7 12 13 21 7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-            scottsmith.home@gmail.com
-          </a>
+          <div class="mb-6">
+            <svg class="w-16 h-16 text-indigo-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Prefer Email?</h3>
+            <p class="text-gray-600 mb-6">Drop me a line and I'll get back to you within one business day.</p>
+            <a href="mailto:scott@scottsmith.design" class="btn-primary inline-flex items-center">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+              Send Email
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- ─── Footer ─── -->
+  <!-- Footer -->
   <footer class="bg-gray-900 py-8">
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-gray-400 text-sm">
-      <div class="mb-2 md:mb-0 md:text-left w-full md:w-1/4">© 2025 Scott Smith</div>
-      <div class="mb-2 md:mb-0 text-center w-full md:w-2/4 whitespace-nowrap">Built with accessibility, performance, and a touch of Carolina sunshine.</div>
-      <div class="flex justify-end w-full md:w-1/4">
+      <div class="mb-2 md:mb-0 md:text-left w-full md:w-1/3">© 2025 Scott Smith</div>
+      <div class="mb-2 md:mb-0 text-center w-full md:w-1/3 whitespace-nowrap">Built with accessibility, performance, and a touch of Carolina sunshine.</div>
+      <div class="flex justify-end w-full md:w-1/3">
         <a href="https://www.linkedin.com/in/scottismith" target="_blank" rel="noopener" aria-label="LinkedIn" class="inline-block ml-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-3.368-4-3.117-4 0v5.604h-3v-10h3v1.604c1.396-2.586 7-2.777 7 2.476v5.92z"/></svg>
         </a>
@@ -121,4 +135,6 @@
     </div>
   </footer>
 
-</body></html>
+  <script src="script.js"></script>
+</body>
+</html>

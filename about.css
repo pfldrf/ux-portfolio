@@ -349,7 +349,9 @@
 .nav-toggle:focus,
 .mobile-menu-close:focus,
 .mobile-nav-link:focus {
-  outline: 2px solid var(--nav-text-hover);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.7);
+  border-radius: 0.5rem;
   outline-offset: 2px;
   border-radius: 0.25rem;
 }
@@ -486,7 +488,7 @@ table {
 }
 
 body {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  background: linear-gradient(135deg, #1e293b 0%, #3b82f6 50%, #06b6d4 100%);
   color: #fff;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
@@ -499,13 +501,19 @@ body {
   background: none !important;
   color: #fff !important;
 }
-.hero-about h1, .hero-about p, .hero-about .text-white {
+.hero-about h1, .hero-about p, .hero-about .text-white,
+.hero-about .text-slate-100 {
   color: #fff !important;
 }
+
+.hero-about .text-slate-100 {
+  color: #f1f5f9 !important;
+}
 .hero-about .gradient-text {
-  background: linear-gradient(90deg, #46e5cf, #06b6d4);
+  background: linear-gradient(90deg, #fbbf24, #f59e0b, #d97706);
   -webkit-background-clip: text;
   color: transparent;
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
 }
 
 .stat-card {
@@ -514,17 +522,61 @@ body {
   color: #fff;
 }
 
-section, .bg-slate-50, .bg-gradient-to-br, .bg-slate-900, .bg-indigo-50 {
+/* Dark sections - keep white text */
+.bg-slate-900, .bg-gradient-to-br {
   background: none !important;
   color: #fff !important;
 }
 
-h2, h3, h4, h5, h6 {
+/* Light sections - use dark text */
+.bg-slate-50, .bg-indigo-50, .text-gray-900 {
+  background: #f8fafc !important;
+  color: #1e293b !important;
+}
+
+/* Education section specific fixes */
+section.py-20.text-gray-900 {
+  background: #f8fafc !important;
+  color: #1e293b !important;
+}
+
+section.py-20.text-gray-900 h2,
+section.py-20.text-gray-900 h3,
+section.py-20.text-gray-900 p {
+  color: #1e293b !important;
+}
+
+section.py-20.text-gray-900 .text-indigo-600 {
+  color: #3b82f6 !important;
+}
+
+section.py-20.text-gray-900 .text-gray-600 {
+  color: #475569 !important;
+}
+
+.bg-slate-50 .text-gray-900, 
+.bg-slate-50 .text-gray-700, 
+.bg-slate-50 .text-gray-600,
+.bg-indigo-50 .text-gray-900, 
+.bg-indigo-50 .text-gray-700, 
+.bg-indigo-50 .text-gray-600 {
+  color: #1e293b !important;
+}
+
+/* Headings in dark sections */
+.bg-slate-900 h2, .bg-slate-900 h3, .bg-slate-900 h4, .bg-slate-900 h5, .bg-slate-900 h6,
+.bg-gradient-to-br h2, .bg-gradient-to-br h3, .bg-gradient-to-br h4, .bg-gradient-to-br h5, .bg-gradient-to-br h6 {
   color: #fff !important;
 }
 
+/* Headings in light sections */
+.bg-slate-50 h2, .bg-slate-50 h3, .bg-slate-50 h4, .bg-slate-50 h5, .bg-slate-50 h6,
+.bg-indigo-50 h2, .bg-indigo-50 h3, .bg-indigo-50 h4, .bg-indigo-50 h5, .bg-indigo-50 h6 {
+  color: #1e293b !important;
+}
+
 .text-gray-900, .text-gray-700, .text-gray-600, .text-slate-900, .text-slate-700, .text-slate-600 {
-  color: #cbd5e1 !important;
+  color: #f1f5f9 !important;
 }
 
 .bg-slate-800, .bg-slate-900 {
@@ -548,7 +600,7 @@ footer {
 
 /* Timeline icons and tags */
 .bg-gradient-to-r, .bg-indigo-600\/20, .bg-cyan-600\/20 {
-  background: linear-gradient(90deg, #4f46e5, #06b6d4) !important;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4) !important;
   color: #fff !important;
 }
 
@@ -562,7 +614,7 @@ footer {
 }
 
 .btn-primary {
-  background: linear-gradient(90deg, #4f46e5 0%, #06b6d4 100%);
+  background: linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%);
   color: #fff !important;
   padding: 1rem 2rem;
   border-radius: 9999px;
@@ -573,10 +625,13 @@ footer {
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s, color 0.2s;
   outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.7);
+  border-radius: 0.5rem;
+  outline-offset: 2px;
   display: inline-block;
 }
 .btn-primary:hover, .btn-primary:focus {
-  background: linear-gradient(90deg, #06b6d4 0%, #4f46e5 100%);
+  background: linear-gradient(90deg, #06b6d4 0%, #3b82f6 100%);
   color: #fff !important;
   box-shadow: 0 4px 16px rgba(6,182,212,0.18);
 }
@@ -593,6 +648,9 @@ footer {
   cursor: pointer;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
   outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.7);
+  border-radius: 0.5rem;
+  outline-offset: 2px;
   display: inline-block;
 }
 .btn-secondary:hover, .btn-secondary:focus {
@@ -607,7 +665,7 @@ footer {
 /* About Page Specific Styles */
 
 .about-page {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    background: linear-gradient(135deg, #1e293b 0%, #3b82f6 50%, #06b6d4 100%);
     color: #fff;
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
