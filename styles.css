@@ -1869,6 +1869,7 @@ img[src*="pascal-risk-logo.png"] {
   background: var(--gradient-hero);
   overflow: hidden;
   padding-top: 2rem;
+  padding-bottom: 4rem;
 }
 
 .hero-impressive::before {
