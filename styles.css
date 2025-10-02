@@ -1914,7 +1914,8 @@ img[src*="pascal-risk-logo.png"] {
     radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.3), transparent);
   background-repeat: repeat;
   background-size: 200px 200px;
-  animation: heroParticles 15s linear infinite;
+  animation: heroParticles 24s linear infinite;
+  opacity: 0.25;
 }
 
 .hero-container-impressive {
@@ -1950,11 +1951,12 @@ img[src*="pascal-risk-logo.png"] {
 }
 
 .hero-headline-impressive {
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 4.5vw, 3.5rem);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  text-shadow: none;
+  letter-spacing: -0.01em;
 }
 
 .hero-line-1 {
@@ -1992,10 +1994,10 @@ img[src*="pascal-risk-logo.png"] {
 
 .hero-description-impressive {
   font-size: 1.125rem;
-  line-height: 1.7;
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.85);
-  max-width: 48rem;
-  margin: 0 auto 3rem auto;
+  max-width: 46rem;
+  margin: 0.25rem auto 0.75rem auto;
   animation: heroFadeIn 1s ease-out 0.8s both;
 }
 
@@ -2099,6 +2101,23 @@ img[src*="pascal-risk-logo.png"] {
 .cta-primary-impressive:hover .cta-icon,
 .cta-secondary-impressive:hover .cta-icon {
   transform: translateX(3px);
+}
+
+.cta-secondary-impressive {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.35);
+  color: #fff;
+  padding: 1rem 1.25rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.cta-secondary-impressive:hover { 
+  background: rgba(255,255,255,0.08); 
 }
 
 .hero-scroll-indicator {
@@ -2220,6 +2239,10 @@ img[src*="pascal-risk-logo.png"] {
 @media (max-width: 480px) {
   .hero-headline-impressive {
     font-size: 2rem;
+  }
+  
+  .hero-subtitle-impressive {
+    font-size: 1rem;
   }
   
   .hero-description-impressive {
