@@ -1,22 +1,25 @@
+/* ========= DESIGN TOKENS ========= */
+@import url('./design-tokens.css');
+
 /* ========= NAVIGATION SYSTEM ========= */
 
 /* CSS Custom Properties for Navigation - Dark Theme */
 :root {
-  --nav-height: 70px;
-  --nav-bg: rgba(31, 41, 59, 0.95);
-  --nav-border: rgba(255, 255, 255, 0.1);
-  --nav-text: #ffffff;
-  --nav-text-hover: #60a5fa;
-  --nav-text-active: #3b82f6;
-  --nav-logo: #ffffff;
-  --nav-cta-bg: #3b82f6;
-  --nav-cta-bg-hover: #2563eb;
-  --nav-cta-text: #ffffff;
-  --nav-mobile-bg: #1f2937;
-  --nav-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
-  --nav-blur: 20px;
-  --transition-nav: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-fast: all 0.15s ease-out;
+  --nav-height: var(--nav-height);
+  --nav-bg: var(--nav-bg);
+  --nav-border: var(--nav-border);
+  --nav-text: var(--color-text-inverse);
+  --nav-text-hover: var(--color-primary-light);
+  --nav-text-active: var(--color-primary);
+  --nav-logo: var(--color-text-inverse);
+  --nav-cta-bg: var(--color-primary);
+  --nav-cta-bg-hover: var(--color-primary-hover);
+  --nav-cta-text: var(--color-text-inverse);
+  --nav-mobile-bg: var(--color-gray-800);
+  --nav-shadow: var(--shadow-base);
+  --nav-blur: var(--nav-blur);
+  --transition-nav: all var(--duration-300) var(--ease-in-out);
+  --transition-fast: all var(--duration-150) var(--ease-out);
 }
 
 /* Base Navigation Styles */
@@ -436,8 +439,8 @@ body {
 /* Remove default focus outlines and borders from buttons and links */
 button:focus,
 a:focus {
-    outline: 2px solid #6366f1;
-    outline-offset: 2px;
+    outline: var(--border-2) solid var(--color-primary);
+    outline-offset: var(--focus-ring-offset);
 }
 
 html {
@@ -1863,7 +1866,7 @@ img[src*="pascal-risk-logo.png"] {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #1e293b 0%, #3b82f6 50%, #06b6d4 100%);
+  background: var(--gradient-hero);
   overflow: hidden;
 }
 
