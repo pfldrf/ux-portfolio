@@ -2288,8 +2288,9 @@ img[src*="pascal-risk-logo.png"] {
 
 @media (max-width: 480px) {
   .hero-impressive {
-    padding-top: 5rem; /* Even more padding on very small screens */
-    padding-bottom: 2rem;
+    padding-top: 7rem !important; /* Maximum padding for small screens */
+    padding-bottom: 3rem;
+    min-height: 100vh;
   }
   
   .py-20 {
@@ -2311,9 +2312,9 @@ img[src*="pascal-risk-logo.png"] {
 /* Mobile Hero Improvements */
 @media (max-width: 768px) {
   .hero-impressive {
-    padding-top: 4rem; /* Increased from 1rem to push content down */
-    padding-bottom: 2rem;
-    min-height: 90vh;
+    padding-top: 6rem !important; /* Much more aggressive padding */
+    padding-bottom: 3rem;
+    min-height: 100vh; /* Full viewport height */
   }
   
   .hero-work-impressive {
@@ -2323,7 +2324,7 @@ img[src*="pascal-risk-logo.png"] {
   }
   
   .hero-container-impressive {
-    padding: 0 1rem;
+    padding: 2rem 1rem 0 1rem; /* Extra top padding for container */
   }
   
   .hero-headline-impressive {
