@@ -2306,6 +2306,12 @@ img[src*="pascal-risk-logo.png"] {
     min-height: 90vh;
   }
   
+  .hero-work-impressive {
+    padding-top: 4rem; /* Reduced for mobile but still accounts for nav */
+    padding-bottom: 2rem;
+    min-height: 85vh;
+  }
+  
   .hero-container-impressive {
     padding: 0 1rem;
   }
@@ -2555,7 +2561,7 @@ img[src*="pascal-risk-logo.png"] {
   align-items: center;
   background: linear-gradient(135deg, #1e293b 0%, #3b82f6 50%, #06b6d4 100%);
   /* Added padding to avoid nav overlap and give bottom breathing room */
-  padding-top: 2rem;
+  padding-top: 5rem; /* Increased from 2rem to account for nav height (70px) */
   padding-bottom: 4rem;
 }
 
