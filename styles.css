@@ -1714,13 +1714,13 @@ img[src*="splash-phone.png"] {
   height: 12rem !important; /* h-48 */
   width: 100% !important;
   display: block;
-  transform: translateY(-20px) !important; /* Move image up to show middle */
+  transform: translateY(-30px) !important; /* Move image up to show middle */
 }
 
 /* FLAER splash image positioning */
 img[src*="flaer-splash.png"] {
   object-fit: cover !important;
-  transform: translateY(-20px) !important; /* Move image up to show middle */
+  transform: translateY(-30px) !important; /* Move image up to show middle */
 }
 
 /* Featured Work: ECR Copilot Assistant image adjustment */
