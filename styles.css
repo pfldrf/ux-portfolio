@@ -2287,6 +2287,11 @@ img[src*="pascal-risk-logo.png"] {
 }
 
 @media (max-width: 480px) {
+  .hero-impressive {
+    padding-top: 5rem; /* Even more padding on very small screens */
+    padding-bottom: 2rem;
+  }
+  
   .py-20 {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -2306,7 +2311,7 @@ img[src*="pascal-risk-logo.png"] {
 /* Mobile Hero Improvements */
 @media (max-width: 768px) {
   .hero-impressive {
-    padding-top: 1rem;
+    padding-top: 4rem; /* Increased from 1rem to push content down */
     padding-bottom: 2rem;
     min-height: 90vh;
   }
