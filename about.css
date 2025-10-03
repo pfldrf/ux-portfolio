@@ -779,11 +779,17 @@ footer {
     }
     
     .about-page .hero-about {
-        padding: 3rem 1rem 2rem 1rem;
+        padding: 6rem 1rem 3rem 1rem !important; /* Much more aggressive padding for mobile */
     }
     
     .about-page .py-16 {
         padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-page .hero-about {
+        padding: 7rem 1rem 3rem 1rem !important; /* Maximum padding for small screens */
     }
 } 
 
