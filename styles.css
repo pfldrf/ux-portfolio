@@ -1710,7 +1710,7 @@ body.about-page section.hero-about div {
 .mt-12 .project-card:first-child img,
 .mt-12 > a:first-child img,
 img[src*="splash-phone.png"] {
-  object-position: center 5% !important;
+  object-position: center 80% !important; /* Drastic change to test if property works */
   object-fit: cover !important;
   height: 12rem !important; /* h-48 */
   width: 100% !important;
@@ -1719,7 +1719,7 @@ img[src*="splash-phone.png"] {
 
 /* FLAER splash image positioning */
 img[src*="flaer-splash.png"] {
-  object-position: center 5% !important;
+  object-position: center 80% !important; /* Drastic change to test if property works */
   object-fit: cover !important;
 }
 
