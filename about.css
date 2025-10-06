@@ -668,7 +668,9 @@ footer {
 /* About Page Specific Styles */
 
 .about-page {
-    background: linear-gradient(135deg, #1e293b 0%, #3b82f6 50%, #06b6d4 100%);
+    /* Match site hero subtle ink gradient */
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,.06), transparent 60%),
+                linear-gradient(140deg, #0f172a 0%, #1e293b 55%, #0b1220 100%);
     color: #fff;
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
