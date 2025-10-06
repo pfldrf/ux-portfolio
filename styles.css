@@ -1937,6 +1937,51 @@ img[src*="pascal-risk-logo.png"] {
   .hero-left { text-align: center; }
 }
 
+/* --- Credible hero portrait treatment --- */
+.portrait-wrap{
+  position:relative; 
+  width:min(46vw,560px);
+  margin-inline:auto;
+  translate: 0 8px;                 /* anchor to a baseline */
+  filter: saturate(1.02) contrast(1.04);
+}
+
+.portrait-backglow{
+  position:absolute; inset:auto 0 -28px 0; height:180px;
+  background:
+    radial-gradient(60% 70% at 50% 30%, rgba(255,255,255,.18) 0%, rgba(255,255,255,0) 65%),
+    radial-gradient(55% 35% at 50% 95%, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 70%);
+  filter: blur(24px);
+  z-index:0;
+  pointer-events:none;
+}
+
+.portrait-img{
+  position:relative; z-index:1; display:block; width:100%; height:auto;
+  /* soft edge mask to kill the “sticker” look */
+  -webkit-mask-image: radial-gradient(140% 140% at 50% 45%, #000 75%, rgba(0,0,0,0) 100%);
+          mask-image: radial-gradient(140% 140% at 50% 45%, #000 75%, rgba(0,0,0,0) 100%);
+  /* match hero palette (cooler, slightly brighter mids) */
+  filter: hue-rotate(-6deg) saturate(1.03) brightness(1.06) contrast(0.98) drop-shadow(0 24px 60px rgba(8,20,40,.45));
+  border-radius: 18px; /* guards against aliasing on mask edge */
+}
+
+/* optional subtle frame so it reads as “designed”, not pasted */
+.portrait-wrap::after{
+  content:'';
+  position:absolute; inset:-8px -10px 26px -10px; border-radius:26px;
+  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,0));
+  opacity:.6; z-index:0; pointer-events:none;
+}
+
+/* responsive tweaks */
+@media (max-width: 1024px){
+  .portrait-wrap{ width:min(70vw,520px); translate:0 4px; }
+}
+@media (max-width: 640px){
+  .portrait-wrap{ width:min(82vw,420px); }
+}
+
 .hero-badge {
   display: inline-block;
   background: rgba(255, 255, 255, 0.1);
