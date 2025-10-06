@@ -2026,9 +2026,14 @@ img[src*="pascal-risk-logo.png"] {
   gap: 24px;
   flex-wrap: nowrap;
 }
-.logos-strip__inner img { height: 28px; width: auto; object-fit: contain; flex: 0 0 auto; }
+.logos-strip__inner img { height: 24px !important; max-height: 24px; width: auto; max-width: 160px; object-fit: contain; flex: 0 0 auto; }
 @media (max-width: 900px) {
-  .logos-strip__inner { gap: 16px; flex-wrap: wrap; }
+  .logos-strip__inner { gap: 14px; flex-wrap: wrap; }
+  .logos-strip__inner img { height: 20px !important; max-height: 20px; }
+}
+@media (max-width: 640px) {
+  .logos-strip__inner { gap: 12px; }
+  .logos-strip__inner img { height: 18px !important; max-height: 18px; }
 }
 
 .hero__right { justify-self: end; align-self: end; }
