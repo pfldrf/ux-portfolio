@@ -507,6 +507,46 @@ body {
 }
 /* Remove bright gradient overlays inside About hero to match site aesthetic */
 .about-page .hero-about .absolute { display: none !important; }
+
+/* Match homepage hero spacing and type scale */
+.about-page .hero-about {
+  padding: clamp(72px, 8vw, 120px) 0 clamp(48px, 6vw, 80px) !important;
+}
+.about-page .hero-about h1 {
+  font-size: clamp(32px, 4.2vw, 54px) !important;
+  line-height: 1.08 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 1.5rem !important;
+}
+.about-page .hero-about p.text-xl {
+  margin-top: 14px !important;
+  font-size: clamp(16px, 1.4vw, 20px) !important;
+  color: rgba(255,255,255,.88) !important;
+  max-width: 58ch !important;
+}
+.about-page .hero-about .flex.gap-4 { gap: 1rem !important; }
+
+/* Buttons aligned to homepage aesthetic */
+.about-page .btn-primary {
+  background: linear-gradient(90deg, #4f46e5, #06b6d4) !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 14px 20px !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 10px 30px rgba(6,182,212,.25) !important;
+}
+.about-page .btn-primary:hover { transform: translateY(-1px); }
+.about-page .btn-secondary {
+  background: transparent !important;
+  border: 2px solid rgba(255,255,255,0.35) !important;
+  color: #fff !important;
+  padding: 14px 20px !important;
+  border-radius: 999px !important;
+  font-weight: 600 !important;
+}
+.about-page .btn-secondary:hover { background: rgba(255,255,255,0.08) !important; }
 .hero-about h1, .hero-about p, .hero-about .text-white,
 .hero-about .text-slate-100 {
   color: #fff !important;
