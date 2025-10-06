@@ -2042,6 +2042,21 @@ img[src*="pascal-risk-logo.png"] {
   .logos-strip__inner img { height: clamp(16px, 5.2vw, 24px) !important; max-height: 24px; }
 }
 
+/* Per-logo sizing tweaks for visual balance */
+.logos-strip__inner img[alt*="Cleveland Clinic"] { height: 34px !important; max-height: 34px; }
+.logos-strip__inner img[alt*="GoDaddy"] { height: 28px !important; max-height: 28px; }
+.logos-strip__inner img[alt*="Lloyd"] { height: 38px !important; max-height: 38px; }
+.logos-strip__inner img[alt*="BlueCross"] { height: 28px !important; max-height: 28px; }
+.logos-strip__inner img[alt*="Hartford"] { height: 30px !important; max-height: 30px; }
+
+@media (max-width: 900px) {
+  .logos-strip__inner img[alt*="Cleveland Clinic"] { height: 28px !important; max-height: 28px; }
+  .logos-strip__inner img[alt*="GoDaddy"] { height: 24px !important; max-height: 24px; }
+  .logos-strip__inner img[alt*="Lloyd"] { height: 32px !important; max-height: 32px; }
+  .logos-strip__inner img[alt*="BlueCross"] { height: 24px !important; max-height: 24px; }
+  .logos-strip__inner img[alt*="Hartford"] { height: 26px !important; max-height: 26px; }
+}
+
 .hero__right { justify-self: end; align-self: end; }
 .hero__portrait {
   width: clamp(260px, 30vw, 380px);
