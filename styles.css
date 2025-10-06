@@ -2009,20 +2009,26 @@ img[src*="pascal-risk-logo.png"] {
 .hero__logos { margin-top: 28px; display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 12px; opacity: .85; }
 .hero__logos img { height: 28px; width: auto; filter: grayscale(100%) contrast(1.05); opacity: .85; }
 
-/* Light background strip for logos */
-.hero__logos-strip {
-  margin-top: 22px;
+/* Full-width logos strip */
+.logos-strip {
   background: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(2,6,23,0.18);
-  padding: 12px 16px;
+  border-top: 1px solid rgba(15,23,42,0.06);
+  border-bottom: 1px solid rgba(15,23,42,0.06);
+  padding: 14px 0;
 }
-.hero__logos-strip .hero__logos {
-  margin-top: 0;
+.logos-strip__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0,1fr));
+  align-items: center;
   gap: 16px;
-  opacity: .95;
 }
-.hero__logos-strip .hero__logos img { filter: none; opacity: .9; height: 26px; }
+.logos-strip__inner img { height: 28px; width: auto; object-fit: contain; }
+@media (max-width: 900px) {
+  .logos-strip__inner { grid-template-columns: repeat(3, minmax(0,1fr)); row-gap: 12px; }
+}
 
 .hero__right { justify-self: end; align-self: end; }
 .hero__portrait {
@@ -2033,7 +2039,7 @@ img[src*="pascal-risk-logo.png"] {
 }
 
 /* Nudge portrait upward */
-.hero__right { transform: translateY(-24px); }
+.hero__right { transform: translateY(-36px); }
 
 
 @media (max-width: 900px) {
