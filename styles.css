@@ -2027,35 +2027,23 @@ img[src*="pascal-risk-logo.png"] {
   flex-wrap: nowrap;
 }
 .logos-strip__inner img {
-  height: clamp(24px, 2.4vw, 40px) !important;
-  max-height: 40px;
+  height: 32px !important;
+  max-height: 32px;
   width: auto;
   max-width: 220px;
   object-fit: contain;
   flex: 0 0 auto;
+  vertical-align: middle;
 }
 @media (max-width: 900px) {
   .logos-strip__inner { flex-wrap: wrap; }
-  .logos-strip__inner img { height: clamp(18px, 3.8vw, 28px) !important; max-height: 28px; }
+  .logos-strip__inner img { height: 26px !important; max-height: 26px; }
 }
 @media (max-width: 640px) {
-  .logos-strip__inner img { height: clamp(16px, 5.2vw, 24px) !important; max-height: 24px; }
+  .logos-strip__inner img { height: 22px !important; max-height: 22px; }
 }
 
-/* Per-logo sizing tweaks for visual balance */
-.logos-strip__inner img[alt*="Cleveland Clinic"] { height: 34px !important; max-height: 34px; }
-.logos-strip__inner img[alt*="GoDaddy"] { height: 28px !important; max-height: 28px; }
-.logos-strip__inner img[alt*="Lloyd"] { height: 38px !important; max-height: 38px; }
-.logos-strip__inner img[alt*="BlueCross"] { height: 28px !important; max-height: 28px; }
-.logos-strip__inner img[alt*="Hartford"] { height: 30px !important; max-height: 30px; }
-
-@media (max-width: 900px) {
-  .logos-strip__inner img[alt*="Cleveland Clinic"] { height: 28px !important; max-height: 28px; }
-  .logos-strip__inner img[alt*="GoDaddy"] { height: 24px !important; max-height: 24px; }
-  .logos-strip__inner img[alt*="Lloyd"] { height: 32px !important; max-height: 32px; }
-  .logos-strip__inner img[alt*="BlueCross"] { height: 24px !important; max-height: 24px; }
-  .logos-strip__inner img[alt*="Hartford"] { height: 26px !important; max-height: 26px; }
-}
+/* Removed per-logo overrides; using consistent heights for visual rhythm */
 
 .hero__right { justify-self: end; align-self: end; }
 .hero__portrait {
