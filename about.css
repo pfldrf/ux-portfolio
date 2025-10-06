@@ -505,6 +505,8 @@ body {
   background: none !important;
   color: #fff !important;
 }
+/* Remove bright gradient overlays inside About hero to match site aesthetic */
+.about-page .hero-about .absolute { display: none !important; }
 .hero-about h1, .hero-about p, .hero-about .text-white,
 .hero-about .text-slate-100 {
   color: #fff !important;
