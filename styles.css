@@ -2020,14 +2020,15 @@ img[src*="pascal-risk-logo.png"] {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0,1fr));
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
+  flex-wrap: nowrap;
 }
-.logos-strip__inner img { height: 28px; width: auto; object-fit: contain; }
+.logos-strip__inner img { height: 28px; width: auto; object-fit: contain; flex: 0 0 auto; }
 @media (max-width: 900px) {
-  .logos-strip__inner { grid-template-columns: repeat(3, minmax(0,1fr)); row-gap: 12px; }
+  .logos-strip__inner { gap: 16px; flex-wrap: wrap; }
 }
 
 .hero__right { justify-self: end; align-self: end; }
