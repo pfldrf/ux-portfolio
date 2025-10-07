@@ -1,3 +1,13 @@
+.cta-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; overflow: visible; }
+.cta-primary, .cta-secondary {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 14px 20px; border-radius: 999px; font-weight: 700; text-decoration: none;
+  position: relative; z-index: 2; outline: none; border: none; white-space: nowrap;
+}
+.cta-primary { color: #fff; background: linear-gradient(90deg, #4f46e5, #06b6d4); box-shadow: 0 10px 30px rgba(6,182,212,.25); }
+.cta-primary:hover { filter: brightness(1.05); }
+.cta-secondary { color: #fff; background: transparent; border: 2px solid rgba(255,255,255,.35); font-weight: 600; }
+.cta-secondary:hover { background: rgba(255,255,255,.08); }
 /* ========= DESIGN TOKENS ========= */
 @import url('./design-tokens.css');
 
