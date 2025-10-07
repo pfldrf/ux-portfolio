@@ -530,6 +530,10 @@ body {
   overflow: visible !important; /* prevent hover/focus ring clipping on buttons */
 }
 .about-page .hero-about > .relative { overflow: visible !important; }
+/* ensure inner wrappers don't clip shadows */
+.about-page .hero-about .max-w-6xl,
+.about-page .hero-about .grid,
+.about-page .hero-about .flex { overflow: visible !important; }
 .about-page .hero-about h1 {
   font-size: clamp(32px, 4.2vw, 54px) !important;
   line-height: 1.08 !important;
@@ -558,7 +562,7 @@ body {
   position: relative;
   z-index: 2;
 }
-.about-page .btn-primary:hover { transform: translateY(-1px); }
+.about-page .btn-primary:hover { /* no vertical nudge to avoid clipping */ }
 .about-page .btn-secondary {
   background: transparent !important;
   border: 2px solid rgba(255,255,255,0.35) !important;
@@ -577,6 +581,9 @@ body {
 .about-page .btn-secondary:focus-visible {
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.7) !important;
 }
+
+/* lift CTAs above nearby elements */
+.about-page .hero-about .flex.flex-wrap.gap-4 { position: relative; z-index: 5; }
 .hero-about h1, .hero-about p, .hero-about .text-white,
 .hero-about .text-slate-100 {
   color: #fff !important;
