@@ -106,7 +106,7 @@
     </nav>
 
     <!-- ───────────── Cover ───────────── -->
-    <header class="case-study-header flaer-hero has-background" style="background: linear-gradient(135deg, #0f172a 0%, #06b6d4 100%) !important; min-height: 320px; padding: 4rem 0 3rem 0; position: relative; overflow: hidden;">
+    <header class="case-study-header flaer-hero has-background" style="background: linear-gradient(135deg, #059669 0%, #0891b2 100%) !important; min-height: 320px; padding: 4rem 0 3rem 0; position: relative; overflow: hidden;">
         <img src="images/flaer-splash.png" alt="FLAER splash background" style="position: absolute; right: 0; top: 50%; width: 400px; max-width: 60vw; opacity: 0.18; filter: blur(2px); pointer-events: none; z-index: 1; transform: translateY(-50%);">
         <div class="container text-left" style="position: relative; z-index: 2;">
             <h1 class="font-bold drop-shadow-lg text-4xl md:text-5xl mb-4">FLAER Mobile AI-assisted Harm Reporting</h1>
@@ -224,7 +224,11 @@
                     <li><strong>Analytics Review:</strong> Analyzed reporting patterns and identified delays in event submission timing. Only 18% submitted within 24h</li>
                 </ul>
                 <figure class="rounded-xl overflow-hidden shadow-lg bg-white p-6">
-                    <img src="images/flaer-spreadsheet.png" alt="FLAER research prototype" class="h-48 w-full object-cover object-top">
+                    <div class="space-y-3">
+                        <div class="text-center font-semibold text-sm">Research Analysis: Event Reporting Bottlenecks</div>
+                        <img src="images/flaer-spreadsheet.png" alt="FLAER research analysis showing reporting patterns and abandonment points" class="h-48 w-full object-cover object-top rounded">
+                        <p class="text-xs text-gray-600 italic text-center">Analysis of 2,800+ incident reports revealing dropdown complexity as primary abandonment point</p>
+                    </div>
                 </figure>
             </div>
         </section>
@@ -232,6 +236,13 @@
         <!-- Design -->
         <section id="design" class="scroll-mt-20">
             <h2 class="text-2xl font-bold mb-6">Design Process</h2>
+
+            <!-- Design Challenge Callout -->
+            <div class="p-6 mb-12 bg-gradient-to-r from-emerald-50 to-cyan-50 border-l-4 border-emerald-600 rounded-lg">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">💡 Design Challenge</h3>
+                <p class="text-gray-700">How do we transform a 47-field web form that takes 10+ minutes into a mobile conversation that feels effortless? Our approach: <strong>Replace dropdown hunting with natural language</strong>—users just describe what happened, and the AI handles categorization, validation, and routing automatically.</p>
+            </div>
+
             <div class="space-y-12">
                 <!-- Step 1 -->
                 <div class="grid md:grid-cols-2 gap-8 items-center">
@@ -271,11 +282,11 @@
                             <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">2</div>
                             <h3 class="text-xl font-semibold mb-0">Prototype Sprint</h3>
                         </div>
-                        <p class="mb-4">Built high-fidelity Figma prototype with Voiceflow integration to test voice vs text input preferences.</p>
+                        <p class="mb-4">Built high-fidelity Figma prototype with Voiceflow integration to test voice vs text input preferences. <strong>Finding: 82% preferred text over voice</strong> due to privacy concerns on hospital floors ("Don't want coworkers hearing patient details").</p>
                         <ul class="list-disc list-inside space-y-1 text-gray-700">
                             <li>Interactive prototype with voice capabilities</li>
                             <li>User testing with 15 frontline staff</li>
-                            <li>Input preference analysis</li>
+                            <li>Input preference analysis → Text prioritized, voice optional</li>
                         </ul>
                     </div>
                     <figure class="rounded-xl overflow-hidden shadow-lg bg-white p-4">
@@ -303,13 +314,13 @@
                     <div>
                         <div class="flex items-center gap-3 mb-4">
                             <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">3</div>
-                            <h3 class="text-xl font-semibold mb-0">LLM Fine-tuning</h3>
+                            <h3 class="text-xl font-semibold mb-0">AI Training & Optimization</h3>
                         </div>
-                        <p class="mb-4">Trained model on 8K synthetic and 2K de-identified real reports using RLHF for completion and brevity.</p>
+                        <p class="mb-4">Trained the AI on 8,000 synthetic incident reports and 2,000 de-identified real reports to understand healthcare language patterns. Optimized for brevity and completion—ensuring the AI asks only essential follow-up questions without overwhelming users.</p>
                         <ul class="list-disc list-inside space-y-1 text-gray-700">
-                            <li>Optimized prompt library</li>
-                            <li>Response quality metrics</li>
-                            <li>Completion rate optimization</li>
+                            <li>Training dataset: 10K reports across all event types</li>
+                            <li>Response quality metrics: brevity, clarity, medical accuracy</li>
+                            <li>Completion rate optimization → 94% users finish reports</li>
                         </ul>
                     </div>
                     <figure class="rounded-xl overflow-hidden shadow-lg bg-white p-6">

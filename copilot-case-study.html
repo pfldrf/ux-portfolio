@@ -89,7 +89,7 @@
     </nav>
 
     <!-- ───────────── Cover ───────────── -->
-    <header class="case-study-header copilot-hero has-background" style="background: linear-gradient(135deg, #0f172a 0%, #06b6d4 100%) !important; min-height: 320px; padding: 4rem 0 3rem 0; position: relative; overflow: hidden;">
+    <header class="case-study-header copilot-hero has-background" style="background: linear-gradient(135deg, #1e3a8a 0%, #10b981 50%, #06b6d4 100%) !important; min-height: 320px; padding: 4rem 0 3rem 0; position: relative; overflow: hidden;">
         <img src="images/ecr-copilot-cropped.png" alt="ECR Copilot cropped background" style="position: absolute; right: 0; bottom: 0; width: 700px; max-width: 70vw; opacity: 0.18; filter: blur(2px); pointer-events: none; z-index: 1;">
         <div class="container text-left" style="position: relative; z-index: 2;">
             <h1 class="font-bold drop-shadow-lg text-4xl md:text-5xl mb-4">Pascal SAFETY Copilot</h1>
@@ -216,6 +216,13 @@
         <!-- Research -->
         <section id="research" class="scroll-mt-20">
             <h2 class="text-2xl font-bold mb-6">Research & Insights</h2>
+
+            <!-- Key Research Insight Callout -->
+            <div class="p-6 mb-8 bg-gradient-to-r from-blue-50 to-emerald-50 border-l-4 border-emerald-600 rounded-lg">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">🔍 Key Research Insight</h3>
+                <p class="text-gray-700"><strong>65% of review time was spent hunting for evidence</strong> scattered across progress notes, labs, and medication orders. Nurses knew what they were looking for but had to manually search through hundreds of entries to find the "smoking gun" that confirmed or ruled out harm.</p>
+            </div>
+
             <div class="grid md:grid-cols-2 gap-8">
                 <ul class="list-disc list-inside space-y-4 text-lg">
                     <li><strong>Contextual Inquiry:</strong> Shadowed 10 ECR nurses across two facilities to understand their workflow, pain points, and decision-making process. 28 min average per chart, 3.2 doc revisions</li>
@@ -232,19 +239,27 @@
         <!-- Design -->
         <section id="design" class="scroll-mt-20">
             <h2 class="text-2xl font-bold mb-6">Design Process</h2>
+
+            <!-- Design Challenge Callout -->
+            <div class="p-6 mb-12 bg-gradient-to-r from-blue-50 to-cyan-50 border-l-4 border-blue-600 rounded-lg">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">💡 Design Challenge</h3>
+                <p class="text-gray-700">How do we help nurses find critical evidence 10× faster without changing their clinical judgment process? Our approach: <strong>AI surfaces relevant signals automatically</strong>, highlights suspect entries in context, and suggests documentation—but nurses retain full control over verification and decision-making.</p>
+            </div>
+
             <div class="space-y-12">
                 <!-- Step 1 -->
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div>
                         <div class="flex items-center gap-3 mb-4">
                             <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">1</div>
-                            <h3 class="text-xl font-semibold mb-0">Signal Mapping</h3>
+                            <h3 class="text-xl font-semibold mb-0">Understanding Clinical Review Patterns</h3>
                         </div>
-                        <p class="mb-4">Developed LLM-assisted prompt chains to extract vitals, orders, and progress notes with clinical SME validation.</p>
+                        <p class="mb-4">Mapped how experienced nurses identify harm signals across different chart types. Collaborated with clinical SMEs to define what evidence matters most for each trigger category (falls, medication errors, HAIs), then designed AI-assisted extraction to surface those specific signals automatically.</p>
                         <ul class="list-disc list-inside space-y-1 text-gray-700">
-                            <li>Prompt tree with role-based summarizers</li>
-                            <li>Clinical SME validation</li>
-                            <li>Automated evidence extraction</li>
+                            <li>Clinical workflow analysis for 11 trigger types</li>
+                            <li>Evidence hierarchy mapping with nurse SMEs</li>
+                            <li>Automated signal extraction design (vitals, orders, notes)</li>
+                            <li>Validation testing with expert reviewers</li>
                         </ul>
                     </div>
                     <figure class="rounded-xl overflow-hidden shadow-lg bg-white p-6">
@@ -312,33 +327,21 @@
                     <h3 class="text-xl font-semibold">AI-Powered Chart Analysis</h3>
                     <p class="leading-relaxed">ECR Copilot transforms chart review by automatically extracting relevant evidence, providing smart suggestions, and offering documentation assistance—enabling nurses to focus on clinical judgment rather than information hunting.</p>
                     <div class="space-y-4">
-                        <div class="flex items-start space-x-3">
-                            <div class="w-6 h-6 bg-indigo-600 rounded flex items-center justify-center text-white text-xs mt-1">✓</div>
-                            <div>
-                                <h5 class="font-medium">Evidence Timeline</h5>
-                                <p class="text-sm text-gray-600">Chronological notes, labs, and medications with AI-highlighted suspect entries</p>
-                            </div>
+                        <div class="p-4 bg-indigo-50 rounded-lg">
+                            <h5 class="font-semibold mb-2">Evidence Timeline</h5>
+                            <p class="text-sm text-gray-700">Chronological notes, labs, and medications with AI-highlighted suspect entries. Nurses can click any highlighted item to see why the AI flagged it and jump directly to source documentation.</p>
                         </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="w-6 h-6 bg-indigo-600 rounded flex items-center justify-center text-white text-xs mt-1">✓</div>
-                            <div>
-                                <h5 class="font-medium">Copilot Panel</h5>
-                                <p class="text-sm text-gray-600">Suggests follow-ups and offers auto-fill for demographics</p>
-                            </div>
+                        <div class="p-4 bg-indigo-50 rounded-lg">
+                            <h5 class="font-semibold mb-2">Copilot Chat Panel</h5>
+                            <p class="text-sm text-gray-700">Conversational interface suggests relevant follow-up questions ("Was there a physician order for this medication?"), auto-fills demographics, and offers clarifying prompts based on chart context.</p>
                         </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="w-6 h-6 bg-indigo-600 rounded flex items-center justify-center text-white text-xs mt-1">✓</div>
-                            <div>
-                                <h5 class="font-medium">Smart Templates</h5>
-                                <p class="text-sm text-gray-600">Dynamic fields with auto-populated patient information</p>
-                            </div>
+                        <div class="p-4 bg-indigo-50 rounded-lg">
+                            <h5 class="font-semibold mb-2">Smart Templates</h5>
+                            <p class="text-sm text-gray-700">Dynamic narrative templates with auto-populated patient information, trigger details, and evidence summaries. Nurses edit for accuracy rather than typing from scratch.</p>
                         </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="w-6 h-6 bg-indigo-600 rounded flex items-center justify-center text-white text-xs mt-1">✓</div>
-                            <div>
-                                <h5 class="font-medium">Tone Check</h5>
-                                <p class="text-sm text-gray-600">AI flags subjective language and offers concise alternatives</p>
-                            </div>
+                        <div class="p-4 bg-indigo-50 rounded-lg">
+                            <h5 class="font-semibold mb-2">Tone Check & Suggestions</h5>
+                            <p class="text-sm text-gray-700">AI flags subjective language in real-time ("appears to be" → "is documented as") and offers concise alternatives that meet documentation standards.</p>
                         </div>
                     </div>
                 </div>

@@ -89,7 +89,7 @@
     </nav>
 
     <!-- ───────────── Cover ───────────── -->
-    <header class="case-study-header res-hero has-background" style="background: linear-gradient(135deg, #0f172a 0%, #06b6d4 100%) !important; min-height: 320px; padding: 4rem 0 3rem 0; position: relative; overflow: hidden;">
+    <header class="case-study-header res-hero has-background" style="background: linear-gradient(135deg, #991b1b 0%, #475569 100%) !important; min-height: 320px; padding: 4rem 0 3rem 0; position: relative; overflow: hidden;">
         <img src="images/pascal-risk-dashboard.png" alt="" style="position: absolute; right: 0; bottom: 0; width: 700px; max-width: 70vw; opacity: 0.18; filter: blur(2px); pointer-events: none; z-index: 1;">
         <div class="container text-left" style="position: relative; z-index: 2;">
             <h1 class="font-bold drop-shadow-lg text-4xl md:text-5xl mb-4">Pascal RISK</h1>
@@ -228,6 +228,13 @@
         <!-- Research -->
         <section id="research" class="scroll-mt-20">
             <h2 class="text-2xl font-bold mb-6">Research & Insights</h2>
+
+            <!-- Stakeholder Alignment Callout -->
+            <div class="p-6 mb-8 bg-gradient-to-r from-red-50 to-slate-50 border-l-4 border-red-600 rounded-lg">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">🤝 Stakeholder Alignment Challenge</h3>
+                <p class="text-gray-700">Balancing competing needs across three key stakeholders: <strong>Risk managers</strong> wanted early detection with high sensitivity, <strong>patient safety nurses</strong> needed actionable insights without alert fatigue, and <strong>malpractice attorneys</strong> required defensible documentation. Solution: Configurable sensitivity thresholds with role-based dashboards.</p>
+            </div>
+
             <div class="grid md:grid-cols-2 gap-8">
                 <ul class="list-disc list-inside space-y-4 text-lg">
                     <li><strong>Stakeholder Research:</strong> 9 risk manager interviews, 6 patient safety nurse sessions, 2 malpractice attorney consultations, process mapping workshops</li>
@@ -244,6 +251,13 @@
         <!-- Design -->
         <section id="design" class="scroll-mt-20">
             <h2 class="text-2xl font-bold mb-6">Design Process</h2>
+
+            <!-- Design Challenge Callout -->
+            <div class="p-6 mb-12 bg-gradient-to-r from-red-50 to-slate-50 border-l-4 border-red-700 rounded-lg">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">💡 Design Challenge</h3>
+                <p class="text-gray-700">How do we detect adverse events in real-time without overwhelming risk teams with false alarms? Our approach: <strong>Machine learning reduces false positives by 81%</strong> while maintaining 93% event capture—prioritizing critical cases for immediate action while filtering out noise.</p>
+            </div>
+
             <div class="space-y-12">
                 <!-- Step 1 -->
                 <div class="grid md:grid-cols-2 gap-8 items-center">
@@ -314,13 +328,14 @@
                     <div>
                         <div class="flex items-center gap-3 mb-4">
                             <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">3</div>
-                            <h3 class="text-xl font-semibold mb-0">Interface Design</h3>
+                            <h3 class="text-xl font-semibold mb-0">Interface Design & UX Decisions</h3>
                         </div>
-                        <p class="mb-4">Created intuitive workflows, notification systems, and dashboards prioritizing critical events and enabling rapid decision-making for risk managers.</p>
+                        <p class="mb-4">Designed notification hierarchy and dashboards that surface critical events immediately while preventing alert fatigue. Key UX decision: <strong>Color-coded severity system</strong> (red=critical, yellow=moderate, gray=monitoring) with configurable thresholds per facility.</p>
                         <ul class="list-disc list-inside space-y-1 text-gray-700">
-                            <li>Mobile-first responsive design</li>
-                            <li>Severity-based prioritization</li>
-                            <li>Interactive timeline visualization</li>
+                            <li>Mobile-first responsive design for on-call risk managers</li>
+                            <li>Severity-based color coding with one-tap escalation</li>
+                            <li>Interactive timeline showing event progression and interventions</li>
+                            <li>Role-based views: Risk managers see legal exposure, nurses see clinical context</li>
                         </ul>
                     </div>
                     <figure class="rounded-xl overflow-hidden shadow-lg">
@@ -465,17 +480,21 @@
                 <cite class="block mt-2 text-sm text-gray-600">— Director, Risk Services</cite>
             </blockquote>
             
-            <div class="award-highlight flex items-center gap-6 mt-10 mb-8">
-                <div>
-                    <div class="flex items-center mb-1">
-                        <span style="font-size:1.3em;line-height:1;" class="mr-2">⭐️</span>
-                        <span class="text-xl font-bold mr-2">Industry Recognition</span>
-                        <span class="award-badge ml-2">2024</span>
+            <div class="p-6 bg-yellow-50 border-l-4 border-yellow-600 rounded-lg mt-10">
+                <div class="flex items-center mb-3">
+                    <svg class="w-6 h-6 text-yellow-600 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/>
+                    </svg>
+                    <div>
+                        <span class="text-xl font-bold text-gray-900">Industry Recognition</span>
+                        <span class="ml-3 px-3 py-1 bg-yellow-600 text-white text-sm font-semibold rounded-full">2024</span>
                     </div>
-                    <div class="award-desc font-semibold mb-1">Lloyd's Lab Cohort 12 - Most Innovative Product</div>
-                    <div class="award-sub mb-3">Recognized for breakthrough innovation in medical malpractice risk management at the world's leading insurance innovation accelerator</div>
-                    <div class="text-sm text-gray-600">Presented to global insurance leaders at Lloyd's of London, demonstrating how real-time patient harm detection reduces risk exposure and medical malpractice costs for insurers and health systems.</div>
                 </div>
+                <div class="mb-2">
+                    <h4 class="text-lg font-bold text-gray-900">Lloyd's Lab Cohort 12 - Most Innovative Product</h4>
+                    <p class="text-gray-700 mt-1">Recognized for breakthrough innovation in medical malpractice risk management at the world's leading insurance innovation accelerator</p>
+                </div>
+                <p class="text-sm text-gray-600 mt-3">Presented to global insurance leaders at Lloyd's of London, demonstrating how real-time patient harm detection reduces risk exposure and medical malpractice costs for insurers and health systems.</p>
             </div>
         </section>
     </main>
