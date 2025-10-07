@@ -1694,7 +1694,8 @@ img.project-cover.copilot-full {
 
 /* Force dark hero for about page - more specific selector */
 body.about-page section.hero-about {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%) !important;
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,.06), transparent 60%),
+                linear-gradient(140deg, #0f172a 0%, #1e293b 55%, #0b1220 100%) !important;
 }
 
 body.about-page section.hero-about h1,
@@ -1750,24 +1751,25 @@ img[src*="pascal-risk-logo.png"] {
 }
 
 .btn-primary {
-  background: linear-gradient(90deg, #4f46e5 0%, #06b6d4 100%);
+  background: #3b82f6;
   color: #fff !important;
   padding: 1rem 2rem;
-  border-radius: 9999px;
+  border-radius: 12px;
   font-weight: 600;
   font-size: 1.125rem;
-  box-shadow: 0 2px 8px rgba(6,182,212,0.12);
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.25);
   border: none;
   cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
-  outline: 2px solid #6366f1;
-  outline-offset: 2px;
+  transition: all 0.3s ease;
+  outline: none;
   display: inline-block;
 }
 .btn-primary:hover, .btn-primary:focus {
-  background: linear-gradient(90deg, #06b6d4 0%, #4f46e5 100%);
-  color: #fff !important;
-  box-shadow: 0 4px 16px rgba(6,182,212,0.18);
+  transform: translateY(-2px);
+  background: #2563eb;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.35);
+  outline: 2px solid rgba(99, 102, 241, 0.4);
+  outline-offset: 2px;
 }
 
 .btn-outline {
@@ -1999,12 +2001,22 @@ img[src*="pascal-risk-logo.png"] {
 .hero__proof strong { color: #fff; }
 
 .btn.btn--primary {
-  display: inline-block; margin-top: 4px;
-  padding: 14px 20px; border-radius: 999px; font-weight: 700;
-  background: linear-gradient(90deg, #4f46e5, #06b6d4); color: #fff; text-decoration: none;
-  box-shadow: 0 10px 30px rgba(6,182,212,.25);
+  display: inline-block; margin-top: 32px;
+  padding: 14px 24px; border-radius: 12px; font-weight: 700;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff; text-decoration: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
-.btn.btn--primary:hover { transform: translateY(-1px); }
+.btn.btn--primary:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
 
 .hero__logos { margin-top: 28px; display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 12px; opacity: .85; }
 .hero__logos img { height: 28px; width: auto; filter: grayscale(100%) contrast(1.05); opacity: .85; }
@@ -2715,7 +2727,8 @@ img[src*="pascal-risk-logo.png"] {
   min-height: 80vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #1e293b 0%, #3b82f6 50%, #06b6d4 100%);
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,.06), transparent 60%),
+              linear-gradient(140deg, #0f172a 0%, #1e293b 55%, #0b1220 100%);
   /* Added padding to avoid nav overlap and give bottom breathing room */
   padding-top: 5rem; /* Increased from 2rem to account for nav height (70px) */
   padding-bottom: 4rem;
@@ -2945,7 +2958,8 @@ img[src*="pascal-risk-logo.png"] {
   min-height: 50vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #1e293b 0%, #3b82f6 50%, #06b6d4 100%);
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,.06), transparent 60%),
+              linear-gradient(140deg, #0f172a 0%, #1e293b 55%, #0b1220 100%);
   overflow: hidden;
 }
 

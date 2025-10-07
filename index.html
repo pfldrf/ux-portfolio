@@ -25,6 +25,30 @@
     <link href=" https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="styles.css" rel="stylesheet">
+    <style>
+        /* Core Capabilities Card Styles */
+        .capability-card { position: relative; padding: 1.5rem; background: white; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .capability-card-cyan { border-left: 4px solid #06b6d4; }
+        .capability-card-blue { border-left: 4px solid #3b82f6; }
+        .capability-card-purple { border-left: 4px solid #a855f7; }
+        .capability-card-orange { border-left: 4px solid #f97316; }
+        .capability-card-emerald { border-left: 4px solid #10b981; }
+        .capability-card-rose { border-left: 4px solid #f43f5e; }
+
+        .capability-icon-cyan { width: 3rem; height: 3rem; background: #cffafe; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-right: 1rem; }
+        .capability-icon-blue { width: 3rem; height: 3rem; background: #dbeafe; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-right: 1rem; }
+        .capability-icon-purple { width: 3rem; height: 3rem; background: #f3e8ff; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-right: 1rem; }
+        .capability-icon-orange { width: 3rem; height: 3rem; background: #fed7aa; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-right: 1rem; }
+        .capability-icon-emerald { width: 3rem; height: 3rem; background: #d1fae5; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-right: 1rem; }
+        .capability-icon-rose { width: 3rem; height: 3rem; background: #ffe4e6; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-right: 1rem; }
+
+        .capability-icon-cyan svg { width: 1.5rem; height: 1.5rem; color: #0891b2; }
+        .capability-icon-blue svg { width: 1.5rem; height: 1.5rem; color: #2563eb; }
+        .capability-icon-purple svg { width: 1.5rem; height: 1.5rem; color: #9333ea; }
+        .capability-icon-orange svg { width: 1.5rem; height: 1.5rem; color: #ea580c; }
+        .capability-icon-emerald svg { width: 1.5rem; height: 1.5rem; color: #059669; }
+        .capability-icon-rose svg { width: 1.5rem; height: 1.5rem; color: #e11d48; }
+    </style>
 </head>
 <body class="font-inter antialiased text-gray-800 flex flex-col min-h-screen">
 
@@ -78,16 +102,10 @@
       <div class="hero__container">
         <div class="hero__grid">
           <div class="hero__left">
-            <h1 class="hero__headline">Principal UX & AI Product Leader for regulated SaaS—move revenue, cut risk.</h1>
-            <p class="hero__subhead">20+ years in regulated software. Led teams 1→12. $50M+ revenue impact across healthcare & fintech with AI copilots, design systems, and workflow automation.</p>
+            <h1 class="hero__headline">Clinical psychologist turned UX leader—20 years researching, designing, coaching, and shipping experiences users love</h1>
+            <p class="hero__subhead">VP-level leader who still opens Figma. I scale teams 1→12, build design systems, and solve impossible UX problems for enterprise SaaS and consumer products alike.</p>
 
-            <ul class="hero__proof" aria-label="Key results">
-              <li><strong>$28M</strong> underpayments recovered (Cleveland Clinic)</li>
-              <li><strong>+175%</strong> no-touch health insurance sales</li>
-              <li><strong>−71%</strong> clinician charting time (28 → 8 min)</li>
-            </ul>
-
-            <a class="btn btn--primary" href="#projects">See 3 case studies in 60 seconds</a>
+            <a class="btn btn--primary" href="#projects">View recent projects</a>
           </div>
 
           <figure class="hero__right">
@@ -120,7 +138,7 @@
     <!-- ========= PROJECTS ========= -->
     <section class="py-20 bg-gray-50 text-gray-900" id="projects">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl font-semibold text-center text-gray-900">Latest Enterprise UX Wins</h2>
+            <h2 class="text-3xl font-semibold text-center text-gray-900">Featured Work</h2>
             <div class="mt-12 grid gap-8 md:grid-cols-3">
                 <!-- CARD 1 -->
                 <a href="flaer-case-study.html" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:-translate-y-1 transform transition group">
@@ -160,108 +178,87 @@
             </div>
         </div>
     </section>
-    <!-- ========= ABOUT ========= -->
-    <section class="py-20 text-gray-900" id="about">
+    <!-- ========= CAPABILITIES ========= -->
+    <section class="py-20 text-gray-900" id="capabilities">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="md:grid md:grid-cols-2 md:gap-16 items-start">
-                <div>
-                    <h2 class="text-3xl font-semibold text-gray-900 mb-6">About Me</h2>
-                    <p class="text-gray-700 leading-relaxed text-lg">For 20 years I've led with user empathy—shadowing nurses, physicians, stock traders, shoppers, claims reps, gamers, and more to understand real pain points.
-                        Recently, by introducing agentic processes and AI copilots into our workflow, my team ships ideas 10× faster and more creatively, turning regulated, red-tape-heavy data into best-in-class enterprise software that slashes costs, drives new revenue, and measurably improves the quality of life for users.</p>
-                    <a href="about.html" class="mt-6 inline-flex items-center text-indigo-600 font-medium group hover:text-indigo-700 transition-colors">Read full bio
-                        <svg class="ml-1 h-4 w-4 group-hover:translate-x-1 transform transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"></path></svg>
-                    </a>
-                </div>
-                <div class="mt-10 md:mt-0">
-                    <div class="grid gap-6">
-                        <div class="group p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-100 hover:shadow-lg transition-all duration-300">
-                            <div class="flex items-center mb-3">
-                                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mr-4">
-                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                                    </svg>
-                                </div>
-                                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">AI/ML Product UX</h3>
-                            </div>
-                            <p class="text-gray-600 text-sm leading-relaxed">Prompt engineering, explainability, generative UI, RAG, LLM finetuning</p>
+            <h2 class="text-3xl font-semibold text-center text-gray-900 mb-12">Core Capabilities</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="capability-card capability-card-cyan">
+                    <div class="flex items-start mb-4">
+                        <div class="capability-icon-cyan">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
                         </div>
-                        
-                        <div class="group p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-100 hover:shadow-lg transition-all duration-300">
-                            <div class="flex items-center mb-3">
-                                <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mr-4">
-                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                                    </svg>
-                                </div>
-                                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">Design Systems</h3>
-                            </div>
-                            <p class="text-gray-600 text-sm leading-relaxed">Token‑driven libraries and components for enterprise scale</p>
-                        </div>
-                        
-                        <div class="group p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border border-green-100 hover:shadow-lg transition-all duration-300">
-                            <div class="flex items-center mb-3">
-                                <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mr-4">
-                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                                    </svg>
-                                </div>
-                                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-green-600 transition-colors">Regulated Domains</h3>
-                            </div>
-                            <p class="text-gray-600 text-sm leading-relaxed">HIPAA, CMS, SOC‑2, FINRA</p>
-                        </div>
-                        
-                        <div class="group p-6 bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl border border-orange-100 hover:shadow-lg transition-all duration-300">
-                            <div class="flex items-center mb-3">
-                                <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-600 rounded-lg flex items-center justify-center mr-4">
-                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                    </svg>
-                                </div>
-                                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-orange-600 transition-colors">Team Leadership</h3>
-                            </div>
-                            <p class="text-gray-600 text-sm leading-relaxed">Scaled design & research teams from 1 → 12</p>
-                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2">UX Research & Strategy</h3>
                     </div>
+                    <p class="text-gray-600 leading-relaxed">Clinical psychology-trained. Discovery interviews, usability testing, behavioral analysis, product strategy</p>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ========= WHY ME ========= -->
-    <section class="py-20 bg-white text-gray-900">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-semibold text-gray-900 mb-4">Why Choose Me?</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">I'm a passionate advocate for users, and bring a unique combination of deep technical expertise, business acumen, and empathy that drives measurable results.</p>
+                <div class="capability-card capability-card-blue">
+                    <div class="flex items-start mb-4">
+                        <div class="capability-icon-blue">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2">AI/ML Product UX</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">Prompt engineering, explainability, generative UI, RAG, LLM finetuning</p>
+                </div>
+
+                <div class="capability-card capability-card-purple">
+                    <div class="flex items-start mb-4">
+                        <div class="capability-icon-purple">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2">Design Systems</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">Token‑driven libraries and components for enterprise scale</p>
+                </div>
+
+                <div class="capability-card capability-card-orange">
+                    <div class="flex items-start mb-4">
+                        <div class="capability-icon-orange">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2">Team Leadership</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">Scaled design & research teams from 1 → 12. Player-coach who mentors and delivers</p>
+                </div>
+
+                <div class="capability-card capability-card-emerald">
+                    <div class="flex items-start mb-4">
+                        <div class="capability-icon-emerald">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2">Cross-Platform Design</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">Web, mobile, native apps. B2B enterprise and B2C consumer experiences</p>
+                </div>
+
+                <div class="capability-card capability-card-rose">
+                    <div class="flex items-start mb-4">
+                        <div class="capability-icon-rose">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2">Compliance & Security</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">HIPAA, SOC-2, WCAG accessibility, FINRA. Design for regulated industries</p>
+                </div>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-indigo-100 mb-6">
-                        <svg class="h-8 w-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">AI-First Thinking</h3>
-                    <p class="text-gray-600">I don't just design for AI—I design AI itself. From prompt engineering to human-in-the-loop interfaces, I make complex AI systems feel natural and trustworthy.</p>
-                </div>
-                <div class="text-center">
-                    <div class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-green-100 mb-6">
-                        <svg class="h-8 w-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Proven Business Impact</h3>
-                    <p class="text-gray-600">$50M+ in measurable revenue impact across healthcare and fintech. I don't just make things pretty—I make them profitable.</p>
-                </div>
-                <div class="text-center">
-                    <div class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-purple-100 mb-6">
-                        <svg class="h-8 w-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Team Leadership</h3>
-                    <p class="text-gray-600">Scaled design teams from 1 to 12 people. I know how to build, mentor, and lead high-performing UX research and design teams that deliver results.</p>
-                </div>
+            <div class="mt-8 text-center">
+                <a href="about.html" class="inline-flex items-center text-indigo-600 font-medium group hover:text-indigo-700 transition-colors">Learn more about my background
+                    <svg class="ml-1 h-4 w-4 group-hover:translate-x-1 transform transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"></path></svg>
+                </a>
             </div>
         </div>
     </section>
@@ -269,10 +266,10 @@
     <!-- ========= CONTACT TEASER ========= -->
     <section class="py-20 bg-gray-50 text-gray-900" id="contact">
         <div class="max-w-5xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-semibold text-gray-900">Ready to move your roadmap from backlog to bottom-line?</h2>
-            <p class="mt-4 text-gray-600 max-w-xl mx-auto">I'm available for Director / VP / Principal UX roles, or short-term consulting to de-risk critical releases. </p>
+            <h2 class="text-3xl font-semibold text-gray-900">Let's work together</h2>
+            <p class="mt-4 text-gray-600 max-w-xl mx-auto">Available for VP/Principal UX roles and strategic consulting</p>
             <div class="mt-8 flex justify-center">
-                <button class="btn-primary" onclick="window.location.href='contact.html'">Let's Talk</button>
+                <button class="btn-primary" onclick="window.location.href='contact.html'">Get in touch</button>
             </div>
         </div>
     </section>
