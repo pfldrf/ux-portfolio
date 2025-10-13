@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+      /* Mobile responsive card heights */
+      @media (max-width: 767px) {
+        .card-image-container {
+          height: 280px !important;
+        }
+      }
+
       /* Utility classes for line clamps */
       .line-clamp-2 {
         display: -webkit-box;
@@ -217,8 +224,8 @@
                     <span class="hero-work-line-2">impossible UX problems</span>
                     <span class="hero-work-line-3">into elegant solutions that ship</span>
                 </h1>
-                <p class="hero-work-subtitle-impressive">From AI-powered clinical tools to consumer insurance checkout—real projects with measurable business impact across healthcare, fintech, and enterprise software.</p>
 
+                <p class="hero-work-subtitle-impressive">From AI-powered clinical tools to autonomous options trading to consumer insurance to web3 & crypto — real projects with measurable value across healthcare, fintech, and enterprise software.</p>
             </div>
         </div>
         <div class="hero-work-scroll-indicator">
@@ -236,86 +243,79 @@
                 </p>
             </div>
             
-            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                
-                <!-- Clinical Copilot -->
-                <a href="copilot-case-study.html" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 block group">
-                    <div class="h-48 w-full relative flex items-center justify-center overflow-hidden">
-                        <img src="images/ecr-copilot-cropped.png" alt="Clinical Copilot hero background" class="w-full h-full object-cover object-center">
-                        <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(30,41,59,0.32) 0%, rgba(30,41,59,0.48) 100%), radial-gradient(ellipse at center, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.32) 100%); mix-blend-mode: multiply;"></div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap items-center gap-2 mb-3">
-                            <span class="domain-ai">AI</span>
-                            <span class="domain-healthcare">Healthcare</span>
-                            <span class="domain-b2b">B2B</span>
+            <div class="space-y-10 max-w-5xl mx-auto">
+
+                <!-- Pascal RISK -->
+                <a href="pascal-risk-case-study.html" class="portfolio-card bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 group block" style="display: block; overflow: hidden;">
+                    <div class="md:grid md:grid-cols-[2fr_1fr]">
+                        <div class="card-image-container" style="position: relative; overflow: hidden; background: #0a0a0a; height: 500px;">
+                            <img src="images/risk-dashboard.png" alt="Pascal RISK" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s;">
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">Clinical Copilot</h3>
-                        <p class="text-gray-600 mb-4 line-clamp-3">
-                            LLM copilot that surfaces critical chart evidence and cuts harm documentation time.                        </p>
-                        <div class="flex items-center justify-between">
-                            <div class="text-sm text-gray-500">
-                                <span class="font-semibold text-green-600">64%</span> documentation-time drop
+                        <div style="padding: 2rem; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);" class="md:p-10">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 1rem;">Pascal RISK</h3>
+                            <p style="font-size: 1rem; color: #4b5563; line-height: 1.6; margin-bottom: 1.25rem;">Real-time signals engine that flags litigation-grade safety events within hours, preventing seven-figure payouts</p>
+                            <div style="display: flex; flex-wrap: gap: 0.75rem; margin-bottom: 1.5rem;">
+                                <span style="display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: #fef3c7; color: #92400e; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600;">
+                                    <svg style="width: 1rem; height: 1rem; margin-right: 0.375rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/>
+                                    </svg>
+                                    Lloyd's Lab Winner
+                                </span>
+                                <span style="display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: #dbeafe; color: #1e40af; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600;">-65% review time</span>
+                            </div>
+                            <div style="display: flex; align-items: center; font-size: 0.875rem; font-weight: 600; color: #4f46e5;">
+                                View Case Study
+                                <svg style="margin-left: 0.5rem; width: 1rem; height: 1rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                </svg>
                             </div>
                         </div>
-                        <span class="text-blue-600 font-semibold group-hover:text-blue-800 transition-colors block mt-1">
-                            View Case Study →
-                        </span>
                     </div>
                 </a>
 
                 <!-- FLAER Mobile AI -->
-                <a href="flaer-case-study.html" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 block group">
-                    <div class="h-48 w-full relative flex items-center justify-center overflow-hidden">
-                        <img src="images/flaer-splash.png" alt="FLAER Mobile AI hero background" class="w-full h-full object-cover object-center" style="object-position: center 5%;">
-                        <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(30,41,59,0.32) 0%, rgba(30,41,59,0.48) 100%), radial-gradient(ellipse at center, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.32) 100%); mix-blend-mode: multiply;"></div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap items-center gap-2 mb-3">
-                            <span class="domain-ai">AI</span>
-                            <span class="domain-healthcare">Healthcare</span>
-                            <span class="domain-mobile">Mobile</span>
-                            <span class="domain-b2c">B2C</span>
-                            <span class="domain-b2b">B2B</span>
+                <a href="flaer-case-study.html" class="portfolio-card bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 group block" style="display: block; overflow: hidden;">
+                    <div class="md:grid md:grid-cols-[2fr_1fr]">
+                        <div class="card-image-container" style="position: relative; overflow: hidden; background: #f9fafb; height: 500px;">
+                            <img src="images/flaer-3screens.png" alt="FLAER Mobile AI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s;">
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">FLAER Mobile AI</h3>
-                        <p class="text-gray-600 mb-4 line-clamp-3">
-                            Mobile-first reporting platform that turns a data-entry chore into a 2-min conversation.                        </p>
-                        <div class="flex items-center justify-between">
-                            <div class="text-sm text-gray-500">
-                                <span class="font-semibold text-green-600">+157%</span> reports filed within 24 hrs
+                        <div style="padding: 2rem; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);" class="md:p-10">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 1rem;">FLAER Mobile AI</h3>
+                            <p style="font-size: 1rem; color: #4b5563; line-height: 1.6; margin-bottom: 1.25rem;">Conversational AI-enhanced event reporting that cut incident reporting time by >70%</p>
+                            <div style="display: flex; flex-wrap: gap: 0.75rem; margin-bottom: 1.5rem;">
+                                <span style="display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: #dcfce7; color: #166534; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600;">-70% reporting time</span>
+                                <span style="display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: #dcfce7; color: #166534; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600;">+85% completion rate</span>
+                            </div>
+                            <div style="display: flex; align-items: center; font-size: 0.875rem; font-weight: 600; color: #4f46e5;">
+                                View Case Study
+                                <svg style="margin-left: 0.5rem; width: 1rem; height: 1rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                </svg>
                             </div>
                         </div>
-                        <span class="text-blue-600 font-semibold group-hover:text-blue-800 transition-colors block mt-1">
-                            View Case Study →
-                        </span>
                     </div>
                 </a>
 
-                <!-- Pascal RISK (moved up) -->
-                <a href="pascal-risk-case-study.html" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 block group">
-                    <div class="h-48 w-full relative flex items-center justify-center overflow-hidden">
-                        <img src="images/pascal-risk-dashboard.png" alt="Pascal RISK hero background" class="w-full h-full object-cover object-center">
-                        <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(30,41,59,0.32) 0%, rgba(30,41,59,0.48) 100%), radial-gradient(ellipse at center, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.32) 100%); mix-blend-mode: multiply;"></div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap items-center gap-2 mb-3">
-                            <span class="domain-ai">AI</span>
-                            <span class="domain-healthcare">Healthcare</span>
-                            <span class="domain-risk">Risk Management</span>
-                            <span class="domain-b2b">B2B</span>
+                <!-- Pascal SAFETY Copilot -->
+                <a href="copilot-case-study.html" class="portfolio-card bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 group block" style="display: block; overflow: hidden;">
+                    <div class="md:grid md:grid-cols-[2fr_1fr]">
+                        <div class="card-image-container" style="position: relative; overflow: hidden; background: #0a0a0a; height: 500px;">
+                            <img src="images/safety-copilot-report.png" alt="Pascal SAFETY Copilot" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s;">
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">Pascal RISK</h3>
-                        <p class="text-gray-600 mb-4 line-clamp-3">
-                            Real-time signals engine that flags litigation-grade safety events within hours, preventing seven-figure payouts.                        </p>
-                        <div class="flex items-center justify-between">
-                            <div class="text-sm text-gray-500">
-                                <span class="font-semibold text-green-600">32 days → 18 hrs</span> risk event detection
+                        <div style="padding: 2rem; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);" class="md:p-10">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 1rem;">Pascal SAFETY Copilot</h3>
+                            <p style="font-size: 1rem; color: #4b5563; line-height: 1.6; margin-bottom: 1.25rem;">AI-powered copilot slashing expert clinical chart review time by 71%, with smarter triage and auto-generated documentation</p>
+                            <div style="display: flex; flex-wrap: gap: 0.75rem; margin-bottom: 1.5rem;">
+                                <span style="display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: #dbeafe; color: #1e40af; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600;">-71% review time</span>
+                                <span style="display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: #dbeafe; color: #1e40af; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600;">28→8 min per chart</span>
+                            </div>
+                            <div style="display: flex; align-items: center; font-size: 0.875rem; font-weight: 600; color: #4f46e5;">
+                                View Case Study
+                                <svg style="margin-left: 0.5rem; width: 1rem; height: 1rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                </svg>
                             </div>
                         </div>
-                        <span class="text-blue-600 font-semibold group-hover:text-blue-800 transition-colors block mt-1">
-                            View Case Study →
-                        </span>
                     </div>
                 </a>
 
@@ -333,59 +333,56 @@
                 </p>
             </div>
             
-            <div class="grid gap-8 md:grid-cols-2">
-                
-                <!-- BCBSNC Insurance Platform -->
-                <a href="health-insurance-case-study.html" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 block group">
-                    <div class="h-48 w-full relative flex items-center justify-center overflow-hidden">
-                        <img src="images/bcbsnc-current.png" alt="BCBSNC Insurance Platform hero background" class="w-full h-full object-cover object-center">
-                        <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(30,41,59,0.32) 0%, rgba(30,41,59,0.48) 100%), radial-gradient(ellipse at center, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.32) 100%); mix-blend-mode: multiply;"></div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap items-center gap-2 mb-3">
-                            <span class="domain-healthcare">Healthcare</span>
-                            <span class="domain-finance">Finance</span>
-                            <span class="domain-b2c">B2C</span>
+            <div class="space-y-10 max-w-5xl mx-auto">
+
+                <!-- Payment Integrity Compass -->
+                <a href="pic-case-study.html" class="portfolio-card bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 group block" style="display: block; overflow: hidden;">
+                    <div class="md:grid md:grid-cols-[2fr_1fr]">
+                        <div class="card-image-container" style="position: relative; overflow: hidden; background: #f9fafb; height: 500px;">
+                            <img src="images/pic-variance-explorer.png" alt="Payment Integrity Compass" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s;">
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">BCBSNC Insurance Platform</h3>
-                        <p class="text-gray-600 mb-4 line-clamp-3">
-                            Self-serve get a quote and buy online insurance platform that reduced phone support calls by 400% and won an IMA Outstanding Achievement Award.                        </p>
-                        <div class="flex items-center justify-between">
-                            <div class="text-sm text-gray-500">
-                                <span class="font-semibold text-green-600">175%</span> increase in "No Touch" sales
+                        <div style="padding: 2rem; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);" class="md:p-10">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 1rem;">Payment Integrity Compass</h3>
+                            <p style="font-size: 1rem; color: #4b5563; line-height: 1.6; margin-bottom: 1.25rem;">Revenue cycle management platform with variance detector that recovered $28M in underpayments in four months across 75 hospitals</p>
+                            <div style="display: flex; flex-wrap: gap: 0.75rem; margin-bottom: 1.5rem;">
+                                <span style="display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: #dcfce7; color: #166534; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600;">$28M recovered</span>
+                                <span style="display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: #dbeafe; color: #1e40af; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600;">75 hospitals</span>
+                            </div>
+                            <div style="display: flex; align-items: center; font-size: 0.875rem; font-weight: 600; color: #4f46e5;">
+                                View Case Study
+                                <svg style="margin-left: 0.5rem; width: 1rem; height: 1rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                </svg>
                             </div>
                         </div>
-                        <span class="text-blue-600 font-semibold group-hover:text-blue-800 transition-colors block mt-1">
-                            View Case Study →
-                        </span>
                     </div>
                 </a>
 
-                <!-- Payment Integrity Compass (moved down) -->
-                <a href="pic-case-study.html" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 block group">
-                    <div class="h-48 w-full relative flex items-center justify-center overflow-hidden">
-                        <img src="images/pic-dashboard.png" alt="Payment Integrity Compass hero background" class="w-full h-full object-cover object-center">
-                        <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(30,41,59,0.32) 0%, rgba(30,41,59,0.48) 100%), radial-gradient(ellipse at center, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.32) 100%); mix-blend-mode: multiply;"></div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap items-center gap-2 mb-3">
-                            <span class="domain-revenue">Revenue Cycle</span>
-                            <span class="domain-finance">Finance</span>
-                            <span class="domain-b2b">B2B</span>
-                            <span class="domain-healthcare">Healthcare</span>
+                <!-- BCBSNC Insurance Platform -->
+                <a href="health-insurance-case-study.html" class="portfolio-card bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 group block" style="display: block; overflow: hidden;">
+                    <div class="md:grid md:grid-cols-[2fr_1fr]">
+                        <div class="card-image-container" style="position: relative; overflow: hidden; background: #1e40af; height: 500px;">
+                            <img src="images/bcbsnc-preview.png" alt="BCBSNC Insurance Platform" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s;">
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">Payment Integrity Compass</h3>
-                        <p class="text-gray-600 mb-4 line-clamp-3">
-                            Revenue cycle management platform with variance detector that recovered $28 M in under-payments in four months across 75 hospitals.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <div class="text-sm text-gray-500">
-                                <span class="font-semibold text-green-600">$28M</span> recovered in 4 months by pilot system
+                        <div style="padding: 2rem; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);" class="md:p-10">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 1rem;">Blue Cross NC Insurance</h3>
+                            <p style="font-size: 1rem; color: #4b5563; line-height: 1.6; margin-bottom: 1.25rem;">Self-serve quote and buy platform that reduced support calls by 400% and won an IMA Outstanding Achievement Award</p>
+                            <div style="display: flex; flex-wrap: gap: 0.75rem; margin-bottom: 1.5rem;">
+                                <span style="display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: #fef3c7; color: #92400e; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600;">
+                                    <svg style="width: 1rem; height: 1rem; margin-right: 0.375rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/>
+                                    </svg>
+                                    IMA Award Winner
+                                </span>
+                                <span style="display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: #dcfce7; color: #166534; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600;">+175% "No Touch" sales</span>
+                            </div>
+                            <div style="display: flex; align-items: center; font-size: 0.875rem; font-weight: 600; color: #4f46e5;">
+                                View Case Study
+                                <svg style="margin-left: 0.5rem; width: 1rem; height: 1rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                </svg>
                             </div>
                         </div>
-                        <span class="text-blue-600 font-semibold group-hover:text-blue-800 transition-colors block mt-1">
-                            View Case Study →
-                        </span>
                     </div>
                 </a>
 

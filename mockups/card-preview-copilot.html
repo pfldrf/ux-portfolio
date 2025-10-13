@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pascal SAFETY Copilot Card Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background: #0F1C2E;
+            margin: 0;
+            padding: 0;
+        }
+
+        .card-preview {
+            width: 800px;
+            height: 450px;
+            margin: 0 auto;
+            background: #0F1C2E;
+            padding: 10px;
+        }
+
+        .evidence-highlight {
+            background: rgba(77, 182, 172, 0.1);
+            border-left: 3px solid #4DB6AC;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-preview">
+        <div class="bg-white rounded-lg overflow-hidden shadow-xl flex" style="height: 100%;">
+
+            <!-- Left Panel - Chart -->
+            <div class="flex-1 overflow-hidden bg-white border-r border-gray-200">
+                <!-- Patient Header -->
+                <div class="bg-white px-4 py-3 border-b border-gray-200">
+                    <div class="flex items-center gap-3">
+                        <h2 class="text-sm font-semibold text-gray-900">Maria K. Johnson</h2>
+                        <span class="text-xs text-gray-500">F, 57</span>
+                        <span class="px-2 py-1 bg-red-100 text-red-800 text-xs font-bold rounded">SEV-H</span>
+                    </div>
+                    <div class="flex gap-3 text-xs text-gray-600 mt-1">
+                        <span>MRN: 8847392</span>
+                        <span>•</span>
+                        <span>Admitted: 01/14/2025</span>
+                    </div>
+                </div>
+
+                <!-- Chart Content -->
+                <div class="px-4 py-3">
+                    <div class="mb-3">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xs font-bold text-gray-900">CLINICAL NOTES</h3>
+                            <span class="text-xs font-medium text-teal-600">✨ Copilot: 3 findings</span>
+                        </div>
+
+                        <div class="evidence-highlight mb-2">
+                            <div class="flex items-start gap-2">
+                                <span class="material-icons text-sm" style="color: #4DB6AC;">description</span>
+                                <div class="flex-1">
+                                    <p class="text-xs text-gray-800 font-medium mb-1">01/14/2025 - Nursing Assessment</p>
+                                    <p class="text-xs text-gray-700">Patient with dyspnea, O2 sat 88%. <span class="font-semibold bg-yellow-100 px-1">Chest X-ray shows bilateral infiltrates</span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="evidence-highlight mb-2">
+                            <div class="flex items-start gap-2">
+                                <span class="material-icons text-sm" style="color: #4DB6AC;">description</span>
+                                <div class="flex-1">
+                                    <p class="text-xs text-gray-800 font-medium mb-1">01/15/2025 - Progress Note</p>
+                                    <p class="text-xs text-gray-700">Condition deteriorating. <span class="font-semibold bg-yellow-100 px-1">Developed sepsis with elevated WBC (18.5k)</span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="evidence-highlight">
+                            <div class="flex items-start gap-2">
+                                <span class="material-icons text-sm" style="color: #4DB6AC;">description</span>
+                                <div class="flex-1">
+                                    <p class="text-xs text-gray-800 font-medium mb-1">01/16/2025 - Physician Note</p>
+                                    <p class="text-xs text-gray-700"><span class="font-semibold bg-yellow-100 px-1">Blood cultures positive for MRSA bacteremia</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Copilot -->
+            <div class="w-64 bg-white flex flex-col">
+                <!-- Header -->
+                <div class="px-4 py-3 border-b border-gray-200 bg-gray-50">
+                    <div class="flex items-center gap-2">
+                        <span class="material-icons text-lg" style="color: #4DB6AC;">smart_toy</span>
+                        <div>
+                            <h3 class="font-semibold text-xs text-gray-900">SAFETY Copilot</h3>
+                            <p class="text-xs text-gray-500">AI-assisted review</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="flex-1 overflow-auto px-4 py-3 bg-gray-50">
+                    <!-- Alert -->
+                    <div class="mb-3">
+                        <div class="p-3 rounded-lg bg-white border border-gray-200">
+                            <p class="text-xs mb-2">I've detected a <strong>SEV-H harm event</strong>:</p>
+                            <div class="p-2 rounded bg-red-50 border-l-3 border-red-500">
+                                <p class="text-xs font-semibold text-red-900">Hospital-Acquired MRSA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evidence -->
+                    <div class="mb-3">
+                        <div class="p-3 rounded-lg bg-white border border-gray-200">
+                            <p class="text-xs font-semibold mb-2">Key evidence:</p>
+                            <div class="space-y-1.5 text-xs">
+                                <div class="flex gap-2">
+                                    <span style="color: #4DB6AC;">1.</span>
+                                    <p>Positive MRSA culture 01/16</p>
+                                </div>
+                                <div class="flex gap-2">
+                                    <span style="color: #4DB6AC;">2.</span>
+                                    <p>Sepsis post-admission</p>
+                                </div>
+                                <div class="flex gap-2">
+                                    <span style="color: #4DB6AC;">3.</span>
+                                    <p>ICU escalation required</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ICD Codes -->
+                    <div class="mb-3">
+                        <div class="p-3 rounded-lg bg-white border border-gray-200">
+                            <p class="text-xs font-semibold mb-2">Suggested codes:</p>
+                            <div class="p-2 rounded border-2 border-teal-500 bg-teal-50">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-bold">A49.02</span>
+                                    <span class="text-xs font-semibold text-teal-600">95%</span>
+                                </div>
+                                <p class="text-xs text-gray-600">MRSA infection</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

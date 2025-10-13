@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pascal RISK - Event Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background: #F3F4F6;
+        }
+
+        :root {
+            --pm-accent: #4DB6AC;
+            --pm-header: #0F1C2E;
+            --pm-text: #0F1C2E;
+            --pm-sub: #6B7280;
+            --pm-border: #E5E7EB;
+            --critical: #DC2626;
+        }
+
+        .desktop-container {
+            width: 1440px;
+            height: 900px;
+            margin: 40px auto;
+            background: #ffffff;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .severity-indicator {
+            width: 4px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .event-row {
+            position: relative;
+            transition: all 0.15s;
+            cursor: pointer;
+            border-left: 4px solid transparent;
+        }
+
+        .event-row:hover {
+            background: #F9FAFB;
+            border-left-color: #4DB6AC;
+        }
+
+        .event-row.critical {
+            border-left-color: #DC2626;
+            background: #FFFBFB;
+        }
+
+        .event-row.critical:hover {
+            background: #FEF7F7;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #F3F4F6;
+        }
+
+        .priority-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .priority-critical {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+
+        .priority-moderate {
+            background: #F3F4F6;
+            color: #6B7280;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="desktop-container">
+        <!-- Header -->
+        <div style="background: #0F1C2E;">
+            <div class="flex items-center justify-between px-8 py-4">
+                <img src="../images/pascal-risk-logo-white.svg" alt="Pascal RISK" style="height: 48px;">
+                <div class="flex items-center gap-6">
+                    <nav class="flex items-center gap-6">
+                        <a href="#" class="text-white font-semibold text-sm border-b-2 border-teal-400 pb-1">Dashboard</a>
+                        <a href="#" class="text-gray-300 hover:text-white font-medium text-sm transition-colors">Events</a>
+                        <a href="#" class="text-gray-300 hover:text-white font-medium text-sm transition-colors">Analytics</a>
+                        <a href="#" class="text-gray-300 hover:text-white font-medium text-sm transition-colors">Reports</a>
+                    </nav>
+                    <div class="flex items-center gap-2 text-white ml-4 pl-4 border-l border-gray-600">
+                        <div class="w-8 h-8 rounded-full bg-teal-500 flex items-center justify-center text-sm font-semibold">KM</div>
+                        <span class="text-sm">Karen Martinez</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="px-8 py-5 bg-white border-b" style="border-color: #E5E7EB;">
+            <div class="grid grid-cols-4 gap-4">
+                <div class="stat-card">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-medium text-gray-500">Active Events</span>
+                    </div>
+                    <div class="text-3xl font-bold" style="color: #0F1C2E;">12</div>
+                    <div class="text-xs text-gray-500 mt-1">+3 in last 24h</div>
+                </div>
+                <div class="stat-card">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-medium text-gray-500">Critical Priority</span>
+                    </div>
+                    <div class="text-3xl font-bold text-red-600">4</div>
+                    <div class="text-xs text-gray-500 mt-1">Immediate action required</div>
+                </div>
+                <div class="stat-card">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-medium text-gray-500">Pre-Discharge</span>
+                    </div>
+                    <div class="text-3xl font-bold text-green-600">9</div>
+                    <div class="text-xs text-gray-500 mt-1">75% detection rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-medium text-gray-500">Response Time</span>
+                    </div>
+                    <div class="text-3xl font-bold" style="color: #4DB6AC;">4.2h</div>
+                    <div class="text-xs text-gray-500 mt-1">65% improvement</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex" style="height: calc(900px - 180px);">
+
+            <!-- Event List -->
+            <div class="flex-1 overflow-y-auto bg-white">
+                <!-- Filters Bar -->
+                <div class="px-6 py-3 bg-gray-50 border-b flex items-center justify-between" style="border-color: #E5E7EB;">
+                    <div class="flex items-center gap-3">
+                        <button class="px-3 py-1.5 text-xs font-semibold rounded transition-colors" style="background: #0F1C2E; color: white;">
+                            Critical (4)
+                        </button>
+                        <button class="px-3 py-1.5 text-xs font-medium text-gray-600 hover:text-gray-900 hover:bg-white rounded transition-colors">
+                            Moderate (5)
+                        </button>
+                        <button class="px-3 py-1.5 text-xs font-medium text-gray-600 hover:text-gray-900 hover:bg-white rounded transition-colors">
+                            Monitoring (3)
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-400">Updated 2 min ago</span>
+                        <button class="p-1 text-gray-400 hover:text-gray-600 transition-colors">
+                            <span class="material-icons" style="font-size: 18px;">refresh</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Event List -->
+                <div class="divide-y" style="border-color: #E5E7EB;">
+                    <!-- Critical Event 1 -->
+                    <div class="event-row critical px-6 py-4">
+                        <div class="flex items-start justify-between mb-2">
+                            <div class="flex items-center gap-3">
+                                <span class="priority-badge priority-critical">CRITICAL</span>
+                                <span class="text-xs font-semibold text-gray-900">EVT-2947</span>
+                                <span class="text-xs text-gray-400">·</span>
+                                <span class="text-xs text-gray-500">23 min ago</span>
+                            </div>
+                            <button class="px-3 py-1.5 text-xs font-semibold rounded transition-colors" style="background: #DC2626; color: white;">
+                                Escalate
+                            </button>
+                        </div>
+                        <h4 class="text-sm font-semibold mb-2" style="color: #0F1C2E;">Hospital-Acquired Infection (MRSA Bacteremia)</h4>
+                        <div class="flex items-center gap-4 text-xs text-gray-500 mb-3">
+                            <span>Maria K. Johnson, F, 57</span>
+                            <span>·</span>
+                            <span>MRN 8847392</span>
+                            <span>·</span>
+                            <span>Med-Surg 4B-12</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-xs">
+                            <span class="text-red-700 font-medium">Risk Score: 78%</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-600">Est. cost: $420K</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-600">Still admitted</span>
+                        </div>
+                    </div>
+
+                    <!-- Critical Event 2 -->
+                    <div class="event-row critical px-6 py-4">
+                        <div class="flex items-start justify-between mb-2">
+                            <div class="flex items-center gap-3">
+                                <span class="priority-badge priority-critical">CRITICAL</span>
+                                <span class="text-xs font-semibold text-gray-900">EVT-2941</span>
+                                <span class="text-xs text-gray-400">·</span>
+                                <span class="text-xs text-gray-500">2.1 hours ago</span>
+                            </div>
+                            <button class="px-3 py-1.5 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50 transition-colors">
+                                Review
+                            </button>
+                        </div>
+                        <h4 class="text-sm font-semibold mb-2" style="color: #0F1C2E;">Surgical Complication - Unplanned Return to OR</h4>
+                        <div class="flex items-center gap-4 text-xs text-gray-500 mb-3">
+                            <span>Robert J. Thompson, M, 64</span>
+                            <span>·</span>
+                            <span>MRN 7723441</span>
+                            <span>·</span>
+                            <span>Surgical 3A-08</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-xs">
+                            <span class="text-red-700 font-medium">Risk Score: 82%</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-600">Est. cost: $560K</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-600">Still admitted</span>
+                        </div>
+                    </div>
+
+                    <!-- Critical Event 3 -->
+                    <div class="event-row critical px-6 py-4">
+                        <div class="flex items-start justify-between mb-2">
+                            <div class="flex items-center gap-3">
+                                <span class="priority-badge priority-critical">CRITICAL</span>
+                                <span class="text-xs font-semibold text-gray-900">EVT-2938</span>
+                                <span class="text-xs text-gray-400">·</span>
+                                <span class="text-xs text-gray-500">4.5 hours ago</span>
+                            </div>
+                            <button class="px-3 py-1.5 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50 transition-colors">
+                                Review
+                            </button>
+                        </div>
+                        <h4 class="text-sm font-semibold mb-2" style="color: #0F1C2E;">Medication Error - Wrong Dose Administration</h4>
+                        <div class="flex items-center gap-4 text-xs text-gray-500 mb-3">
+                            <span>Lisa W. Chen, F, 42</span>
+                            <span>·</span>
+                            <span>MRN 9284756</span>
+                            <span>·</span>
+                            <span>ICU 2-04</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-xs">
+                            <span class="text-red-700 font-medium">Risk Score: 64%</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-600">Est. cost: $285K</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-600">Still admitted</span>
+                        </div>
+                    </div>
+
+                    <!-- Critical Event 4 -->
+                    <div class="event-row critical px-6 py-4">
+                        <div class="flex items-start justify-between mb-2">
+                            <div class="flex items-center gap-3">
+                                <span class="priority-badge priority-critical">CRITICAL</span>
+                                <span class="text-xs font-semibold text-gray-900">EVT-2937</span>
+                                <span class="text-xs text-gray-400">·</span>
+                                <span class="text-xs text-gray-500">5.8 hours ago</span>
+                            </div>
+                            <button class="px-3 py-1.5 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50 transition-colors">
+                                Review
+                            </button>
+                        </div>
+                        <h4 class="text-sm font-semibold mb-2" style="color: #0F1C2E;">Sepsis - Delayed Recognition and Treatment</h4>
+                        <div class="flex items-center gap-4 text-xs text-gray-500 mb-3">
+                            <span>James P. Sullivan, M, 68</span>
+                            <span>·</span>
+                            <span>MRN 8192045</span>
+                            <span>·</span>
+                            <span>ICU 1-12</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-xs">
+                            <span class="text-red-700 font-medium">Risk Score: 71%</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-600">Est. cost: $390K</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-600">Still admitted</span>
+                        </div>
+                    </div>
+
+                    <!-- Moderate Event 1 -->
+                    <div class="event-row px-6 py-4">
+                        <div class="flex items-start justify-between mb-2">
+                            <div class="flex items-center gap-3">
+                                <span class="priority-badge priority-moderate">MODERATE</span>
+                                <span class="text-xs font-semibold text-gray-900">EVT-2935</span>
+                                <span class="text-xs text-gray-400">·</span>
+                                <span class="text-xs text-gray-500">6.2 hours ago</span>
+                            </div>
+                            <button class="px-3 py-1.5 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50 transition-colors">
+                                Review
+                            </button>
+                        </div>
+                        <h4 class="text-sm font-semibold mb-2" style="color: #0F1C2E;">Fall with Minor Injury</h4>
+                        <div class="flex items-center gap-4 text-xs text-gray-500 mb-3">
+                            <span>Dorothy M. Williams, F, 78</span>
+                            <span>·</span>
+                            <span>MRN 6647823</span>
+                            <span>·</span>
+                            <span>Med-Surg 5C-18</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-xs">
+                            <span class="text-gray-600 font-medium">Risk Score: 42%</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-600">Est. cost: $125K</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-600">Still admitted</span>
+                        </div>
+                    </div>
+
+                    <!-- Moderate Event 2 -->
+                    <div class="event-row px-6 py-4">
+                        <div class="flex items-start justify-between mb-2">
+                            <div class="flex items-center gap-3">
+                                <span class="priority-badge priority-moderate">MODERATE</span>
+                                <span class="text-xs font-semibold text-gray-900">EVT-2933</span>
+                                <span class="text-xs text-gray-400">·</span>
+                                <span class="text-xs text-gray-500">8.7 hours ago</span>
+                            </div>
+                            <button class="px-3 py-1.5 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50 transition-colors">
+                                Review
+                            </button>
+                        </div>
+                        <h4 class="text-sm font-semibold mb-2" style="color: #0F1C2E;">Pressure Injury - Stage II Development</h4>
+                        <div class="flex items-center gap-4 text-xs text-gray-500 mb-3">
+                            <span>Manuel R. Garcia, M, 71</span>
+                            <span>·</span>
+                            <span>MRN 5523098</span>
+                            <span>·</span>
+                            <span>Med-Surg 4B-22</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-xs">
+                            <span class="text-gray-600 font-medium">Risk Score: 38%</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-600">Est. cost: $95K</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-600">Discharged</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Right Panel - Insights -->
+            <div class="w-80 bg-gray-50 border-l overflow-y-auto" style="border-color: #E5E7EB;">
+                <div class="p-6">
+                    <!-- Alert -->
+                    <div class="mb-6">
+                        <h3 class="text-xs font-bold mb-3 text-gray-900">Recent Alerts</h3>
+                        <div class="bg-red-50 border-l-4 border-red-500 p-3 rounded">
+                            <div class="flex items-start gap-2">
+                                <span class="material-icons text-red-600" style="font-size: 16px;">notification_important</span>
+                                <div>
+                                    <p class="text-xs font-semibold text-red-900">New Critical Event</p>
+                                    <p class="text-xs text-red-700 mt-1">MRSA bacteremia - Johnson, M.</p>
+                                    <p class="text-xs text-red-600 mt-1.5">23 min ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trends -->
+                    <div class="mb-6">
+                        <h3 class="text-xs font-bold mb-3 text-gray-900">Event Categories</h3>
+                        <div class="bg-white rounded-lg p-4 border border-gray-200">
+                            <div class="space-y-3 text-xs">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">Hospital-Acquired Infection</span>
+                                    <span class="font-semibold text-gray-900">4</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">Medication Errors</span>
+                                    <span class="font-semibold text-gray-900">3</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">Patient Falls</span>
+                                    <span class="font-semibold text-gray-900">2</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">Surgical Complications</span>
+                                    <span class="font-semibold text-gray-900">3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div>
+                        <h3 class="text-xs font-bold mb-3 text-gray-900">Quick Actions</h3>
+                        <div class="space-y-2">
+                            <button class="w-full px-3 py-2.5 text-left text-xs font-medium rounded-lg transition-colors bg-white border border-gray-200 hover:border-gray-300">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-icons text-gray-400" style="font-size: 16px;">file_download</span>
+                                    <span class="text-gray-700">Export Daily Report</span>
+                                </div>
+                            </button>
+                            <button class="w-full px-3 py-2.5 text-left text-xs font-medium rounded-lg transition-colors bg-white border border-gray-200 hover:border-gray-300">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-icons text-gray-400" style="font-size: 16px;">people</span>
+                                    <span class="text-gray-700">Assign Reviewer</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

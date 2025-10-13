@@ -26,6 +26,13 @@
     <!-- Custom CSS -->
     <link href="styles.css" rel="stylesheet">
     <style>
+        /* Mobile responsive card heights */
+        @media (max-width: 767px) {
+            .card-image-container {
+                height: 280px !important;
+            }
+        }
+
         /* Core Capabilities Card Styles */
         .capability-card { position: relative; padding: 1.5rem; background: white; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
         .capability-card-cyan { border-left: 4px solid #06b6d4; }
@@ -138,36 +145,77 @@
     <!-- ========= PROJECTS ========= -->
     <section class="py-20 bg-gray-50 text-gray-900" id="projects">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl font-semibold text-center text-gray-900">Featured Work</h2>
-            <div class="mt-12 grid gap-8 md:grid-cols-3">
-                <!-- CARD 1 -->
-                <a href="flaer-case-study.html" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:-translate-y-1 transform transition group">
-                    <div class="h-48 w-full bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center overflow-hidden">
-                        <img src="images/flaer-splash.png" alt="FLAER Mobile AI hero background" class="w-full h-full object-cover object-center" style="object-position: center 5%;">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-semibold text-lg text-gray-900 group-hover:text-indigo-600 transition-colors">FLAER Mobile AI</h3>
-                        <p class="mt-2 text-sm text-gray-600">Conversational AI-enhanced event reporting that cut incident reporting time by >70%</p>
+            <h2 class="text-3xl font-semibold text-center text-gray-900">Latest Enterprise UX Wins</h2>
+            <div class="mt-12 space-y-10 max-w-5xl mx-auto">
+                <!-- CARD 1 - Pascal RISK -->
+                <a href="pascal-risk-case-study.html" class="portfolio-card bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 group block" style="display: block; overflow: hidden;">
+                    <div class="md:grid md:grid-cols-[2fr_1fr]">
+                        <div class="card-image-container" style="position: relative; overflow: hidden; background: #0a0a0a; height: 500px;">
+                            <img src="images/risk-dashboard.png" alt="Pascal RISK" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s;">
+                        </div>
+                        <div style="padding: 2rem; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);" class="md:p-10">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 1rem;">Pascal RISK</h3>
+                            <p style="font-size: 1rem; color: #4b5563; line-height: 1.6; margin-bottom: 1.25rem;">Real-time signals engine that flags litigation-grade safety events within hours, preventing seven-figure payouts</p>
+                            <div style="display: flex; flex-wrap: gap: 0.75rem; margin-bottom: 1.5rem;">
+                                <span style="display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: #fef3c7; color: #92400e; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600;">
+                                    <svg style="width: 1rem; height: 1rem; margin-right: 0.375rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9 12 2"/>
+                                    </svg>
+                                    Lloyd's Lab Winner
+                                </span>
+                                <span style="display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: #dbeafe; color: #1e40af; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600;">-65% review time</span>
+                            </div>
+                            <div style="display: flex; align-items: center; font-size: 0.875rem; font-weight: 600; color: #4f46e5;">
+                                View Case Study
+                                <svg style="margin-left: 0.5rem; width: 1rem; height: 1rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                 </a>
-                <!-- CARD 2 -->
-                <a href="pascal-risk-case-study.html" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:-translate-y-1 transform transition group">
-                    <div class="h-48 w-full bg-gradient-to-br from-slate-50 to-gray-100 flex items-center justify-center overflow-hidden">
-                        <img src="images/pascal-risk.png" alt="Pascal RISK" class="h-32 w-auto object-contain" width="320" height="160" loading="lazy">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-semibold text-lg text-gray-900 group-hover:text-indigo-600 transition-colors">Pascal RISK</h3>
-                        <p class="mt-2 text-sm text-gray-600">Real‑time risk intelligence and workflow automation reduces legal liability and medical malpractice costs</p>
+                <!-- CARD 2 - FLAER -->
+                <a href="flaer-case-study.html" class="portfolio-card bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 group block" style="display: block; overflow: hidden;">
+                    <div class="md:grid md:grid-cols-[2fr_1fr]">
+                        <div class="card-image-container" style="position: relative; overflow: hidden; background: #f9fafb; height: 500px;">
+                            <img src="images/flaer-3screens.png" alt="FLAER Mobile AI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s;">
+                        </div>
+                        <div style="padding: 2rem; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);" class="md:p-10">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 1rem;">FLAER Mobile AI</h3>
+                            <p style="font-size: 1rem; color: #4b5563; line-height: 1.6; margin-bottom: 1.25rem;">Conversational AI-enhanced event reporting that cut incident reporting time by >70%</p>
+                            <div style="display: flex; flex-wrap: gap: 0.75rem; margin-bottom: 1.5rem;">
+                                <span style="display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: #dcfce7; color: #166534; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600;">-70% reporting time</span>
+                                <span style="display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: #dcfce7; color: #166534; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600;">+85% completion rate</span>
+                            </div>
+                            <div style="display: flex; align-items: center; font-size: 0.875rem; font-weight: 600; color: #4f46e5;">
+                                View Case Study
+                                <svg style="margin-left: 0.5rem; width: 1rem; height: 1rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                 </a>
-                <!-- CARD 3 -->
-                <a href="copilot-case-study.html" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:-translate-y-1 transform transition group">
-                    <div class="h-48 w-full bg-gradient-to-br from-emerald-50 to-teal-100 flex items-center justify-center overflow-hidden">
-                        <img src="images/pascal-safety.png" alt="ECR Copilot Assistant" class="h-32 w-auto object-contain" width="320" height="160" loading="lazy">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-semibold text-lg text-gray-900 group-hover:text-indigo-600 transition-colors">Pascal SAFETY Copilot</h3>
-                        <p class="mt-2 text-sm text-gray-600">AI assistant reduces clinical chart review and harm event documentation time from 28 to 8 minutes</p>
+                <!-- CARD 3 - Copilot -->
+                <a href="copilot-case-study.html" class="portfolio-card bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 group block" style="display: block; overflow: hidden;">
+                    <div class="md:grid md:grid-cols-[2fr_1fr]">
+                        <div class="card-image-container" style="position: relative; overflow: hidden; background: #0a0a0a; height: 500px;">
+                            <img src="images/safety-copilot-report.png" alt="Pascal SAFETY Copilot" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s;">
+                        </div>
+                        <div style="padding: 2rem; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);" class="md:p-10">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 1rem;">Pascal SAFETY Copilot</h3>
+                            <p style="font-size: 1rem; color: #4b5563; line-height: 1.6; margin-bottom: 1.25rem;">AI-powered copilot slashing expert clinical chart review time by 71%, with smarter triage and auto-generated documentation</p>
+                            <div style="display: flex; flex-wrap: gap: 0.75rem; margin-bottom: 1.5rem;">
+                                <span style="display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: #dbeafe; color: #1e40af; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600;">-71% review time</span>
+                                <span style="display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: #dbeafe; color: #1e40af; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600;">28→8 min per chart</span>
+                            </div>
+                            <div style="display: flex; align-items: center; font-size: 0.875rem; font-weight: 600; color: #4f46e5;">
+                                View Case Study
+                                <svg style="margin-left: 0.5rem; width: 1rem; height: 1rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                 </a>
             </div>

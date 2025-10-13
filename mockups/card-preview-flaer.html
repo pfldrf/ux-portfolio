@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLAER Card Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background: #4A9FCC;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Card preview dimensions: 800x450 to match typical card aspect ratio */
+        .card-preview {
+            width: 800px;
+            height: 450px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .mobile-preview {
+            width: 320px;
+            height: 400px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .chat-bubble {
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .chat-bubble.user {
+            background: #4A9FCC;
+            color: white;
+            margin-left: 60px;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-bubble.assistant {
+            background: #f3f4f6;
+            color: #1f2937;
+            margin-right: 40px;
+            border-bottom-left-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-preview">
+        <div class="mobile-preview">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-blue-500 to-blue-600 px-5 py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 bg-blue-400 rounded-full flex items-center justify-center">
+                        <span class="material-icons text-white" style="font-size: 20px;">smart_toy</span>
+                    </div>
+                    <div>
+                        <div class="text-white text-sm font-bold">FLAER Assistant</div>
+                        <div class="text-blue-100 text-xs">AI-powered guidance</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Content -->
+            <div class="px-5 py-5 bg-gray-50" style="height: calc(400px - 74px);">
+                <div class="chat-bubble assistant">
+                    <div class="font-semibold text-blue-600 text-xs mb-1">🤖 FLAER Assistant</div>
+                    <div class="text-sm">I'll help you report this medication incident.</div>
+                </div>
+
+                <div class="chat-bubble assistant">
+                    <div class="text-sm mb-2">What type of error occurred?</div>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <button class="text-xs py-1.5 px-2 bg-white border border-gray-300 rounded-lg text-gray-700 font-medium">Wrong dose</button>
+                        <button class="text-xs py-1.5 px-2 bg-white border border-gray-300 rounded-lg text-gray-700 font-medium">Wrong med</button>
+                    </div>
+                </div>
+
+                <div class="chat-bubble user">
+                    <div class="text-sm">Wrong dose - 10mg instead of 5mg Metoprolol</div>
+                </div>
+
+                <div class="chat-bubble assistant">
+                    <div class="font-semibold text-orange-600 text-xs mb-1">⚠️ Important</div>
+                    <div class="text-sm">Did the patient receive the incorrect dose?</div>
+                </div>
+
+                <div class="chat-bubble user">
+                    <div class="text-sm">Yes - BP dropped to 88/54, dizzy</div>
+                </div>
+
+                <div class="chat-bubble assistant">
+                    <div class="font-semibold text-red-600 text-xs mb-1">🚨 High Priority</div>
+                    <div class="text-sm">This should be classified as <strong>High Severity</strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

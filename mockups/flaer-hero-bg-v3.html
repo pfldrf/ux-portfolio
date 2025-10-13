@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLAER - Hero Background V3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Text', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background: linear-gradient(135deg, #059669 0%, #0891b2 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .mobile-device {
+            width: 390px;
+            height: 844px;
+            background: #f8f9fa;
+            border-radius: 50px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Notch */
+        .notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 30px;
+            background: #000;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+
+        .status-bar {
+            height: 47px;
+            background: #4A9FCC;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            padding-top: 8px;
+        }
+
+        .chat-bubble {
+            max-width: 80%;
+            padding: 14px 18px;
+            border-radius: 18px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        .chat-bubble.user {
+            background: #4A9FCC;
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-bubble.assistant {
+            background: #f3f4f6;
+            color: #1f2937;
+            margin-right: auto;
+            border-bottom-left-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-device">
+        <div class="notch"></div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="text-white text-xs font-semibold">9:41</div>
+            <div class="flex items-center space-x-1">
+                <span class="material-icons text-white" style="font-size: 16px;">signal_cellular_alt</span>
+                <span class="material-icons text-white" style="font-size: 16px;">wifi</span>
+                <span class="material-icons text-white" style="font-size: 16px;">battery_full</span>
+            </div>
+        </div>
+
+        <!-- Chat Header -->
+        <div class="bg-gradient-to-b from-blue-500 to-blue-600 px-6 pt-4 pb-6">
+            <div class="flex items-center space-x-3">
+                <button class="text-white">
+                    <span class="material-icons" style="font-size: 28px;">arrow_back</span>
+                </button>
+                <div class="flex items-center space-x-3 flex-1">
+                    <div class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center">
+                        <span class="material-icons text-white" style="font-size: 24px;">smart_toy</span>
+                    </div>
+                    <div>
+                        <div class="text-white text-base font-bold">FLAER Assistant</div>
+                        <div class="text-blue-100 text-xs">AI-powered guidance</div>
+                    </div>
+                </div>
+                <button class="text-white">
+                    <span class="material-icons" style="font-size: 24px;">more_vert</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="px-6 py-6 overflow-auto bg-gray-50" style="height: calc(844px - 47px - 94px - 84px);">
+            <div class="flex flex-col">
+
+                <div class="chat-bubble assistant">
+                    <div class="font-semibold text-blue-600 text-xs mb-2">🤖 FLAER Assistant</div>
+                    <div>I'll help you report this medication incident. Let's start with some basic information.</div>
+                </div>
+
+                <div class="chat-bubble assistant">
+                    <div>What type of medication error occurred?</div>
+                    <div class="grid grid-cols-2 gap-2 mt-3">
+                        <button class="text-xs font-medium py-2 px-3 bg-white border border-gray-300 rounded-lg text-gray-700">Wrong dose</button>
+                        <button class="text-xs font-medium py-2 px-3 bg-white border border-gray-300 rounded-lg text-gray-700">Wrong med</button>
+                        <button class="text-xs font-medium py-2 px-3 bg-white border border-gray-300 rounded-lg text-gray-700">Wrong time</button>
+                        <button class="text-xs font-medium py-2 px-3 bg-white border border-gray-300 rounded-lg text-gray-700">Other</button>
+                    </div>
+                </div>
+
+                <div class="chat-bubble user">
+                    Wrong dose - patient received 10mg instead of 5mg Metoprolol
+                </div>
+
+                <div class="chat-bubble assistant">
+                    <div class="font-semibold text-orange-600 text-xs mb-2">⚠️ Important</div>
+                    <div class="mb-3">Was the error caught before administration, or did the patient receive the incorrect dose?</div>
+                    <div class="flex gap-2">
+                        <button class="text-xs font-medium py-2 px-4 bg-white border border-gray-300 rounded-lg text-gray-700 flex-1">Before</button>
+                        <button class="text-xs font-medium py-2 px-4 bg-blue-500 text-white rounded-lg flex-1">After</button>
+                    </div>
+                </div>
+
+                <div class="chat-bubble assistant">
+                    <div>Has the patient shown any adverse reactions? (e.g., low blood pressure, dizziness, bradycardia)</div>
+                </div>
+
+                <div class="chat-bubble user">
+                    Patient BP dropped to 88/54, feeling dizzy. Provider notified, monitoring closely.
+                </div>
+
+                <div class="chat-bubble assistant">
+                    <div class="font-semibold text-red-600 text-xs mb-2">🚨 High Priority</div>
+                    <div class="mb-3">Based on the symptoms, this should be classified as a <strong>High Severity</strong> incident requiring immediate follow-up.</div>
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-3 mt-2">
+                        <div class="text-xs font-semibold text-red-800 mb-1">Recommended Actions:</div>
+                        <ul class="text-xs text-red-700 space-y-1">
+                            <li>• Continue vital sign monitoring q15min</li>
+                            <li>• Document all interventions</li>
+                            <li>• Notify risk management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="chat-bubble assistant">
+                    <div class="mb-2">I can help you complete the incident report now. Should I:</div>
+                    <div class="space-y-2 mt-3">
+                        <button class="w-full text-left px-4 py-3 bg-white border-2 border-blue-500 rounded-lg text-sm font-medium text-gray-900">
+                            📝 Generate complete incident report
+                        </button>
+                        <button class="w-full text-left px-4 py-3 bg-white border border-gray-300 rounded-lg text-sm text-gray-700">
+                            💾 Save draft and finish later
+                        </button>
+                        <button class="w-full text-left px-4 py-3 bg-white border border-gray-300 rounded-lg text-sm text-gray-700">
+                            ❓ Ask me more questions first
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-6 py-4 pb-8">
+            <div class="flex items-center space-x-2">
+                <button class="text-gray-400">
+                    <span class="material-icons" style="font-size: 26px;">add_circle_outline</span>
+                </button>
+                <input
+                    type="text"
+                    placeholder="Type your message..."
+                    class="flex-1 px-4 py-2.5 bg-gray-100 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                <button class="text-blue-500">
+                    <span class="material-icons" style="font-size: 26px;">send</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

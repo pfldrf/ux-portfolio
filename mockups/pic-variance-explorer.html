@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIC - Variance Explorer Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            letter-spacing: -0.011em;
+        }
+
+        /* Advisory Board style customizations */
+        .advisory-blue { background-color: #003d6a; }
+        .advisory-blue-light { background-color: #005a8c; }
+        .advisory-teal { color: #00a99d; }
+        .advisory-teal-bg { background-color: #00a99d; }
+        .advisory-gray { background-color: #f5f7fa; }
+
+        .metric-card {
+            transition: all 0.2s ease;
+        }
+
+        .metric-card:hover {
+            box-shadow: 0 2px 8px rgba(0, 61, 106, 0.1);
+        }
+
+        /* Advisory Board specific overrides */
+        .advisory-btn-primary {
+            background-color: #003d6a;
+            border-color: #003d6a;
+        }
+
+        .advisory-btn-primary:hover {
+            background-color: #005a8c;
+        }
+
+        .advisory-link {
+            color: #003d6a;
+        }
+
+        .advisory-link:hover {
+            color: #005a8c;
+        }
+    </style>
+</head>
+<body class="bg-white antialiased">
+
+    <!-- Full Width Application -->
+    <div class="min-h-screen">
+
+        <!-- App Header - Advisory Board Style (Distinct from Pascal) -->
+        <header class="shadow-md">
+            <div class="bg-white px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <img src="../images/abc-logo.png" alt="Advisory Board" class="h-8">
+                    <div class="text-lg font-bold tracking-tight text-gray-900">Payment Integrity Compass</div>
+                </div>
+
+                <div class="flex items-center space-x-6">
+                    <div class="text-right">
+                        <div class="text-gray-900 text-xs font-medium">Jennifer Davis</div>
+                        <div class="text-gray-600 text-xs">Revenue Cycle Director</div>
+                    </div>
+                    <button class="text-gray-600 hover:text-gray-900 relative">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">3</span>
+                    </button>
+                    <button class="text-gray-600 hover:text-gray-900">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs with Facility -->
+            <div class="bg-gray-100 px-6 flex items-center justify-between">
+                <div class="flex space-x-1">
+                    <a href="#" class="px-4 py-3 text-sm font-semibold text-gray-900 border-b-2 border-blue-900">
+                        Variance Explorer
+                    </a>
+                    <a href="#" class="px-4 py-3 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-200 border-b-2 border-transparent">
+                        Opportunity Engine
+                    </a>
+                    <a href="#" class="px-4 py-3 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-200 border-b-2 border-transparent">
+                        Appeals
+                    </a>
+                    <a href="#" class="px-4 py-3 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-200 border-b-2 border-transparent">
+                        Analytics
+                    </a>
+                </div>
+                <div class="flex items-center space-x-2 text-xs py-3">
+                    <span class="text-gray-600">Facility:</span>
+                    <select class="bg-white text-gray-900 border border-gray-300 rounded px-2 py-1 text-xs font-semibold hover:bg-gray-50 cursor-pointer">
+                        <option>Cleveland Clinic Foundation</option>
+                        <option>Cleveland Clinic Akron General</option>
+                        <option>Cleveland Clinic Hillcrest</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="advisory-gray px-8 py-8">
+
+            <!-- Summary Cards - Advisory Board style: clean, data-focused -->
+            <div class="grid grid-cols-4 gap-5 mb-8">
+                <div class="bg-white p-6 border-l-4 border-l-blue-900 shadow-sm metric-card">
+                    <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Total Opportunity</div>
+                    <div class="text-4xl font-bold text-gray-900 mb-1">$2.3M</div>
+                    <div class="text-sm text-gray-600">847 claims identified</div>
+                </div>
+
+                <div class="bg-white p-6 border-l-4 border-l-teal-500 shadow-sm metric-card">
+                    <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">High Probability</div>
+                    <div class="text-4xl font-bold text-gray-900 mb-1">$1.8M</div>
+                    <div class="text-sm text-gray-600">421 claims • >75% recovery</div>
+                </div>
+
+                <div class="bg-white p-6 border-l-4 border-l-blue-400 shadow-sm metric-card">
+                    <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">In Progress</div>
+                    <div class="text-4xl font-bold text-gray-900 mb-1">$584K</div>
+                    <div class="text-sm text-gray-600">138 claims processing</div>
+                </div>
+
+                <div class="bg-white p-6 border-l-4 border-l-gray-400 shadow-sm metric-card">
+                    <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Recovered MTD</div>
+                    <div class="text-4xl font-bold text-gray-900 mb-1">$387K</div>
+                    <div class="text-sm text-gray-600">92 claims this month</div>
+                </div>
+            </div>
+
+            <!-- Filters and Actions -->
+            <div class="bg-white shadow-sm p-5 mb-6">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="relative">
+                            <select class="pl-10 pr-10 py-2.5 bg-white border border-gray-300 text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent appearance-none">
+                                <option>All Payers</option>
+                                <option>Aetna</option>
+                                <option>UnitedHealth</option>
+                                <option>Cigna</option>
+                                <option>Humana</option>
+                            </select>
+                            <div class="absolute left-3 top-3 text-gray-400">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
+                                </svg>
+                            </div>
+                            <div class="absolute right-3 top-3 text-gray-400 pointer-events-none">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <select class="px-4 py-2.5 bg-white border border-gray-300 text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent">
+                            <option>All Probabilities</option>
+                            <option>High (>75%)</option>
+                            <option>Medium (50-75%)</option>
+                            <option>Low (<50%)</option>
+                        </select>
+
+                        <select class="px-4 py-2.5 bg-white border border-gray-300 text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent">
+                            <option>Last 30 days</option>
+                            <option>Last 7 days</option>
+                            <option>Last 90 days</option>
+                            <option>Custom range</option>
+                        </select>
+                    </div>
+
+                    <div class="flex items-center space-x-3">
+                        <button class="px-4 py-2.5 text-sm font-semibold text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 transition-colors">
+                            <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                            Export
+                        </button>
+                        <button class="px-5 py-2.5 text-sm font-semibold text-white advisory-btn-primary transition-colors">
+                            Bulk Appeal
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Claims Table - Very clean, data-focused -->
+            <div class="bg-white shadow-sm overflow-hidden">
+
+                <!-- Table Header -->
+                <div class="bg-gray-100 border-b border-gray-300">
+                    <div class="grid grid-cols-12 gap-4 px-6 py-3.5">
+                        <div class="col-span-2 text-xs font-bold text-gray-700 uppercase tracking-wider">Claim ID</div>
+                        <div class="col-span-2 text-xs font-bold text-gray-700 uppercase tracking-wider">Payer</div>
+                        <div class="col-span-1 text-xs font-bold text-gray-700 uppercase tracking-wider">Service Date</div>
+                        <div class="col-span-2 text-xs font-bold text-gray-700 uppercase tracking-wider text-right">Expected / Actual</div>
+                        <div class="col-span-2 text-xs font-bold text-gray-700 uppercase tracking-wider text-right">Variance</div>
+                        <div class="col-span-2 text-xs font-bold text-gray-700 uppercase tracking-wider">Recovery Rate</div>
+                        <div class="col-span-1"></div>
+                    </div>
+                </div>
+
+                <!-- Table Body -->
+                <div class="divide-y divide-gray-200">
+
+                    <!-- Row 1 -->
+                    <div class="grid grid-cols-12 gap-4 px-6 py-4 items-center hover:bg-blue-50 transition-colors cursor-pointer border-l-4 border-blue-900">
+                        <div class="col-span-2">
+                            <a href="#" class="text-sm font-semibold advisory-link hover:underline">CLM-824892</a>
+                            <div class="text-xs text-gray-500 mt-0.5">Inpatient</div>
+                        </div>
+                        <div class="col-span-2">
+                            <div class="text-sm font-medium text-gray-900">Aetna</div>
+                            <div class="text-xs text-gray-500">Commercial PPO</div>
+                        </div>
+                        <div class="col-span-1 text-sm text-gray-700">12/08/24</div>
+                        <div class="col-span-2 text-right">
+                            <div class="text-sm text-gray-900 font-semibold">$3,240</div>
+                            <div class="text-xs text-gray-500">$1,398 paid</div>
+                        </div>
+                        <div class="col-span-2 text-right">
+                            <span class="inline-flex items-center px-3 py-1.5 text-sm font-bold text-gray-900 bg-gray-100">
+                                $1,842
+                            </span>
+                        </div>
+                        <div class="col-span-2">
+                            <div class="flex items-center space-x-3">
+                                <div class="flex-1 bg-gray-200 h-2">
+                                    <div class="advisory-blue h-2" style="width: 89%"></div>
+                                </div>
+                                <span class="text-sm font-bold text-gray-900 w-10 text-right">89%</span>
+                            </div>
+                        </div>
+                        <div class="col-span-1 text-right">
+                            <button class="text-gray-400 hover:text-gray-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="grid grid-cols-12 gap-4 px-6 py-4 items-center hover:bg-blue-50 transition-colors cursor-pointer border-l-4 border-blue-900">
+                        <div class="col-span-2">
+                            <a href="#" class="text-sm font-semibold advisory-link hover:underline">CLM-824891</a>
+                            <div class="text-xs text-gray-500 mt-0.5">Outpatient</div>
+                        </div>
+                        <div class="col-span-2">
+                            <div class="text-sm font-medium text-gray-900">UnitedHealth</div>
+                            <div class="text-xs text-gray-500">Medicare Advantage</div>
+                        </div>
+                        <div class="col-span-1 text-sm text-gray-700">12/07/24</div>
+                        <div class="col-span-2 text-right">
+                            <div class="text-sm text-gray-900 font-semibold">$2,156</div>
+                            <div class="text-xs text-gray-500">$942 paid</div>
+                        </div>
+                        <div class="col-span-2 text-right">
+                            <span class="inline-flex items-center px-3 py-1.5 text-sm font-bold text-gray-900 bg-gray-100">
+                                $1,214
+                            </span>
+                        </div>
+                        <div class="col-span-2">
+                            <div class="flex items-center space-x-3">
+                                <div class="flex-1 bg-gray-200 h-2">
+                                    <div class="advisory-blue h-2" style="width: 86%"></div>
+                                </div>
+                                <span class="text-sm font-bold text-gray-900 w-10 text-right">86%</span>
+                            </div>
+                        </div>
+                        <div class="col-span-1 text-right">
+                            <button class="text-gray-400 hover:text-gray-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="grid grid-cols-12 gap-4 px-6 py-4 items-center hover:bg-teal-50 transition-colors cursor-pointer border-l-4 border-teal-500">
+                        <div class="col-span-2">
+                            <a href="#" class="text-sm font-semibold advisory-link hover:underline">CLM-824887</a>
+                            <div class="text-xs text-gray-500 mt-0.5">Emergency</div>
+                        </div>
+                        <div class="col-span-2">
+                            <div class="text-sm font-medium text-gray-900">Cigna</div>
+                            <div class="text-xs text-gray-500">Commercial HMO</div>
+                        </div>
+                        <div class="col-span-1 text-sm text-gray-700">12/06/24</div>
+                        <div class="col-span-2 text-right">
+                            <div class="text-sm text-gray-900 font-semibold">$1,250</div>
+                            <div class="text-xs text-gray-500">$626 paid</div>
+                        </div>
+                        <div class="col-span-2 text-right">
+                            <span class="inline-flex items-center px-3 py-1.5 text-sm font-bold text-gray-900 bg-gray-100">
+                                $624
+                            </span>
+                        </div>
+                        <div class="col-span-2">
+                            <div class="flex items-center space-x-3">
+                                <div class="flex-1 bg-gray-200 h-2">
+                                    <div class="advisory-teal-bg h-2" style="width: 72%"></div>
+                                </div>
+                                <span class="text-sm font-bold text-gray-900 w-10 text-right">72%</span>
+                            </div>
+                        </div>
+                        <div class="col-span-1 text-right">
+                            <button class="text-gray-400 hover:text-gray-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Row 4 -->
+                    <div class="grid grid-cols-12 gap-4 px-6 py-4 items-center hover:bg-teal-50 transition-colors cursor-pointer border-l-4 border-teal-500">
+                        <div class="col-span-2">
+                            <a href="#" class="text-sm font-semibold advisory-link hover:underline">CLM-824883</a>
+                            <div class="text-xs text-gray-500 mt-0.5">Outpatient</div>
+                        </div>
+                        <div class="col-span-2">
+                            <div class="text-sm font-medium text-gray-900">Aetna</div>
+                            <div class="text-xs text-gray-500">Commercial PPO</div>
+                        </div>
+                        <div class="col-span-1 text-sm text-gray-700">12/05/24</div>
+                        <div class="col-span-2 text-right">
+                            <div class="text-sm text-gray-900 font-semibold">$896</div>
+                            <div class="text-xs text-gray-500">$348 paid</div>
+                        </div>
+                        <div class="col-span-2 text-right">
+                            <span class="inline-flex items-center px-3 py-1.5 text-sm font-bold text-gray-900 bg-gray-100">
+                                $548
+                            </span>
+                        </div>
+                        <div class="col-span-2">
+                            <div class="flex items-center space-x-3">
+                                <div class="flex-1 bg-gray-200 h-2">
+                                    <div class="advisory-teal-bg h-2" style="width: 68%"></div>
+                                </div>
+                                <span class="text-sm font-bold text-gray-900 w-10 text-right">68%</span>
+                            </div>
+                        </div>
+                        <div class="col-span-1 text-right">
+                            <button class="text-gray-400 hover:text-gray-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Row 5 -->
+                    <div class="grid grid-cols-12 gap-4 px-6 py-4 items-center hover:bg-gray-50 transition-colors cursor-pointer border-l-4 border-gray-400">
+                        <div class="col-span-2">
+                            <a href="#" class="text-sm font-semibold advisory-link hover:underline">CLM-824879</a>
+                            <div class="text-xs text-gray-500 mt-0.5">Outpatient</div>
+                        </div>
+                        <div class="col-span-2">
+                            <div class="text-sm font-medium text-gray-900">Humana</div>
+                            <div class="text-xs text-gray-500">Medicare Advantage</div>
+                        </div>
+                        <div class="col-span-1 text-sm text-gray-700">12/04/24</div>
+                        <div class="col-span-2 text-right">
+                            <div class="text-sm text-gray-900 font-semibold">$742</div>
+                            <div class="text-xs text-gray-500">$484 paid</div>
+                        </div>
+                        <div class="col-span-2 text-right">
+                            <span class="inline-flex items-center px-3 py-1.5 text-sm font-bold text-gray-900 bg-gray-100">
+                                $258
+                            </span>
+                        </div>
+                        <div class="col-span-2">
+                            <div class="flex items-center space-x-3">
+                                <div class="flex-1 bg-gray-200 h-2">
+                                    <div class="bg-gray-400 h-2" style="width: 54%"></div>
+                                </div>
+                                <span class="text-sm font-bold text-gray-900 w-10 text-right">54%</span>
+                            </div>
+                        </div>
+                        <div class="col-span-1 text-right">
+                            <button class="text-gray-400 hover:text-gray-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Row 6 -->
+                    <div class="grid grid-cols-12 gap-4 px-6 py-4 items-center hover:bg-gray-50 transition-colors cursor-pointer border-l-4 border-gray-400">
+                        <div class="col-span-2">
+                            <a href="#" class="text-sm font-semibold advisory-link hover:underline">CLM-824876</a>
+                            <div class="text-xs text-gray-500 mt-0.5">Inpatient</div>
+                        </div>
+                        <div class="col-span-2">
+                            <div class="text-sm font-medium text-gray-900">Blue Cross</div>
+                            <div class="text-xs text-gray-500">Commercial PPO</div>
+                        </div>
+                        <div class="col-span-1 text-sm text-gray-700">12/03/24</div>
+                        <div class="col-span-2 text-right">
+                            <div class="text-sm text-gray-900 font-semibold">$1,845</div>
+                            <div class="text-xs text-gray-500">$1,632 paid</div>
+                        </div>
+                        <div class="col-span-2 text-right">
+                            <span class="inline-flex items-center px-3 py-1.5 text-sm font-bold text-gray-900 bg-gray-100">
+                                $213
+                            </span>
+                        </div>
+                        <div class="col-span-2">
+                            <div class="flex items-center space-x-3">
+                                <div class="flex-1 bg-gray-200 h-2">
+                                    <div class="bg-gray-400 h-2" style="width: 48%"></div>
+                                </div>
+                                <span class="text-sm font-bold text-gray-900 w-10 text-right">48%</span>
+                            </div>
+                        </div>
+                        <div class="col-span-1 text-right">
+                            <button class="text-gray-400 hover:text-gray-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Table Footer / Pagination -->
+                <div class="bg-white border-t border-gray-300 px-6 py-4">
+                    <div class="flex items-center justify-between">
+                        <div class="text-sm text-gray-600 font-medium">
+                            Showing <span class="font-bold text-gray-900">1</span> to <span class="font-bold text-gray-900">6</span> of <span class="font-bold text-gray-900">847</span> claims
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <button class="px-3 py-2 text-sm font-semibold text-gray-400 bg-white border border-gray-300 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed" disabled>
+                                Previous
+                            </button>
+                            <button class="px-3 py-2 text-sm font-semibold text-white advisory-blue border advisory-blue">
+                                1
+                            </button>
+                            <button class="px-3 py-2 text-sm font-semibold text-gray-700 bg-white border border-gray-300 hover:bg-gray-50">
+                                2
+                            </button>
+                            <button class="px-3 py-2 text-sm font-semibold text-gray-700 bg-white border border-gray-300 hover:bg-gray-50">
+                                3
+                            </button>
+                            <span class="px-2 text-sm text-gray-500">...</span>
+                            <button class="px-3 py-2 text-sm font-semibold text-gray-700 bg-white border border-gray-300 hover:bg-gray-50">
+                                142
+                            </button>
+                            <button class="px-3 py-2 text-sm font-semibold text-gray-700 bg-white border border-gray-300 hover:bg-gray-50">
+                                Next
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+</html>

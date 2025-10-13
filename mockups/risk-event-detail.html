@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pascal RISK - Event Investigation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background: #F3F4F6;
+        }
+
+        :root {
+            --pm-accent: #4DB6AC;
+            --pm-header: #0F1C2E;
+            --pm-text: #0F1C2E;
+            --pm-sub: #6B7280;
+            --pm-border: #E5E7EB;
+            --pm-chip: #E7F5F3;
+            --orange: #EE8600;
+        }
+
+        .desktop-container {
+            width: 1440px;
+            height: 900px;
+            margin: 40px auto;
+            background: #ffffff;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .severity-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .critical { background: #FEE2E2; color: #991B1B; }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 32px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 24px;
+            bottom: -24px;
+            width: 2px;
+            background: #E5E7EB;
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid #E5E7EB;
+            background: white;
+        }
+
+        .timeline-dot.critical {
+            border-color: #DC2626;
+            background: #FEE2E2;
+        }
+
+        .timeline-dot.info {
+            border-color: #3B82F6;
+            background: #DBEAFE;
+        }
+
+        .risk-card {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="desktop-container">
+        <!-- Header -->
+        <div style="background: #0F1C2E;">
+            <!-- App Chrome -->
+            <div class="flex items-center justify-between px-8 py-4">
+                <img src="../images/pascal-risk-logo-white.svg" alt="Pascal RISK" style="height: 48px;">
+                <div class="flex items-center gap-6">
+                    <nav class="flex items-center gap-6">
+                        <a href="#" class="text-gray-300 hover:text-white font-medium text-sm transition-colors">Dashboard</a>
+                        <a href="#" class="text-white font-semibold text-sm border-b-2 border-red-500 pb-1">Events</a>
+                        <a href="#" class="text-gray-300 hover:text-white font-medium text-sm transition-colors">Analytics</a>
+                        <a href="#" class="text-gray-300 hover:text-white font-medium text-sm transition-colors">Reports</a>
+                    </nav>
+                    <div class="flex items-center gap-2 text-white ml-4 pl-4 border-l border-gray-600">
+                        <div class="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center text-sm font-semibold">KM</div>
+                        <span class="text-sm">Karen Martinez, RN</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Breadcrumb Bar -->
+        <div class="flex items-center justify-between px-8 py-3 bg-white border-b" style="border-color: #E5E7EB;">
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <a href="#" class="hover:text-gray-900 transition-colors">Dashboard</a>
+                <span class="material-icons" style="font-size: 16px;">chevron_right</span>
+                <a href="#" class="hover:text-gray-900 transition-colors">Active Events</a>
+                <span class="material-icons" style="font-size: 16px;">chevron_right</span>
+                <span class="text-gray-900 font-medium">EVT-2947 Investigation</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <button class="px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50 transition-colors">
+                    Previous Event
+                </button>
+                <button class="px-3 py-1.5 text-sm font-medium text-white rounded transition-colors" style="background: #DC2626;">
+                    Next Event
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex" style="height: calc(900px - 120px);">
+
+            <!-- Left Panel - Event Details & Timeline -->
+            <div class="flex-1 overflow-y-auto bg-white border-r" style="border-color: #E5E7EB;">
+                <!-- Event Header -->
+                <div class="bg-white px-6 py-4 border-b" style="border-color: #E5E7EB;">
+                    <div class="flex items-start justify-between mb-3">
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="severity-badge critical">CRITICAL</span>
+                                <span class="text-xs font-medium" style="color: #0F1C2E;">EVT-2947</span>
+                                <span class="text-xs text-gray-500">|</span>
+                                <span class="text-xs text-gray-500">Detected 23 min ago</span>
+                            </div>
+                            <h2 class="text-base font-bold mb-1" style="color: #0F1C2E;">Hospital-Acquired Infection (MRSA Bacteremia)</h2>
+                            <div class="flex gap-4 text-xs text-gray-600">
+                                <span>Maria K. Johnson, F, 57</span>
+                                <span>•</span>
+                                <span>MRN: 8847392</span>
+                                <span>•</span>
+                                <span>Room: Med-Surg 4B-12</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button class="px-3 py-1.5 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50 transition-colors flex items-center gap-1">
+                                <span class="material-icons" style="font-size: 14px;">share</span>
+                                Share
+                            </button>
+                            <button class="px-3 py-1.5 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50 transition-colors flex items-center gap-1">
+                                <span class="material-icons" style="font-size: 14px;">print</span>
+                                Print
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="px-2 py-1 rounded text-xs font-medium" style="background: #DBEAFE; color: #1E40AF;">
+                            Still Admitted
+                        </span>
+                        <span class="px-2 py-1 rounded text-xs font-medium" style="background: #FEF3C7; color: #92400E;">
+                            High Legal Risk
+                        </span>
+                        <span class="px-2 py-1 rounded text-xs font-medium" style="background: #FCA5A5; color: #991B1B;">
+                            SEV-H: Serious Temporary Harm
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Risk Assessment -->
+                <div class="px-6 py-4 border-b" style="border-color: #E5E7EB; background: #FEF2F2;">
+                    <h3 class="text-sm font-bold mb-3" style="color: #991B1B;">Risk Assessment</h3>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div>
+                            <div class="text-xs text-gray-600 mb-1">Malpractice Probability</div>
+                            <div class="flex items-baseline gap-2">
+                                <div class="text-2xl font-bold text-red-600">78%</div>
+                                <span class="text-xs text-red-600">High</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-600 mb-1">Estimated Legal Cost</div>
+                            <div class="flex items-baseline gap-2">
+                                <div class="text-2xl font-bold text-red-600">$420K</div>
+                                <span class="text-xs text-gray-500">Projected</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-600 mb-1">Response Window</div>
+                            <div class="flex items-baseline gap-2">
+                                <div class="text-2xl font-bold" style="color: #4DB6AC;">24h</div>
+                                <span class="text-xs text-gray-500">Pre-discharge</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Timeline -->
+                <div class="px-6 py-4">
+                    <h3 class="text-sm font-bold mb-4" style="color: #0F1C2E;">Event Timeline</h3>
+
+                    <div class="space-y-6">
+                        <!-- Timeline Item 1 -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot info"></div>
+                            <div class="text-xs text-gray-500 mb-1">01/14/2025 08:45 AM</div>
+                            <h4 class="text-sm font-semibold mb-1" style="color: #0F1C2E;">Admission - Acute Respiratory Distress</h4>
+                            <p class="text-xs text-gray-700 mb-2">Patient admitted with suspected pneumonia. Initial chest X-ray revealed bilateral infiltrates. Started on supplemental oxygen (4L/min) and empiric antibiotic therapy.</p>
+                            <div class="p-2 rounded text-xs" style="background: #F0F9FF; border-left: 3px solid #3B82F6;">
+                                <strong>Clinical Notes:</strong> O2 sat 88% on room air. Temperature 101.2°F. Respiratory rate 24.
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 2 -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot info"></div>
+                            <div class="text-xs text-gray-500 mb-1">01/15/2025 02:20 PM</div>
+                            <h4 class="text-sm font-semibold mb-1" style="color: #0F1C2E;">Condition Deterioration Detected</h4>
+                            <p class="text-xs text-gray-700 mb-2">Despite antibiotic therapy, patient developed sepsis indicators. WBC elevated to 18.5k, fever spiked to 102.4°F. Blood cultures ordered. Patient escalated to ICU.</p>
+                            <div class="p-2 rounded text-xs" style="background: #FEF3C7; border-left: 3px solid #EAB308;">
+                                <strong>AI Alert:</strong> Sepsis development pattern detected. Risk of HAI indicated.
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 3 -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot critical"></div>
+                            <div class="text-xs text-gray-500 mb-1">01/16/2025 06:00 AM</div>
+                            <h4 class="text-sm font-semibold mb-1" style="color: #991B1B;">CRITICAL EVENT: MRSA Bacteremia Confirmed</h4>
+                            <p class="text-xs text-gray-700 mb-2">Blood culture results positive for Methicillin-resistant Staphylococcus aureus (MRSA). Hospital-acquired infection confirmed. Extended ICU stay required with targeted antibiotic management.</p>
+                            <div class="p-2 rounded text-xs" style="background: #FEE2E2; border-left: 3px solid #DC2626;">
+                                <strong>Critical Finding:</strong> HAI developed post-admission. Family counseled on serious condition. Legal risk assessment triggered.
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 4 -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot" style="border-color: #4DB6AC; background: #E7F5F3;"></div>
+                            <div class="text-xs text-gray-500 mb-1">01/16/2025 06:23 AM</div>
+                            <h4 class="text-sm font-semibold mb-1" style="color: #0F1C2E;">Pascal RISK Detection</h4>
+                            <p class="text-xs text-gray-700 mb-2">Real-time detection algorithm flagged event as SEV-H with high malpractice probability. Risk management team automatically notified. Case assigned for immediate review.</p>
+                            <div class="flex items-center gap-2 mt-2">
+                                <span class="px-2 py-1 rounded text-xs font-medium" style="background: #E7F5F3; color: #0F1C2E;">
+                                    <span class="material-icons" style="font-size: 12px; vertical-align: middle;">check_circle</span>
+                                    Pre-discharge detection
+                                </span>
+                                <span class="px-2 py-1 rounded text-xs font-medium" style="background: #E7F5F3; color: #0F1C2E;">
+                                    Response window: 24h
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 5 -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot" style="border-color: #4DB6AC; background: #E7F5F3;"></div>
+                            <div class="text-xs text-gray-500 mb-1">01/16/2025 06:45 AM - NOW</div>
+                            <h4 class="text-sm font-semibold mb-1" style="color: #0F1C2E;">Investigation In Progress</h4>
+                            <p class="text-xs text-gray-700">Risk management review initiated. Clinical documentation being collected. Family liaison assigned. Preventability assessment pending.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Actions & Evidence -->
+            <div class="w-96 bg-white flex flex-col">
+                <!-- Actions Header -->
+                <div class="px-6 py-4 border-b" style="border-color: #E5E7EB; background: #F9FAFB;">
+                    <h3 class="font-semibold text-sm" style="color: #0F1C2E;">Investigation Actions</h3>
+                </div>
+
+                <!-- Actions Content -->
+                <div class="flex-1 overflow-y-auto px-6 py-4" style="background: #FAFAFA;">
+
+                    <!-- Recommended Actions -->
+                    <div class="mb-4">
+                        <h4 class="text-xs font-bold mb-3" style="color: #0F1C2E;">Recommended Actions</h4>
+                        <div class="space-y-2">
+                            <button class="w-full p-3 rounded-lg border-2 text-left transition-all hover:shadow-sm" style="border-color: #DC2626; background: #FEF2F2;">
+                                <div class="flex items-start gap-2">
+                                    <span class="material-icons text-red-600" style="font-size: 18px;">priority_high</span>
+                                    <div class="flex-1">
+                                        <p class="text-xs font-semibold text-red-900">Immediate: Notify Risk Manager</p>
+                                        <p class="text-xs text-red-700 mt-1">Critical event requires senior review within 2 hours</p>
+                                    </div>
+                                </div>
+                            </button>
+                            <button class="w-full p-3 rounded-lg border text-left transition-all hover:bg-white" style="border-color: #FCA5A5; background: white;">
+                                <div class="flex items-start gap-2">
+                                    <span class="material-icons text-red-500" style="font-size: 18px;">people</span>
+                                    <div class="flex-1">
+                                        <p class="text-xs font-semibold" style="color: #0F1C2E;">Assign Family Liaison</p>
+                                        <p class="text-xs text-gray-600 mt-1">High-touch communication recommended</p>
+                                    </div>
+                                </div>
+                            </button>
+                            <button class="w-full p-3 rounded-lg border text-left transition-all hover:bg-white" style="border-color: #E5E7EB; background: white;">
+                                <div class="flex items-start gap-2">
+                                    <span class="material-icons" style="color: #4DB6AC; font-size: 18px;">description</span>
+                                    <div class="flex-1">
+                                        <p class="text-xs font-semibold" style="color: #0F1C2E;">Secure Documentation</p>
+                                        <p class="text-xs text-gray-600 mt-1">Preserve all clinical records and images</p>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Key Evidence -->
+                    <div class="mb-4">
+                        <h4 class="text-xs font-bold mb-3" style="color: #0F1C2E;">Key Evidence</h4>
+                        <div class="risk-card">
+                            <div class="space-y-3 text-xs">
+                                <div>
+                                    <div class="font-semibold mb-1" style="color: #0F1C2E;">ICD-10 Codes</div>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-2 py-1 rounded font-mono" style="background: #F0FDFA; color: #0F1C2E;">A49.02</span>
+                                        <span class="px-2 py-1 rounded font-mono" style="background: #F0FDFA; color: #0F1C2E;">T81.4XXA</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="font-semibold mb-1" style="color: #0F1C2E;">Lab Results</div>
+                                    <ul class="text-gray-700 space-y-1">
+                                        <li>• Blood culture: MRSA positive</li>
+                                        <li>• WBC: 18.5k (elevated)</li>
+                                        <li>• Temperature: 102.4°F</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <div class="font-semibold mb-1" style="color: #0F1C2E;">Clinical Documents</div>
+                                    <div class="space-y-1">
+                                        <div class="flex items-center gap-2 p-2 rounded hover:bg-gray-50 cursor-pointer">
+                                            <span class="material-icons" style="color: #4DB6AC; font-size: 16px;">insert_drive_file</span>
+                                            <span class="text-gray-700">Admission notes</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 p-2 rounded hover:bg-gray-50 cursor-pointer">
+                                            <span class="material-icons" style="color: #4DB6AC; font-size: 16px;">insert_drive_file</span>
+                                            <span class="text-gray-700">Progress notes (3)</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 p-2 rounded hover:bg-gray-50 cursor-pointer">
+                                            <span class="material-icons" style="color: #4DB6AC; font-size: 16px;">insert_drive_file</span>
+                                            <span class="text-gray-700">Lab reports</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Similar Cases -->
+                    <div class="mb-4">
+                        <h4 class="text-xs font-bold mb-3" style="color: #0F1C2E;">Similar Cases</h4>
+                        <div class="risk-card">
+                            <div class="text-xs text-gray-700">
+                                <p class="mb-2">Based on historical data, 3 similar HAI events in past 12 months:</p>
+                                <div class="space-y-2">
+                                    <div class="p-2 rounded" style="background: #F9FAFB;">
+                                        <div class="font-semibold mb-1">AVG Settlement: $385K</div>
+                                        <div class="text-gray-600">AVG Time to Resolution: 8.3 months</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Assignment -->
+                    <div>
+                        <h4 class="text-xs font-bold mb-3" style="color: #0F1C2E;">Case Assignment</h4>
+                        <div class="risk-card">
+                            <div class="space-y-3 text-xs">
+                                <div>
+                                    <div class="text-gray-600 mb-1">Assigned To</div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-6 h-6 rounded-full bg-red-600 flex items-center justify-center text-white text-xs font-semibold">KM</div>
+                                        <span class="font-semibold" style="color: #0F1C2E;">Karen Martinez, RN</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-gray-600 mb-1">Status</div>
+                                    <span class="px-2 py-1 rounded font-medium" style="background: #FEF3C7; color: #92400E;">Under Investigation</span>
+                                </div>
+                                <div>
+                                    <div class="text-gray-600 mb-1">Priority</div>
+                                    <span class="px-2 py-1 rounded font-medium" style="background: #FEE2E2; color: #991B1B;">Critical - 24h Response</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="p-4 border-t" style="border-color: #E5E7EB; background: white;">
+                    <div class="space-y-2">
+                        <button class="w-full py-2.5 rounded-lg font-semibold text-sm transition-all hover:shadow-md flex items-center justify-center gap-2" style="background: #DC2626; color: white;">
+                            <span class="material-icons" style="font-size: 16px;">campaign</span>
+                            Escalate to Legal
+                        </button>
+                        <button class="w-full py-2.5 rounded-lg font-medium text-sm border transition-colors hover:bg-gray-50" style="border-color: #E5E7EB; color: #0F1C2E; background: white;">
+                            Update Status
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

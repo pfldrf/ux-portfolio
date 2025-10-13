@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLAER - Hero Background</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Text', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* Large mobile device showcase - 3 phones side by side */
+        .phone-showcase {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 60px;
+        }
+
+        .mobile-container {
+            width: 390px;
+            height: 844px;
+            background: #f8f9fa;
+            border-radius: 50px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* iOS-style status bar */
+        .status-bar {
+            height: 47px;
+            background: #4A9FCC;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            padding-top: 8px;
+        }
+
+        /* Notch */
+        .notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 30px;
+            background: #000;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .category-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .material-icons {
+            font-size: 32px;
+        }
+
+        .draft-card {
+            background: white;
+            border-radius: 14px;
+            padding: 16px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+            display: flex;
+            gap: 14px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .bottom-nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 84px;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-bottom: 20px;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: #6b7280;
+        }
+
+        .nav-item.active {
+            color: #4A9FCC;
+        }
+
+        .chat-bubble {
+            max-width: 80%;
+            padding: 14px 18px;
+            border-radius: 18px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        .chat-bubble.user {
+            background: #4A9FCC;
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-bubble.assistant {
+            background: #f3f4f6;
+            color: #1f2937;
+            margin-right: auto;
+            border-bottom-left-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="phone-showcase">
+
+        <!-- Phone 1: Home Dashboard -->
+        <div class="mobile-container">
+            <div class="notch"></div>
+
+            <!-- Status Bar -->
+            <div class="status-bar">
+                <div class="text-white text-xs font-semibold">9:41</div>
+                <div class="flex items-center space-x-1">
+                    <span class="material-icons text-white" style="font-size: 16px;">signal_cellular_alt</span>
+                    <span class="material-icons text-white" style="font-size: 16px;">wifi</span>
+                    <span class="material-icons text-white" style="font-size: 16px;">battery_full</span>
+                </div>
+            </div>
+
+            <!-- Header -->
+            <div class="bg-gradient-to-b from-blue-500 to-blue-600 px-6 pt-4 pb-8">
+                <div class="flex items-center justify-between mb-8">
+                    <div>
+                        <div class="text-blue-100 text-sm font-medium">Welcome back,</div>
+                        <div class="text-white text-2xl font-bold">Sarah</div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <button class="text-white">
+                            <span class="material-icons" style="font-size: 26px;">search</span>
+                        </button>
+                        <button class="text-white relative">
+                            <span class="material-icons" style="font-size: 26px;">notifications</span>
+                            <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-blue-600"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="text-white text-lg font-bold mb-2">FLAER</div>
+                <div class="text-blue-100 text-sm">Frontline Adverse Event Reporting</div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="px-6 -mt-4 pb-28 overflow-auto" style="height: calc(844px - 47px - 84px - 120px);">
+
+                <!-- Quick Actions -->
+                <div class="mb-8">
+                    <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-4 px-1">Report New Event</div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="category-card">
+                            <div class="category-icon bg-red-100">
+                                <span class="material-icons text-red-600">medical_services</span>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-sm font-bold text-gray-900">Medication</div>
+                                <div class="text-xs text-gray-500 mt-1">Error or reaction</div>
+                            </div>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-icon bg-orange-100">
+                                <span class="material-icons text-orange-600">personal_injury</span>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-sm font-bold text-gray-900">Patient Fall</div>
+                                <div class="text-xs text-gray-500 mt-1">Injury or incident</div>
+                            </div>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-icon bg-purple-100">
+                                <span class="material-icons text-purple-600">surgery</span>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-sm font-bold text-gray-900">Procedure</div>
+                                <div class="text-xs text-gray-500 mt-1">Complication</div>
+                            </div>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-icon bg-blue-100">
+                                <span class="material-icons text-blue-600">health_and_safety</span>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-sm font-bold text-gray-900">Other</div>
+                                <div class="text-xs text-gray-500 mt-1">General safety</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Draft Reports -->
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-4 px-1">
+                        <div class="text-xs font-bold text-gray-500 uppercase tracking-wide">Draft Reports</div>
+                        <div class="text-xs font-semibold text-blue-600">View All</div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="draft-card">
+                            <div class="category-icon bg-red-100" style="width: 48px; height: 48px; flex-shrink: 0;">
+                                <span class="material-icons text-red-600" style="font-size: 28px;">medical_services</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-start justify-between mb-1">
+                                    <div class="text-sm font-bold text-gray-900">Wrong dose administered</div>
+                                    <span class="badge bg-yellow-100 text-yellow-800">Draft</span>
+                                </div>
+                                <div class="text-xs text-gray-600 mb-2">Patient: Martinez, Robert • Bed 412</div>
+                                <div class="text-xs text-gray-500">Saved 2 hours ago</div>
+                            </div>
+                        </div>
+
+                        <div class="draft-card">
+                            <div class="category-icon bg-orange-100" style="width: 48px; height: 48px; flex-shrink: 0;">
+                                <span class="material-icons text-orange-600" style="font-size: 28px;">personal_injury</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-start justify-between mb-1">
+                                    <div class="text-sm font-bold text-gray-900">Near-miss slip incident</div>
+                                    <span class="badge bg-yellow-100 text-yellow-800">Draft</span>
+                                </div>
+                                <div class="text-xs text-gray-600 mb-2">Location: 4th Floor Hallway</div>
+                                <div class="text-xs text-gray-500">Saved yesterday</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Navigation -->
+            <div class="bottom-nav">
+                <div class="nav-item active">
+                    <span class="material-icons" style="font-size: 26px;">home</span>
+                    <span class="text-xs font-semibold">Home</span>
+                </div>
+                <div class="nav-item">
+                    <span class="material-icons" style="font-size: 26px;">add_circle</span>
+                    <span class="text-xs font-semibold">New Report</span>
+                </div>
+                <div class="nav-item">
+                    <span class="material-icons" style="font-size: 26px;">description</span>
+                    <span class="text-xs font-semibold">My Reports</span>
+                </div>
+                <div class="nav-item">
+                    <span class="material-icons" style="font-size: 26px;">person</span>
+                    <span class="text-xs font-semibold">Profile</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phone 2: AI Chat Assistant -->
+        <div class="mobile-container">
+            <div class="notch"></div>
+
+            <!-- Status Bar -->
+            <div class="status-bar">
+                <div class="text-white text-xs font-semibold">9:41</div>
+                <div class="flex items-center space-x-1">
+                    <span class="material-icons text-white" style="font-size: 16px;">signal_cellular_alt</span>
+                    <span class="material-icons text-white" style="font-size: 16px;">wifi</span>
+                    <span class="material-icons text-white" style="font-size: 16px;">battery_full</span>
+                </div>
+            </div>
+
+            <!-- Chat Header -->
+            <div class="bg-gradient-to-b from-blue-500 to-blue-600 px-6 pt-4 pb-6">
+                <div class="flex items-center space-x-3">
+                    <button class="text-white">
+                        <span class="material-icons" style="font-size: 28px;">arrow_back</span>
+                    </button>
+                    <div class="flex items-center space-x-3 flex-1">
+                        <div class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center">
+                            <span class="material-icons text-white" style="font-size: 24px;">smart_toy</span>
+                        </div>
+                        <div>
+                            <div class="text-white text-base font-bold">FLAER Assistant</div>
+                            <div class="text-blue-100 text-xs">AI-powered guidance</div>
+                        </div>
+                    </div>
+                    <button class="text-white">
+                        <span class="material-icons" style="font-size: 24px;">more_vert</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Chat Messages -->
+            <div class="px-6 py-6 overflow-auto bg-gray-50" style="height: calc(844px - 47px - 84px - 94px);">
+                <div class="flex flex-col">
+
+                    <div class="chat-bubble assistant">
+                        <div class="font-semibold text-blue-600 text-xs mb-2">🤖 FLAER Assistant</div>
+                        <div>I'll help you report this medication incident. Let's start with some basic information.</div>
+                    </div>
+
+                    <div class="chat-bubble assistant">
+                        <div>What type of medication error occurred?</div>
+                        <div class="grid grid-cols-2 gap-2 mt-3">
+                            <button class="text-xs font-medium py-2 px-3 bg-white border border-gray-300 rounded-lg text-gray-700">Wrong dose</button>
+                            <button class="text-xs font-medium py-2 px-3 bg-white border border-gray-300 rounded-lg text-gray-700">Wrong med</button>
+                            <button class="text-xs font-medium py-2 px-3 bg-white border border-gray-300 rounded-lg text-gray-700">Wrong time</button>
+                            <button class="text-xs font-medium py-2 px-3 bg-white border border-gray-300 rounded-lg text-gray-700">Other</button>
+                        </div>
+                    </div>
+
+                    <div class="chat-bubble user">
+                        Wrong dose - patient received 10mg instead of 5mg Metoprolol
+                    </div>
+
+                    <div class="chat-bubble assistant">
+                        <div class="font-semibold text-orange-600 text-xs mb-2">⚠️ Important</div>
+                        <div class="mb-3">Was the error caught before administration, or did the patient receive the incorrect dose?</div>
+                        <div class="flex gap-2">
+                            <button class="text-xs font-medium py-2 px-4 bg-white border border-gray-300 rounded-lg text-gray-700 flex-1">Before</button>
+                            <button class="text-xs font-medium py-2 px-4 bg-blue-500 text-white rounded-lg flex-1">After</button>
+                        </div>
+                    </div>
+
+                    <div class="chat-bubble assistant">
+                        <div>Has the patient shown any adverse reactions? (e.g., low blood pressure, dizziness, bradycardia)</div>
+                    </div>
+
+                    <div class="chat-bubble user">
+                        Patient BP dropped to 88/54, feeling dizzy. Provider notified, monitoring closely.
+                    </div>
+
+                    <div class="chat-bubble assistant">
+                        <div class="font-semibold text-red-600 text-xs mb-2">🚨 High Priority</div>
+                        <div class="mb-3">Based on the symptoms, this should be classified as a <strong>High Severity</strong> incident requiring immediate follow-up.</div>
+                        <div class="bg-red-50 border border-red-200 rounded-lg p-3 mt-2">
+                            <div class="text-xs font-semibold text-red-800 mb-1">Recommended Actions:</div>
+                            <ul class="text-xs text-red-700 space-y-1">
+                                <li>• Continue vital sign monitoring q15min</li>
+                                <li>• Document all interventions</li>
+                                <li>• Notify risk management</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-6 py-4 pb-8">
+                <div class="flex items-center space-x-2">
+                    <button class="text-gray-400">
+                        <span class="material-icons" style="font-size: 26px;">add_circle_outline</span>
+                    </button>
+                    <input
+                        type="text"
+                        placeholder="Type your message..."
+                        class="flex-1 px-4 py-2.5 bg-gray-100 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                    <button class="text-blue-500">
+                        <span class="material-icons" style="font-size: 26px;">send</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phone 3: Report Form -->
+        <div class="mobile-container">
+            <div class="notch"></div>
+
+            <!-- Status Bar -->
+            <div class="status-bar">
+                <div class="text-white text-xs font-semibold">9:41</div>
+                <div class="flex items-center space-x-1">
+                    <span class="material-icons text-white" style="font-size: 16px;">signal_cellular_alt</span>
+                    <span class="material-icons text-white" style="font-size: 16px;">wifi</span>
+                    <span class="material-icons text-white" style="font-size: 16px;">battery_full</span>
+                </div>
+            </div>
+
+            <!-- Form Header -->
+            <div class="bg-gradient-to-b from-blue-500 to-blue-600 px-6 pt-4 pb-6">
+                <div class="flex items-center justify-between mb-4">
+                    <button class="text-white">
+                        <span class="material-icons" style="font-size: 28px;">close</span>
+                    </button>
+                    <div class="text-white text-base font-bold">Medication Error Report</div>
+                    <button class="text-blue-100 text-sm font-semibold">Save</button>
+                </div>
+                <div class="bg-blue-400/30 rounded-lg px-4 py-3">
+                    <div class="flex items-center justify-between">
+                        <div class="text-white text-xs font-semibold">Progress</div>
+                        <div class="text-white text-xs font-semibold">65%</div>
+                    </div>
+                    <div class="bg-blue-300 rounded-full h-2 mt-2">
+                        <div class="bg-white rounded-full h-2" style="width: 65%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Content -->
+            <div class="px-6 py-6 overflow-auto bg-white" style="height: calc(844px - 47px - 142px - 84px);">
+                <div class="space-y-6">
+
+                    <!-- Section -->
+                    <div>
+                        <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-3">Patient Information</div>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="text-sm font-semibold text-gray-700 mb-2 block">Patient Name</label>
+                                <input type="text" value="Martinez, Robert" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-sm">
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-700 mb-2 block">MRN</label>
+                                <input type="text" value="847291" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-sm">
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-700 mb-2 block">Location</label>
+                                <input type="text" value="4th Floor - Bed 412" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-sm">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section -->
+                    <div>
+                        <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-3">Incident Details</div>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="text-sm font-semibold text-gray-700 mb-2 block">Medication</label>
+                                <input type="text" value="Metoprolol" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-sm">
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-700 mb-2 block">Ordered Dose</label>
+                                    <input type="text" value="5mg" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-sm">
+                                </div>
+                                <div>
+                                    <label class="text-sm font-semibold text-gray-700 mb-2 block">Given Dose</label>
+                                    <input type="text" value="10mg" class="w-full px-4 py-3 bg-red-50 border-2 border-red-300 rounded-lg text-sm font-semibold text-red-700">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="text-sm font-semibold text-gray-700 mb-2 block">Severity</label>
+                                <select class="w-full px-4 py-3 bg-orange-50 border-2 border-orange-300 rounded-lg text-sm font-semibold text-orange-700">
+                                    <option>High - Adverse reaction occurred</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section -->
+                    <div>
+                        <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-3">Description</div>
+                        <textarea rows="4" placeholder="Describe what happened..." class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-sm resize-none">Patient received 10mg Metoprolol instead of ordered 5mg dose. Shortly after administration, patient's BP dropped to 88/54 with complaints of dizziness. Provider was immediately notified and is monitoring patient closely. Vital signs being checked every 15 minutes.</textarea>
+                    </div>
+
+                    <!-- AI Suggestions -->
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <span class="material-icons text-white" style="font-size: 20px;">lightbulb</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-xs font-bold text-blue-900 mb-2">AI Suggestion</div>
+                                <div class="text-xs text-blue-800 mb-3">Consider adding these details to strengthen your report:</div>
+                                <ul class="text-xs text-blue-700 space-y-1">
+                                    <li>• Time medication was administered</li>
+                                    <li>• Contributing factors (staffing, interruptions)</li>
+                                    <li>• Interventions provided for hypotension</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Bottom Button -->
+            <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-6 py-4 pb-8">
+                <button class="w-full py-4 bg-blue-500 text-white text-base font-bold rounded-xl">
+                    Submit Report
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

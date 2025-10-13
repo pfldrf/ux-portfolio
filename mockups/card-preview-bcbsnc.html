@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCBSNC Card Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background: #1e40af;
+            margin: 0;
+            padding: 0;
+        }
+
+        .card-preview {
+            width: 800px;
+            height: 450px;
+            margin: 0 auto;
+            background: #f8fafc;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-preview">
+        <div class="bg-white rounded-lg overflow-hidden shadow-xl" style="height: 100%;">
+
+            <!-- Header -->
+            <div class="bg-blue-900 px-5 py-3 flex items-center justify-between">
+                <div class="text-white text-lg font-bold">Blue Cross Blue Shield of NC</div>
+                <div class="text-blue-200 text-sm">Shop for Coverage</div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-5 bg-gray-50" style="height: calc(100% - 56px); overflow: hidden;">
+
+                <!-- Progress Indicator -->
+                <div class="mb-4">
+                    <div class="flex items-center justify-between text-xs text-gray-600 mb-2">
+                        <span class="font-semibold">Comparing Plans</span>
+                        <span>Step 3 of 4</span>
+                    </div>
+                    <div class="bg-gray-200 rounded-full h-2">
+                        <div class="bg-blue-600 rounded-full h-2" style="width: 75%;"></div>
+                    </div>
+                </div>
+
+                <h2 class="text-lg font-bold text-gray-900 mb-3">Compare Plans for You & Your Family</h2>
+
+                <!-- Plan Comparison Table -->
+                <div class="grid grid-cols-3 gap-3">
+
+                    <!-- Plan 1 - Featured -->
+                    <div class="bg-white border-2 border-blue-600 rounded-lg p-4 relative">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                            <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">RECOMMENDED</span>
+                        </div>
+                        <div class="text-center mt-2 mb-3">
+                            <h3 class="text-base font-bold text-gray-900 mb-1">Blue Value Plus</h3>
+                            <div class="text-2xl font-bold text-blue-600">$425</div>
+                            <div class="text-xs text-gray-600">/month</div>
+                        </div>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex items-center justify-between py-1 border-t border-gray-200">
+                                <span class="text-gray-600">Deductible</span>
+                                <span class="font-semibold text-gray-900">$2,000</span>
+                            </div>
+                            <div class="flex items-center justify-between py-1 border-t border-gray-200">
+                                <span class="text-gray-600">Out-of-pocket max</span>
+                                <span class="font-semibold text-gray-900">$6,500</span>
+                            </div>
+                            <div class="flex items-center justify-between py-1 border-t border-gray-200">
+                                <span class="text-gray-600">Primary care visit</span>
+                                <span class="font-semibold text-gray-900">$25 copay</span>
+                            </div>
+                            <div class="flex items-center justify-between py-1 border-t border-gray-200">
+                                <span class="text-gray-600">Generic drugs</span>
+                                <span class="font-semibold text-gray-900">$10 copay</span>
+                            </div>
+                        </div>
+                        <button class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg text-sm font-semibold hover:bg-blue-700">
+                            Select Plan
+                        </button>
+                    </div>
+
+                    <!-- Plan 2 -->
+                    <div class="bg-white border border-gray-300 rounded-lg p-4">
+                        <div class="text-center mb-3 mt-3">
+                            <h3 class="text-base font-bold text-gray-900 mb-1">Blue Premier</h3>
+                            <div class="text-2xl font-bold text-gray-900">$595</div>
+                            <div class="text-xs text-gray-600">/month</div>
+                        </div>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex items-center justify-between py-1 border-t border-gray-200">
+                                <span class="text-gray-600">Deductible</span>
+                                <span class="font-semibold text-gray-900">$1,000</span>
+                            </div>
+                            <div class="flex items-center justify-between py-1 border-t border-gray-200">
+                                <span class="text-gray-600">Out-of-pocket max</span>
+                                <span class="font-semibold text-gray-900">$4,500</span>
+                            </div>
+                            <div class="flex items-center justify-between py-1 border-t border-gray-200">
+                                <span class="text-gray-600">Primary care visit</span>
+                                <span class="font-semibold text-gray-900">$15 copay</span>
+                            </div>
+                            <div class="flex items-center justify-between py-1 border-t border-gray-200">
+                                <span class="text-gray-600">Generic drugs</span>
+                                <span class="font-semibold text-gray-900">$5 copay</span>
+                            </div>
+                        </div>
+                        <button class="w-full mt-3 bg-white border-2 border-blue-600 text-blue-600 py-2 rounded-lg text-sm font-semibold hover:bg-blue-50">
+                            Select Plan
+                        </button>
+                    </div>
+
+                    <!-- Plan 3 -->
+                    <div class="bg-white border border-gray-300 rounded-lg p-4">
+                        <div class="text-center mb-3 mt-3">
+                            <h3 class="text-base font-bold text-gray-900 mb-1">Blue Basic</h3>
+                            <div class="text-2xl font-bold text-gray-900">$285</div>
+                            <div class="text-xs text-gray-600">/month</div>
+                        </div>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex items-center justify-between py-1 border-t border-gray-200">
+                                <span class="text-gray-600">Deductible</span>
+                                <span class="font-semibold text-gray-900">$5,000</span>
+                            </div>
+                            <div class="flex items-center justify-between py-1 border-t border-gray-200">
+                                <span class="text-gray-600">Out-of-pocket max</span>
+                                <span class="font-semibold text-gray-900">$8,700</span>
+                            </div>
+                            <div class="flex items-center justify-between py-1 border-t border-gray-200">
+                                <span class="text-gray-600">Primary care visit</span>
+                                <span class="font-semibold text-gray-900">$40 copay</span>
+                            </div>
+                            <div class="flex items-center justify-between py-1 border-t border-gray-200">
+                                <span class="text-gray-600">Generic drugs</span>
+                                <span class="font-semibold text-gray-900">$15 copay</span>
+                            </div>
+                        </div>
+                        <button class="w-full mt-3 bg-white border-2 border-blue-600 text-blue-600 py-2 rounded-lg text-sm font-semibold hover:bg-blue-50">
+                            Select Plan
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Helper Text -->
+                <div class="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-3">
+                    <div class="flex items-start space-x-2">
+                        <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="16" x2="12" y2="12"/>
+                            <line x1="12" y1="8" x2="12" y2="8"/>
+                        </svg>
+                        <div>
+                            <p class="text-xs font-semibold text-blue-900 mb-1">Why we recommend Blue Value Plus for you:</p>
+                            <p class="text-xs text-blue-800">Based on your family size and expected medical needs, this plan offers the best balance of monthly cost and coverage for routine care.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

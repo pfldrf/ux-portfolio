@@ -90,7 +90,7 @@
 
     <!-- ───────────── Cover ───────────── -->
     <header class="case-study-header copilot-hero has-background" style="background: linear-gradient(135deg, #1e3a8a 0%, #10b981 50%, #06b6d4 100%) !important; min-height: 320px; padding: 4rem 0 3rem 0; position: relative; overflow: hidden;">
-        <img src="images/ecr-copilot-cropped.png" alt="ECR Copilot cropped background" style="position: absolute; right: 0; bottom: 0; width: 700px; max-width: 70vw; opacity: 0.18; filter: blur(2px); pointer-events: none; z-index: 1;">
+        <img src="images/copilot-hero.png" alt="ECR Copilot cropped background" style="position: absolute; right: 0; bottom: 0; width: 700px; max-width: 70vw; opacity: 0.18; filter: blur(2px); pointer-events: none; z-index: 1;">
         <div class="container text-left" style="position: relative; z-index: 2;">
             <h1 class="font-bold drop-shadow-lg text-4xl md:text-5xl mb-4">Pascal SAFETY Copilot</h1>
             <p class="case-study-subtitle max-w-2xl">An embedded AI assistant that super-charges Expert Clinical Review (ECR) nurses—triaging triggered charts, surfacing key evidence, and producing standardized documentation for consistency.</p>
@@ -246,75 +246,48 @@
                 <p class="text-gray-700">How do we help nurses find critical evidence 10× faster without changing their clinical judgment process? Our approach: <strong>AI surfaces relevant signals automatically</strong>, highlights suspect entries in context, and suggests documentation—but nurses retain full control over verification and decision-making.</p>
             </div>
 
-            <div class="space-y-12">
+            <div class="space-y-8">
                 <!-- Step 1 -->
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">1</div>
-                            <h3 class="text-xl font-semibold mb-0">Understanding Clinical Review Patterns</h3>
-                        </div>
-                        <p class="mb-4">Mapped how experienced nurses identify harm signals across different chart types. Collaborated with clinical SMEs to define what evidence matters most for each trigger category (falls, medication errors, HAIs), then designed AI-assisted extraction to surface those specific signals automatically.</p>
-                        <ul class="list-disc list-inside space-y-1 text-gray-700">
-                            <li>Clinical workflow analysis for 11 trigger types</li>
-                            <li>Evidence hierarchy mapping with nurse SMEs</li>
-                            <li>Automated signal extraction design (vitals, orders, notes)</li>
-                            <li>Validation testing with expert reviewers</li>
-                        </ul>
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">1</div>
+                        <h3 class="text-xl font-semibold mb-0">Understanding Clinical Review Patterns</h3>
                     </div>
-                    <figure class="rounded-xl overflow-hidden shadow-lg bg-white p-6">
-                        <div class="space-y-3">
-                            <div class="text-center font-semibold">Chart Data</div>
-                            <div class="grid grid-cols-2 gap-3">
-                                <div class="p-3 bg-indigo-50 rounded text-center text-sm">
-                                    LLM Prompt Chain
-                                    <div class="text-xs text-gray-600 mt-1">Vitals, Orders, Progress Notes</div>
-                                </div>
-                                <div class="p-3 bg-indigo-50 rounded text-center text-sm">
-                                    Summarizer
-                                    <div class="text-xs text-gray-600 mt-1">Role-based Output</div>
-                                </div>
-                            </div>
-                        </div>
-                    </figure>
+                    <p class="mb-4">Mapped how experienced nurses identify harm signals across different chart types. Collaborated with clinical SMEs to define what evidence matters most for each trigger category (falls, medication errors, HAIs), then designed AI-assisted extraction to surface those specific signals automatically.</p>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700">
+                        <li>Clinical workflow analysis for 11 trigger types</li>
+                        <li>Evidence hierarchy mapping with nurse SMEs</li>
+                        <li>Automated signal extraction design (vitals, orders, notes)</li>
+                        <li>Validation testing with expert reviewers</li>
+                    </ul>
                 </div>
 
                 <!-- Step 2 -->
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">2</div>
-                            <h3 class="text-xl font-semibold mb-0">Wireframe Sprint</h3>
-                        </div>
-                        <p class="mb-4">Created split-screen layout with evidence timeline and copilot chat panel for optimal workflow integration.</p>
-                        <ul class="list-disc list-inside space-y-1 text-gray-700">
-                            <li>Mid-fi prototype with split-screen design</li>
-                            <li>Workflow integration testing</li>
-                            <li>Rapid iteration with nurse feedback</li>
-                        </ul>
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">2</div>
+                        <h3 class="text-xl font-semibold mb-0">Wireframe Sprint</h3>
                     </div>
-                    <figure class="rounded-xl overflow-hidden shadow-lg">
-                        <img src="images/wireframe.png" alt="co-pilot wireframe excerpt" class="object-cover w-full h-64 md:h-full">
-                    </figure>
+                    <p class="mb-4">Created split-screen layout with evidence timeline and copilot chat panel for optimal workflow integration.</p>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700">
+                        <li>Mid-fi prototype with split-screen design</li>
+                        <li>Workflow integration testing</li>
+                        <li>Rapid iteration with nurse feedback</li>
+                    </ul>
                 </div>
 
                 <!-- Step 3 -->
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">3</div>
-                            <h3 class="text-xl font-semibold mb-0">Copilot Behavior Definition</h3>
-                        </div>
-                        <p class="mb-4">Designed clarifying questions, best-practice tone suggestions, and ICD-10 auto-suggest functionality.</p>
-                        <ul class="list-disc list-inside space-y-1 text-gray-700">
-                            <li>Conversation script library</li>
-                            <li>Tone suggestion system</li>
-                            <li>ICD-10 auto-suggest</li>
-                        </ul>
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="inline-flex items-center justify-center w-8 h-8 bg-indigo-600 text-white rounded-full text-sm font-bold">3</div>
+                        <h3 class="text-xl font-semibold mb-0">Copilot Behavior Definition</h3>
                     </div>
-                    <figure class="rounded-xl overflow-hidden shadow-lg">
-                        <img src="images/copilot-assist.png" alt="co-pilot assistant" class="object-cover w-full h-64 md:h-full">
-                    </figure>
+                    <p class="mb-4">Designed clarifying questions, best-practice tone suggestions, and ICD-10 auto-suggest functionality.</p>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700">
+                        <li>Conversation script library</li>
+                        <li>Tone suggestion system</li>
+                        <li>ICD-10 auto-suggest</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -322,32 +295,33 @@
         <!-- Solution -->
         <section id="solution" class="scroll-mt-20">
             <h2 class="text-2xl font-bold mb-6">Solution</h2>
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div class="space-y-4">
-                    <h3 class="text-xl font-semibold">AI-Powered Chart Analysis</h3>
-                    <p class="leading-relaxed">ECR Copilot transforms chart review by automatically extracting relevant evidence, providing smart suggestions, and offering documentation assistance—enabling nurses to focus on clinical judgment rather than information hunting.</p>
-                    <div class="space-y-4">
-                        <div class="p-4 bg-indigo-50 rounded-lg">
-                            <h5 class="font-semibold mb-2">Evidence Timeline</h5>
-                            <p class="text-sm text-gray-700">Chronological notes, labs, and medications with AI-highlighted suspect entries. Nurses can click any highlighted item to see why the AI flagged it and jump directly to source documentation.</p>
-                        </div>
-                        <div class="p-4 bg-indigo-50 rounded-lg">
-                            <h5 class="font-semibold mb-2">Copilot Chat Panel</h5>
-                            <p class="text-sm text-gray-700">Conversational interface suggests relevant follow-up questions ("Was there a physician order for this medication?"), auto-fills demographics, and offers clarifying prompts based on chart context.</p>
-                        </div>
-                        <div class="p-4 bg-indigo-50 rounded-lg">
-                            <h5 class="font-semibold mb-2">Smart Templates</h5>
-                            <p class="text-sm text-gray-700">Dynamic narrative templates with auto-populated patient information, trigger details, and evidence summaries. Nurses edit for accuracy rather than typing from scratch.</p>
-                        </div>
-                        <div class="p-4 bg-indigo-50 rounded-lg">
-                            <h5 class="font-semibold mb-2">Tone Check & Suggestions</h5>
-                            <p class="text-sm text-gray-700">AI flags subjective language in real-time ("appears to be" → "is documented as") and offers concise alternatives that meet documentation standards.</p>
-                        </div>
-                    </div>
+            <p class="leading-relaxed mb-8">ECR Copilot transforms chart review by automatically extracting relevant evidence, providing smart suggestions, and offering documentation assistance—enabling nurses to focus on clinical judgment rather than information hunting.</p>
+
+            <figure class="rounded-xl overflow-hidden shadow-2xl mb-8">
+                <img src="images/safety-copilot-report.png" alt="Pascal SAFETY Copilot chart review interface showing AI-assisted clinical analysis" class="w-full">
+            </figure>
+
+            <figure class="rounded-xl overflow-hidden shadow-2xl mb-8">
+                <img src="images/safety-copilot-documentation.png" alt="Pascal SAFETY Copilot documentation interface with AI tone suggestions and smart templates" class="w-full">
+            </figure>
+
+            <div class="grid sm:grid-cols-2 gap-6">
+                <div class="p-4 bg-indigo-50 rounded-lg">
+                    <h5 class="font-semibold mb-2">Evidence Timeline</h5>
+                    <p class="text-sm text-gray-700">Chronological notes, labs, and medications with AI-highlighted suspect entries. Nurses can click any highlighted item to see why the AI flagged it and jump directly to source documentation.</p>
                 </div>
-                <figure class="rounded-xl overflow-hidden shadow-lg">
-                    <img src="images/ecr-copilot-cropped.png" alt="co-pilot assistant" class="object-cover w-full h-64 md:h-full">
-                </figure>
+                <div class="p-4 bg-indigo-50 rounded-lg">
+                    <h5 class="font-semibold mb-2">Copilot Chat Panel</h5>
+                    <p class="text-sm text-gray-700">Conversational interface suggests relevant follow-up questions ("Was there a physician order for this medication?"), auto-fills demographics, and offers clarifying prompts based on chart context.</p>
+                </div>
+                <div class="p-4 bg-indigo-50 rounded-lg">
+                    <h5 class="font-semibold mb-2">Smart Templates</h5>
+                    <p class="text-sm text-gray-700">Dynamic narrative templates with auto-populated patient information, trigger details, and evidence summaries. Nurses edit for accuracy rather than typing from scratch.</p>
+                </div>
+                <div class="p-4 bg-indigo-50 rounded-lg">
+                    <h5 class="font-semibold mb-2">Tone Check & Suggestions</h5>
+                    <p class="text-sm text-gray-700">AI flags subjective language in real-time ("appears to be" → "is documented as") and offers concise alternatives that meet documentation standards.</p>
+                </div>
             </div>
         </section>
 
