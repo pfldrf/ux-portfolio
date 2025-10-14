@@ -101,35 +101,48 @@
 
         /* Mobile: Static grid instead of carousel */
         @media (max-width: 768px) {
+            .logos-strip {
+                overflow: hidden;
+                padding: 0;
+            }
             .logos-carousel {
                 padding: 2rem 1rem;
+                max-width: 100%;
+                overflow: hidden;
             }
             .logos-carousel-track {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
-                gap: 2rem 1.5rem;
+                gap: 2rem 1rem;
                 animation: none;
                 width: 100%;
+                max-width: 100%;
                 justify-items: center;
+                align-items: center;
             }
             .logos-carousel-track img {
                 height: 28px !important;
                 max-height: 28px !important;
+                max-width: 140px !important;
+                object-fit: contain !important;
             }
             /* Hide duplicate logos on mobile */
             .logos-carousel-track img:nth-child(n+10) {
                 display: none;
             }
+            /* Hide Usability Sciences logo on mobile for even 8 logos (4x2 grid) */
+            .logos-carousel-track img[alt*="Usability Sciences"]:nth-child(9) {
+                display: none;
+            }
             /* Adjust specific logo sizes for mobile grid */
-            .logos-carousel-track img[alt*="Cleveland Clinic"] { height: 30px !important; max-height: 30px !important; }
-            .logos-carousel-track img[alt*="GoDaddy"] { height: 40px !important; max-height: 40px !important; }
-            .logos-carousel-track img[alt*="Lloyd"] { height: 32px !important; max-height: 32px !important; }
-            .logos-carousel-track img[alt*="BlueCross"] { height: 65px !important; max-height: 65px !important; }
-            .logos-carousel-track img[alt*="Hartford"] { height: 70px !important; max-height: 70px !important; }
-            .logos-carousel-track img[alt*="Advisory Board"] { height: 40px !important; max-height: 40px !important; }
-            .logos-carousel-track img[alt*="Pascal Metrics"] { height: 30px !important; max-height: 30px !important; }
-            .logos-carousel-track img[alt*="Delta"] { height: 35px !important; max-height: 35px !important; }
-            .logos-carousel-track img[alt*="Usability Sciences"] { height: 55px !important; max-height: 55px !important; }
+            .logos-carousel-track img[alt*="Cleveland Clinic"] { height: 28px !important; max-height: 28px !important; }
+            .logos-carousel-track img[alt*="GoDaddy"] { height: 36px !important; max-height: 36px !important; }
+            .logos-carousel-track img[alt*="Lloyd"] { height: 30px !important; max-height: 30px !important; }
+            .logos-carousel-track img[alt*="BlueCross"] { height: 55px !important; max-height: 55px !important; }
+            .logos-carousel-track img[alt*="Hartford"] { height: 60px !important; max-height: 60px !important; }
+            .logos-carousel-track img[alt*="Advisory Board"] { height: 36px !important; max-height: 36px !important; }
+            .logos-carousel-track img[alt*="Pascal Metrics"] { height: 28px !important; max-height: 28px !important; }
+            .logos-carousel-track img[alt*="Delta"] { height: 32px !important; max-height: 32px !important; }
         }
 
         /* Core Capabilities Card Styles */
