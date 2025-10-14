@@ -35,7 +35,7 @@
   border-bottom: 1px solid var(--nav-border);
   box-shadow: var(--nav-shadow);
   transition: var(--transition-nav);
-  height: var(--nav-height);
+  height: 90px;
 }
 
 .nav-container {
@@ -116,7 +116,7 @@
   background: var(--nav-cta-bg);
   color: var(--nav-cta-text);
   text-decoration: none;
-  padding: 0.625rem 1.5rem;
+  padding: 0.5rem 1.25rem;
   border-radius: 0.5rem;
   font-weight: 500;
   font-size: 0.875rem;
@@ -426,7 +426,7 @@
 
 /* Ensure main content doesn't overlap with fixed nav */
 body {
-  padding-top: var(--nav-height);
+  padding-top: 90px;
 }
 
 /* ========= END NAVIGATION SYSTEM ========= */
@@ -1988,7 +1988,7 @@ img[src*="pascal-risk-logo.png"] {
 .hero.v1 {
   background: radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,.06), transparent 60%),
               linear-gradient(140deg, #0f172a 0%, #1e293b 55%, #0b1220 100%);
-  padding: clamp(72px, 8vw, 120px) 0 clamp(48px, 6vw, 80px);
+  padding: clamp(92px, 8vw, 120px) 0 clamp(48px, 6vw, 80px);
 }
 .hero__container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 .hero__grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(24px, 5vw, 64px); align-items: center; }

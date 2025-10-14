@@ -3,34 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLAER - Card Preview</title>
+    <title>FLAER - Mobile App Showcase</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
             -webkit-font-smoothing: antialiased;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             margin: 0;
-            padding: 40px;
+            padding: 40px 20px;
+            min-height: 100vh;
         }
 
         .phone-showcase {
             display: flex;
-            gap: 48px;
+            gap: 32px;
             align-items: center;
             justify-content: center;
-            min-height: calc(100vh - 80px);
+            flex-wrap: wrap;
         }
 
         .mobile-container {
             width: 390px;
             height: 844px;
-            background: #f3f4f6;
+            background: #ffffff;
             border-radius: 50px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
             position: relative;
             overflow: hidden;
+            border: 12px solid #1a1a1a;
         }
 
         .notch {
@@ -42,39 +45,255 @@
             height: 30px;
             background: #000;
             border-radius: 0 0 20px 20px;
-            z-index: 10;
+            z-index: 100;
         }
 
         .status-bar {
-            height: 47px;
+            height: 44px;
             background: #4A9FCC;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: space-between;
-            padding: 0 24px;
-            padding-top: 8px;
+            padding: 0 24px 8px 24px;
+            position: relative;
+            z-index: 50;
         }
 
-        /* Icon styles matching the actual FLAER app */
-        .event-card {
+        .status-bar-time {
+            font-size: 15px;
+            font-weight: 600;
+            color: white;
+            letter-spacing: -0.2px;
+        }
+
+        .status-bar-icons {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .app-header {
+            background: #4A9FCC;
+            padding: 16px 24px 24px 24px;
+        }
+
+        .app-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .app-subtitle {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        .content-area {
+            background: #f8f9fa;
+            height: calc(844px - 44px - 76px - 84px);
+            overflow-y: auto;
+            padding: 24px 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .category-card {
             background: white;
-            border-radius: 20px;
-            padding: 24px;
+            border-radius: 16px;
+            padding: 20px 12px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .category-card:active {
+            transform: scale(0.95);
         }
 
         .icon-circle {
-            width: 72px;
-            height: 72px;
-            border-radius: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
+        }
+
+        .icon-circle .material-icons {
+            font-size: 32px;
+            color: white;
+        }
+
+        .card-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .draft-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .draft-card {
+            background: white;
+            border-radius: 14px;
+            padding: 16px;
+            display: flex;
+            gap: 14px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+        }
+
+        .draft-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .draft-icon .material-icons {
+            font-size: 28px;
+            color: white;
+        }
+
+        .draft-info {
+            flex: 1;
+        }
+
+        .draft-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .draft-location {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 6px;
+        }
+
+        .draft-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-event { background: #fee2e2; color: #991b1b; }
+        .badge-near-miss { background: #fef3c7; color: #92400e; }
+        .badge-unsafe { background: #fed7aa; color: #9a3412; }
+
+        .draft-date {
+            font-size: 11px;
+            color: #9ca3af;
+        }
+
+        .bottom-nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 84px;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-around;
+            padding-top: 8px;
+            padding-bottom: 24px;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .nav-item .material-icons {
+            font-size: 26px;
+        }
+
+        .nav-item.active .material-icons {
+            color: #4A9FCC;
+        }
+
+        .nav-item:not(.active) .material-icons {
+            color: #9ca3af;
+        }
+
+        .nav-label {
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .nav-item.active .nav-label {
+            color: #4A9FCC;
+        }
+
+        .nav-item:not(.active) .nav-label {
+            color: #9ca3af;
+        }
+
+        .home-indicator {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 134px;
+            height: 5px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 100px;
+        }
+
+        .view-all {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4A9FCC;
+            cursor: pointer;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
         }
     </style>
 </head>
@@ -86,308 +305,340 @@
         <div class="mobile-container">
             <div class="notch"></div>
 
+            <!-- Status Bar -->
             <div class="status-bar">
-                <div class="text-white text-sm font-semibold">9:41</div>
-                <div class="flex items-center gap-1">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M2 22h20V2L2 22z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
-                    <svg width="20" height="12" viewBox="0 0 24 24" fill="white"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+                <div class="status-bar-time">9:41</div>
+                <div class="status-bar-icons">
+                    <!-- Cellular Signal -->
+                    <svg width="18" height="12" viewBox="0 0 18 12" fill="white">
+                        <rect x="0" y="8" width="3" height="4" rx="0.5"/>
+                        <rect x="5" y="5" width="3" height="7" rx="0.5"/>
+                        <rect x="10" y="2" width="3" height="10" rx="0.5"/>
+                        <rect x="15" y="0" width="3" height="12" rx="0.5"/>
+                    </svg>
+                    <!-- WiFi -->
+                    <svg width="16" height="12" viewBox="0 0 16 12" fill="white">
+                        <path d="M8 12C7.4 12 7 11.6 7 11s.4-1 1-1 1 .4 1 1-.4 1-1 1zm-3.5-3.5c-.4-.4-.4-1 0-1.4 1.9-1.9 5.1-1.9 7 0 .4.4.4 1 0 1.4-.4.4-1 .4-1.4 0-1.1-1.1-3.1-1.1-4.2 0-.4.4-1 .4-1.4 0zM1 5c-.4-.4-.4-1 0-1.4C4.1.5 11.9.5 15 3.6c.4.4.4 1 0 1.4-.4.4-1 .4-1.4 0C11 2.4 5 2.4 2.4 5c-.4.4-1 .4-1.4 0z"/>
+                    </svg>
+                    <!-- Battery -->
+                    <svg width="25" height="12" viewBox="0 0 25 12" fill="white" fill-opacity="0.35">
+                        <rect x="0" y="0" width="22" height="12" rx="2.5" stroke="white" stroke-width="1.5"/>
+                        <path d="M23 4v4c1.5 0 2-1 2-2s-.5-2-2-2z" fill="white" fill-opacity="0.4"/>
+                        <rect x="2" y="2" width="16" height="8" rx="1.5" fill="white"/>
+                    </svg>
                 </div>
             </div>
 
-            <div class="bg-gradient-to-b from-blue-500 to-blue-600 px-6 pt-6 pb-6">
-                <h1 class="text-white text-2xl font-extrabold mb-1">FLAER</h1>
-                <p class="text-blue-100 text-sm font-medium">Frontline Adverse Event Reporting</p>
+            <!-- App Header -->
+            <div class="app-header">
+                <div class="app-title">FLAER</div>
+                <div class="app-subtitle">Frontline Adverse Event Reporting</div>
             </div>
 
-            <div class="px-6 pt-6 pb-28 overflow-auto bg-white" style="height: calc(844px - 47px - 100px - 84px);">
+            <!-- Content Area -->
+            <div class="content-area">
+                <div class="section-title">Create New Report</div>
 
-                <div class="mb-8">
-                    <h2 class="text-lg font-bold text-gray-900 mb-5">Create New Report</h2>
-                    <div class="grid grid-cols-3 gap-4">
-                        <div class="event-card">
-                            <div class="icon-circle" style="background: #4A9FCC;">
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/>
-                                </svg>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-sm font-bold text-gray-900">Patient</div>
-                                <div class="text-sm font-bold text-gray-900">Event</div>
+                <div class="card-grid">
+                    <div class="category-card">
+                        <div class="icon-circle" style="background: #4A9FCC;">
+                            <span class="material-icons">local_hospital</span>
+                        </div>
+                        <div class="card-label">Patient<br>Event</div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="icon-circle" style="background: #9333ea;">
+                            <span class="material-icons">badge</span>
+                        </div>
+                        <div class="card-label">Employee<br>/ Visitor</div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="icon-circle" style="background: #f59e0b;">
+                            <span class="material-icons">warning</span>
+                        </div>
+                        <div class="card-label">Unsafe<br>Condition</div>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <div class="section-title" style="margin-bottom: 0;">My Draft Reports</div>
+                    <div class="view-all">View All</div>
+                </div>
+
+                <div class="draft-list">
+                    <div class="draft-card">
+                        <div class="draft-icon" style="background: #4A9FCC;">
+                            <span class="material-icons">local_hospital</span>
+                        </div>
+                        <div class="draft-info">
+                            <div class="draft-title">Fall with Injury</div>
+                            <div class="draft-location">Radiology · Room 2272</div>
+                            <div class="draft-meta">
+                                <span class="badge badge-event">EVENT</span>
+                                <span class="draft-date">July 09, 2024</span>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="event-card">
-                            <div class="icon-circle" style="background: #9333EA;">
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                                    <path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2.23l2-2H14l2 2h2v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-7H6V6h5v4zm5.5 7c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-7h-5V6h5v4z"/>
-                                </svg>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-sm font-bold text-gray-900">Employee</div>
-                                <div class="text-sm font-bold text-gray-900">/ Visitor</div>
+                    <div class="draft-card">
+                        <div class="draft-icon" style="background: #4A9FCC;">
+                            <span class="material-icons">local_hospital</span>
+                        </div>
+                        <div class="draft-info">
+                            <div class="draft-title">Medication Issue</div>
+                            <div class="draft-location">4N · Room 4474</div>
+                            <div class="draft-meta">
+                                <span class="badge badge-near-miss">NEAR MISS</span>
+                                <span class="draft-date">July 01, 2024</span>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="event-card">
-                            <div class="icon-circle" style="background: #F59E0B;">
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                                    <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
-                                </svg>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-sm font-bold text-gray-900">Unsafe</div>
-                                <div class="text-sm font-bold text-gray-900">Condition</div>
+                    <div class="draft-card">
+                        <div class="draft-icon" style="background: #f59e0b;">
+                            <span class="material-icons">warning</span>
+                        </div>
+                        <div class="draft-info">
+                            <div class="draft-title">Wet Floor</div>
+                            <div class="draft-location">Lobby / Entrance</div>
+                            <div class="draft-meta">
+                                <span class="badge badge-unsafe">UNSAFE</span>
+                                <span class="draft-date">June 28, 2024</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div>
-                    <div class="flex items-center justify-between mb-4">
-                        <h2 class="text-lg font-bold text-gray-900">My Draft Reports</h2>
-                        <button class="text-sm font-semibold text-blue-600">View All</button>
-                    </div>
-
-                    <div class="space-y-3">
-                        <div class="bg-white rounded-xl p-4 shadow-sm flex gap-3">
-                            <div class="icon-circle flex-shrink-0" style="background: #4A9FCC; width: 56px; height: 56px;">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/>
-                                </svg>
-                            </div>
-                            <div class="flex-1">
-                                <div class="flex items-start justify-between mb-1">
-                                    <h3 class="font-bold text-gray-900 text-base">Fall with Injury</h3>
-                                    <span class="text-xs px-2 py-1 bg-red-100 text-red-800 rounded-md font-bold">EVENT</span>
-                                </div>
-                                <p class="text-sm text-gray-600 mb-1">Radiology · Room 2272</p>
-                                <p class="text-xs text-gray-500">July 09, 2024</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-xl p-4 shadow-sm flex gap-3">
-                            <div class="icon-circle flex-shrink-0" style="background: #4A9FCC; width: 56px; height: 56px;">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/>
-                                </svg>
-                            </div>
-                            <div class="flex-1">
-                                <div class="flex items-start justify-between mb-1">
-                                    <h3 class="font-bold text-gray-900 text-base">Medication Issue</h3>
-                                    <span class="text-xs px-2 py-1 bg-amber-100 text-amber-800 rounded-md font-bold">NEAR MISS</span>
-                                </div>
-                                <p class="text-sm text-gray-600 mb-1">4N · Room 4474</p>
-                                <p class="text-xs text-gray-500">July 01, 2024</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-xl p-4 shadow-sm flex gap-3">
-                            <div class="icon-circle flex-shrink-0" style="background: #F59E0B; width: 56px; height: 56px;">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-                                    <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
-                                </svg>
-                            </div>
-                            <div class="flex-1">
-                                <div class="flex items-start justify-between mb-1">
-                                    <h3 class="font-bold text-gray-900 text-base">Wet Floor</h3>
-                                    <span class="text-xs px-2 py-1 bg-orange-100 text-orange-800 rounded-md font-bold">UNSAFE</span>
-                                </div>
-                                <p class="text-sm text-gray-600 mb-1">Lobby / Entrance</p>
-                                <p class="text-xs text-gray-500">June 28, 2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
-            <div class="absolute bottom-0 left-0 right-0 h-20 bg-white border-t border-gray-200 flex justify-around items-center pb-6">
-                <div class="flex flex-col items-center gap-1">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#4A9FCC"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-                    <span class="text-xs font-semibold text-blue-600">Home</span>
+            <!-- Bottom Navigation -->
+            <div class="bottom-nav">
+                <div class="nav-item active">
+                    <span class="material-icons">home</span>
+                    <span class="nav-label">Home</span>
                 </div>
-                <div class="flex flex-col items-center gap-1">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#9CA3AF"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                    <span class="text-xs font-semibold text-gray-500">Reports</span>
+                <div class="nav-item">
+                    <span class="material-icons">description</span>
+                    <span class="nav-label">Reports</span>
                 </div>
-                <div class="flex flex-col items-center gap-1">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#9CA3AF"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
-                    <span class="text-xs font-semibold text-gray-500">Profile</span>
+                <div class="nav-item">
+                    <span class="material-icons">person</span>
+                    <span class="nav-label">Profile</span>
                 </div>
-                <div class="flex flex-col items-center gap-1">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#9CA3AF"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
-                    <span class="text-xs font-semibold text-gray-500">Settings</span>
+                <div class="nav-item">
+                    <span class="material-icons">settings</span>
+                    <span class="nav-label">Settings</span>
                 </div>
             </div>
+
+            <div class="home-indicator"></div>
         </div>
 
-        <!-- Phone 2: AI Chat -->
+        <!-- Phone 2: AI Chat Screen -->
         <div class="mobile-container">
             <div class="notch"></div>
 
+            <!-- Status Bar -->
             <div class="status-bar">
-                <div class="text-white text-sm font-semibold">9:41</div>
-                <div class="flex items-center gap-1">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M2 22h20V2L2 22z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
-                    <svg width="20" height="12" viewBox="0 0 24 24" fill="white"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+                <div class="status-bar-time">9:41</div>
+                <div class="status-bar-icons">
+                    <!-- Cellular Signal -->
+                    <svg width="18" height="12" viewBox="0 0 18 12" fill="white">
+                        <rect x="0" y="8" width="3" height="4" rx="0.5"/>
+                        <rect x="5" y="5" width="3" height="7" rx="0.5"/>
+                        <rect x="10" y="2" width="3" height="10" rx="0.5"/>
+                        <rect x="15" y="0" width="3" height="12" rx="0.5"/>
+                    </svg>
+                    <!-- WiFi -->
+                    <svg width="16" height="12" viewBox="0 0 16 12" fill="white">
+                        <path d="M8 12C7.4 12 7 11.6 7 11s.4-1 1-1 1 .4 1 1-.4 1-1 1zm-3.5-3.5c-.4-.4-.4-1 0-1.4 1.9-1.9 5.1-1.9 7 0 .4.4.4 1 0 1.4-.4.4-1 .4-1.4 0-1.1-1.1-3.1-1.1-4.2 0-.4.4-1 .4-1.4 0zM1 5c-.4-.4-.4-1 0-1.4C4.1.5 11.9.5 15 3.6c.4.4.4 1 0 1.4-.4.4-1 .4-1.4 0C11 2.4 5 2.4 2.4 5c-.4.4-1 .4-1.4 0z"/>
+                    </svg>
+                    <!-- Battery -->
+                    <svg width="25" height="12" viewBox="0 0 25 12" fill="white" fill-opacity="0.35">
+                        <rect x="0" y="0" width="22" height="12" rx="2.5" stroke="white" stroke-width="1.5"/>
+                        <path d="M23 4v4c1.5 0 2-1 2-2s-.5-2-2-2z" fill="white" fill-opacity="0.4"/>
+                        <rect x="2" y="2" width="16" height="8" rx="1.5" fill="white"/>
+                    </svg>
                 </div>
             </div>
 
-            <div class="bg-gradient-to-b from-blue-500 to-blue-600 px-6 pt-4 pb-6">
-                <div class="flex items-center gap-3">
-                    <button class="text-white">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-                    </button>
-                    <div class="flex items-center gap-3 flex-1">
-                        <div class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                                <path d="M20 9V7c0-1.1-.9-2-2-2h-3c0-1.66-1.34-3-3-3S9 3.34 9 5H6c-1.1 0-2 .9-2 2v2c-1.66 0-3 1.34-3 3s1.34 3 3 3v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c1.66 0 3-1.34 3-3s-1.34-3-3-3zM12 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm0 16l-4-4h3v-4h2v4h3l-4 4z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <div class="text-white text-base font-bold">FLAER Assistant</div>
-                            <div class="text-blue-100 text-xs">AI-powered guidance</div>
-                        </div>
+            <!-- Chat Header -->
+            <div class="app-header" style="padding: 12px 20px 16px 20px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span class="material-icons" style="color: white; font-size: 24px; cursor: pointer;">arrow_back</span>
+                    <div style="flex: 1; text-align: center;">
+                        <div style="color: white; font-size: 16px; font-weight: 600;">FLAER Assistant</div>
+                        <div style="color: rgba(255,255,255,0.8); font-size: 12px;">AI-powered guidance</div>
                     </div>
-                    <button class="text-white">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                    </button>
+                    <span class="material-icons" style="color: white; font-size: 20px; cursor: pointer;">more_vert</span>
                 </div>
             </div>
 
-            <div class="px-6 py-6 overflow-auto bg-gray-50" style="height: calc(844px - 47px - 84px - 94px);">
-                <div class="flex flex-col gap-3">
+            <!-- Chat Messages -->
+            <div style="background: #f8f9fa; height: calc(844px - 44px - 84px - 90px); overflow-y: auto; padding: 20px;">
 
-                    <div class="max-w-[80%] bg-white p-4 rounded-2xl rounded-bl-sm shadow-sm">
-                        <div class="text-blue-600 text-xs font-bold mb-2">FLAER Assistant</div>
-                        <div class="text-gray-900 text-sm">I'll help you report this medication incident. Let's start with some basic information.</div>
+                <!-- AI Message -->
+                <div style="max-width: 80%; margin-bottom: 12px;">
+                    <div style="background: white; padding: 14px; border-radius: 16px; border-bottom-left-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.08);">
+                        <div style="color: #4A9FCC; font-size: 11px; font-weight: 700; margin-bottom: 6px;">FLAER ASSISTANT</div>
+                        <div style="color: #1a1a1a; font-size: 14px; line-height: 1.5;">I'll help you report this medication incident. Let's start with some basic information.</div>
                     </div>
+                </div>
 
-                    <div class="max-w-[80%] bg-white p-4 rounded-2xl rounded-bl-sm shadow-sm">
-                        <div class="text-gray-900 text-sm mb-3">What type of medication error occurred?</div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button class="py-2 px-3 bg-gray-100 rounded-lg text-xs font-semibold text-gray-700">Wrong dose</button>
-                            <button class="py-2 px-3 bg-gray-100 rounded-lg text-xs font-semibold text-gray-700">Wrong med</button>
-                            <button class="py-2 px-3 bg-gray-100 rounded-lg text-xs font-semibold text-gray-700">Wrong time</button>
-                            <button class="py-2 px-3 bg-gray-100 rounded-lg text-xs font-semibold text-gray-700">Other</button>
+                <!-- AI Question with Buttons -->
+                <div style="max-width: 80%; margin-bottom: 12px;">
+                    <div style="background: white; padding: 14px; border-radius: 16px; border-bottom-left-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.08);">
+                        <div style="color: #1a1a1a; font-size: 14px; margin-bottom: 12px;">What type of medication error occurred?</div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                            <button style="padding: 10px; background: #f3f4f6; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; color: #374151; cursor: pointer;">Wrong dose</button>
+                            <button style="padding: 10px; background: #f3f4f6; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; color: #374151; cursor: pointer;">Wrong med</button>
+                            <button style="padding: 10px; background: #f3f4f6; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; color: #374151; cursor: pointer;">Wrong time</button>
+                            <button style="padding: 10px; background: #f3f4f6; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; color: #374151; cursor: pointer;">Other</button>
                         </div>
                     </div>
+                </div>
 
-                    <div class="max-w-[80%] ml-auto bg-blue-600 text-white p-4 rounded-2xl rounded-br-sm shadow-sm text-sm">
+                <!-- User Message -->
+                <div style="max-width: 80%; margin-left: auto; margin-bottom: 12px;">
+                    <div style="background: #4A9FCC; padding: 14px; border-radius: 16px; border-bottom-right-radius: 4px; color: white; font-size: 14px; line-height: 1.5;">
                         Wrong dose - patient received 10mg instead of 5mg Metoprolol
                     </div>
+                </div>
 
-                    <div class="max-w-[80%] bg-white p-4 rounded-2xl rounded-bl-sm shadow-sm">
-                        <div class="text-orange-600 text-xs font-bold mb-2">Important</div>
-                        <div class="text-gray-900 text-sm mb-3">Was the error caught before administration, or did the patient receive the incorrect dose?</div>
-                        <div class="flex gap-2">
-                            <button class="flex-1 py-2 px-4 bg-gray-100 rounded-lg text-xs font-semibold text-gray-700">Before</button>
-                            <button class="flex-1 py-2 px-4 bg-blue-600 text-white rounded-lg text-xs font-semibold">After</button>
+                <!-- AI Critical Question -->
+                <div style="max-width: 80%; margin-bottom: 12px;">
+                    <div style="background: white; padding: 14px; border-radius: 16px; border-bottom-left-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.08);">
+                        <div style="color: #f59e0b; font-size: 11px; font-weight: 700; margin-bottom: 6px;">IMPORTANT</div>
+                        <div style="color: #1a1a1a; font-size: 14px; margin-bottom: 12px;">Was the error caught before administration, or did the patient receive the incorrect dose?</div>
+                        <div style="display: flex; gap: 8px;">
+                            <button style="flex: 1; padding: 10px; background: #f3f4f6; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; color: #374151; cursor: pointer;">Before</button>
+                            <button style="flex: 1; padding: 10px; background: #4A9FCC; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; color: white; cursor: pointer;">After</button>
                         </div>
                     </div>
+                </div>
 
-                    <div class="max-w-[80%] bg-white p-4 rounded-2xl rounded-bl-sm shadow-sm text-sm text-gray-900">
-                        Has the patient shown any adverse reactions? (e.g., low blood pressure, dizziness)</div>
+                <!-- AI Follow-up -->
+                <div style="max-width: 80%;">
+                    <div style="background: white; padding: 14px; border-radius: 16px; border-bottom-left-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.08);">
+                        <div style="color: #1a1a1a; font-size: 14px; line-height: 1.5;">Has the patient shown any adverse reactions? (e.g., low blood pressure, dizziness)</div>
+                    </div>
+                </div>
 
+            </div>
+
+            <!-- Input Area -->
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid #e5e7eb; padding: 12px 20px 28px 20px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span class="material-icons" style="color: #9ca3af; font-size: 26px; cursor: pointer;">add_circle_outline</span>
+                    <input type="text" placeholder="Type your message..." style="flex: 1; background: #f3f4f6; border: none; padding: 12px 16px; border-radius: 20px; font-size: 14px; outline: none;">
+                    <span class="material-icons" style="color: #4A9FCC; font-size: 26px; cursor: pointer;">send</span>
                 </div>
             </div>
 
-            <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-6 py-4 pb-8">
-                <div class="flex items-center gap-2">
-                    <button class="text-gray-400">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-                    </button>
-                    <input type="text" placeholder="Type your message..." class="flex-1 px-4 py-2.5 bg-gray-100 rounded-full text-sm"/>
-                    <button class="text-blue-600">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                    </button>
-                </div>
-            </div>
+            <div class="home-indicator"></div>
         </div>
 
-        <!-- Phone 3: Form -->
+        <!-- Phone 3: Form Screen -->
         <div class="mobile-container">
             <div class="notch"></div>
 
+            <!-- Status Bar -->
             <div class="status-bar">
-                <div class="text-white text-sm font-semibold">9:41</div>
-                <div class="flex items-center gap-1">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M2 22h20V2L2 22z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
-                    <svg width="20" height="12" viewBox="0 0 24 24" fill="white"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+                <div class="status-bar-time">9:41</div>
+                <div class="status-bar-icons">
+                    <!-- Cellular Signal -->
+                    <svg width="18" height="12" viewBox="0 0 18 12" fill="white">
+                        <rect x="0" y="8" width="3" height="4" rx="0.5"/>
+                        <rect x="5" y="5" width="3" height="7" rx="0.5"/>
+                        <rect x="10" y="2" width="3" height="10" rx="0.5"/>
+                        <rect x="15" y="0" width="3" height="12" rx="0.5"/>
+                    </svg>
+                    <!-- WiFi -->
+                    <svg width="16" height="12" viewBox="0 0 16 12" fill="white">
+                        <path d="M8 12C7.4 12 7 11.6 7 11s.4-1 1-1 1 .4 1 1-.4 1-1 1zm-3.5-3.5c-.4-.4-.4-1 0-1.4 1.9-1.9 5.1-1.9 7 0 .4.4.4 1 0 1.4-.4.4-1 .4-1.4 0-1.1-1.1-3.1-1.1-4.2 0-.4.4-1 .4-1.4 0zM1 5c-.4-.4-.4-1 0-1.4C4.1.5 11.9.5 15 3.6c.4.4.4 1 0 1.4-.4.4-1 .4-1.4 0C11 2.4 5 2.4 2.4 5c-.4.4-1 .4-1.4 0z"/>
+                    </svg>
+                    <!-- Battery -->
+                    <svg width="25" height="12" viewBox="0 0 25 12" fill="white" fill-opacity="0.35">
+                        <rect x="0" y="0" width="22" height="12" rx="2.5" stroke="white" stroke-width="1.5"/>
+                        <path d="M23 4v4c1.5 0 2-1 2-2s-.5-2-2-2z" fill="white" fill-opacity="0.4"/>
+                        <rect x="2" y="2" width="16" height="8" rx="1.5" fill="white"/>
+                    </svg>
                 </div>
             </div>
 
-            <div class="bg-gradient-to-b from-blue-500 to-blue-600 px-6 pt-4 pb-6">
-                <div class="flex items-center justify-between mb-4">
-                    <button class="text-white">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-                    </button>
-                    <div class="text-white text-base font-bold">Medication Error Report</div>
-                    <button class="text-blue-100 text-sm font-semibold">Save</button>
+            <!-- Form Header -->
+            <div class="app-header">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                    <span class="material-icons" style="color: white; font-size: 24px; cursor: pointer;">close</span>
+                    <div style="color: white; font-size: 16px; font-weight: 600;">Medication Error Report</div>
+                    <div style="color: rgba(255,255,255,0.9); font-size: 14px; font-weight: 600; cursor: pointer;">Save</div>
                 </div>
-                <div class="bg-blue-400/30 rounded-lg px-4 py-3">
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="text-white text-xs font-semibold">Progress</div>
-                        <div class="text-white text-xs font-semibold">65%</div>
+                <div style="background: rgba(255,255,255,0.15); border-radius: 8px; padding: 14px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                        <div style="color: white; font-size: 12px; font-weight: 600;">Progress</div>
+                        <div style="color: white; font-size: 12px; font-weight: 600;">65%</div>
                     </div>
-                    <div class="bg-blue-300 rounded-full h-2">
-                        <div class="bg-white rounded-full h-2" style="width: 65%;"></div>
+                    <div style="background: rgba(255,255,255,0.25); border-radius: 100px; height: 6px; overflow: hidden;">
+                        <div style="background: white; height: 100%; width: 65%; border-radius: 100px;"></div>
                     </div>
                 </div>
             </div>
 
-            <div class="px-6 py-6 overflow-auto bg-white" style="height: calc(844px - 47px - 142px - 84px);">
-                <div class="space-y-6">
+            <!-- Form Content -->
+            <div style="background: white; height: calc(844px - 44px - 136px - 84px); overflow-y: auto; padding: 24px 20px;">
 
-                    <div>
-                        <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-3">Patient Information</div>
-                        <div class="space-y-4">
-                            <div>
-                                <label class="text-sm font-semibold text-gray-700 mb-2 block">Patient Name</label>
-                                <input type="text" value="Martinez, Robert" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-sm"/>
-                            </div>
-                            <div>
-                                <label class="text-sm font-semibold text-gray-700 mb-2 block">MRN</label>
-                                <input type="text" value="847291" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-sm"/>
-                            </div>
-                            <div>
-                                <label class="text-sm font-semibold text-gray-700 mb-2 block">Location</label>
-                                <input type="text" value="4th Floor - Bed 412" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-sm"/>
-                            </div>
+                <!-- Patient Information Section -->
+                <div style="margin-bottom: 28px;">
+                    <div style="font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px;">PATIENT INFORMATION</div>
+
+                    <div style="margin-bottom: 16px;">
+                        <label style="display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 8px;">Patient Name</label>
+                        <input type="text" value="Martinez, Robert" style="width: 100%; padding: 12px; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px;">
+                    </div>
+
+                    <div style="margin-bottom: 16px;">
+                        <label style="display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 8px;">MRN</label>
+                        <input type="text" value="847291" style="width: 100%; padding: 12px; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px;">
+                    </div>
+
+                    <div style="margin-bottom: 16px;">
+                        <label style="display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 8px;">Location</label>
+                        <input type="text" value="4th Floor - Bed 412" style="width: 100%; padding: 12px; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px;">
+                    </div>
+                </div>
+
+                <!-- Incident Details Section -->
+                <div>
+                    <div style="font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px;">INCIDENT DETAILS</div>
+
+                    <div style="margin-bottom: 16px;">
+                        <label style="display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 8px;">Medication</label>
+                        <input type="text" value="Metoprolol" style="width: 100%; padding: 12px; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px;">
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div>
+                            <label style="display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 8px;">Ordered Dose</label>
+                            <input type="text" value="5mg" style="width: 100%; padding: 12px; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 8px;">Given Dose</label>
+                            <input type="text" value="10mg" style="width: 100%; padding: 12px; background: #fee2e2; border: 2px solid #ef4444; border-radius: 8px; font-size: 14px; font-weight: 600; color: #991b1b;">
                         </div>
                     </div>
-
-                    <div>
-                        <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-3">Incident Details</div>
-                        <div class="space-y-4">
-                            <div>
-                                <label class="text-sm font-semibold text-gray-700 mb-2 block">Medication</label>
-                                <input type="text" value="Metoprolol" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-sm"/>
-                            </div>
-                            <div class="grid grid-cols-2 gap-3">
-                                <div>
-                                    <label class="text-sm font-semibold text-gray-700 mb-2 block">Ordered Dose</label>
-                                    <input type="text" value="5mg" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-sm"/>
-                                </div>
-                                <div>
-                                    <label class="text-sm font-semibold text-gray-700 mb-2 block">Given Dose</label>
-                                    <input type="text" value="10mg" class="w-full px-4 py-3 bg-red-50 border-2 border-red-300 rounded-lg text-sm font-semibold text-red-700"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+
             </div>
 
-            <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-6 py-4 pb-8">
-                <button class="w-full py-4 bg-blue-600 text-white text-base font-bold rounded-xl shadow-lg">
+            <!-- Submit Button -->
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid #e5e7eb; padding: 16px 20px 28px 20px;">
+                <button style="width: 100%; padding: 16px; background: #4A9FCC; color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(74, 159, 204, 0.3);">
                     Submit Report
                 </button>
             </div>
+
+            <div class="home-indicator"></div>
         </div>
 
     </div>

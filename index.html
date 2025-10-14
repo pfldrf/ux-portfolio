@@ -33,12 +33,70 @@
             }
         }
 
-        /* Portfolio card grid layout for desktop */
-        @media (min-width: 768px) {
-            .portfolio-card > div {
-                display: grid;
-                grid-template-columns: 2fr 1fr;
+        /* Portfolio card layout - always stack vertically */
+        .portfolio-card > div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Card description area styling for better visual separation */
+        .portfolio-card .card-description {
+            background: #f3f4f6 !important;
+        }
+
+        /* Logo Carousel Animation */
+        .logos-carousel {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .logos-carousel-track {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            animation: scroll-logos 30s linear infinite;
+            width: fit-content;
+        }
+
+        .logos-carousel-track img {
+            height: 32px !important;
+            max-height: 32px !important;
+            width: auto !important;
+            max-width: 220px !important;
+            object-fit: contain !important;
+            filter: grayscale(100%) contrast(1.05);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        /* Per-logo sizing for visual balance */
+        .logos-carousel-track img[alt*="Cleveland Clinic"] { height: 34px !important; max-height: 34px !important; }
+        .logos-carousel-track img[alt*="GoDaddy"] { height: 48px !important; max-height: 48px !important; }
+        .logos-carousel-track img[alt*="Lloyd"] { height: 38px !important; max-height: 38px !important; }
+        .logos-carousel-track img[alt*="BlueCross"] { height: 80px !important; max-height: 80px !important; }
+        .logos-carousel-track img[alt*="Hartford"] { height: 90px !important; max-height: 90px !important; }
+        .logos-carousel-track img[alt*="Advisory Board"] { height: 50px !important; max-height: 50px !important; }
+        .logos-carousel-track img[alt*="Pascal Metrics"] { height: 36px !important; max-height: 36px !important; }
+        .logos-carousel-track img[alt*="Delta"] { height: 42px !important; max-height: 42px !important; }
+        .logos-carousel-track img[alt*="Usability Sciences"] { height: 150px !important; max-height: 150px !important; }
+
+        .logos-carousel-track img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        @keyframes scroll-logos {
+            0% {
+                transform: translateX(0);
             }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Pause animation on hover */
+        .logos-carousel:hover .logos-carousel-track {
+            animation-play-state: paused;
         }
 
         /* Core Capabilities Card Styles */
@@ -78,7 +136,7 @@
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
             
-            <a href="Scott Smith - Resume 2025 - Healthcare and Fintech.pdf" class="nav-cta" aria-label="Download resume">Resume</a>
+            <a href="Scott Smith - Resume 2025 - Healthcare and Fintech.pdf" class="nav-cta" aria-label="Download resume">Résumé</a>
             
             <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
                 <span class="hamburger">
@@ -107,7 +165,7 @@
                 <li><a href="work.html" class="mobile-nav-link">Work</a></li>
                 <li><a href="about.html" class="mobile-nav-link">About</a></li>
                 <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
-                <li><a href="Scott Smith - Resume 2025 - Healthcare and Fintech.pdf" class="mobile-nav-link mobile-nav-cta">Resume</a></li>
+                <li><a href="Scott Smith - Resume 2025 - Healthcare and Fintech.pdf" class="mobile-nav-link mobile-nav-cta">Résumé</a></li>
             </ul>
         </div>
     </header>
@@ -117,8 +175,8 @@
       <div class="hero__container">
         <div class="hero__grid">
           <div class="hero__left">
-            <h1 class="hero__headline">Clinical psychologist turned UX leader—20 years researching, designing, coaching, and shipping experiences users love</h1>
-            <p class="hero__subhead">VP-level leader who still opens Figma. I scale teams, build design systems, and solve impossible UX problems for enterprise SaaS and consumer products alike.</p>
+            <h1 class="hero__headline">Clinical psychologist turned UX leader—20 years talking to users, coaching teams, and shipping experiences people love</h1>
+            <p class="hero__subhead">I'm a UX leader who still talks to users and opens Figma. I scale teams, build design systems, and solve impossible UX problems for enterprise SaaS and consumer products alike.</p>
 
             <a class="btn btn--primary" href="#projects">View recent projects</a>
           </div>
@@ -138,12 +196,28 @@
 
     <!-- ========= FULL-WIDTH LOGO STRIP ========= -->
     <section class="logos-strip" aria-label="Trusted by leading organizations">
-      <div class="logos-strip__inner">
-        <img src="images/clevland-clinic-logo.png" alt="Cleveland Clinic" />
-        <img src="images/godaddy-logo.png" alt="GoDaddy" />
-        <img src="images/lloyds-logo.png" alt="Lloyd’s of London" />
-        <img src="images/blue-cross-logo.png" alt="BlueCross BlueShield" />
-        <img src="images/the-hartford-logo.png" alt="The Hartford" />
+      <div class="logos-carousel">
+        <div class="logos-carousel-track">
+          <img src="images/clevland-clinic-logo.png" alt="Cleveland Clinic" />
+          <img src="images/godaddy-logo.png" alt="GoDaddy" />
+          <img src="images/lloyds-logo.png" alt="Lloyd's of London" />
+          <img src="images/blue-cross-logo.png" alt="BlueCross BlueShield" />
+          <img src="images/the-hartford-logo.png" alt="The Hartford" />
+          <img src="images/abc-logo.png" alt="Advisory Board" />
+          <img src="images/pascal-metrics-black.svg" alt="Pascal Metrics" />
+          <img src="images/delta-logo.png" alt="Delta Air Lines" />
+          <img src="images/usability-sciences-logo.png" alt="Usability Sciences" />
+          <!-- Duplicate for seamless loop -->
+          <img src="images/clevland-clinic-logo.png" alt="Cleveland Clinic" />
+          <img src="images/godaddy-logo.png" alt="GoDaddy" />
+          <img src="images/lloyds-logo.png" alt="Lloyd's of London" />
+          <img src="images/blue-cross-logo.png" alt="BlueCross BlueShield" />
+          <img src="images/the-hartford-logo.png" alt="The Hartford" />
+          <img src="images/abc-logo.png" alt="Advisory Board" />
+          <img src="images/pascal-metrics-black.svg" alt="Pascal Metrics" />
+          <img src="images/delta-logo.png" alt="Delta Air Lines" />
+          <img src="images/usability-sciences-logo.png" alt="Usability Sciences" />
+        </div>
       </div>
     </section>
 
@@ -161,7 +235,7 @@
                         <div class="card-image-container" style="position: relative; overflow: hidden; background: #0a0a0a; height: 500px;">
                             <img src="images/risk-dashboard.png" alt="Pascal RISK" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s;">
                         </div>
-                        <div style="padding: 2rem; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);" class="md:p-10">
+                        <div class="card-description md:p-10" style="padding: 2rem; display: flex; flex-direction: column; justify-content: center;">
                             <h3 style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 1rem;">Pascal RISK</h3>
                             <p style="font-size: 1rem; color: #4b5563; line-height: 1.6; margin-bottom: 1.25rem;">Real-time signals engine that flags litigation-grade safety events within hours, preventing seven-figure payouts</p>
                             <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem;">
@@ -188,7 +262,7 @@
                         <div class="card-image-container" style="position: relative; overflow: hidden; background: #f9fafb; height: 500px;">
                             <img src="images/flaer-3screens.png" alt="FLAER Mobile AI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s;">
                         </div>
-                        <div style="padding: 2rem; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);" class="md:p-10">
+                        <div class="card-description md:p-10" style="padding: 2rem; display: flex; flex-direction: column; justify-content: center;">
                             <h3 style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 1rem;">FLAER Mobile AI</h3>
                             <p style="font-size: 1rem; color: #4b5563; line-height: 1.6; margin-bottom: 1.25rem;">Conversational AI-enhanced event reporting that cut incident reporting time by >70%</p>
                             <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem;">
@@ -210,7 +284,7 @@
                         <div class="card-image-container" style="position: relative; overflow: hidden; background: #0a0a0a; height: 500px;">
                             <img src="images/safety-copilot-report.png" alt="Pascal SAFETY Copilot" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s;">
                         </div>
-                        <div style="padding: 2rem; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);" class="md:p-10">
+                        <div class="card-description md:p-10" style="padding: 2rem; display: flex; flex-direction: column; justify-content: center;">
                             <h3 style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 1rem;">Pascal SAFETY Copilot</h3>
                             <p style="font-size: 1rem; color: #4b5563; line-height: 1.6; margin-bottom: 1.25rem;">AI-powered copilot slashing expert clinical chart review time by 71%, with smarter triage and auto-generated documentation</p>
                             <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem;">

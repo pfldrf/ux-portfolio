@@ -585,52 +585,7 @@ body {
 .about-page .hero-about .flex.gap-4 { gap: 1rem !important; }
 
 /* Buttons aligned to homepage aesthetic - Glassmorphism */
-.about-page .btn-primary {
-  background: rgba(255, 255, 255, 0.12) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  color: #fff !important;
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
-  padding: 14px 24px !important;
-  border-radius: 12px !important;
-  font-weight: 700 !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
-  outline: none !important;
-  position: relative;
-  z-index: 2;
-  transition: all 0.3s ease !important;
-}
-.about-page .btn-primary:hover {
-  transform: translateY(-2px) !important;
-  background: rgba(255, 255, 255, 0.18) !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
-  border-color: rgba(255, 255, 255, 0.35) !important;
-}
-.about-page .btn-secondary {
-  background: rgba(255, 255, 255, 0.05) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(255,255,255,0.2) !important;
-  color: #fff !important;
-  padding: 14px 24px !important;
-  border-radius: 12px !important;
-  font-weight: 600 !important;
-  outline: none !important;
-  position: relative;
-  z-index: 2;
-  transition: all 0.3s ease !important;
-}
-.about-page .btn-secondary:hover {
-  background: rgba(255,255,255,0.1) !important;
-  transform: translateY(-2px) !important;
-  border-color: rgba(255,255,255,0.3) !important;
-}
-
-/* Focus ring only when keyboard navigating */
-.about-page .btn-primary:focus-visible,
-.about-page .btn-secondary:focus-visible {
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.7) !important;
-}
+/* OLD BUTTON STYLES REMOVED - Now using .btn .btn--primary and .btn .btn--ghost system */
 
 /* lift CTAs above nearby elements */
 .about-page .hero-about .flex.flex-wrap.gap-4 { position: relative; z-index: 5; }
@@ -639,10 +594,7 @@ body {
 .about-page section.py-20.bg-gradient-to-r { overflow: visible !important; position: relative; padding-bottom: 3rem; }
 .about-page section.py-20.bg-gradient-to-r .max-w-4xl,
 .about-page section.py-20.bg-gradient-to-r .flex,
-.about-page section.py-20.bg-gradient-to-r .btn-primary,
-.about-page section.py-20.bg-gradient-to-r .btn-secondary { overflow: visible !important; position: relative; z-index: 2; }
-.about-page section.py-20.bg-gradient-to-r .btn-primary { color: #fff !important; text-shadow: 0 1px 2px rgba(0,0,0,.45) !important; box-shadow: 0 10px 30px rgba(6,182,212,.2) !important; }
-.about-page section.py-20.bg-gradient-to-r .btn-secondary { color: #e2e8f0 !important; border-color: rgba(255,255,255,.5) !important; }
+.about-page section.py-20.bg-gradient-to-r .btn { overflow: visible !important; position: relative; z-index: 2; }
 .hero-about h1, .hero-about p, .hero-about .text-white,
 .hero-about .text-slate-100 {
   color: #fff !important;
@@ -755,52 +707,7 @@ footer {
   color: #38bdf8 !important;
 }
 
-.btn-primary {
-  background: linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%);
-  color: #fff !important;
-  padding: 1rem 2rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  font-size: 1.125rem;
-  box-shadow: 0 2px 8px rgba(6,182,212,0.12);
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.7);
-  border-radius: 0.5rem;
-  outline-offset: 2px;
-  display: inline-block;
-}
-.btn-primary:hover, .btn-primary:focus {
-  background: linear-gradient(90deg, #06b6d4 0%, #3b82f6 100%);
-  color: #fff !important;
-  box-shadow: 0 4px 16px rgba(6,182,212,0.18);
-}
-
-.btn-secondary {
-  background: #fff;
-  color: #4f46e5 !important;
-  padding: 1rem 2rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  font-size: 1.125rem;
-  border: 1.5px solid #4f46e5;
-  box-shadow: 0 2px 8px rgba(79,70,229,0.08);
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.7);
-  border-radius: 0.5rem;
-  outline-offset: 2px;
-  display: inline-block;
-}
-.btn-secondary:hover, .btn-secondary:focus {
-  background: #f3f4f6;
-  color: #06b6d4 !important;
-  border-color: #06b6d4;
-  box-shadow: 0 4px 16px rgba(6,182,212,0.12);
-}
+/* OLD BUTTON STYLES REMOVED - Now using .btn .btn--primary and .btn .btn--ghost system */
 
 
 
@@ -893,15 +800,7 @@ footer {
 }
 
 /* Button styling for dark theme */
-.about-page .btn-primary {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-    color: white;
-    border: none;
-}
-
-.about-page .btn-primary:hover {
-    background: linear-gradient(135deg, #2563eb, #1e40af);
-}
+/* OLD BUTTON STYLES REMOVED - Now using .btn .btn--primary and .btn .btn--ghost system */
 
 /* Ensure icons and SVGs are visible */
 .about-page svg {
@@ -1112,3 +1011,81 @@ footer {
     height: 2px;
   }
 } 
+/* === Button System === */
+.btn {
+  --btn-radius: 12px;
+  --btn-pad-y: 14px;
+  --btn-pad-x: 22px;
+  --btn-fg: #0b1220;
+  --btn-bg: #e5e7eb;
+  --btn-brd: rgba(255,255,255,0.18);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-weight:800;border-radius:var(--btn-radius);
+  padding:var(--btn-pad-y) var(--btn-pad-x);
+  text-decoration:none;line-height:1;gap:.5rem;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+  border:1px solid var(--btn-brd);
+  box-shadow:0 8px 24px rgba(0,0,0,.10);
+  will-change:transform;
+  cursor:pointer;
+  font-family:inherit;
+  font-size:inherit;
+}
+button.btn {
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+}
+.btn:hover { transform: translateY(-2px); }
+
+/* Primary = glass on dark hero */
+.btn--primary{
+  color:#fff;background:rgba(255,255,255,.12);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-color:rgba(255,255,255,.28);
+}
+.btn--primary:hover{ background:rgba(255,255,255,.18); }
+
+/* Ghost = quiet secondary */
+.btn--ghost{
+  color:#ffffff;background:rgba(255,255,255,.08);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-color:rgba(255,255,255,.28);
+}
+.btn--ghost:hover{ background:rgba(255,255,255,.15); border-color:rgba(255,255,255,.35); }
+
+/* Link button for footer or inline */
+.btn--link{ color:#60a5fa;background:transparent;border-color:transparent;box-shadow:none;padding:0; }
+.btn--link:hover{ text-decoration:underline; }
+
+/* === Evidence Bar === */
+.evidence-bar{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border-top:1px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  padding:18px 0;
+}
+.evidence-inner{
+  max-width:1200px;margin:0 auto;padding:0 24px;
+  display:grid;grid-template-columns:repeat(9,1fr);align-items:center;gap:8px;
+}
+.evidence-item{ grid-column: span 1 / auto; display:flex; flex-direction:column; gap:2px; }
+.evidence-label{ font-size:.68rem; letter-spacing:.04em; text-transform:uppercase; color:rgba(255,255,255,.65); }
+.evidence-value{ font-weight:800;font-size:1.3rem;color:#fff; line-height:1.1; }
+.evidence-note{ font-size:.72rem;color:rgba(255,255,255,.72); }
+.divider{ height:28px; width:1px; background:linear-gradient(to bottom, transparent, rgba(255,255,255,.25), transparent); }
+
+@media (max-width: 960px){
+  .evidence-inner{ grid-template-columns:1fr 1px 1fr; row-gap:14px; }
+  .divider:nth-of-type(4), .divider:nth-of-type(8){ display:none; }
+}
+
+/* === Why Hire Me === */
+.why-hire{ padding:40px 0 8px; }
+.why-grid{ max-width:1200px;margin:0 auto;padding:0 24px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px; }
+.why-card{ background: rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);
+  border-radius:16px; padding:18px 20px; box-shadow:0 6px 18px rgba(0,0,0,.12); }
+.why-card h3{ margin:0 0 6px; font-size:1rem; color:#c7d2fe; }
+.why-card p{ margin:0; font-size:.98rem; color:#e5e7eb; }
+@media (max-width:960px){ .why-grid{ grid-template-columns:1fr; } }

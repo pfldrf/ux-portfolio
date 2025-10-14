@@ -191,7 +191,7 @@
   /* ========= COMPONENT TOKENS ========= */
   
   /* Navigation */
-  --nav-height: 70px;
+  --nav-height: 80px;
   --nav-bg: rgba(31, 41, 59, 0.95);
   --nav-border: rgba(255, 255, 255, 0.1);
   --nav-blur: 20px;
