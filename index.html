@@ -99,6 +99,39 @@
             animation-play-state: paused;
         }
 
+        /* Mobile: Static grid instead of carousel */
+        @media (max-width: 768px) {
+            .logos-carousel {
+                padding: 2rem 1rem;
+            }
+            .logos-carousel-track {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem 1.5rem;
+                animation: none;
+                width: 100%;
+                justify-items: center;
+            }
+            .logos-carousel-track img {
+                height: 28px !important;
+                max-height: 28px !important;
+            }
+            /* Hide duplicate logos on mobile */
+            .logos-carousel-track img:nth-child(n+10) {
+                display: none;
+            }
+            /* Adjust specific logo sizes for mobile grid */
+            .logos-carousel-track img[alt*="Cleveland Clinic"] { height: 30px !important; max-height: 30px !important; }
+            .logos-carousel-track img[alt*="GoDaddy"] { height: 40px !important; max-height: 40px !important; }
+            .logos-carousel-track img[alt*="Lloyd"] { height: 32px !important; max-height: 32px !important; }
+            .logos-carousel-track img[alt*="BlueCross"] { height: 65px !important; max-height: 65px !important; }
+            .logos-carousel-track img[alt*="Hartford"] { height: 70px !important; max-height: 70px !important; }
+            .logos-carousel-track img[alt*="Advisory Board"] { height: 40px !important; max-height: 40px !important; }
+            .logos-carousel-track img[alt*="Pascal Metrics"] { height: 30px !important; max-height: 30px !important; }
+            .logos-carousel-track img[alt*="Delta"] { height: 35px !important; max-height: 35px !important; }
+            .logos-carousel-track img[alt*="Usability Sciences"] { height: 55px !important; max-height: 55px !important; }
+        }
+
         /* Core Capabilities Card Styles */
         .capability-card { position: relative; padding: 1.5rem; background: white; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
         .capability-card-cyan { border-left: 4px solid #06b6d4; }
